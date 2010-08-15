@@ -23,10 +23,11 @@ public class Princ {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Indexar index = new Indexar();
-		index.index();
+		//Indexar index = new Indexar();
+		//index.index();
+		a();
 	}
-	public void a() {
+	public static void a() {
 		
 		try {
 			File indexf = new File("../indice_bulas");
@@ -35,8 +36,8 @@ public class Princ {
 
 			IndexSearcher isearcher = new IndexSearcher(dir, true); // read-only=true
 			// Parse a simple query that searches for "text":
-			QueryParser parser = new QueryParser(Version.LUCENE_30, "interacao", analyzer);
-			Query query = parser.parse("álcool");
+			QueryParser parser = new QueryParser(Version.LUCENE_30, "aviso", analyzer);
+			Query query = parser.parse("idosos");
 			ScoreDoc[] hits = isearcher.search(query, null, 1000).scoreDocs;
 
 			// Iterate through the results:
