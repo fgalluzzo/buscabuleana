@@ -214,10 +214,10 @@ public class Indexar {
 					if (fields.size() < 7) fw.write(pdf.getName() + "  " + fields.size() + "\n");
 					secCount.put(fields.size(), secCount.get(fields.size()) + 1);
 					
-					System.out.println(String.format(" - %d secoes (%4.1f% concluido)", fields.size(), 100.0 * i / pdfs.length));
+					System.out.println(String.format(" - %d secoes (%4.1f%% concluido)", fields.size(), 100.0 * i / pdfs.length));
 				}
 				else
-					System.out.println(String.format(" - %d de %d (%4.1f% corrompido)", corrupted, i, 100.0*corrupted / i));
+					System.out.println(String.format(" - %d de %d (%4.1f%% corrompido)", corrupted, i, 100.0*corrupted / i));
 
 				i++;
 				//if (i > 20) break;
