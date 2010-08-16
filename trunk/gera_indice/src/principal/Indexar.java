@@ -30,7 +30,13 @@ import org.apache.pdfbox.util.PDFTextStripper;
 
 public class Indexar {
 	
-	Properties properties = loadProperties();
+	private Properties properties = loadProperties();
+	private IndexWriter indexWriter;
+	private int corrupted = 0;
+	private Map <Integer, Integer> secCount = new TreeMap<Integer, Integer>();	// K=num of sections, V=num of docs
+	private String outputFileName = "../bulas_teste/bulas/failed.txt";
+	private String bulasFolder = "../bulas_teste/bulas/";
+		
 	
 	public static Properties loadProperties() {
 		Properties properties = new Properties();
@@ -45,26 +51,49 @@ public class Indexar {
 		} 
 		return properties;
 	}
+	
+	public Indexar() {
+		for (int i = 0; i <= properties.keySet().size(); i++) {
+			secCount.put(i, 0);
+		}
+	}
 		
 	public Map <String, String> findSections(String text, String filename) {
 		
-		text = text.replaceAll("[\\xb0\\xba\"\']", "");	// remove aspas, º
-		text = text.replaceAll("[ \t]+", " ");	// juntar espaçoes e tabulaçoes
-		text = text.replaceAll("(?m)^[ \t]+", "");	// remover espacos no inicio de linha
+		// \x29 = fecha parentesis
+		text = text.replaceAll("[\\u2022\\u2018\\u2019\\u201B\\u201C\\u201D\\u201E\\u201F\\xB0\\xBA\"\']", "");	// remove aspas, °, bullet,
+		text = text.replaceAll("(?m)[\r\n]+(?-m)", "\n");	// padronizar quebras de linhas
+		text = text.replaceAll("[ \t]+", " ");	// juntar espaços e tabulaçoes
+		text = text.replaceAll("(?m)^[ \t]+(?-m)", "");	// remover espacos no inicio de linha
 		text = text.replaceAll("([a-zA-Z]{2})- ?\r?\n", "$1");	// remove separacao de silabas
-		text = text.replaceAll("([^A-Z.: ]) ?\r?\n", "$1 ");	// remover quebras de linhas na mesma frase
-		text = text.replaceAll("(?m)^[ \t]+", "");	// remover espacos no inicio de linha (denovo mesmo)
-		text = text.replaceAll("([0-9][0-9.-]+[0-9]|[ivxIVX]+)[\\x29.-]? +", "");	// remove possiveis numeracoes em seçoes
-		
+		text = text.replaceAll("([^.: ]) ?\r?\n", "$1 ");	// remover quebras de linhas na mesma frase
+		text = text.replaceAll("([a-zA-Z0-9]+[\\x29]?[.]) ([A-Z][a-zA-Z0-9]+)", "$1\n$2");	// add quebras de linhas em frase distintas
+		text = text.replaceAll("([a-zãáâéêíõóôúç]+[.\\x29]*) ([A-ZÃÁÂÉÊÍÓÕÔÚÇ]+[ :\\-])", "$1\n$2");//add \n em palavras minuscula seguida por maiuscula
+		text = text.replaceAll("(?m)^[ \t]+(?-m)", "");	// remover espacos no inicio de linha (denovo mesmo)
+		text = text.replaceAll("(?md)^([0-9]+|[ivxIVX]+)[\\x29.-]? +(?-md)", "");	// remove possiveis numeracoes em seçoes
+
+
 		TreeMap <Integer, String> map = new TreeMap<Integer, String>();
+
+		// Escreve bula em texto plano (nao parseado)
+		FileWriter fw;
+		try {
+			fw = new FileWriter(filename + ".txt");
+			fw.write(text);
+			fw.close();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		System.out.println(filename);
 
 		// Encontra posiçao(oes) de cada seção na bula
 		for (Object section : properties.keySet()) {
 			String sectionName = (String) section;
-		
+
 			String regex = properties.getProperty(sectionName);
-			System.out.println(sectionName + ": " + regex);
-			
+						
 			Matcher m = Pattern.compile(regex, Pattern.MULTILINE).matcher(text.toLowerCase());
 			while (m.find()) {
 				map.put(m.start(), sectionName);
@@ -74,7 +103,7 @@ public class Indexar {
 		
 		Map<String, String> sections = new HashMap<String, String> ();
 		try {
-			FileWriter fw = new FileWriter(filename + ".xml");
+			fw = new FileWriter(filename + ".xml");
 			fw.write("<bula>\n");
 
 			int last = 0;
@@ -110,16 +139,59 @@ public class Indexar {
 
 		return sections;
 	}
+	
+	public Map <String, String> indexFile(File file) throws IOException {
+		File pdf = file;
+		FileInputStream fi = new FileInputStream(pdf);
+		PDFParser parser = new PDFParser(fi);
+		try {
+			parser.parse();
+
+			COSDocument cd = parser.getDocument();
+			PDFTextStripper stripper = new PDFTextStripper();
+			String text = stripper.getText(new PDDocument(cd));
+			cd.close();
+			
+			// Obtem nome e texto das seçoes da bula
+			Map <String, String> fields = findSections(text, bulasFolder + pdf.getName());
+			
+			// Cria documento do Lucene
+			Document d = new Document();
+			d.add(new Field("id", pdf.getName(), Field.Store.YES, Field.Index.NO));
+			d.add(new Field("name", text, Field.Store.NO, Field.Index.ANALYZED));
+
+			FileWriter fw = new FileWriter(bulasFolder + "ini/" + pdf.getName() + ".ini");
+			for (String name : fields.keySet()) {
+				fw.write("\n[" + name + "]\n");
+				fw.write(fields.get(name));
+				fw.write("\n");
+
+				d.add(new Field(name, fields.get(name), Field.Store.NO, Field.Index.ANALYZED));
+			}
+			fw.close();
+			indexWriter.addDocument(d);
+
+			return fields;
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("\nArquivo corrompido:" + pdf.getName());
+			corrupted++;
+			//pdf.delete();
+			
+			return null;
+		}
+	}
 
 	public void index() {
 		try {
-			File f = new File("../bulas_teste");
+			FileWriter fw = new FileWriter(outputFileName);
+			File f = new File(bulasFolder);
 			File indexf = new File("../indice_bulas");
 			Directory dir = new SimpleFSDirectory(indexf);
 			SimpleAnalyzer analyzer = new SimpleAnalyzer();
 
-			IndexWriter indexWriter = new IndexWriter(dir, analyzer,
-					MaxFieldLength.UNLIMITED);
+			indexWriter = new IndexWriter(dir, analyzer, MaxFieldLength.UNLIMITED);
 
 			File[] pdfs = f.listFiles(new FilenameFilter() {
 				@Override
@@ -127,59 +199,35 @@ public class Indexar {
 					return name.matches(".*pdf");
 				}
 			});
-			
+
+			//Map <String, String> fields = indexFile(new File("../bulas_teste/293687.pdf"));
+			//if (fields.size() < 7) fw.write("293687.pdf  " + fields.size() + "\n");
+
 			int i = 0;
 			for (File pdf : pdfs) {
 				System.out.print("Indexando doc: " + pdf.getName() + " ... ");
-				
-				FileInputStream fi = new FileInputStream(pdf);
-				PDFParser parser = new PDFParser(fi);
-				try {
-					parser.parse();
 
-					COSDocument cd = parser.getDocument();
-					PDFTextStripper stripper = new PDFTextStripper();
-					String text = stripper.getText(new PDDocument(cd));
-					cd.close();
-					
-					// Escreve bula em texto plano (nao parseado)
-					FileWriter fw = new FileWriter("../bulas_teste/" + pdf.getName() + ".txt");
-					fw.write(text.toLowerCase());
-					fw.close();
-					
-					// Obtem nome e texto das seçoes da bula
-					Map<String, String> fields = findSections(text, "../bulas_teste/" + pdf.getName());
-					
-					// Cria documento do Lucene
-					Document d = new Document();
-					d.add(new Field("id", pdf.getName(), Field.Store.YES, Field.Index.NO));
-					d.add(new Field("name", text, Field.Store.NO, Field.Index.ANALYZED));
-
-					fw = new FileWriter("../bulas_teste/" + pdf.getName() + ".ini");
-					for (String name : fields.keySet()) {
-						fw.write("\n[" + name + "]\n");
-						fw.write(fields.get(name));
-						fw.write("\n");
-
-						d.add(new Field(name, fields.get(name), Field.Store.NO, Field.Index.ANALYZED));
-					}
-					fw.close();
-					indexWriter.addDocument(d);
-					
-				} catch (Exception e) {
-					// TODO: handle exception
-					System.out.println("\nArquivo corrompido:" + pdf.getName());
-					//pdf.delete();
-					continue;
-				}
+				Map<String, String> fields = indexFile(pdf);
+				if (fields.size() < 7) fw.write(pdf.getName() + "  " + fields.size() + "\n");
+				secCount.put(fields.size(), secCount.get(fields.size()) + 1);
 
 				i++;
-				System.out.println("Ok (" + ((100 * i) / pdfs.length) + "%)");
+				System.out.println("Ok. " + fields.size() + " secoes (" + ((100 * i) / pdfs.length) + "%)");
 				//if (i > 20) break;
 			}
 			indexWriter.optimize();
 			indexWriter.close();
-			System.out.println("Indice criado!");
+			
+			fw.write(String.format("Taxa de corrompimento: %4.1f\n", 100*((float)corrupted) / i));
+			fw.write(String.format("Quantidade de secoes e suas respectivas quantidades de bulas:\n"));
+			fw.write("secoes\tbulas\n");
+			for (Integer key : secCount.keySet()) {
+				fw.write(String.format("%d\t%d\n", key, secCount.get(key)));
+			}
+			fw.close();
+			
+			
+			System.out.println("Concluido. Indice criado!");			
 		} catch (CorruptIndexException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -191,6 +239,5 @@ public class Indexar {
 
 			e.printStackTrace();
 		}
-
 	}
 }

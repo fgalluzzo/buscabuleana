@@ -23,9 +23,9 @@ public class Princ {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//Indexar index = new Indexar();
-		//index.index();
-		a();
+		Indexar index = new Indexar();
+		index.index();
+		//a();
 	}
 	public static void a() {
 		
