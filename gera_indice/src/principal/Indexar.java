@@ -86,7 +86,7 @@ public class Indexar {
 			e1.printStackTrace();
 		}
 
-		System.out.println(filename);
+		//System.out.println(filename);
 
 		// Encontra posiçao(oes) de cada seção na bula
 		for (Object section : properties.keySet()) {
@@ -175,7 +175,7 @@ public class Indexar {
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("\nArquivo corrompido:" + pdf.getName());
+			System.out.print("\nArquivo corrompido: " + pdf.getName());
 			corrupted++;
 			//pdf.delete();
 			
@@ -200,25 +200,32 @@ public class Indexar {
 				}
 			});
 
-			//Map <String, String> fields = indexFile(new File("../bulas_teste/293687.pdf"));
+			//Map <String, String> fields = indexFile(new File("../bulas_teste/bulas/246875.pdf"));
 			//if (fields.size() < 7) fw.write("293687.pdf  " + fields.size() + "\n");
+			
+			System.out.println("Existem " + pdfs.length + " arquivos PDFs para analisar"); 
 
-			int i = 0;
+			int i = 1;
 			for (File pdf : pdfs) {
-				System.out.print("Indexando doc: " + pdf.getName() + " ... ");
+				System.out.print("Indexando doc " + (i) + " de " + pdfs.length + ": " + pdf.getName() + " ... ");
 
 				Map<String, String> fields = indexFile(pdf);
-				if (fields.size() < 7) fw.write(pdf.getName() + "  " + fields.size() + "\n");
-				secCount.put(fields.size(), secCount.get(fields.size()) + 1);
+				if (fields != null) {
+					if (fields.size() < 7) fw.write(pdf.getName() + "  " + fields.size() + "\n");
+					secCount.put(fields.size(), secCount.get(fields.size()) + 1);
+					
+					System.out.println(String.format(" - %d secoes (%4.1f% concluido)", fields.size(), 100.0 * i / pdfs.length));
+				}
+				else
+					System.out.println(String.format(" - %d de %d (%4.1f% corrompido)", corrupted, i, 100.0*corrupted / i));
 
 				i++;
-				System.out.println("Ok. " + fields.size() + " secoes (" + ((100 * i) / pdfs.length) + "%)");
 				//if (i > 20) break;
 			}
 			indexWriter.optimize();
 			indexWriter.close();
 			
-			fw.write(String.format("Taxa de corrompimento: %4.1f\n", 100*((float)corrupted) / i));
+			fw.write(String.format("Taxa de corrompimento dos PDFs: %4.1f\n", 100*((float)corrupted) / i));
 			fw.write(String.format("Quantidade de secoes e suas respectivas quantidades de bulas:\n"));
 			fw.write("secoes\tbulas\n");
 			for (Integer key : secCount.keySet()) {
