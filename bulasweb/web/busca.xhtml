@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
+    <h:head>
+        <title><h:outputText value="#{msg.titulo}"></h:outputText></title>
+    </h:head>
+    <h:body>
+        <ui:composition template="templates/modelo.xhtml">
+            <ui:define name="content">
+                <h:form>
+                    <div class="post">
+                        <h2 class="Title"><h:outputText value="#{msg.buscar} #{msg.bulas}"></h:outputText></h2>
+                        <div class="entry">
+                            <h:panelGrid columns="3">
+                                <h:outputLabel for="buscabulas" value="#{msg.busca}"></h:outputLabel>
+                                <p:autoComplete id="buscabulas" ></p:autoComplete>
+                                <p:commandLink ajax="true" update="itensbusca" action="#{BuscarControle.iniciar}" ><h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage></p:commandLink>
+                            </h:panelGrid>
+                            <p:dataList var="bula"  value="#{BuscarControle.bulas}" id="itensbusca" type="ordered" itemType="A">
+                                <h:outputText value="#{bula}"></h:outputText>
+                            </p:dataList>
+                        </div>
+                    </div>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
