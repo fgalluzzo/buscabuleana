@@ -17,10 +17,16 @@
                             <h:panelGrid columns="3">
                                 <h:outputLabel for="buscabulas" value="#{msg.busca}"></h:outputLabel>
                                 <p:autoComplete id="buscabulas" ></p:autoComplete>
-                                <p:commandLink ajax="true" update="itensbusca" action="#{BuscarControle.iniciar}" ><h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage></p:commandLink>
+                                <p:commandLink ajax="true" update="itensbusca,itensbusca_paginatorBottom"   action="#{BuscarControle.iniciar}" ><h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage></p:commandLink>
                             </h:panelGrid>
-                            <p:dataList var="bula"  value="#{BuscarControle.bulas}" id="itensbusca" type="ordered" itemType="A">
-                                <h:outputText value="#{bula}"></h:outputText>
+
+                            <p:dataList var="bula" paginatorAlwaysVisible="true" paginatorPosition="bottom"
+                                        value="#{BuscarControle.bulas}" id="itensbusca"
+                                        type="ordered"  paginator="true" rows="2" effectSpeed="fast"           paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown}"
+                                        rowsPerPageTemplate="2,3,4" itemType="A">
+                                <p:column>
+                                    <h:outputText value="#{bula}"></h:outputText>
+                                </p:column>
                             </p:dataList>
                         </div>
                     </div>
