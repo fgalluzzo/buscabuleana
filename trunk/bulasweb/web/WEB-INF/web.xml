@@ -4,6 +4,38 @@
         <param-name>javax.faces.PROJECT_STAGE</param-name>
         <param-value>Development</param-value>
     </context-param>
+     <context-param>
+                <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+                <param-value>.xhtml</param-value>
+        </context-param>
+
+        <context-param>
+                <param-name>facelets.SKIP_COMMENTS</param-name>
+                <param-value>true</param-value>
+        </context-param>
+
+        <context-param>
+                <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+                <param-value>client</param-value>
+        </context-param>
+
+        <context-param>
+                <param-name>optimus.CONFIG_MODULES</param-name>
+                <param-value>
+                        org.primefaces.examples.config.ExamplesModule
+                </param-value>
+        </context-param>
+
+        <context-param>
+                <param-name>optimus.CONTEXT_SCAN_PATH</param-name>
+                <param-value>org.primefaces.examples</param-value>
+        </context-param>
+
+        <context-param>
+                <param-name>org.primefaces.ui.component.captcha.PRIVATE_KEY</param-name>
+                <param-value>6LemrgYAAAAAAMFvAmcbdOaS-GoRdAvDpUieN95t</param-value>
+        </context-param>
+
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
