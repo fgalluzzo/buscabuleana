@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title><h:outputText value="#{msg.titulo}"></h:outputText></title>
+
+    </h:head>
+    <h:body>
+        <ui:composition template="templates/modelo.xhtml" >
+            <ui:define name="content">
+                <div class="post">
+                    <h2 class="title"><h:outputText value="#{msg.Cadastro}"></h:outputText></h2>
+                    <div class="entry">
+                        <h:form prependId="false">
+                            <p:panel id="cadastro" header="#{msg.info} #{msg.cadastrais}">
+                                <p:messages />
+                                <h:panelGrid columns="2">
+
+                                    <h:outputLabel for="usuario" value="#{msg.Usuario}"></h:outputLabel>
+                                    <h:inputText id="usuario" required="true" value="#{UsuarioBean.usuario}"></h:inputText>
+
+                                    <h:outputLabel for="senha" value="#{msg.Senha}"></h:outputLabel>
+                                    <p:password id="senha" value="#{UsuarioBean.senha}" minLength="6" promptLabel="#{msg.digite} #{msg.uma} #{msg.senha}" goodLabel="#{msg.Boa}" strongLabel="#{msg.Forte}" weakLabel="#{msg.Fraca}"/>
+
+                                    <h:outputLabel for="nome" value="#{msg.Nome}"></h:outputLabel>
+                                    <h:inputText id="nome" required="true" value="#{UsuarioBean.nome}"></h:inputText>
+
+                                    <h:outputLabel for="dtnascimento" value="#{msg.Data} #{msg.de} #{msg.nascimento}"></h:outputLabel>
+                                    <p:calendar  id="dtnascimento" locale="br" value="#{UsuarioBean.dtNascimento}" required="true" navigator="true"></p:calendar>
+
+
+                                </h:panelGrid>
+                            </p:panel>
+                            <p:commandButton ajax="true" update="cadastro" actionListener="#{UsuarioControle.novoUsuario}" value="#{msg.enviar}"></p:commandButton>
+                        </h:form>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
