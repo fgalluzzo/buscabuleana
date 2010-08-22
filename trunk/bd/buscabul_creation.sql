@@ -15,10 +15,11 @@ CREATE  TABLE IF NOT EXISTS `bulas`.`usuario` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `nome` VARCHAR(60) NOT NULL ,
   `dtnascimento` DATE NOT NULL ,
-  `login` VARCHAR(16) NULL ,
-  `password` VARCHAR(200) NULL ,
+  `login` VARCHAR(16) NOT NULL ,
+  `password` VARCHAR(200) NOT NULL ,
   PRIMARY KEY (`id`) ,
-  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) )
+  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) ,
+  UNIQUE INDEX `login_UNIQUE` (`login` ASC) )
 ENGINE = InnoDB;
 
 
@@ -82,7 +83,7 @@ DROP TABLE IF EXISTS `bulas`.`farmaco` ;
 
 CREATE  TABLE IF NOT EXISTS `bulas`.`farmaco` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `nome` VARCHAR(100) NULL ,
+  `nome` VARCHAR(100) NOT NULL ,
   PRIMARY KEY (`id`) )
 ENGINE = InnoDB;
 
@@ -123,7 +124,7 @@ CREATE  TABLE IF NOT EXISTS `bulas`.`secao_bula` (
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `nome_curto_UNIQUE` (`nome_curto` ASC) )
 ENGINE = InnoDB
-COMMENT = 'Descreve as seções capturáveis pelo parser (veja sections.properties).';
+COMMENT = 'Seções capturáveis pelo parser (sections.properties)';
 
 
 -- -----------------------------------------------------
@@ -272,10 +273,13 @@ CREATE  TABLE IF NOT EXISTS `bulas`.`alergia` (
 ENGINE = InnoDB;
 
 
-;
-CREATE USER `admin` IDENTIFIED BY '123456';
-
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+-- Manual
+DROP USER `admin`@`localhost`;
+CREATE USER `admin`@`localhost` IDENTIFIED BY '123456';
+GRANT ALL PRIVILEGES ON `bulas`.* TO `admin`@`localhost` WITH GRANT OPTION;
