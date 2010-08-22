@@ -280,6 +280,6 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 -- Manual
-DROP USER `admin`@`localhost`;
-CREATE USER `admin`@`localhost` IDENTIFIED BY '123456';
-GRANT ALL PRIVILEGES ON `bulas`.* TO `admin`@`localhost` WITH GRANT OPTION;
+DROP USER `bulas`@`localhost`;
+CREATE USER `bulas`@`localhost` IDENTIFIED BY '1234';
+GRANT ALL PRIVILEGES ON `bulas`.* TO `bulas`@`localhost` WITH GRANT OPTION;
