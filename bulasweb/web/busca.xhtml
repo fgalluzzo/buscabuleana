@@ -3,31 +3,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.prime.com.tr/ui">
+      xmlns:p="http://primefaces.prime.com.tr/ui"      
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:head>
         <title><h:outputText value="#{msg.titulo}"></h:outputText></title>
     </h:head>
     <h:body>
         <ui:composition template="templates/modelo.xhtml">
             <ui:define name="content">
-                <h:form>
+                <h:form prependId="false">
                     <div class="post">
                         <h2 class="Title"><h:outputText value="#{msg.buscar} #{msg.bulas}"></h:outputText></h2>
                         <div class="entry">
                             <h:panelGrid columns="3">
                                 <h:outputLabel for="buscabulas" value="#{msg.busca}"></h:outputLabel>
-                                <p:autoComplete id="buscabulas" ></p:autoComplete>
-                                <p:commandLink ajax="true" update="itensbusca,itensbusca_paginatorBottom"   action="#{BuscarControle.iniciar}" ><h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage></p:commandLink>
+                                <p:autoComplete id="buscabulas" value="#{BulaBean.texto}" ></p:autoComplete>
+                                <p:commandLink ajax="false"
+                                               update="itensbusca"   action="#{BuscarControle.buscar}" ><h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage></p:commandLink>
+                                
                             </h:panelGrid>
-
-                            <p:dataList var="bula" paginatorAlwaysVisible="true" paginatorPosition="bottom"
-                                        value="#{BuscarControle.bulas}" id="itensbusca"
-                                        type="ordered"  paginator="true" rows="2" effectSpeed="fast"           paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown}"
-                                        rowsPerPageTemplate="2,3,4" itemType="A">
-                                <p:column>
-                                    <h:outputText value="#{bula}"></h:outputText>
+                            
+                           <p:dataTable id="itensbusca" paginatorPosition="bottom" paginatorAlwaysVisible="false" var="bula" value="#{BuscarControle.bulas}"
+                                        paginator="true" rows="10"   paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown} "
+                                        rowsPerPageTemplate="10,15,20" dynamic="false" emptyMessage="#{msg.Nenhum} #{msg.registro} #{msg.encontrado}" >
+                               <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{msg.arquivo}"></h:outputText>
+                                    </f:facet>
+                                   <h:outputText  value="#{bula}"></h:outputText>
                                 </p:column>
-                            </p:dataList>
+
+                            </p:dataTable>                                                      
                         </div>
                     </div>
                 </h:form>
