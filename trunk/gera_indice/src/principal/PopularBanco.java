@@ -2,14 +2,25 @@ package principal;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.Normalizer;
+import java.text.Normalizer.Form;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import bulas.bean.FarmacoBean;
 import bulas.bean.LaboratorioBean;
 import bulas.bean.MedicamentoBean;
+import bulas.dao.FarmacoDao;
 import bulas.dao.LaboratorioDao;
 import bulas.dao.MedicamentoDao;
 
@@ -19,12 +30,14 @@ public class PopularBanco implements CsvRowListener {
 	private boolean firstLine = true;
 	private LaboratorioDao labDao;
 	private MedicamentoDao medDao;
+	private FarmacoDao frmDao;
 	
 	public PopularBanco(EntityManager em) {
 		super();
 		this.em = em;
 		labDao = new LaboratorioDao(em);
 		medDao = new MedicamentoDao(em);
+		frmDao = new FarmacoDao(em);
 	}
 	
 	public void processa(File file) {
@@ -38,46 +51,145 @@ public class PopularBanco implements CsvRowListener {
 			e.printStackTrace();
 		}
 	}
+	
 
-	/*
-	 * 
-	Aciclovir;glaxosmithkline;ZOVIRAX;0,03g/g;pomd oft
-	Aciclovir;glaxosmithkline;ZOVIRAX;200mg;comp
-	Aciclovir;glaxosmithkline;ZOVIRAX;250mg;po liof solç inj
-	Aciclovir;glaxosmithkline;ZOVIRAX;50mg/g;crem derm
-
+	/**
+	 * Normaliza nome de farmaco para evitar tuplas duplicadas.
+	 * @param farmaco
+	 * @return
+	 * @throws Exception
 	 */
+	public String normalizaNomeFarmaco(String farmaco) throws Exception {
+
+		// Cria nova string com nome do fármaco normalizado e sem acentos 
+		String farmaco2 = Normalizer.normalize(farmaco, Form.NFD);
+		farmaco2 = farmaco2.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+		
+		if (farmaco.length() != farmaco2.length())
+			throw new Exception("incorrect diacritial mark removal: " + farmaco + " vs. " + farmaco2);
+	
+		// Trata formato da string do farmaco
+		String suffixes = "[ae]to|[ai][cd][ao]|exo|possomal|ina|giro";
+		
+		if (farmaco2.toLowerCase().matches("((dimeticona|simeticona)[\\p{Punct} ]+){2}")) {
+			farmaco = "Dimeticona/Simeticona";
+		}
+		else if (farmaco2.toLowerCase().equals("agar-agar")) {
+			farmaco = "Ágar-Ágar";
+		}
+		else if ("tetracis (2-metoxi-isobutil-isonitrila)".equals(farmaco2.toLowerCase())) {
+			farmaco = "Tetracis (2-metoxi-isobutil-isonitrila)";
+		}
+		else if (farmaco2.toLowerCase().matches("^([a-z0-9]+-)?[0-9a-z]+, [0-9a-z]+")) {	// Acetilsalicílico, ácido => Ácido Acetilsalicílico
+			
+			farmaco = farmaco.replaceAll("^(.+), (.+)", "$2 $1");
+		}
+		else if (farmaco2.toLowerCase().matches("^([a-z0-9]-)?[0-9a-z ]+ \\(([0-9a-z ]+(" + suffixes + "))+\\)")) {	// Amiodarona (cloridrato) => Cloridrato de Amiodarona 
+
+			Matcher m = Pattern.compile("^(.+) \\((.+)\\)").matcher(farmaco);
+			if (m.find()) farmaco = m.group(2) + " de " + m.group(1);	// apenas um modo diferente do anterior
+		}
+		else if (farmaco2.toLowerCase().matches("([a-z0-9]+-)?[0-9a-z /]+[.]?")) {
+			// ok, do nothing...
+		}
+		else {
+			throw new Exception("unexpected farmaco pattern: " + farmaco);
+		}
+
+		// Monta nome de farmaco padronizado (cloridrato de ..., ácido ..., etc)
+		String [] words = farmaco.split("\\s");
+		farmaco = "";
+		for (String s : words) {
+			if (s.length() > 2) farmaco += s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase() + " ";
+			else farmaco += s.toLowerCase() + " ";
+		}
+		
+		return farmaco.trim();
+	}
+
 	@Override
 	public void doRowProcessing(String[] values) {
-				
+
 		if (!firstLine) {
-			String farmaco = values[0];
-			String labName = values[1];
-			String nomeMed = values[2];
-			String concentracao = values[3];
-			String forma = values[4];
+			try {
+				String farmacos[] = values[0].split(" *[&\\+] *");
+				String labName = values[1];
+				String nomeMed = values[2];
+				String concentracao = values[3];
+				String forma = values[4];
 
-			// Procura por lab e medicamento existes
-			MedicamentoBean md = medDao.findByName(nomeMed);
-			LaboratorioBean laboratorio = labDao.findByName(labName);
-
-			if (md == null) {
-				md = new MedicamentoBean();
-				md.setNome(nomeMed);
-
-				if (laboratorio == null) {
-					laboratorio = new LaboratorioBean();
-					laboratorio.setNome(labName);
+				// Obtem lista de nomes dos farmacos normalizados
+				Set <String> farmacoSet = new TreeSet<String>();	// sem duplicatas
+				List <String> farmacoList = new ArrayList<String>();	// permite duplicatas
+				for (String farmaco : farmacos) {
+					farmaco = normalizaNomeFarmaco(farmaco);
+					farmacoSet.add(farmaco);
+					farmacoList.add(farmaco);
 				}
-				md.setLaboratorio(laboratorio);
 
-				System.out.println("Farmaco: " + values[0]);
+				// Gera string com associacao de farmacos (permite duplicatas)
+				Iterator<String> it = farmacoList.iterator();
+				StringBuilder assocTextBuf = new StringBuilder();
+				assocTextBuf.append(it.next());
+				while (it.hasNext()) {
+					assocTextBuf.append(" + ");
+					assocTextBuf.append(it.next());
+				}
+				String assocText = assocTextBuf.toString();
 
-				EntityTransaction tx = em.getTransaction();
-				tx.begin();
-				em.persist(laboratorio);
-				em.persist(md);
-				tx.commit();
+
+				// Obtem beans dos farmacos (sem duplicatas)
+				List<FarmacoBean> farmacoBeanList = new ArrayList<FarmacoBean>();
+				for (String farmaco : farmacoSet) {		
+					FarmacoBean f = frmDao.findByName(farmaco);
+					if (f == null) {
+						f = new FarmacoBean();
+						f.setNome(farmaco);
+					}
+					farmacoBeanList.add(f);
+				}
+
+
+				// Procura medicamento
+				MedicamentoBean md = medDao.findByNameAssocExactly(nomeMed, assocText);
+				if (md == null) {
+
+					// Apenas informa se ja existe medicamento com mesmo nome
+					List<MedicamentoBean> mds = medDao.findByName(nomeMed);
+					if (mds != null && mds.size() > 0)
+						System.out.println("Nome Duplicado: " + nomeMed);
+
+					// Procure laboratorio
+					LaboratorioBean laboratorio = labDao.findByName(labName);
+					if (laboratorio == null) {
+						laboratorio = new LaboratorioBean();
+						laboratorio.setNome(labName);
+					}
+
+					// Inicializa bean de medicamento
+					md = new MedicamentoBean();
+					md.setNome(nomeMed);
+					md.setAssociacao(assocText);
+					md.setFarmacos(farmacoBeanList);
+					md.setLaboratorio(laboratorio);
+
+					// Imprime farmacos
+					System.out.println(nomeMed + ": " + assocText);
+					
+					// Persiste
+					EntityTransaction tx = em.getTransaction();
+					tx.begin();
+					em.persist(laboratorio);
+					em.persist(md);
+					tx.commit();
+				}
+				else {
+					// TODO Tratar concentracao e forma
+					System.out.println("Medicamento Igual: " + md.getNome() + " --> " + md.getAssociacao());
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}		
 		}
 
