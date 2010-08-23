@@ -44,9 +44,10 @@ DROP TABLE IF EXISTS `bulas`.`medicamento` ;
 CREATE  TABLE IF NOT EXISTS `bulas`.`medicamento` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `nome` VARCHAR(100) NOT NULL ,
+  `associacao` VARCHAR(160) NOT NULL ,
   `lab_detentor_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
-  UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) ,
+  UNIQUE INDEX `nome_assoc_UNIQUE` (`nome` ASC, `associacao` ASC) ,
   INDEX `fk_medicamento_laboratorio1` (`lab_detentor_id` ASC) ,
   CONSTRAINT `fk_medicamento_laboratorio1`
     FOREIGN KEY (`lab_detentor_id` )
@@ -277,6 +278,7 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 
 -- Manual
