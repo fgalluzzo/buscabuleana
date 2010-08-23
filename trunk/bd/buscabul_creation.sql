@@ -43,7 +43,7 @@ DROP TABLE IF EXISTS `bulas`.`medicamento` ;
 
 CREATE  TABLE IF NOT EXISTS `bulas`.`medicamento` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `nome` VARCHAR(45) NOT NULL ,
+  `nome` VARCHAR(100) NOT NULL ,
   `lab_detentor_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `nome_UNIQUE` (`nome` ASC) ,
