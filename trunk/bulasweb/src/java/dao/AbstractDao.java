@@ -1,85 +1,53 @@
 package dao;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Collection;
 
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import javax.persistence.Entity;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceUnitUtil;
+import javax.persistence.Query;
 
-import util.DataAccessLayerException;
-import util.HibernateFactory;
+public class AbstractDao<T> {
 
-public abstract class AbstractDao {
-    private Session session;
-    private Transaction tx;
+	protected EntityManager em;
 
-    public AbstractDao() {
-        HibernateFactory.buildIfNeeded();
-    }
+	
+	public AbstractDao(EntityManager em) {
+		super();
+		this.em = em;
+	}
 
-    protected void saveOrUpdate(Object obj) {
-        try {
-            startOperation();
-            session.saveOrUpdate(obj);
-            tx.commit();
-        } catch (HibernateException e) {
-            handleException(e);
-        } finally {
-            HibernateFactory.close(session);
-        }
-    }
+	@SuppressWarnings("unchecked")
+	public Collection<T> findAll(Class<T> clazz) {
+		try {
+			String entityName = clazz.getAnnotation(Entity.class).name();
+			Query query = em.createQuery("FROM " + entityName);
+			Collection<T> result = (Collection<T>) query.getResultList();
+			return result;
+		} catch (NoResultException e) {
+			return new ArrayList<T>();
+		}
+	}
 
-    protected void delete(Object obj) {
-        try {
-            startOperation();
-            session.delete(obj);
-            tx.commit();
-        } catch (HibernateException e) {
-            handleException(e);
-        } finally {
-            HibernateFactory.close(session);
-        }
-    }
+	public <K> T findById(Class<T> clazz, K id) {
+		return em.find(clazz, id);
+	}
 
-    @SuppressWarnings("unchecked")
-	protected Object find(Class clazz, Integer id) {
-        Object obj = null;
-        try {
-            startOperation();
-            obj = session.get(clazz, id);
-            tx.commit();
-        } catch (HibernateException e) {
-            handleException(e);
-        } finally {
-            HibernateFactory.close(session);
-        }
-        return obj;
-    }
+	public boolean isLoaded(T entity) {
+		PersistenceUnitUtil util = em.getEntityManagerFactory()
+				.getPersistenceUnitUtil();
+		return util.isLoaded(entity);
+	}
 
-    @SuppressWarnings("unchecked")
-	protected List findAll(Class clazz) {
-        List objects = null;
-        try {
-            startOperation();
-            Query query = session.createQuery("from " + clazz.getName());
-            objects = query.list();
-            tx.commit();
-        } catch (HibernateException e) {
-            handleException(e);
-        } finally {
-            HibernateFactory.close(session);
-        }
-        return objects;
-    }
+	public boolean isLoaded(T entity, String attributeName) {
+		PersistenceUnitUtil util = em.getEntityManagerFactory()
+				.getPersistenceUnitUtil();
+		return util.isLoaded(entity, attributeName);
+	}
 
-    protected void handleException(HibernateException e) throws DataAccessLayerException {
-        HibernateFactory.rollback(tx);
-        throw new DataAccessLayerException(e);
-    }
-
-    protected void startOperation() throws HibernateException {
-        session = HibernateFactory.openSession();
-        tx = session.beginTransaction();
-    }
+	public boolean isManaged(T entity) {
+		return em.contains(entity);
+	}
 }
