@@ -1,7 +1,12 @@
+import java.util.Collection;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.swing.JOptionPane;
+
+import bulas.bean.FarmacoBean;
+import bulas.dao.FarmacoDao;
 
 
 public class Test {
@@ -16,7 +21,11 @@ public class Test {
 
 		JOptionPane.showConfirmDialog(null, "afasf");
 		
-		em.clear();
+		FarmacoDao farmDao = new FarmacoDao(em);
+		Collection<FarmacoBean> fms = farmDao.findAll(FarmacoBean.class);
+		for (FarmacoBean f : fms) System.out.println(f.getNome());
+		
+		em.close();
 		emf.close();
 	}
 
