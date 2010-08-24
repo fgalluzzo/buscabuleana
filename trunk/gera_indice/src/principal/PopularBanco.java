@@ -216,8 +216,8 @@ public class PopularBanco implements CsvRowListener {
 
 		PopularBanco pb = new PopularBanco(em);
 		pb.processa(new File("../bulas_teste/anvisa/medicamentos.csv"));
-		
-		em.clear();
+				
+		em.close();
 		emf.close();
 	}
 
