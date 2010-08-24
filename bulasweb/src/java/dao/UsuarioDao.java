@@ -1,25 +1,30 @@
 package dao;
 
-import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.Query;
 
-import org.hibernate.Hibernate;
-import org.hibernate.HibernateException;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
-
-import util.DataAccessLayerException;
-import util.HibernateFactory;
 import bean.UsuarioBean;
 
 /**
  *
- * @author galluzzo, sirius
+ * @author galluzzo, expedit
  */
-public class UsuarioDao extends AbstractDao {
-     public UsuarioDao() {
-        super();
+public class UsuarioDao extends AbstractDao <UsuarioBean> {
+     public UsuarioDao(EntityManager em) {
+        super(em);
     }
+     
+     public UsuarioBean findByLogin(String name) {
+ 		try {
+			Query q = em.createQuery("from Usuario where nome = :nome");
+			q.setParameter("nome", name);
+			return (UsuarioBean) q.getResultList();
+		}
+		catch (NoResultException e) {
+			return null;
+		}
+     }
 
     /**
      * Insert a new Event into the database.
@@ -46,44 +51,44 @@ public class UsuarioDao extends AbstractDao {
         return usuarioL;
     }*/
  
-    public void create(UsuarioBean usuario) throws DataAccessLayerException {
-        super.saveOrUpdate(usuario);
-    }
+//    public void create(UsuarioBean usuario) throws DataAccessLayerException {
+//        super.saveOrUpdate(usuario);
+//    }
 
     /**
      * Delete a detached Event from the database.
      * @param event
      */
-    public void delete(UsuarioBean usuario) throws DataAccessLayerException {
-        super.delete(usuario);
-    }
+//    public void delete(UsuarioBean usuario) throws DataAccessLayerException {
+//        super.delete(usuario);
+//    }
 
     /**
      * Find an Event by its primary key.
      * @param id
      * @return
      */
-    public UsuarioBean find(Integer id) throws DataAccessLayerException {
-        return (UsuarioBean) super.find(UsuarioBean.class, id);
-    }
+//    public UsuarioBean find(Integer id) throws DataAccessLayerException {
+//        return (UsuarioBean) super.find(UsuarioBean.class, id);
+//    }
 
     /**
      * Updates the state of a detached Event.
      *
      * @param event
      */
-    public void update(UsuarioBean usuario) throws DataAccessLayerException {
-        super.saveOrUpdate(usuario);
-    }
+//    public void update(UsuarioBean usuario) throws DataAccessLayerException {
+//        super.saveOrUpdate(usuario);
+//    }
 
     /**
      * Finds all Events in the database.
      * @return
      */
-    @SuppressWarnings("unchecked")
-	public List<UsuarioBean> findAll() throws DataAccessLayerException{
-        return super.findAll(UsuarioBean.class);
-    }
+//    @SuppressWarnings("unchecked")
+//	public List<UsuarioBean> findAll() throws DataAccessLayerException{
+//        return super.findAll(UsuarioBean.class);
+//    }
 
     /*@SuppressWarnings("unchecked")
     public List<UsuarioBean> findAllDifferentLogin(UsuarioBean usuario) {

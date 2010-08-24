@@ -6,16 +6,16 @@
 package bean;
 
 import java.io.Serializable;
-import java.text.DateFormat;
 import java.util.Date;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 
@@ -26,7 +26,8 @@ import javax.persistence.Temporal;
  */
 @ManagedBean(name="UsuarioBean")
 @RequestScoped
-@Entity(name="usuario")
+@Entity(name="Usuario")
+@Table(name="usuario")
 public class UsuarioBean implements Serializable {
 
     
@@ -51,11 +52,11 @@ public class UsuarioBean implements Serializable {
     public String getNome() {
         return nome;
     }
-    @Column(name="senha")
+    @Column(name="password")
     public String getSenha() {
         return senha;
     }
-    @Column(name="usuario")
+    @Column(name="login")
     public String getUsuario() {
         return usuario;
     }
