@@ -3,6 +3,7 @@ package bulas.dao;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceUnitUtil;
@@ -21,7 +22,8 @@ public class AbstractDao<T> {
 	@SuppressWarnings("unchecked")
 	public Collection<T> findAll(Class<T> clazz) {
 		try {
-			Query query = em.createQuery("FROM " + clazz.getSimpleName());
+			String entityName = clazz.getAnnotation(Entity.class).name();
+			Query query = em.createQuery("FROM " + entityName);
 			Collection<T> result = (Collection<T>) query.getResultList();
 			return result;
 		} catch (NoResultException e) {
