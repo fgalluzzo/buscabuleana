@@ -17,12 +17,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-import bulas.bean.FarmacoBean;
-import bulas.bean.LaboratorioBean;
-import bulas.bean.MedicamentoBean;
-import bulas.dao.FarmacoDao;
-import bulas.dao.LaboratorioDao;
-import bulas.dao.MedicamentoDao;
+import bean.FarmacoBean;
+import bean.LaboratorioBean;
+import bean.MedicamentoBean;
+import dao.FarmacoDao;
+import dao.LaboratorioDao;
+import dao.MedicamentoDao;
 
 public class PopularBanco implements CsvRowListener {
 	
