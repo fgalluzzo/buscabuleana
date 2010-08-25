@@ -67,8 +67,10 @@ CREATE  TABLE IF NOT EXISTS `bulas`.`bula` (
   `id` INT NOT NULL ,
   `medicamento_fk` INT NOT NULL ,
   `texto` TEXT NOT NULL ,
+  `codigo` VARCHAR(10) NOT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_bula_medicamento1` (`medicamento_fk` ASC) ,
+  UNIQUE INDEX `codigo_UNIQUE` (`codigo` ASC) ,
   CONSTRAINT `fk_bula_medicamento1`
     FOREIGN KEY (`medicamento_fk` )
     REFERENCES `bulas`.`medicamento` (`id` )
@@ -278,7 +280,6 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
 
 
 -- Manual
