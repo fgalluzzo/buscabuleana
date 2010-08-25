@@ -40,7 +40,7 @@ import org.apache.lucene.util.Version;
 @RequestScoped
 public class BuscarControle {
 
-    private final String INDICE = "c:/indice_bulas";
+    private final String INDICE = "c:/indice_bulas";// nao seria bom ler de uma arquivo properties?
     private List<String> Bulas;
 
     /** Creates a new instance of BuscarControle */

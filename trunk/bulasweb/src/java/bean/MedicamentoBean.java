@@ -3,10 +3,19 @@ package bean;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
 @Entity (name="Medicamento")
@@ -32,6 +41,10 @@ public class MedicamentoBean implements Serializable {
 			inverseJoinColumns=@JoinColumn(name="farmaco_id"))
 	private List <FarmacoBean> farmacos= new ArrayList<FarmacoBean>();
 
+	
+	@OneToOne (mappedBy="medicamento")
+	private BulaBean bula;
+	
 
 	public String getNome() {
 		return nome;
@@ -67,5 +80,13 @@ public class MedicamentoBean implements Serializable {
 	
 	public void setAssociacao(String associacao) {
 		this.associacao = associacao;
+	}
+	
+	public BulaBean getBula() {
+		return bula;
+	}
+	
+	public void setBula(BulaBean bula) {
+		this.bula = bula;
 	}
 }

@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -40,6 +41,25 @@ public class MedicamentoDao extends AbstractDao<MedicamentoBean> {
 		}
 		catch (NoResultException e) {
 			return null;
+		}
+	}
+	
+	
+	@SuppressWarnings("unchecked")
+	public List<MedicamentoBean> findByFarmacoAndLab(List<String> labs, List<String> farmacos) {
+		try {//f in m.farmacos and 
+			
+			if (labs.size() == 0 || farmacos.size()==0) throw new Exception();//Remover
+			
+			Query q = em.createQuery("select m from Medicamento m, Farmaco f "
+					+ "where m.laboratorio.nome in (:labs) and f.nome in (:farmacos)");
+			q.setParameter("labs", labs);
+			q.setParameter("farmacos", farmacos);
+			return (List<MedicamentoBean>) q.getResultList();
+		}
+		catch (Exception e) {
+			//e.printStackTrace();
+			return new ArrayList<MedicamentoBean>();
 		}
 	}
 	

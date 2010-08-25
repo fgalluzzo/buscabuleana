@@ -25,4 +25,14 @@ public class PersistenceFactory {
 			return em;
 		}
 	}
+	
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		super.finalize();
+				
+		emf.close();
+		
+		System.out.println("finalize");
+	}
 }

@@ -5,9 +5,23 @@
 
 package bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 
 /**
@@ -16,37 +30,82 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean(name="BulaBean")
 @RequestScoped
+@Entity (name="Bula")
+@Table (name="bula")
 public class BulaBean {
 
-    private String nomeArquivo;
-    private String indicacao;
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
+	
+	@OneToOne (fetch=FetchType.LAZY)
+	@JoinColumn (name = "medicamento_fk", referencedColumnName = "id",
+			insertable = false, updatable = false) 
+	private MedicamentoBean medicamento;
+	
+	@Basic (fetch=FetchType.LAZY)	// o texto pode ser muito, inclusive se pegar toda a lista de bulas pelo dao
+	@Column
     private String texto;
-    /** Creates a new instance of BulaBean */
+
+	@Column
+    private String codigo;
+	
+	
+	@OneToMany (mappedBy="bula", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private List<ConteudoSecaoBean> conteudoSecao = new ArrayList<ConteudoSecaoBean>();
+
+
+	/** Creates a new instance of BulaBean */
     public BulaBean() {
     }
+    
+    public int getId() {
+		return id;
+	}
 
-    public String getIndicacao() {
-        return indicacao;
-    }
-
-    public String getNomeArquivo() {
-        return nomeArquivo;
-    }
-
+    public MedicamentoBean getMedicamento() {
+		return medicamento;
+	}
+    
+    public void setMedicamento(MedicamentoBean medicamento) {
+		this.medicamento = medicamento;
+	}
+    
     public String getTexto() {
         return texto;
-    }
-
-    public void setIndicacao(String indicacao) {
-        this.indicacao = indicacao;
-    }
-
-    public void setNomeArquivo(String nomeArquivo) {
-        this.nomeArquivo = nomeArquivo;
     }
 
     public void setTexto(String texto) {
         this.texto = texto;
     }
     
+    public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+    
+    public String getCodigo() {
+		return codigo;
+	}
+
+    public List<ConteudoSecaoBean> getConteudoSecao() {
+		return conteudoSecao;
+	}
+
+	public void setConteudoSecao(List<ConteudoSecaoBean> conteudoSecao) {
+		this.conteudoSecao = conteudoSecao;
+	}
+
+	
+	/**
+	 * Retorna texto da secao especificada.
+	 * 
+	 * @param name
+	 * @return
+	 */
+	public String getSectionContentsByRegex(String name) {
+		for (ConteudoSecaoBean csb : conteudoSecao) {
+			if (csb.getSecaoBula().getNomeCurto().equals(name))
+				return csb.getTexto();
+		}
+		return null;
+	}
 }
