@@ -65,11 +65,12 @@ DROP TABLE IF EXISTS `bulas`.`bula` ;
 
 CREATE  TABLE IF NOT EXISTS `bulas`.`bula` (
   `id` INT NOT NULL ,
-  `medicamento_fk` INT NOT NULL ,
+  `medicamento_fk` INT NULL DEFAULT NULL ,
   `texto` TEXT NOT NULL ,
   `codigo` VARCHAR(10) NOT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_bula_medicamento1` (`medicamento_fk` ASC) ,
+  UNIQUE INDEX `codigo_UNIQUE` (`codigo` ASC) ,
   CONSTRAINT `fk_bula_medicamento1`
     FOREIGN KEY (`medicamento_fk` )
     REFERENCES `bulas`.`medicamento` (`id` )
@@ -121,7 +122,7 @@ DROP TABLE IF EXISTS `bulas`.`secao_bula` ;
 
 CREATE  TABLE IF NOT EXISTS `bulas`.`secao_bula` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `nome_curto` VARCHAR(30) NULL ,
+  `nome_curto` VARCHAR(30) NOT NULL ,
   `nome` VARCHAR(60) NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `nome_curto_UNIQUE` (`nome_curto` ASC) )
@@ -138,10 +139,11 @@ CREATE  TABLE IF NOT EXISTS `bulas`.`conteudo_secao_bula` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `bula_id` INT NOT NULL ,
   `secao_id` INT NOT NULL ,
-  `texto` TEXT NULL ,
+  `texto` TEXT NOT NULL ,
   INDEX `fk_bula_has_campo_bula_bula1` (`bula_id` ASC) ,
   INDEX `fk_bula_has_campo_bula_campo_bula1` (`secao_id` ASC) ,
   PRIMARY KEY (`id`) ,
+  UNIQUE INDEX `bula_secao_UNIQUE` (`bula_id` ASC, `secao_id` ASC) ,
   CONSTRAINT `fk_bula_has_campo_bula_bula1`
     FOREIGN KEY (`bula_id` )
     REFERENCES `bulas`.`bula` (`id` )
