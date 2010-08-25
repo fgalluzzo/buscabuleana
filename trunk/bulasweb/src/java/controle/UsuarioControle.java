@@ -21,6 +21,9 @@ import util.CriaHash;
 import util.DataAccessLayerException;
 import util.PersistenceFactory;
 import bean.UsuarioBean;
+import javax.faces.application.FacesMessage;
+import javax.persistence.EntityExistsException;
+import org.hibernate.exception.ConstraintViolationException;
 
 /**
  *
@@ -36,6 +39,8 @@ public class UsuarioControle {
         ValueExpression expression = app.getExpressionFactory().createValueExpression(context.getELContext(),
                 String.format("#{%s}", "UsuarioBean"), Object.class);
         UsuarioBean usuarionovo = (UsuarioBean) expression.getValue(context.getELContext());
+        expression = app.getExpressionFactory().createValueExpression(context.getELContext(),
+                String.format("#{%s}", "MensagemControle"), Object.class);        
 
         try {
     		usuarionovo.setSenha(CriaHash.SHA1(usuarionovo.getSenha()));
@@ -48,11 +53,25 @@ public class UsuarioControle {
 				tx.begin();
 				em.persist(usuarionovo);
 				tx.commit();
-			}
+                                context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info:", "Usuário cadastrado com sucesso!"));
+                                
+
+			}catch(EntityExistsException e){
+                            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Problema:", "Nome de usuário já existente!"));
+                            tx.rollback();
+                        }
 			catch (Exception e) {
+                            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Erro Grave:", "Contate o administrador do sistema!"));
 				tx.rollback();
 			}
-			em.close();
+                        finally{
+                            usuarionovo.setDtNascimento(null);
+                                usuarionovo.setNome(null);
+                                usuarionovo.setSenha(null);
+                                usuarionovo.setUsuario(null);
+                            em.close();
+                        }
+			
             
         } catch (NoSuchAlgorithmException ex) {
             Logger.getLogger(UsuarioControle.class.getName()).log(Level.SEVERE, null, ex);
