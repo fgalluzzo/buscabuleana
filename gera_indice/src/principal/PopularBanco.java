@@ -2,6 +2,7 @@ package principal;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FilenameFilter;
 import java.text.Normalizer;
 import java.text.Normalizer.Form;
 import java.util.ArrayList;
@@ -17,9 +18,12 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import util.PersistenceFactory;
+
 import bean.FarmacoBean;
 import bean.LaboratorioBean;
 import bean.MedicamentoBean;
+import bean.SecaoBulaBean;
 import dao.FarmacoDao;
 import dao.LaboratorioDao;
 import dao.MedicamentoDao;
@@ -208,17 +212,28 @@ public class PopularBanco implements CsvRowListener {
 		
 	}
 	
-	
+
+	/**
+	 * Faz a indexacao completa. É possivel comentar trechos que já estiverem no banco
+	 * @param args
+	 */
 	public static void main(String[] args) {
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("bulas_base");
-		EntityManager em = emf.createEntityManager();
-
-		PopularBanco pb = new PopularBanco(em);
-		pb.processa(new File("../bulas_teste/anvisa/medicamentos.csv"));
-				
+		// Insere lista da Anvisa de farmacos, medicamentos e laboratorios no banco
+		EntityManager em = PersistenceFactory.getEntityManager();
+		//PopularBanco pb = new PopularBanco(em);
+		//String listaFolder = "../bulas_teste/anvisa/medicamentos.csv";
+		//pb.processa(new File(listaFolder));
 		em.close();
-		emf.close();
+		
+		// Insere bulas e suas secoes no banco
+		// Tabelas: bula, secao_bula, conteudo_secao_bula
+		String bulasFolder = "../bulas_teste/bulas/";
+		String indexFolder = "../indice_bulas/";
+		Indexar indexar = new Indexar(bulasFolder, indexFolder);
+		indexar.index();
+		
+		// TODO associar bula ao medicamento
 	}
 
 }
