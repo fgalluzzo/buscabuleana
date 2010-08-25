@@ -135,14 +135,13 @@ COMMENT = 'Seções capturáveis pelo parser (sections.properties)';
 DROP TABLE IF EXISTS `bulas`.`conteudo_secao_bula` ;
 
 CREATE  TABLE IF NOT EXISTS `bulas`.`conteudo_secao_bula` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `bula_id` INT NOT NULL ,
   `secao_id` INT NOT NULL ,
   `texto` TEXT NULL ,
   INDEX `fk_bula_has_campo_bula_bula1` (`bula_id` ASC) ,
   INDEX `fk_bula_has_campo_bula_campo_bula1` (`secao_id` ASC) ,
   PRIMARY KEY (`id`) ,
-  UNIQUE INDEX `bula_secao_UNIQUE` (`bula_id` ASC, `secao_id` ASC) ,
   CONSTRAINT `fk_bula_has_campo_bula_bula1`
     FOREIGN KEY (`bula_id` )
     REFERENCES `bulas`.`bula` (`id` )
