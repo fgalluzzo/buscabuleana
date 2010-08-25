@@ -1,4 +1,4 @@
-package bulas.dao;
+package dao;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
-import bulas.bean.MedicamentoBean;
+import bean.MedicamentoBean;
 
 public class MedicamentoDao extends AbstractDao<MedicamentoBean> {
 

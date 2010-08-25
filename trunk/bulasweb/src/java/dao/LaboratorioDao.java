@@ -1,10 +1,10 @@
-package bulas.dao;
+package dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
-import bulas.bean.LaboratorioBean;
+import bean.LaboratorioBean;
 
 public class LaboratorioDao extends AbstractDao<LaboratorioBean> {
 

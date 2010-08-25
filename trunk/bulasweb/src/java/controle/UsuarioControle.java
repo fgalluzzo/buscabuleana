@@ -7,7 +7,6 @@ package controle;
 
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,16 +15,12 @@ import javax.faces.application.Application;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 
 import util.CriaHash;
 import util.DataAccessLayerException;
 import util.PersistenceFactory;
-import bean.FarmacoBean;
 import bean.UsuarioBean;
-import dao.FarmacoDao;
 
 /**
  *

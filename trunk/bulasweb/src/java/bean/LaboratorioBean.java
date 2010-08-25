@@ -1,4 +1,4 @@
-package bulas.bean;
+package bean;
 
 import javax.persistence.*;
 
