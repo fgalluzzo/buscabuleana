@@ -28,12 +28,29 @@
                                         rowsPerPageTemplate="10,15,20" dynamic="false" emptyMessage="#{msg.Nenhum} #{msg.registro} #{msg.encontrado}" >
                                <p:column>
                                     <f:facet name="header">
-                                        <h:outputText value="#{msg.arquivo}"></h:outputText>
+                                        <h:outputText value="#{msg.Codigo}"></h:outputText>
                                     </f:facet>
-                                   <h:outputText  value="#{bula}"></h:outputText>
+                                   <h:outputText  value="#{bula.codigo}"></h:outputText>
+                                </p:column>
+                               <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{msg.Medicamento}"></h:outputText>
+                                    </f:facet>
+                                   <h:outputText  value="#{bula.medicamento.nome}"></h:outputText>
                                 </p:column>
 
-                            </p:dataTable>                            
+                            </p:dataTable>     
+                            
+                            <!--<p:dataList var="bula" id="itensbusca" paginatorPosition="bottom"
+                                        paginator="true" paginatorAlwaysVisible="false" rows="10" value="#{BuscarControle.bulas}"
+                                        paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown} "
+                                        rowsPerPageTemplate="10,15,20">
+                                        <p:column>
+                                    
+                                   <h:outputText  value="#{bula}"></h:outputText>
+                                </p:column>
+                            </p:dataList>-->
+
                         </div>
                     </div>
                 </h:form>

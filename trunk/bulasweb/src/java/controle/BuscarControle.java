@@ -5,6 +5,7 @@
 package controle;
 
 import bean.BulaBean;
+import dao.BulaDao;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,6 +18,9 @@ import javax.faces.application.Application;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContextType;
+import javax.persistence.spi.PersistenceUnitTransactionType;
 import org.apache.lucene.analysis.SimpleAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field.Index;
@@ -31,6 +35,9 @@ import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
+import org.hibernate.Hibernate;
+import org.hibernate.ejb.EntityManagerImpl;
+import util.PersistenceFactory;
 
 /**
  *
@@ -41,11 +48,14 @@ import org.apache.lucene.util.Version;
 public class BuscarControle {
 
     private final String INDICE = "c:/indice_bulas";// nao seria bom ler de uma arquivo properties?
-    private List<String> Bulas;
+    private List<BulaBean> Bulas;
+    BulaDao bd = new BulaDao(PersistenceFactory.getEntityManager());
+
+
 
     /** Creates a new instance of BuscarControle */
     public BuscarControle() {
-        Bulas = new ArrayList<String>();
+        Bulas = new ArrayList<BulaBean>();
 
     }
 
@@ -80,7 +90,8 @@ public class BuscarControle {
 
                     for (int i = 0; i < docs.length; i++) {
                         Document doc = is.doc(docs[i].doc);
-                        Bulas.add(doc.get("id"));
+                        Bulas.add(buscaBulaNoBanco(doc.get("id")));
+                        
                     }
 
                     is.close();
@@ -96,18 +107,20 @@ public class BuscarControle {
             }
         }
     }
+    public BulaBean buscaBulaNoBanco(String codigo){
+        BulaBean bb = new BulaBean();
+        codigo=codigo.substring(0,codigo.length()-4);
+        bb = bd.getByCodigo(codigo);
+        Hibernate.initialize(bb);
+        Hibernate.initialize(bb.getMedicamento());
 
-    public List<String> getBulas() {
+
+        return bb;
+    }
+    public List<BulaBean> getBulas() {
 
         return Bulas;
     }
 
-    public void iniciar() {
-        Bulas.add("Remedio 1");
-        Bulas.add("Remedio 2");
-        Bulas.add("Remedio 3");
-        Bulas.add("Remedio 4");
-        Bulas.add("Remedio 5");
-        Bulas.add("Remedio 6");
-    }
+    
 }
