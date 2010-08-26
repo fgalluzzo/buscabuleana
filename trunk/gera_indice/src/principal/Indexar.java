@@ -173,14 +173,14 @@ public class Indexar {
 
 	public void index() {
 		try {
-			File f = new File(bulasFolder);
+			File bulasf = new File(bulasFolder);
 			File indexf = new File(indexFolder);
 			Directory dir = new SimpleFSDirectory(indexf);
 			SimpleAnalyzer analyzer = new SimpleAnalyzer();
 
 			indexWriter = new IndexWriter(dir, analyzer, MaxFieldLength.UNLIMITED);
 
-			File[] pdfs = f.listFiles(new FilenameFilter() {
+			File[] pdfs = bulasf.listFiles(new FilenameFilter() {
 				@Override
 				public boolean accept(File dir, String name) {
 					return name.matches(".*pdf");
