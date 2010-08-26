@@ -39,7 +39,7 @@ public class BulaBean {
 	
 	@OneToOne (fetch=FetchType.LAZY)
 	@JoinColumn (name = "medicamento_fk", referencedColumnName = "id",
-			insertable = false, updatable = false) 
+			insertable = true, updatable = true) 
 	private MedicamentoBean medicamento;
 	
 	@Basic (fetch=FetchType.LAZY)	// o texto pode ser muito, inclusive se pegar toda a lista de bulas pelo dao
