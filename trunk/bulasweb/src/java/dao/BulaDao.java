@@ -29,7 +29,7 @@ public class BulaDao extends AbstractDao<BulaBean> {
 	@SuppressWarnings("unchecked")
 	public Collection<Integer> getAllAsIntList() {
 		try {
-			Query q = em.createNativeQuery("select id from bula");
+			Query q = em.createNativeQuery("select id from bula order by id asc");
 			return (Collection<Integer>) q.getResultList();
 		}
 		catch (NoResultException e) {
