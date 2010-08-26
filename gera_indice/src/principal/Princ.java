@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 
 import org.apache.lucene.analysis.SimpleAnalyzer;
 import org.apache.lucene.document.Document;
@@ -36,6 +37,13 @@ import dao.LaboratorioDao;
 import dao.MedicamentoDao;
 
 public class Princ {
+	
+	public static class MedicamentoComparator implements Comparator<MedicamentoBean> {
+		@Override
+		public int compare(MedicamentoBean a, MedicamentoBean b) {
+			return a.getNome().compareTo(b.getNome());
+		}
+	}
 	
 	public static String analyzeText(String text) {
 		 
@@ -70,88 +78,100 @@ public class Princ {
 		int done = 0, pending = 0, alreadyDone = 0, failed = 0;
 		
 		for (Integer bulaId : bulas) {
-
-			BulaBean bula = bulaDao.findById(BulaBean.class, bulaId);
-			if (bula.getMedicamento() == null) {
 			
-				String composicao = bula.getSectionContentsByRegex("composicao");
-				String laboratorio = bula.getSectionContentsByRegex("rodape");
-				String fulltext = bula.getTexto();
+			try {
+				BulaBean bula = bulaDao.findById(BulaBean.class, bulaId);
+				if (bula.getMedicamento() == null) {
 				
-				StringBuilder sb = new StringBuilder();
-
-				if (composicao != null && laboratorio != null) {
-					composicao = analyzeText(composicao);
-					laboratorio = analyzeText(laboratorio);
-					fulltext = analyzeText(fulltext);
-
-					sb.append(bula.getCodigo() + "\t");
-
-					// Descobre laboratorio
-					List <String> neededLabs = new ArrayList<String>();
-					for (LaboratorioBean lab : labs) {
-						String nomeLab = analyzeText(lab.getNome());
-
-						if (laboratorio.matches(".* " + nomeLab + " .*")) {
-							neededLabs.add(nomeLab);
-							sb.append(String.format("%s, ", nomeLab));
-						}
-					}
-					sb.append("\t");
+					String composicao = bula.getSectionContentsByRegex("composicao");
+					String laboratorio = bula.getSectionContentsByRegex("rodape");
+					String fulltext = bula.getTexto();
 					
-					// Descobre farmacos
-					List <String> neededFarms = new ArrayList<String>();
-					for (FarmacoBean farmaco : farmacos) {
-						String nomeFarmaco = analyzeText(farmaco.getNome());
+					StringBuilder sb = new StringBuilder();
+	
+					if (composicao != null && laboratorio != null) {
+						composicao = analyzeText(composicao);
+						laboratorio = analyzeText(laboratorio);
+						fulltext = analyzeText(fulltext);
+	
+						sb.append(bula.getCodigo() + "\t");
+	
+						// Descobre laboratorio
+						List <String> neededLabs = new ArrayList<String>();
+						for (LaboratorioBean lab : labs) {
+							String nomeLab = analyzeText(lab.getNome());
+	
+							if (laboratorio.matches(".* " + nomeLab + " .*")) {
+								neededLabs.add(nomeLab);
+								sb.append(String.format("%s, ", nomeLab));
+							}
+						}
+						sb.append("\t");
 						
-						if (composicao.matches(".* " + nomeFarmaco + " .*")) {
-							neededFarms.add(nomeFarmaco);
-							sb.append(String.format("%s, ", nomeFarmaco));
+						// Descobre farmacos
+						List <String> neededFarms = new ArrayList<String>();
+						for (FarmacoBean farmaco : farmacos) {
+							String nomeFarmaco = analyzeText(farmaco.getNome());
+							
+							if (composicao.matches(".* " + nomeFarmaco + " .*")) {
+								neededFarms.add(nomeFarmaco);
+								sb.append(String.format("%s, ", nomeFarmaco));
+							}
 						}
-					}
-
-					// Descobre nome
-					List<MedicamentoBean> medicamentos = medDao.findByFarmacoAndLab(neededLabs, neededFarms);
-
-					Set <MedicamentoBean> candidateMeds = new TreeSet<MedicamentoBean>(
-							new Comparator<MedicamentoBean>() {
-								@Override
-								public int compare(MedicamentoBean a, MedicamentoBean b) {
-									return a.getNome().compareTo(b.getNome());
-								}
-					});
-
-					for (MedicamentoBean med : medicamentos) {
-						String nomeMed = analyzeText(med.getNome());
-
-						if (fulltext.matches(".* " + nomeMed + " .*")) {
-							candidateMeds.add(med);
-							sb.append(String.format("%s, ", nomeMed.toUpperCase()));
+	
+						// Descobre nome
+						List<MedicamentoBean> medicamentos = medDao.findByFarmacoAndLab(neededLabs, neededFarms);
+						Set <MedicamentoBean> candidateMeds = new TreeSet<MedicamentoBean>(new MedicamentoComparator());
+	
+						for (MedicamentoBean med : medicamentos) {
+							String nomeMed = analyzeText(med.getNome());
+	
+							if (fulltext.matches(".* " + nomeMed + " .*")) {
+								candidateMeds.add(med);
+							}
+							for (MedicamentoBean m : candidateMeds)
+								sb.append(String.format("%s, ", m.getNome().toUpperCase()));
 						}
-					}
-
-					sb.append("\n");
-
-					if (candidateMeds.size() > 0) {
-						System.out.println(sb.toString());
-						if (candidateMeds.size() == 1) {
-							done++;
-
-							// TODO colocar no BD
-
-							// TODO remover
-							System.out.println((done+pending+alreadyDone+failed) + " / " + bulas.size());
-							System.out.println(String.format("done=%d   pending=%d   alreadyDone=%d   failed=%d", done,pending,alreadyDone,failed));
+	
+						sb.append("\n");
+	
+						if (candidateMeds.size() > 0) {
+							System.out.println(sb.toString());
+							if (candidateMeds.size() == 1) {
+								// Associa bula ao medicamento no BD
+								MedicamentoBean m = candidateMeds.iterator().next();
+								EntityTransaction tx = em.getTransaction();
+								tx.begin();
+								bula.setMedicamento(m);
+								m.setBula(bula);
+								tx.commit();
+								
+								// contagem
+								done++;								
+	
+								// TODO remover
+								System.out.println((done+pending+alreadyDone+failed) + " / " + bulas.size());
+								System.out.println(String.format("done=%d   pending=%d   alreadyDone=%d   failed=%d", done,pending,alreadyDone,failed));
+							}
+							else {
+								// TODO tratar caso em que a bula fala de mais de um remedio
+								
+								// contagem
+								pending++;
+							}
 						}
-						else pending++;
+						else failed++;
 					}
 					else failed++;
+	
+					System.out.flush();
 				}
-				else failed++;
-
-				System.out.flush();
+				else alreadyDone++;
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println((done+pending+alreadyDone+failed) + " / " + bulas.size());
+				System.out.println(String.format("done=%d   pending=%d   alreadyDone=%d   failed=%d", done,pending,alreadyDone,failed));
 			}
-			else alreadyDone++;
 		}
 
 		System.out.println((done+pending+alreadyDone+failed) + " / " + bulas.size());
