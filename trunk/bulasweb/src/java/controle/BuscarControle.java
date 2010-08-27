@@ -110,10 +110,8 @@ public class BuscarControle {
     public BulaBean buscaBulaNoBanco(String codigo){
         BulaBean bb = new BulaBean();
         codigo=codigo.substring(0,codigo.length()-4);
-        bb = bd.getByCodigo(codigo);
-        Hibernate.initialize(bb);
+        bb = bd.getByCodigo(codigo);        
         Hibernate.initialize(bb.getMedicamento());
-
 
         return bb;
     }

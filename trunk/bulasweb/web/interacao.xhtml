@@ -7,40 +7,90 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
         <title><h:outputText value="#{msg.titulo}"></h:outputText></title>
-        
-        
+
+
     </h:head>
     <h:body>
-        <h:outputStylesheet library="css" name="/bulasweb/js/js-mindmap.css" />
-        <h:outputScript library="javascript" value="/bulasweb/js/grafo.js"  target="head"/>
-        <h:outputScript library="javascript" name="/bulasweb/js/excanvas.js" target="head" />
-        <h:outputScript library="javascript" name="/bulasweb/js/jquery-1.js" target="head" />
-        <h:outputScript library="javascript" name="/bulasweb/js/js-mindmap.js" target="head" />        
-        
-        <ui:composition template="templates/modelo.xhtml">
-              <ui:define name="content">
-                  <div class="post">
-            <canvas id="cv" width="800" height="600" ></canvas>
 
-            <div id="js-mindmap">
-		<a><b>Ana</b><br/><small>sexo F idade 18 meses</small></a>
-		<ul>
-			<li style="background-color:lightgreen;">
-				<a href="000485.pdf"><b>Tylenol</b><br/><small>Gotas pode ser usado a partir do nascimento</small></a>
-				<ul>
-					<li><a><b>Indicacao</b><br/><small>Alivio temporario de dores leves a moderadas</small></a></li>
-					<li>Posologia</li>
-				</ul>
-			</li>
-			<li><a><b style="background-color:lightgreen;">Polaramine</b><br/><small>Contra indicado para idade inferior a 2 anos</small></a></li>
-			<li><a style="color:red;"><b>Novalgina</b><br/><small>Dipirona Sódica alérgica</small></a></li>
-			<li><a><b>Benegrip</b><br/><small>Nem sei se isso ainda existe</small></a></li>
-		</ul>
-    </div>
-            </div>
-        </ui:define>
+
+        <ui:composition template="templates/modelo.xhtml">
+
+            <ui:define name="content">
+                <script type="text/javascript" src="/bulasweb/js/excanvas.js" />
+                <script type="text/javascript" src="/bulasweb/js/jquery-1.js" />
+                <script type="text/javascript" src="/bulasweb/js/js-mindmap.js" />
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $("#js-mindmap").mindmap({
+                            showSublines: false,
+                            canvasError: "alert",
+                            datasource: 'js-mindmap'
+                        });
+                    });
+
+                </script>
+                <div class="post">
+                    <canvas id="cv" width="800" height="600" ></canvas>
+
+                    <h:form>
+                        <div id="js-mindmap">
+                            <h:outputLink >
+                                <h:outputText value="#{MedicamentoDTO.medicamento.nome}"></h:outputText>
+                                <small>
+                                    <h:outputText value="TESTE"></h:outputText>
+                                </small>
+                            </h:outputLink>
+                            <ul>
+                                <li>
+                                    <h:outputLink >
+                                        <h:outputText value="Novalgina"></h:outputText>
+                                        <small>
+                                            <h:outputText value="testando 1234"></h:outputText>
+                                        </small>
+                                    </h:outputLink>
+                                    <ui:repeat var="rem" value="">
+                                        <li>
+                                            <h:outputLink >
+                                                <h:outputText value="#{iter}"></h:outputText>
+                                                <small>
+                                                    <h:outputText value="testando 1234"></h:outputText>
+                                                </small>
+                                            </h:outputLink>
+                                            <ui:repeat var="iter" value="">
+                                                <li>
+                                                    <h:outputLink >
+                                                <h:outputText value="#{iter}"></h:outputText>
+                                                <small>
+                                                    <h:outputText value="testando 1234"></h:outputText>
+                                                </small>
+                                            </h:outputLink>
+                                                </li>
+                                            </ui:repeat>
+                                        </li>
+                                    </ui:repeat>
+                                </li>
+
+                            </ul>
+
+                            <!--<ul>
+                                <li style="background-color:lightgreen;">
+                                    <a href="000485.pdf"><b>Tylenol</b><br/><small>Gotas pode ser usado a partir do nascimento</small></a>
+                                    <ul>
+                                        <li><a><b>Indicacao</b><br/><small>Alivio temporario de dores leves a moderadas</small></a></li>
+                                        <li>Posologia</li>
+                                    </ul>
+                                </li>
+                                <li><a><b style="background-color:lightgreen;">Polaramine</b><br/><small>Contra indicado para idade inferior a 2 anos</small></a></li>
+                                <li><a style="color:red;"><b>Novalgina</b><br/><small>Dipirona Sódica alérgica</small></a></li>
+                                <li><a><b>Benegrip</b><br/><small>Nem sei se isso ainda existe</small></a></li>
+                            </ul>-->
+                        </div>
+                    </h:form>
+                </div>
+            </ui:define>
         </ui:composition>
-      
+
+
     </h:body>
 </html>
 
