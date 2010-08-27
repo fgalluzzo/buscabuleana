@@ -84,14 +84,14 @@ public class Princ {
 				if (bula.getMedicamento() == null) {
 				
 					String composicao = bula.getSectionContentsByRegex("composicao");
-					String laboratorio = bula.getSectionContentsByRegex("rodape");
+					String rodape = bula.getSectionContentsByRegex("rodape");
 					String fulltext = bula.getTexto();
 					
 					StringBuilder sb = new StringBuilder();
 	
-					if (composicao != null && laboratorio != null) {
+					if (composicao != null && rodape != null) {
 						composicao = analyzeText(composicao);
-						laboratorio = analyzeText(laboratorio);
+						rodape = analyzeText(rodape);
 						fulltext = analyzeText(fulltext);
 	
 						sb.append(bula.getCodigo() + "\t");
@@ -100,8 +100,8 @@ public class Princ {
 						List <String> neededLabs = new ArrayList<String>();
 						for (LaboratorioBean lab : labs) {
 							String nomeLab = analyzeText(lab.getNome());
-	
-							if (laboratorio.matches(".* " + nomeLab + " .*")) {
+
+							if (fulltext.matches(".* " + nomeLab + " .*")) {
 								neededLabs.add(nomeLab);
 								sb.append(String.format("%s, ", nomeLab));
 							}
