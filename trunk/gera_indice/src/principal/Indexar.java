@@ -1,8 +1,11 @@
 package principal;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -84,74 +87,121 @@ public class Indexar {
 		}
 	}
 	
-	public Map <String, String> indexFile(File file) throws IOException {
+	public void extractPdfs() {
+
+		File bulasf = new File(bulasFolder);
+		File [] pdfs = bulasf.listFiles(new FilenameFilter() {
+			@Override
+			public boolean accept(File dir, String name) {
+				return name.matches(".*pdf");
+			}
+		});
 		
-		File pdf = file;
+		String txtDirectory = bulasFolder + "\\plain\\";
+		File dir = new File(txtDirectory);
+		dir.mkdir();
+
+		System.out.println("Existem " + pdfs.length + " arquivos PDFs para extrair"); 
+
+		int count = 1;
+		int corrupted = 0;
+		for (File pdf : pdfs) {
+
+			try {
+				System.out.println(String.format("Extracting from %s (%d / %d %d %%)",
+						pdf.getName(), count, pdfs.length, 100 * count / pdfs.length));
+				String text = extractTextFromPdf(pdf);
+
+				// Escreve bula em texto plano (nao parseado)
+				FileWriter fw;
+				try {
+					String txtFileName = pdf.getName() + ".txt";
+					System.out.println("Writing " + txtFileName + "...");
+					fw = new FileWriter(txtDirectory + txtFileName);
+					fw.write(text);
+					fw.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			catch (Exception e) {
+				System.out.print("\nArquivo corrompido: " + pdf.getName());
+				corrupted++;
+				//pdf.delete();
+			}
+			
+			count++;
+		}
+
+		System.err.println(String.format("Concluido. Taxa de corrompimento dos PDFs: %4.1f", 100*((float)corrupted) / count));
+	}
+	
+	
+	
+	public Map <String, String> indexBula(File file) throws IOException {
+		
 		BulaParser bulaParser = new BulaParser();
 		EntityManager em = PersistenceFactory.getEntityManager();
 		SecaoBulaDao secaoBulaDao = new SecaoBulaDao(em);
 		BulaDao bulaDao = new BulaDao(em);
-		//MedicamentoDao medDao = new MedicamentoDao(em);
 		
+		String code = file.getName().replaceAll("^([0-9]+)[.]txt$", "$1");
+		
+		BulaBean bula = bulaDao.getByCodigo(code);
+		if (bula != null) return null;
+		
+		String text = getFileContents(file);
+
+		// Obtem nome e texto das seçoes da bula
+		Map <String, String> fields = bulaParser.findSections(text, bulasFolder + file.getName());
+		
+		// Cria documento do Lucene
+		Document d = new Document();
+		d.add(new Field("code", code, Field.Store.YES, Field.Index.NO));
+		d.add(new Field("text", text, Field.Store.NO, Field.Index.ANALYZED));
+		
+		// Bula Bean
+		bula = new BulaBean();
+		bula.setTexto(text);
+		bula.setCodigo(code);
+		List<ConteudoSecaoBean> secoesBean = new ArrayList<ConteudoSecaoBean>();
+		
+		EntityTransaction tx = em.getTransaction();
 		try {
-			String code = pdf.getName().replaceAll("^([0-9]+)[.]pdf$", "$1");
+			tx.begin();
 			
-			BulaBean bula = bulaDao.getByCodigo(code);
-			//if (bula != null) throw new BulaAlreadyExistsException(bula.getCodigo());
-			if (bula != null) return null;
-			
-			String text = extractTextFromPdf(pdf);
-
-			// Obtem nome e texto das seçoes da bula
-			Map <String, String> fields = bulaParser.findSections(text, bulasFolder + pdf.getName());
-			
-			// Cria documento do Lucene
-			Document d = new Document();
-			d.add(new Field("code", code, Field.Store.YES, Field.Index.NO));
-			d.add(new Field("text", text, Field.Store.NO, Field.Index.ANALYZED));
-			
-			// Bula Bean
-			bula = new BulaBean();
-			bula.setTexto(text);
-			bula.setCodigo(code);
-			//bula.setMedicamento(medDao.findById(MedicamentoBean, 1));
-			List<ConteudoSecaoBean> secoesBean = new ArrayList<ConteudoSecaoBean>();
-			
-			EntityTransaction tx = em.getTransaction();
-			try {
-				tx.begin();
+			for (String name : fields.keySet()) {
 				
-				for (String name : fields.keySet()) {
-					
-					// Pega Secao de bula 
-					SecaoBulaBean secaoBulaBean = secaoBulaDao.findByShortName(name);
-					if (secaoBulaBean == null) {
-						secaoBulaBean = new SecaoBulaBean();
-						secaoBulaBean.setNomeCurto(name);
-						secaoBulaBean.setNome(name);
-						em.persist(secaoBulaBean);
-					}
-					
-					ConteudoSecaoBean secao = new ConteudoSecaoBean();
-					secao.setBula(bula);
-					secao.setTexto(fields.get(name));
-					secao.setSecaoBula(secaoBulaBean);
-					secoesBean.add(secao);
-
-					d.add(new Field(name, fields.get(name), Field.Store.NO, Field.Index.ANALYZED));
+				// Pega Secao de bula 
+				SecaoBulaBean secaoBulaBean = secaoBulaDao.findByShortName(name);
+				if (secaoBulaBean == null) {
+					secaoBulaBean = new SecaoBulaBean();
+					secaoBulaBean.setNomeCurto(name);
+					secaoBulaBean.setNome(name);
+					em.persist(secaoBulaBean);
 				}
 				
-				bula.setConteudoSecao(secoesBean);
-				em.persist(bula);
-				tx.commit();
-			} catch (Exception e) {
-				tx.rollback();
-				e.printStackTrace();
+				ConteudoSecaoBean secao = new ConteudoSecaoBean();
+				secao.setBula(bula);
+				secao.setTexto(fields.get(name));
+				secao.setSecaoBula(secaoBulaBean);
+				secoesBean.add(secao);
+
+				d.add(new Field(name, fields.get(name), Field.Store.NO, Field.Index.ANALYZED));
 			}
 			
-			indexWriter.addDocument(d);
+			bula.setConteudoSecao(secoesBean);
+			em.persist(bula);
+			tx.commit();
+		} catch (Exception e) {
+			tx.rollback();
+			e.printStackTrace();
+		}
+		
+		indexWriter.addDocument(d);
 
-			// Write INI to disk
+		// Write INI to disk
 //			FileWriter fw = new FileWriter(bulasFolder + "ini/" + pdf.getName() + ".ini");
 //			for (String name : fields.keySet()) {
 //				fw.write("\n[" + name + "]\n");
@@ -160,41 +210,52 @@ public class Indexar {
 //			}
 //			fw.close();
 
-			return fields;
-			
-		} catch (Exception e) {
-			System.out.print("\nArquivo corrompido: " + pdf.getName());
-			corrupted++;
-			//pdf.delete();
-			
-			return null;
-		}
+		return fields;
 	}
 
-	public void index() {
+	private String getFileContents(File file) throws FileNotFoundException {
+
+		BufferedReader br = new BufferedReader(new FileReader(file));
+		
+		String line = null;
+		StringBuilder sb = new StringBuilder((int) file.length() + 16); 
 		try {
-			File bulasf = new File(bulasFolder);
+			while ((line = br.readLine()) != null) {
+				sb.append(line);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return sb.toString();
+	}
+
+
+	public void index(final String filePattern) {
+		try {
+			File bulasf = new File(bulasFolder + "/plain/");
 			File indexf = new File(indexFolder);
 			Directory dir = new SimpleFSDirectory(indexf);
 			SimpleAnalyzer analyzer = new SimpleAnalyzer();
 
 			indexWriter = new IndexWriter(dir, analyzer, MaxFieldLength.UNLIMITED);
 
-			File[] pdfs = bulasf.listFiles(new FilenameFilter() {
+			File[] txtFiles = bulasf.listFiles(new FilenameFilter() {
 				@Override
 				public boolean accept(File dir, String name) {
-					return name.matches(".*pdf");
+					return name.matches(".*txt");
 				}
 			});
 
 			
-			System.out.println("Existem " + pdfs.length + " arquivos PDFs para analisar"); 
+			System.out.println("Existem " + txtFiles.length + " arquivos de texto de bula para analisar"); 
 
 			int i = 1;
-			for (File pdf : pdfs) {
-				System.out.print("Indexando doc " + (i) + " de " + pdfs.length + ": " + pdf.getName() + " ... ");
+			for (File file : txtFiles) {
+				System.out.print("Indexando doc " + (i) + " de " + txtFiles.length + ": " + file.getName() + " ... ");
 
-				Map<String, String> fields = indexFile(pdf);
+				Map<String, String> fields = indexBula(file);
 				if (fields != null) {
 //					if (fields.size() < 7) System.err.println(pdf.getName() + "  " + fields.size());
 					secCount.put(fields.size(), secCount.get(fields.size()) + 1);

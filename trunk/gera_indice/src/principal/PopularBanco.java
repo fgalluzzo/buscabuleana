@@ -231,7 +231,8 @@ public class PopularBanco implements CsvRowListener {
 		String bulasFolder = "../bulas_teste/bulas/";
 		String indexFolder = "../indice_bulas/";
 		Indexar indexar = new Indexar(bulasFolder, indexFolder);
-		indexar.index();
+		indexar.extractPdfs();
+		//indexar.index();
 		
 		// TODO associar bula ao medicamento
 	}
