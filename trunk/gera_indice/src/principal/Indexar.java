@@ -41,7 +41,6 @@ import dao.SecaoBulaDao;
 public class Indexar {
 
 	private IndexWriter indexWriter;
-	private int corrupted = 0;
 	private Map <Integer, Integer> secCount = new TreeMap<Integer, Integer>();	// K=num of sections, V=num of docs
 	private String bulasFolder = null;
 	private String indexFolder = null;
@@ -55,107 +54,43 @@ public class Indexar {
 		}
 	}
 
-	
-	public String extractTextFromPdf(File pdfFile) throws FileNotFoundException, IOException {
-		String text = null;
+	private String getFileContents(File file) throws FileNotFoundException {
+
+		BufferedReader br = new BufferedReader(new FileReader(file));
+		
+		String line = null;
+		StringBuilder sb = new StringBuilder((int) file.length() + 16); 
 		try {
-			FileInputStream fi = new FileInputStream(pdfFile);
-			PDFParser parser = new PDFParser(fi);
-			parser.parse();
-
-			COSDocument cd = parser.getDocument();
-			PDDocument pd = new PDDocument(cd);
-			
-			PDFTextStripper stripper = new PDFTextStripper();
-			text = stripper.getText(pd);
-			
-			pd.close();
-			cd.close();
-			fi.close();
-			
-			return text;
-			
-		} catch (FileNotFoundException e) {
-			throw e;
-
+			while ((line = br.readLine()) != null) {
+				sb.append(line);
+				sb.append('\n');
+			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			
-			if (text == null || "".equals(text)) throw e;
-			return text;
 		}
-	}
-	
-	public void extractPdfs() {
-
-		File bulasf = new File(bulasFolder);
-		File [] pdfs = bulasf.listFiles(new FilenameFilter() {
-			@Override
-			public boolean accept(File dir, String name) {
-				return name.matches(".*pdf");
-			}
-		});
 		
-		String txtDirectory = bulasFolder + "\\plain\\";
-		File dir = new File(txtDirectory);
-		dir.mkdir();
-
-		System.out.println("Existem " + pdfs.length + " arquivos PDFs para extrair"); 
-
-		int count = 1;
-		int corrupted = 0;
-		for (File pdf : pdfs) {
-
-			try {
-				System.out.println(String.format("Extracting from %s (%d / %d %d %%)",
-						pdf.getName(), count, pdfs.length, 100 * count / pdfs.length));
-				String text = extractTextFromPdf(pdf);
-
-				// Escreve bula em texto plano (nao parseado)
-				FileWriter fw;
-				try {
-					String txtFileName = pdf.getName() + ".txt";
-					System.out.println("Writing " + txtFileName + "...");
-					fw = new FileWriter(txtDirectory + txtFileName);
-					fw.write(text);
-					fw.close();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-			}
-			catch (Exception e) {
-				System.out.print("\nArquivo corrompido: " + pdf.getName());
-				corrupted++;
-				//pdf.delete();
-			}
-			
-			count++;
-		}
-
-		System.err.println(String.format("Concluido. Taxa de corrompimento dos PDFs: %4.1f", 100*((float)corrupted) / count));
+		return sb.toString();
 	}
-	
-	
-	
+
 	public Map <String, String> indexBula(File file) throws IOException {
-		
-		BulaParser bulaParser = new BulaParser();
+
+		// JPA EM e DAOs
 		EntityManager em = PersistenceFactory.getEntityManager();
 		SecaoBulaDao secaoBulaDao = new SecaoBulaDao(em);
 		BulaDao bulaDao = new BulaDao(em);
-		
-		String code = file.getName().replaceAll("^([0-9]+)[.]txt$", "$1");
-		
+
+		// Obtem bula a partir do codigo
+		String code = file.getName().replaceAll("^([0-9]+)[.]pdf[.]txt$", "$1");
 		BulaBean bula = bulaDao.getByCodigo(code);
 		if (bula != null) return null;
-		
+
 		String text = getFileContents(file);
 
 		// Obtem nome e texto das seçoes da bula
+		BulaParser bulaParser = new BulaParser();
 		Map <String, String> fields = bulaParser.findSections(text, bulasFolder + file.getName());
-		
+
 		// Cria documento do Lucene
 		Document d = new Document();
 		d.add(new Field("code", code, Field.Store.YES, Field.Index.NO));
@@ -170,9 +105,9 @@ public class Indexar {
 		EntityTransaction tx = em.getTransaction();
 		try {
 			tx.begin();
-			
+
 			for (String name : fields.keySet()) {
-				
+
 				// Pega Secao de bula 
 				SecaoBulaBean secaoBulaBean = secaoBulaDao.findByShortName(name);
 				if (secaoBulaBean == null) {
@@ -181,7 +116,7 @@ public class Indexar {
 					secaoBulaBean.setNome(name);
 					em.persist(secaoBulaBean);
 				}
-				
+
 				ConteudoSecaoBean secao = new ConteudoSecaoBean();
 				secao.setBula(bula);
 				secao.setTexto(fields.get(name));
@@ -190,7 +125,7 @@ public class Indexar {
 
 				d.add(new Field(name, fields.get(name), Field.Store.NO, Field.Index.ANALYZED));
 			}
-			
+
 			bula.setConteudoSecao(secoesBean);
 			em.persist(bula);
 			tx.commit();
@@ -213,34 +148,17 @@ public class Indexar {
 		return fields;
 	}
 
-	private String getFileContents(File file) throws FileNotFoundException {
 
-		BufferedReader br = new BufferedReader(new FileReader(file));
-		
-		String line = null;
-		StringBuilder sb = new StringBuilder((int) file.length() + 16); 
+	public void index() {
 		try {
-			while ((line = br.readLine()) != null) {
-				sb.append(line);
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return sb.toString();
-	}
-
-
-	public void index(final String filePattern) {
-		try {
-			File bulasf = new File(bulasFolder + "/plain/");
 			File indexf = new File(indexFolder);
 			Directory dir = new SimpleFSDirectory(indexf);
-			SimpleAnalyzer analyzer = new SimpleAnalyzer();
 
+			SimpleAnalyzer analyzer = new SimpleAnalyzer();
 			indexWriter = new IndexWriter(dir, analyzer, MaxFieldLength.UNLIMITED);
 
+			// Obtem lista dos arquivos texto 
+			File bulasf = new File(bulasFolder + "/plain/");
 			File[] txtFiles = bulasf.listFiles(new FilenameFilter() {
 				@Override
 				public boolean accept(File dir, String name) {
@@ -248,39 +166,37 @@ public class Indexar {
 				}
 			});
 
-			
+
 			System.out.println("Existem " + txtFiles.length + " arquivos de texto de bula para analisar"); 
 
-			int i = 1;
+			int count = 1;
 			for (File file : txtFiles) {
-				System.out.print("Indexando doc " + (i) + " de " + txtFiles.length + ": " + file.getName() + " ... ");
+				System.out.print("Indexando doc " + (count) + " de " + txtFiles.length + ": " + file.getName() + " ... ");
 
 				Map<String, String> fields = indexBula(file);
 				if (fields != null) {
-//					if (fields.size() < 7) System.err.println(pdf.getName() + "  " + fields.size());
 					secCount.put(fields.size(), secCount.get(fields.size()) + 1);
-//
-//					System.out.print(String.format(" - %d secoes (%4.1f%% concluido)", fields.size(), 100.0 * i / pdfs.length));
+					System.out.print(String.format("%d secoes (%4.1f%% concluido)", fields.size(), 100.0 * count / txtFiles.length));
 				}
-//				else
-//					System.out.print(String.format(" - %d de %d (%4.1f%% corrompido)", corrupted, i, 100.0*corrupted / i));
+				else {
+					System.out.print("já indexado anteriormente.");
+				}
 
-				i++;
+				count++;
 				//if (i > 20) break;
 				System.out.println("");
 			}
 			indexWriter.optimize();
 			indexWriter.close();
 
-			System.err.println(String.format("Taxa de corrompimento dos PDFs: %4.1f", 100*((float)corrupted) / i));
-			System.err.println(String.format("Quantidade de secoes e suas respectivas quantidades de bulas:"));
-			System.err.println("secoes\tbulas");
+			System.out.println("Concluido. Indice criado e bulas persistidas!\n");
+
+			System.out.println(String.format("Quantidade de secoes e suas respectivas quantidades de bulas:"));
+			System.out.println("secoes\tbulas");
 			for (Integer key : secCount.keySet()) {
-				System.err.println(String.format("%d\t%d", key, secCount.get(key)));
+				System.out.println(String.format("%d\t%d", key, secCount.get(key)));
 			}
 
-
-			System.out.println("Concluido. Indice criado e bulas persistidas!");			
 		} catch (CorruptIndexException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

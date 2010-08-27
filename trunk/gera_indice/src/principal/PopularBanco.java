@@ -211,7 +211,7 @@ public class PopularBanco implements CsvRowListener {
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 
 	/**
 	 * Faz a indexacao completa. É possivel comentar trechos que já estiverem no banco
@@ -225,15 +225,16 @@ public class PopularBanco implements CsvRowListener {
 		//String listaFolder = "../bulas_teste/anvisa/medicamentos.csv";
 		//pb.processa(new File(listaFolder));
 		em.close();
-		
+
 		// Insere bulas e suas secoes no banco
 		// Tabelas: bula, secao_bula, conteudo_secao_bula
-		String bulasFolder = "../bulas_teste/bulas/";
+		String bulasFolder = "../bulas_teste/";
 		String indexFolder = "../indice_bulas/";
+		//PdfExtractor extractor = new PdfExtractor(bulasFolder);
+		//extractor.extractPdfs();
 		Indexar indexar = new Indexar(bulasFolder, indexFolder);
-		indexar.extractPdfs();
-		//indexar.index();
-		
+		indexar.index();
+
 		// TODO associar bula ao medicamento
 	}
 
