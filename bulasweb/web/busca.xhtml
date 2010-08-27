@@ -10,7 +10,7 @@
     </h:head>
     <h:body>
         <ui:composition template="templates/modelo.xhtml">
-            <ui:define name="content">
+            <ui:define name="content">                
                 <h:form prependId="false">
                     <div class="post">
                         <h2 class="Title"><h:outputText value="#{msg.buscar} #{msg.bulas}"></h:outputText></h2>
@@ -20,40 +20,36 @@
                                 <p:autoComplete id="buscabulas" value="#{BulaBean.texto}" ></p:autoComplete>
                                 <p:commandLink ajax="false"
                                                update="itensbusca"   action="#{BuscarControle.buscar}" ><h:graphicImage value="/recursos/css/images/busca.jpg"></h:graphicImage></p:commandLink>
-                                
+
                             </h:panelGrid>
-                            
-                           <p:dataTable id="itensbusca" paginatorPosition="bottom" paginatorAlwaysVisible="false" var="bula" value="#{BuscarControle.bulas}"
-                                        paginator="true" rows="10"   paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown} "
-                                        rowsPerPageTemplate="10,15,20" dynamic="false" emptyMessage="#{msg.Nenhum} #{msg.registro} #{msg.encontrado}" >
-                               <p:column>
+
+                            <p:dataTable id="itensbusca" paginatorPosition="bottom" paginatorAlwaysVisible="false" var="bula" value="#{BuscarControle.bulas}"
+                                         paginator="true" rows="10"   paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown} "
+                                         rowsPerPageTemplate="10,15,20" dynamic="false" emptyMessage="#{msg.Nenhum} #{msg.registro} #{msg.encontrado}" >
+                                <p:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{msg.Codigo}"></h:outputText>
                                     </f:facet>
-                                   <h:outputText  value="#{bula.codigo}"></h:outputText>
+                                    <h:outputText  value="#{bula.codigo}"></h:outputText>
                                 </p:column>
-                               <p:column>
+                                <p:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{msg.Medicamento}"></h:outputText>
                                     </f:facet>
-                                   <h:outputText  value="#{bula.medicamento.nome}"></h:outputText>
+                                    <h:commandLink action="interacao" value="#{bula.medicamento.nome}" >
+                                        <f:setPropertyActionListener target="#{MedicamentoDTO.medicamento}"
+                                                     value="#{bula.medicamento}"></f:setPropertyActionListener>
+                                    </h:commandLink>
+
+
                                 </p:column>
 
-                            </p:dataTable>     
-                            
-                            <!--<p:dataList var="bula" id="itensbusca" paginatorPosition="bottom"
-                                        paginator="true" paginatorAlwaysVisible="false" rows="10" value="#{BuscarControle.bulas}"
-                                        paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown} "
-                                        rowsPerPageTemplate="10,15,20">
-                                        <p:column>
-                                    
-                                   <h:outputText  value="#{bula}"></h:outputText>
-                                </p:column>
-                            </p:dataList>-->
+                            </p:dataTable>                                
 
                         </div>
                     </div>
                 </h:form>
+                    
             </ui:define>
         </ui:composition>
     </h:body>

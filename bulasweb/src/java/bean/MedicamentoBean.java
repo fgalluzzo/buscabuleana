@@ -89,4 +89,5 @@ public class MedicamentoBean implements Serializable {
 	public void setBula(BulaBean bula) {
 		this.bula = bula;
 	}
+
 }
