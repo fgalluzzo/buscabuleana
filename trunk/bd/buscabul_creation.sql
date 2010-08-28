@@ -64,7 +64,7 @@ COMMENT = 'Representa o medicamento de marca.';
 DROP TABLE IF EXISTS `bulas`.`bula` ;
 
 CREATE  TABLE IF NOT EXISTS `bulas`.`bula` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `medicamento_fk` INT NULL DEFAULT NULL ,
   `texto` MEDIUMTEXT NOT NULL ,
   `codigo` VARCHAR(10) NOT NULL ,
