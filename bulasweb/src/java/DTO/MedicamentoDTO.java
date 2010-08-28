@@ -3,8 +3,9 @@
  * and open the template in the editor.
  */
 
-package bean;
+package DTO;
 
+import bean.MedicamentoBean;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
@@ -14,8 +15,8 @@ import javax.faces.bean.SessionScoped;
  * @author galluzzo
  */
 @ManagedBean(name="MedicamentoDTO")
-@SessionScoped
-public class Medicamento {
+@RequestScoped
+public class MedicamentoDTO {
 
     private MedicamentoBean medicamento;
 

@@ -11,13 +11,13 @@
     <h:body>
         <ui:composition template="templates/modelo.xhtml">
             <ui:define name="content">                
-                <h:form prependId="false">
+                <h:form>
                     <div class="post">
                         <h2 class="Title"><h:outputText value="#{msg.buscar} #{msg.bulas}"></h:outputText></h2>
                         <div class="entry">
                             <h:panelGrid columns="3">
                                 <h:outputLabel for="buscabulas" value="#{msg.busca}"></h:outputLabel>
-                                <p:autoComplete id="buscabulas" value="#{BulaBean.texto}" ></p:autoComplete>
+                                <p:autoComplete id="buscabulas" value="#{BulaDTO.textoPesquisa}" ></p:autoComplete>
                                 <p:commandLink ajax="false"
                                                update="itensbusca"   action="#{BuscarControle.buscar}" ><h:graphicImage value="/recursos/css/images/busca.jpg"></h:graphicImage></p:commandLink>
 
@@ -25,7 +25,8 @@
 
                             <p:dataTable id="itensbusca" paginatorPosition="bottom" paginatorAlwaysVisible="false" var="bula" value="#{BuscarControle.bulas}"
                                          paginator="true" rows="10"   paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown} "
-                                         rowsPerPageTemplate="10,15,20" dynamic="false" emptyMessage="#{msg.Nenhum} #{msg.registro} #{msg.encontrado}" >
+                                         rowsPerPageTemplate="10,15,20" dynamic="false" emptyMessage="#{msg.Nenhum} #{msg.registro} #{msg.encontrado}"
+                                         selection="#{BulaDTO.bulaSelecionada}" selectionMode="single">
                                 <p:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{msg.Codigo}"></h:outputText>
@@ -36,16 +37,13 @@
                                     <f:facet name="header">
                                         <h:outputText value="#{msg.Medicamento}"></h:outputText>
                                     </f:facet>
-                                    <h:commandLink action="interacao" value="#{bula.medicamento.nome}" >
-                                        <f:setPropertyActionListener target="#{MedicamentoDTO.medicamento}"
-                                                     value="#{bula.medicamento}"></f:setPropertyActionListener>
-                                    </h:commandLink>
-
-
+                                    <h:outputText  value="#{bula.medicamento.nome}" >
+                                    </h:outputText>
                                 </p:column>
 
-                            </p:dataTable>                                
 
+                            </p:dataTable>                                
+                            <p:commandButton action="interacao" value="#{msg.Ver} #{msg.interacao}"></p:commandButton>
                         </div>
                     </div>
                 </h:form>
