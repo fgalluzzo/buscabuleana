@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -42,8 +44,8 @@ public class MedicamentoBean implements Serializable {
 	private List <FarmacoBean> farmacos= new ArrayList<FarmacoBean>();
 
 	
-	@OneToOne (mappedBy="medicamento")
-	private BulaBean bula;
+	@OneToMany (mappedBy="medicamento", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private List <BulaBean> bulas = new ArrayList<BulaBean>();
 	
 
 	public String getNome() {
@@ -82,12 +84,11 @@ public class MedicamentoBean implements Serializable {
 		this.associacao = associacao;
 	}
 	
-	public BulaBean getBula() {
-		return bula;
+	public List<BulaBean> getBulas() {
+		return bulas;
 	}
 	
-	public void setBula(BulaBean bula) {
-		this.bula = bula;
+	public void setBulas(List<BulaBean> bulas) {
+		this.bulas = bulas;
 	}
-
 }
