@@ -2,10 +2,8 @@ package principal;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,10 +23,6 @@ import org.apache.lucene.index.IndexWriter.MaxFieldLength;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.LockObtainFailedException;
 import org.apache.lucene.store.SimpleFSDirectory;
-import org.apache.pdfbox.cos.COSDocument;
-import org.apache.pdfbox.pdfparser.PDFParser;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.util.PDFTextStripper;
 
 import util.PersistenceFactory;
 import bean.BulaBean;
@@ -40,19 +34,39 @@ import dao.SecaoBulaDao;
 
 public class Indexar {
 
-	private IndexWriter indexWriter;
-	private Map <Integer, Integer> secCount = new TreeMap<Integer, Integer>();	// K=num of sections, V=num of docs
 	private String bulasFolder = null;
 	private String indexFolder = null;
+
+	private IndexWriter indexWriter;
+	private Map <Integer, Integer> secCount = new TreeMap<Integer, Integer>();	// K=num of sections, V=num of docs
 	
+	private EntityManager em;
+	private SecaoBulaDao secaoBulaDao;
+	private BulaDao bulaDao;
+
 	public Indexar(String bulasFolder, String indexFolder) {
 		this.bulasFolder = bulasFolder;
 		this.indexFolder = indexFolder;
+		
+		// JPA: EM e DAOs
+		em = PersistenceFactory.createEntityManager();
+		secaoBulaDao = new SecaoBulaDao(em);
+		bulaDao = new BulaDao(em);
 
 		for (int i = 0; i <= BulaParser.getProperties().keySet().size(); i++) {
 			secCount.put(i, 0);
 		}
 	}
+	
+
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		super.finalize();
+		
+		em.close();
+	}
+	
 
 	private String getFileContents(File file) throws FileNotFoundException {
 
@@ -75,11 +89,6 @@ public class Indexar {
 
 	public Map <String, String> indexBula(File file) throws IOException {
 
-		// JPA EM e DAOs
-		EntityManager em = PersistenceFactory.getEntityManager();
-		SecaoBulaDao secaoBulaDao = new SecaoBulaDao(em);
-		BulaDao bulaDao = new BulaDao(em);
-
 		// Obtem bula a partir do codigo
 		String code = file.getName().replaceAll("^([0-9]+)[.]pdf[.]txt$", "$1");
 		BulaBean bula = bulaDao.getByCodigo(code);
@@ -93,8 +102,8 @@ public class Indexar {
 
 		// Cria documento do Lucene
 		Document d = new Document();
-		d.add(new Field("code", code, Field.Store.YES, Field.Index.NO));
-		d.add(new Field("text", text, Field.Store.NO, Field.Index.ANALYZED));
+		d.add(new Field("code", code, Field.Store.YES, Field.Index.NO));//id
+		d.add(new Field("text", text, Field.Store.NO, Field.Index.ANALYZED));//name
 		
 		// Bula Bean
 		bula = new BulaBean();
@@ -149,7 +158,7 @@ public class Indexar {
 	}
 
 
-	public void index() {
+	public void process() {
 		try {
 			File indexf = new File(indexFolder);
 			Directory dir = new SimpleFSDirectory(indexf);
@@ -183,7 +192,6 @@ public class Indexar {
 				}
 
 				count++;
-				//if (i > 20) break;
 				System.out.println("");
 			}
 			indexWriter.optimize();

@@ -11,6 +11,12 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Parseia texto (puro) da bula.
+ * 
+ * @author expedit
+ *
+ */
 public class BulaParser {
 	
 	private static final Properties properties = loadProperties();
