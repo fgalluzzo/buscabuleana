@@ -4,6 +4,7 @@
  */
 package controle;
 
+import DTO.BulaDTO;
 import bean.BulaBean;
 import dao.BulaDao;
 import java.io.File;
@@ -37,6 +38,8 @@ import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 import org.hibernate.Hibernate;
 import org.hibernate.ejb.EntityManagerImpl;
+import util.CarregaCfg;
+import util.Config;
 import util.PersistenceFactory;
 
 /**
@@ -47,7 +50,7 @@ import util.PersistenceFactory;
 @RequestScoped
 public class BuscarControle {
 
-    private final String INDICE = "c:/indice_bulas";// nao seria bom ler de uma arquivo properties?
+    private final String INDICE = CarregaCfg.config.getIndice();// nao seria bom ler de uma arquivo properties?
     private List<BulaBean> Bulas;
     BulaDao bd = new BulaDao(PersistenceFactory.getEntityManager());
 
@@ -63,12 +66,15 @@ public class BuscarControle {
 
         FacesContext context = FacesContext.getCurrentInstance();
         Application app = context.getApplication();
-        ValueExpression expression = app.getExpressionFactory().createValueExpression(context.getELContext(),
+        ValueExpression  expression = app.getExpressionFactory().createValueExpression(context.getELContext(),
+                String.format("#{%s}", "BulaDTO"), Object.class);
+        BulaDTO bt = (BulaDTO) expression.getValue(context.getELContext());
+
+        /*expression = app.getExpressionFactory().createValueExpression(context.getELContext(),
                 String.format("#{%s}", "BulaBean"), Object.class);
-
         BulaBean bb = (BulaBean) expression.getValue(context.getELContext());
-
-        if (!bb.getTexto().equals("")) {
+        */
+        if (!bt.getTextoPesquisa().equals("")) {
 
 
             File f = new File(INDICE);
@@ -82,7 +88,7 @@ public class BuscarControle {
                     IndexSearcher is = new IndexSearcher(ir);
                     SimpleAnalyzer analyzer = new SimpleAnalyzer();
                     QueryParser parser = new QueryParser(Version.LUCENE_20, "indicacao", analyzer);
-                    query = parser.parse(bb.getTexto());
+                    query = parser.parse(bt.getTextoPesquisa());
 
                     TopDocs topDocs = is.search(query, 50);
 

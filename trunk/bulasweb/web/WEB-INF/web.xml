@@ -35,7 +35,10 @@
                 <param-name>org.primefaces.ui.component.captcha.PRIVATE_KEY</param-name>
                 <param-value>6LemrgYAAAAAAMFvAmcbdOaS-GoRdAvDpUieN95t</param-value>
         </context-param>
-
+        <context-param>
+<param-name>primefaces.skin</param-name>
+<param-value>none</param-value>
+</context-param>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
