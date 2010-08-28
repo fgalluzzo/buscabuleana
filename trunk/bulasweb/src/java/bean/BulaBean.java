@@ -19,6 +19,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -37,7 +38,7 @@ public class BulaBean {
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
-	@OneToOne (fetch=FetchType.LAZY)
+	@ManyToOne (fetch=FetchType.LAZY)
 	@JoinColumn (name = "medicamento_fk", referencedColumnName = "id",
 			insertable = true, updatable = true) 
 	private MedicamentoBean medicamento;
@@ -101,7 +102,7 @@ public class BulaBean {
 	 * @param name
 	 * @return
 	 */
-	public String getSectionContentsByRegex(String name) {
+	public String getSectionContentsByName(String name) {
 		for (ConteudoSecaoBean csb : conteudoSecao) {
 			if (csb.getSecaoBula().getNomeCurto().equals(name))
 				return csb.getTexto();

@@ -34,6 +34,14 @@ public class PersistenceFactory {
 		}
 	}
 	
+	/**
+	 * Retorna uma nova instancia de EntityManager sem substituir o anterior.
+	 * @return
+	 */
+	public static EntityManager createEntityManager() {
+		return getEntityManagerFactory().createEntityManager();
+	}
+	
 	@Override
 	protected void finalize() throws Throwable {
 		// TODO Auto-generated method stub
