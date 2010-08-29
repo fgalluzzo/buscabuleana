@@ -84,28 +84,28 @@
 					<h:outputText value="#{result.secao.secaoBula.nome}" />
 				</rich:column>
 				<rich:column>
-					<h:commandLink action="interacao" title="#{msg.Interacao}">
+					<h:commandLink action="interacao" title="#{msg.Ver} #{msg.Interacao}">
 						<f:setPropertyActionListener value="#{result.bula.medicamento}"
-							target="#{MedicamentoDTO.medicamento}"></f:setPropertyActionListener>
-						<!--  <h:outputText value="#{result.bula.medicamento.nome}"></h:outputText> -->
-						<h:outputText value="#{msg.Interacao}"></h:outputText>
+							target="#{MedicamentoDTO.medicamento}"></f:setPropertyActionListener>						
 						<h:graphicImage value="/resources/css/images/icon_activity.gif"></h:graphicImage>
 					</h:commandLink>
 				</rich:column>
 				<rich:column>
 					<a4j:commandLink reRender="panelBula" oncomplete="Richfaces.showModalPanel('panelBula');"
-						id="linkBula" ajaxSingle="true" value="#{msg.Bula}">
+                                                         id="linkBula" ajaxSingle="true" title="#{msg.Ver} #{msg.bula}">
 							<f:setPropertyActionListener target="#{BulaDTO.bulaSelecionada}"
 									value="#{result.bula }" />
+                                                        <h:graphicImage value="/resources/css/images/icone-loupe.jpg"></h:graphicImage>
 					</a4j:commandLink>
 					<rich:componentControl for="panelBula" attachTo="linkBula" operation="show" event="onclick" />
 				</rich:column>
 				<rich:column>
-					<a4j:commandLink value="#{msg.Secao}" reRender="panelSecao"
+					<a4j:commandLink title="#{msg.Ver} #{msg.Secao}" reRender="panelSecao"
 						oncomplete="#{rich:component('panelSecao')}.show()" id="linkSecao" ajaxSingle="true">
 						<f:setPropertyActionListener target="#{BulaDTO.secaoBula}"
 								value="#{result.secao }"/>
-<!--						<h:graphicImage value="/resources/css/images/icone-loupe.jpg"></h:graphicImage>-->
+
+						<h:graphicImage value="/resources/css/images/document-icon.jpg"></h:graphicImage>
 					</a4j:commandLink>
 					<rich:componentControl for="panelSecao" attachTo="linkSecao" operation="show" event="onclick" />
 				</rich:column>

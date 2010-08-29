@@ -73,6 +73,38 @@ public class MedicamentoDao extends AbstractDao<MedicamentoBean> {
         return new ArrayList<MedicamentoBean>();
     }
 
+    public List<MedicamentoBean> findBySintomas(String sintoma) {
+        try {
+            Query q = em.createNativeQuery("select m.nome from secao_bula sb"
+                    + "inner join conteudo_secao_bula csb on csb.secao_id = sb.id"
+                    + "inner join bula b on b.id = csb.id"
+                    + "inner join medicamento m on m.id = b.medicamento_fk"
+                    + "where sb.nome_curto = 'indicacao'"
+                    + "and  LOCATE(LCASE((:sintoma)), LCASE(csb.texto)) <> 0"
+                    + "limit 10");
+            q.setParameter("sintoma", sintoma);
+            List<Integer> mids = q.getResultList();
+            if (mids.size() == 0) {
+                throw new NoResultException();
+            }
+            q = em.createQuery("from Medicamento where id in (:mids)");
+            q.setParameter("mids", mids);
+            return (List<MedicamentoBean>) q.getResultList();
+        } catch (NoResultException e) {
+        } catch (Exception e) {
+            e.printStackTrace();
+
+
+
+
+        }
+
+        return new ArrayList<MedicamentoBean>();
+
+
+
+    }
+
     public List<MedicamentoBean> findInteracaoMedicamentosa(String nome) {
         try {//f in m.farmacos and
 
@@ -91,8 +123,8 @@ public class MedicamentoDao extends AbstractDao<MedicamentoBean> {
                     + "associacao a on a.medicamento_id = m2.id "
                     + "inner join farmaco f on f.id = a.farmaco_id "
                     + "where LOCATE(LCASE(f.nome), LCASE(csb.texto)) <> 0 "
-                    + "and m2.nome=(:nome)" +
-                    " and m2.nome <> m.nome)");
+                    + "and m2.nome=(:nome)"
+                    + " and m2.nome <> m.nome)");
             q.setParameter("nome", nome);
             List<Integer> mids = q.getResultList();
             if (mids.size() == 0) {
