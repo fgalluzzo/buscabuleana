@@ -18,10 +18,30 @@
                             <h:panelGrid columns="3">
                                 <h:outputLabel for="buscabulas" value="#{msg.busca}"></h:outputLabel>
                                 <p:autoComplete id="buscabulas" value="#{BulaDTO.textoPesquisa}" ></p:autoComplete>
-                                <p:commandLink ajax="false"
-                                               update="itensbusca"   action="#{BuscarControle.buscar}" ><h:graphicImage value="/recursos/css/images/busca.jpg"></h:graphicImage></p:commandLink>
-
-                            </h:panelGrid>
+								<p:commandLink ajax="false" update="itensbusca"
+									action="#{BuscarControle.buscar}">
+									<h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage>
+								</p:commandLink>
+							</h:panelGrid>
+							<h:panelGrid columns="2">
+								<h:column>
+									<h:selectOneRadio value="#{BuscarControle.searchAt}">
+										<f:selectItem itemLabel="Texto inteiro" itemValue="1" />
+										<f:selectItem itemLabel="Seções automáticas:" itemValue="2" />
+									</h:selectOneRadio>
+									<h:selectManyCheckbox id="secoes" value="#{BuscarControle.secoesEscolhidas}" layout="pageDirection" >
+										<f:selectItems value="#{BuscarControle.secoes}"/>
+									</h:selectManyCheckbox>
+								</h:column>
+								
+								<h:column>
+									<h:selectManyCheckbox value="" layout="pageDirection">
+										<f:selectItem itemLabel="Nomes de medicamento" itemValue="1"/>
+										<f:selectItem itemLabel="Substâncias" itemValue="1"/>
+										<f:selectItem itemLabel="Laboratórios" itemValue="1"/>
+									</h:selectManyCheckbox>
+								</h:column>
+							</h:panelGrid>
 
                             <p:dataTable id="itensbusca" paginatorPosition="bottom" paginatorAlwaysVisible="false" var="bula" value="#{BuscarControle.bulas}"
                                          paginator="true" rows="10"   paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown} "
