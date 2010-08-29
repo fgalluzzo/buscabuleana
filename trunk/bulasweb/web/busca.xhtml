@@ -10,7 +10,7 @@
     </h:head>
     <h:body>
         <ui:composition template="templates/modelo.xhtml">
-            <ui:define name="content">                
+            <ui:define name="content">        
                 <h:form>
                     <div class="post">
                         <h2 class="Title"><h:outputText value="#{msg.buscar} #{msg.bulas}"></h:outputText></h2>
@@ -47,6 +47,21 @@
                                          paginator="true" rows="10"   paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown} "
                                          rowsPerPageTemplate="10,15,20" dynamic="false" emptyMessage="#{msg.Nenhum} #{msg.registro} #{msg.encontrado}"
                                          selection="#{BulaDTO.bulaSelecionada}" selectionMode="single">
+                                <p:column>
+                                	<f:facet name="header">
+                                		<h:outputText value=""></h:outputText>
+                                	</f:facet>
+                                	
+                                	<!-- nao funciona! -->
+                                	<h:selectBooleanCheckbox 
+                                		immediate="true" value="#{result.selected }"
+                                		valueChangeListener="#{BuscarControle.bulaSelected }" 
+                                		>
+                                		
+<!--                                		<a4j:support event="onchange" ajaxSingle="true"/>-->
+                                	</h:selectBooleanCheckbox>
+                                </p:column>
+                                
                                 <p:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{msg.Codigo}"></h:outputText>
@@ -102,7 +117,6 @@
                         </div>
                     </div>
                 </h:form>
-                    
             </ui:define>
         </ui:composition>
     </h:body>
