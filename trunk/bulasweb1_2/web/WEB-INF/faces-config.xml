@@ -34,8 +34,13 @@
             <from-outcome>busca</from-outcome>
             <to-view-id>/busca.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>interacao</from-outcome>
+            <to-view-id>/interacao.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
 
 </faces-config>
+
 
 
