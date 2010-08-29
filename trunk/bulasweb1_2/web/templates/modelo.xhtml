@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+     >
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />       
+        <link href="/bulasweb/resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+         <link href="/bulasweb/js/js-mindmap.css" rel="stylesheet" type="text/css" media="screen" /> 
+        <link type="text/css" rel="stylesheet" href="/bulasweb/resources/css/skin.css"/>
+        <script type="text/javascript" src="/bulasweb/js/excanvas.js" />
+<!--		<script type="text/javascript" src="/bulasweb/js/jquery-1.js" /> -->
+        <script type="text/javascript" src="/bulasweb/js/js-mindmap.js" />
+        <title><h:outputText value="#{msg.titulo}"></h:outputText></title>
+    </h:head>
+
+    <h:body>
+        <f:loadBundle var="msg" basename="message"></f:loadBundle>
+        <div id="logo">
+            <ui:insert name="logo"></ui:insert>
+            <h1><a href="#">Solutions  </a></h1>
+            <p><em> template design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a></em></p>
+        </div>
+        <hr />
+        <!-- end #logo -->
+        <div id="header">
+            <ui:insert name="header"></ui:insert>
+            <div id="menu">
+                <ui:insert name="menu"></ui:insert>
+                <h:form>
+                <ul>
+                    <li><h:commandLink action="index" value="#{msg.inicio}"></h:commandLink></li>
+                    <li><h:commandLink action="interacao" value="#{msg.interacao} #{msg.medicamentosa}"></h:commandLink></li>
+                    <li><h:commandLink action="busca" value="#{msg.buscar} #{msg.bulas}"></h:commandLink></li>
+                    <li><h:commandLink action="cadastro" value="#{msg.cadastrese}"></h:commandLink></li>
+                </ul>
+                </h:form>
+            </div>
+            <!-- end #menu -->
+           <!-- <div id="search">
+                <ui:insert name="search"></ui:insert>
+                <form method="get" action="">
+                    <fieldset>
+                        <input type="text" name="s" id="search-text" size="15" />
+                        <input type="submit" id="search-submit" value="GO" />
+                    </fieldset>
+                </form>
+            </div>-->
+            <!-- end #search -->
+        </div>
+        <!-- end #header -->
+        <!-- end #header-wrapper -->
+
+
+
+        <div id="page">
+            <ui:insert name="page"></ui:insert>
+            <div id="content" class="center_content">
+                <ui:insert name="content"></ui:insert>
+             
+                
+            </div>
+
+            <div style="clear: both;">&nbsp;</div>
+        </div>
+
+        <div id="footer">
+            <ui:insert name="footer"><p>Copyright (c) 2008 Sitename.com. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>.</p></ui:insert>
+
+        </div>
+
+    </h:body>
+
+</html>
