@@ -64,7 +64,7 @@ COMMENT = 'Representa o medicamento de marca.';
 DROP TABLE IF EXISTS `bulas`.`bula` ;
 
 CREATE  TABLE IF NOT EXISTS `bulas`.`bula` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `medicamento_fk` INT NULL DEFAULT NULL ,
   `texto` MEDIUMTEXT NOT NULL ,
   `codigo` VARCHAR(10) NOT NULL ,
@@ -124,6 +124,7 @@ CREATE  TABLE IF NOT EXISTS `bulas`.`secao_bula` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `nome_curto` VARCHAR(30) NOT NULL ,
   `nome` VARCHAR(60) NULL ,
+  `grupo` INT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `nome_curto_UNIQUE` (`nome_curto` ASC) )
 ENGINE = InnoDB
@@ -282,6 +283,7 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
 
 
 -- Manual
