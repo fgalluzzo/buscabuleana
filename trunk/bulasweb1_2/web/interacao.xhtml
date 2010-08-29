@@ -4,7 +4,8 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"      
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:a4j="http://richfaces.org/a4j">
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
     <head>
         <title><h:outputText value="#{msg.titulo}"></h:outputText></title>
 
@@ -29,7 +30,9 @@
                     });
 
                 </script>
+
                 <div class="post">
+                    <h2 class="Title"><h:outputText value="#{msg.Interacao} #{msg.Medicamentosa}"></h:outputText></h2>
                     <canvas id="cv" width="800" height="600" ></canvas>
 
                     <a4j:form>
@@ -43,21 +46,42 @@
                             <ul>
                                 <a4j:repeat var="rem" value="#{InteracaoControle.medicamentosInteracao}">
                                     <li style="background-color: red">
-                                            <h:outputLink >
-                                                <h:outputText value="#{rem.nome}"></h:outputText>
-                                                <small>
-                                                    <h:outputText value="#{rem.associacao}"></h:outputText>
-                                                </small>
-                                            </h:outputLink>                                            
-                                        </li>
+                                        <a4j:commandLink  reRender="panel" oncomplete="#{rich:component('panel')}.show()" id="link" value="#{rem.nome}"  ajaxSingle="true">                                                                                                  
+                                            <f:setPropertyActionListener target="#{MedicamentoDTO.medicamento}" value="#{rem}" ></f:setPropertyActionListener>
+                                        </a4j:commandLink>
+                                        <rich:componentControl for="panel" attachTo="link" operation="show" event="onclick"/>
+                                        <small><h:outputText value="#{rem.associacao}"></h:outputText> </small>
+
+
+                                    </li>
                                 </a4j:repeat>
-                                
+
 
                             </ul>
 
-                          
+
                         </div>
                     </a4j:form>
+                    <rich:modalPanel id="panel">
+                        <f:facet name="header">
+                            <h:panelGroup>
+                                <h:outputText value="#{msg.Detalhes} #{msg.do} #{msg.medicamento}"></h:outputText>
+                            </h:panelGroup>
+
+                        </f:facet>
+                        <f:facet name="controls">
+                            <h:panelGroup>
+                                <h:graphicImage value="/resources/css/images/close.png" styleClass="hidelink" id="hidelink"/>
+                                <rich:componentControl for="panel" attachTo="hidelink" operation="hide" event="onclick"/>
+                            </h:panelGroup>
+                        </f:facet>
+                        <a4j:form>
+                            <h:panelGrid columns="2">
+                                <h:outputText value="#{msg.Medicamento}}"></h:outputText>
+                                <h:outputText value="#{MedicamentoDTO.medicamento.nome}"></h:outputText>
+                            </h:panelGrid>
+                        </a4j:form>
+                    </rich:modalPanel>
                 </div>
             </ui:define>
         </ui:composition>
