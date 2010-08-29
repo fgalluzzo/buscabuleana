@@ -4,9 +4,11 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
      >
 
-    <h:head>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />       
         <link href="/bulasweb/resources/css/style.css" rel="stylesheet" type="text/css" media="screen" />
          <link href="/bulasweb/js/js-mindmap.css" rel="stylesheet" type="text/css" media="screen" /> 
@@ -15,9 +17,9 @@
 <!--		<script type="text/javascript" src="/bulasweb/js/jquery-1.js" /> -->
         <script type="text/javascript" src="/bulasweb/js/js-mindmap.js" />
         <title><h:outputText value="#{msg.titulo}"></h:outputText></title>
-    </h:head>
+    </head>
 
-    <h:body>
+    <body>
         <f:loadBundle var="msg" basename="message"></f:loadBundle>
         <div id="logo">
             <ui:insert name="logo"></ui:insert>
@@ -72,6 +74,6 @@
 
         </div>
 
-    </h:body>
+    </body>
 
 </html>

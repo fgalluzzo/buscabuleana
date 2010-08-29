@@ -39,7 +39,11 @@
             <to-view-id>/interacao.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>InteracaoControle</managed-bean-name>
+        <managed-bean-class>controle.InteracaoControle</managed-bean-class>
 
+        <managed-bean-scope>request</managed-bean-scope></managed-bean>
 </faces-config>
 
 
