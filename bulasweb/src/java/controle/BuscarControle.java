@@ -7,12 +7,9 @@ package controle;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,6 +19,7 @@ import javax.faces.application.Application;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ValueChangeEvent;
 import javax.persistence.EntityManager;
 
 import org.apache.lucene.analysis.SimpleAnalyzer;
@@ -42,6 +40,7 @@ import util.PersistenceFactory;
 import DTO.BulaDTO;
 import bean.BulaBean;
 import bean.ConteudoSecaoBean;
+import bean.MedicamentoBean;
 import bean.SecaoBulaBean;
 import dao.BulaDao;
 import dao.SecaoBulaDao;
@@ -54,17 +53,27 @@ import dao.SecaoBulaDao;
 @RequestScoped
 public class BuscarControle {
 
-    public class SingleResult {
+    public class SingleResult implements Comparable<SingleResult> {
     	private float score;
+    	private String selected;
     	private BulaBean bula;
     	private ConteudoSecaoBean secao;
 
 		public SingleResult(float score, BulaBean bb, ConteudoSecaoBean csb) {
 			super();
+			this.selected = "true";
 			this.score = score;
 			this.bula = bb;
 			this.secao = csb;
-		}  	
+		}
+		
+		public String getSelected() {
+			return selected;
+		}
+		
+		public void setSelected(String selected) {
+			this.selected = selected;
+		}
 		
 		public float getScore() {
 			return score;
@@ -77,8 +86,31 @@ public class BuscarControle {
 		public ConteudoSecaoBean getSecao() {
 			return secao;
 		}
+
+		@Override
+		public int compareTo(SingleResult arg) {
+			// Para colocar bula sem medicamento associado no final da tabela
+			MedicamentoBean aMedic = this.getBula().getMedicamento();
+			MedicamentoBean bMedic = arg.getBula().getMedicamento();
+
+			if (aMedic==null && bMedic!=null) return 1;
+			if (aMedic!=null && bMedic==null) return -1;
+
+			if (aMedic!=null&& bMedic!=null) {
+				String aNome = aMedic.getNome();
+				String bNome = bMedic.getNome();
+
+				if ("".equals(aNome) && !"".equals(bNome)) return 1;
+				if (!"".equals(aNome) && "".equals(bNome)) return -1;
+			}
+
+			// Ordena
+			if (this.score > arg.score) return -1;
+			else if (this.score < arg.score) return 1;
+			else return this.bula.getCodigo().compareTo(arg.bula.getCodigo());
+		}
     }
-        
+
 
 	//private final String INDICE = CarregaCfg.config.getIndice();// nao seria bom ler de uma arquivo properties?
 	private final String INDICE = "D:\\home\\expedit\\PPGI\\2010.2\\BRI\\workspace\\indice_bulas";
@@ -86,13 +118,14 @@ public class BuscarControle {
 	private List<String[]> secoes;
 	private List< String> secoesEscolhidas;
     private List<SingleResult> results;
+    //private Set<SingleResult> selectedResults;
     private String searchAt;
-    
-    
+
+
     private EntityManager em;
 	private SecaoBulaDao sbd;
 	private BulaDao bd;
-	
+
 
     /** Creates a new instance of BuscarControle */
     public BuscarControle() {
@@ -104,6 +137,7 @@ public class BuscarControle {
         results = new ArrayList<SingleResult>();
         secoesEscolhidas = new ArrayList<String>();
         secoes = new ArrayList<String[]>();
+        //selectedResults = new TreeSet<SingleResult>();
 
 		List<Integer> grupos = sbd.getGrupos();
 		for (Integer i : grupos) {
@@ -198,17 +232,7 @@ public class BuscarControle {
 
 	private void searchBySections(IndexSearcher is, SimpleAnalyzer analyzer, BulaDTO bt) {
 		
-		Set <SingleResult> set = new TreeSet<SingleResult>(
-				new Comparator<SingleResult>() {
-
-					@Override
-					public int compare(SingleResult a, SingleResult b) {
-						
-						if (a.score > b.score) return -1;
-						else if (a.score < b.score) return 1;
-						else return a.bula.getCodigo().compareTo(b.bula.getCodigo());
-					}
-		});
+		TreeSet<SingleResult> set = new TreeSet<SingleResult>();
 
     	for (String se : secoesEscolhidas) {//1,2,3,4...
     		
@@ -233,10 +257,32 @@ public class BuscarControle {
 				}
     		}
     	}
-    	    	
+    	
     	for (SingleResult sr : set) {
     		results.add(sr);
     	}
+	}
+	
+	public void bulaSelected(ValueChangeEvent e) {
+		System.out.println(e.getComponent().getClientId());
+		System.out.println(e.getComponent().getId());
+		
+		SingleResult sr = null;
+		Iterator <SingleResult> it = results.iterator();
+		while (it.hasNext()) {
+			sr = it.next();
+
+			if (sr.getBula().getCodigo().equals(e.getComponent().getClientId())) {
+				break;
+			}
+		}
+
+		if (e.getNewValue().equals("true")) {
+			sr.setSelected("true");
+		}
+		else if (e.getNewValue().equals("false")) {
+			sr.setSelected("false");
+		}
 	}
 
 	public BulaBean buscaBulaNoBanco(String codigo){
