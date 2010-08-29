@@ -25,6 +25,9 @@ public class SecaoBulaBean {
 	@Column
 	private String nome;
 	
+	@Column
+	private Integer grupo;
+	
 	@OneToMany (mappedBy="secaoBula", fetch=FetchType.LAZY)
 	private List<ConteudoSecaoBean> conteudoSecao;
 	
@@ -55,5 +58,19 @@ public class SecaoBulaBean {
 	
 	public void setConteudoSecao(List<ConteudoSecaoBean> conteudoSecao) {
 		this.conteudoSecao = conteudoSecao;
+	}
+	
+	public Integer getGrupo() {
+		return grupo;
+	}
+	
+	public void setGrupo(Integer grupo) {
+		this.grupo = grupo;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return this.nome;
 	}
 }
