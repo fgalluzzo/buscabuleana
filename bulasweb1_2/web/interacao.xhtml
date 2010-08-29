@@ -17,9 +17,9 @@
         <ui:composition template="templates/modelo.xhtml">
 
             <ui:define name="content">
-                <script type="text/javascript" src="/bulasweb/js/excanvas.js" />
-                <script type="text/javascript" src="/bulasweb/js/jquery-1.js" />
-                <script type="text/javascript" src="/bulasweb/js/js-mindmap.js" />
+                <script type="text/javascript" src="/bulasweb1_2/js/excanvas.js" />
+                <script type="text/javascript" src="/bulasweb1_2/js/jquery-1.js" />
+                <script type="text/javascript" src="/bulasweb1_2/js/js-mindmap.js" />
                 <script type="text/javascript">
                     $(document).ready(function() {
                         $("#js-mindmap").mindmap({
@@ -30,12 +30,16 @@
                     });
 
                 </script>
-
+<a4j:form>
                 <div class="post">
-                    <h2 class="Title"><h:outputText value="#{msg.Interacao} #{msg.Medicamentosa}"></h:outputText></h2>
+                    <h2 class="Title"><h:outputText value="#{msg.Interacao} #{msg.Medicamentosa}"></h:outputText>                        
+                    </h2>
+                    <p style="float: right;" class="meta"><em> <h:commandLink  action="busca"><h:outputText value="#{msg.voltar}"> </h:outputText> </h:commandLink></em></p>
+                     <div class="entry">
                     <canvas id="cv" width="800" height="600" ></canvas>
-
-                    <a4j:form>
+                    
+                    
+                        
                         <div id="js-mindmap">
                             <h:outputLink >
                                 <h:outputText value="#{MedicamentoDTO.medicamento.nome}"></h:outputText>
@@ -45,7 +49,7 @@
                             </h:outputLink>
                             <ul>
                                 <a4j:repeat var="rem" value="#{InteracaoControle.medicamentosInteracao}">
-                                    <li style="background-color: red">
+                                    <li style="background-color: #FF8C69">
                                         <a4j:commandLink  reRender="panel" oncomplete="#{rich:component('panel')}.show()" id="link" value="#{rem.nome}"  ajaxSingle="true">                                                                                                  
                                             <f:setPropertyActionListener target="#{MedicamentoDTO.medicamento}" value="#{rem}" ></f:setPropertyActionListener>
                                         </a4j:commandLink>
@@ -61,8 +65,11 @@
 
 
                         </div>
-                    </a4j:form>
-                    <rich:modalPanel id="panel">
+                   
+                     </div>
+                </div>
+     </a4j:form>
+    <rich:modalPanel id="panel">
                         <f:facet name="header">
                             <h:panelGroup>
                                 <h:outputText value="#{msg.Detalhes} #{msg.do} #{msg.medicamento}"></h:outputText>
@@ -82,7 +89,6 @@
                             </h:panelGrid>
                         </a4j:form>
                     </rich:modalPanel>
-                </div>
             </ui:define>
         </ui:composition>
 

@@ -5,7 +5,7 @@
         .js-mindmap{
             float: left;
             position: absolute;
-            top: 190px;
+            top: 250px;
             
 
 }
@@ -25,8 +25,15 @@
 		list-style:none;
 	}
 	.js-mindmap .node  a{
+                font-family: sans-serif;
+                font-size: 12px;
 		color:#003258;
 	}
+        .js-mindmap .node.a.small{
+                font-family: sans-serif;
+                font-size: 8px;
+		color:#003258;
+}
 	.js-mindmap .node.active{
 		background:#EAEFF5;
 		color:#003258;
