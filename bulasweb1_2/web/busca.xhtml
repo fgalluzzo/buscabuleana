@@ -1,128 +1,155 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"      
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:rich="http://richfaces.org/rich"
-      xmlns:a4j="http://richfaces.org/a4j">
-    <head>
-        <title><h:outputText value="#{msg.titulo}"></h:outputText></title>
-    </head>
-    <body>
-        <ui:composition template="templates/modelo.xhtml">
-            <ui:define name="content">        
-                <a4j:form>
-                    <div class="post">
-                        <h2 class="Title"><h:outputText value="#{msg.buscar} #{msg.bulas}"></h:outputText></h2>
-                        <div class="entry">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+<head>
+<title><h:outputText value="#{msg.titulo}"></h:outputText></title>
+</head>
+<body>
+<ui:composition template="templates/modelo.xhtml">
+	<ui:define name="content">
+		<a4j:form>
+			<div class="post">
+			<h2 class="Title"><h:outputText
+				value="#{msg.buscar} #{msg.bulas}"></h:outputText></h2>
+			<div class="entry">
+			<h:panelGrid columns="3">
+				<h:outputLabel for="buscabulas" value="#{msg.busca}"></h:outputLabel>
+				<h:inputText id="buscabulas" value="#{BulaDTO.textoPesquisa}"></h:inputText>
+				<a4j:commandLink action="#{BuscarControle.buscar}"
+					reRender="dtBulas" title="#{msg.Pesquisar}">
+					<h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage>
+				</a4j:commandLink>
+			</h:panelGrid> <h:panelGrid columns="1">
+				<h:column>
+					<h:selectOneRadio value="#{BuscarControle.searchAt}"
+						layout="pageDirection">
+						<a4j:support event="onchange" reRender="sections"
+							actionListener="#{BuscarControle.selectFullText}"></a4j:support>
+						<f:selectItem itemLabel="Texto inteiro" itemValue="fulltext" />
+						<f:selectItem itemLabel="Seções automáticas:" itemValue="sections" />
+					</h:selectOneRadio>
 
-                            <h:panelGrid columns="3">
-                                <h:outputLabel for="buscabulas" value="#{msg.busca}"></h:outputLabel>
-                                <h:inputText id="buscabulas" value="#{BulaDTO.textoPesquisa}"></h:inputText>
-                                <a4j:commandLink action="#{BuscarControle.buscar}" reRender="dtBulas" title="#{msg.Pesquisar}">
-                                    <h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage>
-                                </a4j:commandLink>
-                            </h:panelGrid>
-                            <h:panelGrid columns="1">
-                                <h:column>
-                                    <h:selectOneRadio value="#{BuscarControle.searchAt}" layout="pageDirection">
-                                    	<a4j:support event="onchange" reRender="sections" actionListener="#{BuscarControle.selectFullText}"></a4j:support>
-                                        <f:selectItem itemLabel="Texto inteiro" itemValue="fulltext" />
-                                        <f:selectItem itemLabel="Seções automáticas:" itemValue="sections" />
-                                    </h:selectOneRadio>
-                                    
-                                    <h:panelGrid columns="6" >
-                                    	<h:column/><h:column/><h:column/><h:column/><h:column/>
-                                    	<h:column>
-											<h:selectManyCheckbox id="sections" disabled="#{!BuscarControle.mostrarEscolhaSecoes}" value="#{BuscarControle.secoesEscolhidas}" layout="pageDirection" >
-		                                       	<f:selectItems value="#{BuscarControle.secoesSI }" />
-		                                   	</h:selectManyCheckbox>   
-                                    	</h:column>
-                                    </h:panelGrid>
-                                </h:column>
+					<h:panelGrid columns="6">
+						<h:column />
+						<h:column />
+						<h:column />
+						<h:column />
+						<h:column />
+						<h:column>
+							<h:selectManyCheckbox id="sections"
+								disabled="#{!BuscarControle.mostrarEscolhaSecoes}"
+								value="#{BuscarControle.secoesEscolhidas}"
+								layout="pageDirection">
+								<f:selectItems value="#{BuscarControle.secoesSI }" />
+							</h:selectManyCheckbox>
+						</h:column>
+					</h:panelGrid>
+				</h:column>
+			</h:panelGrid> <rich:dataTable rows="10" align="center" id="dtBulas" var="result"
+				value="#{BuscarControle.results}">
+				<f:facet name="header">
+					<rich:columnGroup>
+						<rich:column>
+							<h:outputText value="#{msg.Codigo}"></h:outputText>
+						</rich:column>
+						<rich:column>
+							<h:outputText value="#{msg.Medicamento}"></h:outputText>
+						</rich:column>
+						<rich:column colspan="3">
+							<h:outputText value="#{msg.Opcoes_visualizacao}"></h:outputText>
+						</rich:column>
+						<rich:column>
+							<h:outputText value="#{msg.Laboratorio}"></h:outputText>
+						</rich:column>
+						<rich:column>
+							<h:outputText value="#{msg.Secao}"></h:outputText>
+						</rich:column>
+					</rich:columnGroup>
+				</f:facet>
+				<rich:column>
+					<h:outputText value="#{result.bula.codigo}"></h:outputText>
+				</rich:column>
+				<rich:column>
+					<h:outputText value="#{result.bula.medicamento.nome}"></h:outputText>
+				</rich:column>
+				<rich:column>
+					<h:commandLink action="interacao" title="#{msg.Interacao}">
+						<f:setPropertyActionListener value="#{result.bula.medicamento}"
+							target="#{MedicamentoDTO.medicamento}"></f:setPropertyActionListener>
+						<!--  <h:outputText value="#{result.bula.medicamento.nome}"></h:outputText> -->
+						<h:outputText value="#{msg.Interacao}"></h:outputText>
+						<h:graphicImage value="/resources/css/images/icon_activity.gif"></h:graphicImage>
+					</h:commandLink>
+				</rich:column>
+				<rich:column>
+					<a4j:commandLink title="#{msg.Bula}" reRender="panel"
+						oncomplete="#{rich:component('panel')}.show()" id="link"
+						ajaxSingle="true">
+						<f:setPropertyActionListener target="#{BulaDTO.bulaSelecionada}"
+							value="#{result.bula }"></f:setPropertyActionListener>
+						<h:graphicImage value="/resources/css/images/icone-loupe.jpg"></h:graphicImage>
+					</a4j:commandLink>
+					<rich:componentControl for="panel" attachTo="link" operation="show" event="onclick" />
+				</rich:column>
+
+				<rich:column>
+					<a4j:commandLink title="#{msg.Bula}" reRender="panel"
+						oncomplete="#{rich:component('panel')}.show()" id="link"
+						ajaxSingle="true">
+						<f:setPropertyActionListener target="#{BulaDTO.bulaSelecionada}"
+							value="#{result.bula }"></f:setPropertyActionListener>
+<!--						<h:graphicImage value="/resources/css/images/icone-loupe.jpg"></h:graphicImage>-->
+					</a4j:commandLink>
+					<rich:componentControl for="panel" attachTo="link" operation="show" event="onclick" />
+				</rich:column>
+
+				<rich:column>
+					<h:outputText value="#{result.bula.medicamento.laboratorio.nome}" />
+				</rich:column>
+				<rich:column>
+					<h:outputText value="#{result.secao.secaoBula.nome}" />
+				</rich:column>
+
+				<f:facet name="footer">
+					<rich:datascroller renderIfSinglePage="false">
+
+					</rich:datascroller>
+				</f:facet>
+			</rich:dataTable></div>
+			</div>
+		</a4j:form>
+		<rich:modalPanel style="overflow: auto" id="panel" minHeight="400"
+			minWidth="600">
+
+			<f:facet name="header">
+				<h:panelGroup>
+					<h:outputText value="#{msg.Detalhes} #{msg.da} #{msg.bula}"></h:outputText>
+				</h:panelGroup>
+
+			</f:facet>
+			<f:facet name="controls">
+				<h:panelGroup>
+					<h:graphicImage value="/resources/css/images/close.png"
+						styleClass="hidelink" id="hidelink" />
+					<rich:componentControl for="panel" attachTo="hidelink"
+						operation="hide" event="onclick" />
+				</h:panelGroup>
+			</f:facet>
+			<a4j:form>
+				<h:panelGrid columns="1">
+					<h:outputText value="#{BulaDTO.bulaSelecionada.texto}"></h:outputText>
+				</h:panelGrid>
 
 
-                                <!--								<h:column>-->
-                                <!--									<h:selectManyCheckbox value="" layout="pageDirection">-->
-                                <!--										<f:selectItem itemLabel="Nomes de medicamento" itemValue="1"/>-->
-                                <!--										<f:selectItem itemLabel="Substâncias" itemValue="1"/>-->
-                                <!--										<f:selectItem itemLabel="Laboratórios" itemValue="1"/>-->
-                                <!--									</h:selectManyCheckbox>-->
-                                <!--								</h:column>-->
-                            </h:panelGrid>
-
-                            <rich:dataTable  rows="10" align="center" id="dtBulas"  var="result" value="#{BuscarControle.results}">
-                                <f:facet name="header">
-                                    <rich:columnGroup>
-                                        <rich:column>
-                                            <h:outputText value="#{msg.Codigo}"></h:outputText>
-                                        </rich:column>
-                                        <rich:column>
-                                            <h:outputText value="#{msg.Medicamento}"></h:outputText>
-                                        </rich:column>
-                                        <rich:column colspan="3">
-                                            <h:outputText value="#{msg.Opcoes}"></h:outputText>
-                                        </rich:column>
-                                    </rich:columnGroup>
-                                </f:facet>
-                                <rich:column>
-                                    <h:outputText  value="#{result.bula.codigo}" ></h:outputText>                                                                         
-                                </rich:column>
-                                <rich:column>                                   
-                                        <h:outputText value="#{result.bula.medicamento.nome}"></h:outputText>                                    
-                                </rich:column>
-                                <rich:column>
-                                    <h:commandLink action="interacao" title="#{msg.Ver} #{msg.interacao}">
-                                        <f:setPropertyActionListener value="#{result.bula.medicamento}" target="#{MedicamentoDTO.medicamento}"></f:setPropertyActionListener>
-                                        <h:graphicImage value="/resources/css/images/icon_activity.gif"></h:graphicImage>
-                                    </h:commandLink>
-
-
-                                </rich:column>
-                                <rich:column>                                    
-                                    <a4j:commandLink title="#{msg.Ver} #{msg.bula}" reRender="panel" oncomplete="#{rich:component('panel')}.show()" id="link"  ajaxSingle="true">
-                                        <f:setPropertyActionListener target="#{BulaDTO.bulaSelecionada}" value="#{result.bula   }" ></f:setPropertyActionListener>
-                                        <h:graphicImage value="/resources/css/images/icone-loupe.jpg"></h:graphicImage>
-                                    </a4j:commandLink>
-                                    <rich:componentControl for="panel" attachTo="link" operation="show" event="onclick"/>
-
-
-
-                                </rich:column>
-                                <f:facet name="footer">
-                                    <rich:datascroller renderIfSinglePage="false">
-
-                                    </rich:datascroller>
-                                </f:facet>
-                            </rich:dataTable>                            
-                        </div>
-                    </div>
-                </a4j:form>
-                <rich:modalPanel style="overflow: auto"  id="panel" minHeight="400" minWidth="600" >
-                    
-                    <f:facet name="header">
-                        <h:panelGroup>
-                            <h:outputText value="#{msg.Detalhes} #{msg.da} #{msg.bula}"></h:outputText>
-                        </h:panelGroup>
-                        
-                    </f:facet>
-                    <f:facet name="controls">
-                        <h:panelGroup>
-                            <h:graphicImage value="/resources/css/images/close.png" styleClass="hidelink" id="hidelink"/>
-                            <rich:componentControl for="panel" attachTo="hidelink" operation="hide" event="onclick"/>
-                        </h:panelGroup>
-                    </f:facet>
-                    <a4j:form>
-                        <h:panelGrid columns="1">
-                            <h:outputText value="#{BulaDTO.bulaSelecionada.texto}"></h:outputText>
-                        </h:panelGrid>
-                        
-
-                    </a4j:form>
-                </rich:modalPanel>
-            </ui:define>
-        </ui:composition>
-    </body>
+			</a4j:form>
+		</rich:modalPanel>
+	</ui:define>
+</ui:composition>
+</body>
 </html>
 
