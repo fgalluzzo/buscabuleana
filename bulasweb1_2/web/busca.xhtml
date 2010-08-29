@@ -24,15 +24,22 @@
                                     <h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage>
                                 </a4j:commandLink>
                             </h:panelGrid>
-                            <h:panelGrid columns="2">
+                            <h:panelGrid columns="1">
                                 <h:column>
-                                    <h:selectOneRadio value="#{BuscarControle.searchAt}">
+                                    <h:selectOneRadio value="#{BuscarControle.searchAt}" layout="pageDirection">
+                                    	<a4j:support event="onchange" reRender="sections" actionListener="#{BuscarControle.selectFullText}"></a4j:support>
                                         <f:selectItem itemLabel="Texto inteiro" itemValue="fulltext" />
                                         <f:selectItem itemLabel="Seções automáticas:" itemValue="sections" />
                                     </h:selectOneRadio>
-                                    <h:selectManyCheckbox value="#{BuscarControle.secoesEscolhidas}" layout="pageDirection" >
-                                        <f:selectItems value="#{BuscarControle.secoesSI }" var="a"  />
-                                    </h:selectManyCheckbox>
+                                    
+                                    <h:panelGrid columns="6" >
+                                    	<h:column/><h:column/><h:column/><h:column/><h:column/>
+                                    	<h:column>
+											<h:selectManyCheckbox id="sections" disabled="#{!BuscarControle.mostrarEscolhaSecoes}" value="#{BuscarControle.secoesEscolhidas}" layout="pageDirection" >
+		                                       	<f:selectItems value="#{BuscarControle.secoesSI }" />
+		                                   	</h:selectManyCheckbox>   
+                                    	</h:column>
+                                    </h:panelGrid>
                                 </h:column>
 
 
