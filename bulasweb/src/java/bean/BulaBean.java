@@ -109,4 +109,12 @@ public class BulaBean {
 		}
 		return null;
 	}
+	
+	public ConteudoSecaoBean getSectionByName(String name) {
+		for (ConteudoSecaoBean csb : conteudoSecao) {
+			if (csb.getSecaoBula().getNomeCurto().equals(name))
+				return csb;
+		}
+		return null;
+	}
 }

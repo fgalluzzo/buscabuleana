@@ -18,32 +18,32 @@
                             <h:panelGrid columns="3">
                                 <h:outputLabel for="buscabulas" value="#{msg.busca}"></h:outputLabel>
                                 <p:autoComplete id="buscabulas" value="#{BulaDTO.textoPesquisa}" ></p:autoComplete>
-								<p:commandLink ajax="false" update="itensbusca"
-									action="#{BuscarControle.buscar}">
+								<p:commandLink ajax="false" update="itensbusca" action="#{BuscarControle.buscar}">
 									<h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage>
 								</p:commandLink>
 							</h:panelGrid>
 							<h:panelGrid columns="2">
 								<h:column>
 									<h:selectOneRadio value="#{BuscarControle.searchAt}">
-										<f:selectItem itemLabel="Texto inteiro" itemValue="1" />
-										<f:selectItem itemLabel="Seções automáticas:" itemValue="2" />
+										<f:selectItem itemLabel="Texto inteiro" itemValue="fulltext" />
+										<f:selectItem itemLabel="Seções automáticas:" itemValue="sections" />
 									</h:selectOneRadio>
-									<h:selectManyCheckbox id="secoes" value="#{BuscarControle.secoesEscolhidas}" layout="pageDirection" >
-										<f:selectItems value="#{BuscarControle.secoes}"/>
+									<h:selectManyCheckbox value="#{BuscarControle.secoesEscolhidas}" layout="pageDirection" >
+										<f:selectItems value="#{BuscarControle.secoes }" var="a" itemValue="#{a[0]}" itemLabel="#{a[1]}"/>
 									</h:selectManyCheckbox>
 								</h:column>
 								
-								<h:column>
-									<h:selectManyCheckbox value="" layout="pageDirection">
-										<f:selectItem itemLabel="Nomes de medicamento" itemValue="1"/>
-										<f:selectItem itemLabel="Substâncias" itemValue="1"/>
-										<f:selectItem itemLabel="Laboratórios" itemValue="1"/>
-									</h:selectManyCheckbox>
-								</h:column>
+								
+<!--								<h:column>-->
+<!--									<h:selectManyCheckbox value="" layout="pageDirection">-->
+<!--										<f:selectItem itemLabel="Nomes de medicamento" itemValue="1"/>-->
+<!--										<f:selectItem itemLabel="Substâncias" itemValue="1"/>-->
+<!--										<f:selectItem itemLabel="Laboratórios" itemValue="1"/>-->
+<!--									</h:selectManyCheckbox>-->
+<!--								</h:column>-->
 							</h:panelGrid>
 
-                            <p:dataTable id="itensbusca" paginatorPosition="bottom" paginatorAlwaysVisible="false" var="bula" value="#{BuscarControle.bulas}"
+                            <p:dataTable id="itensbusca" paginatorPosition="bottom" paginatorAlwaysVisible="false" var="result" value="#{BuscarControle.results}"
                                          paginator="true" rows="10"   paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown} "
                                          rowsPerPageTemplate="10,15,20" dynamic="false" emptyMessage="#{msg.Nenhum} #{msg.registro} #{msg.encontrado}"
                                          selection="#{BulaDTO.bulaSelecionada}" selectionMode="single">
@@ -51,16 +51,51 @@
                                     <f:facet name="header">
                                         <h:outputText value="#{msg.Codigo}"></h:outputText>
                                     </f:facet>
-                                    <h:outputText  value="#{bula.codigo}"></h:outputText>
+                                    <h:outputText  value="#{result.bula.codigo}"></h:outputText>
                                 </p:column>
+                                
                                 <p:column>
                                     <f:facet name="header">
                                         <h:outputText value="#{msg.Medicamento}"></h:outputText>
                                     </f:facet>
-                                    <h:outputText  value="#{bula.medicamento.nome}" >
-                                    </h:outputText>
+
+<!-- lightbox ainda nao esta funcionando... -->
+									<p:lightBox width="50%" height="50%">  
+									    <h:outputLink value="#" title="#{result.bula.medicamento.nome}" >  
+									        <h:outputText value="#{result.bula.medicamento.nome}"/>  
+									    </h:outputLink>  
+
+									    <f:facet name="inline">  
+									        <h:outputText style="color:#FFFFFF" value="#{result.bula.texto}">
+									        </h:outputText>  
+									    </f:facet>  
+									</p:lightBox>
+                                </p:column>
+                                
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="#{msg.Secao}"></h:outputText>
+                                    </f:facet>
+                                    
+									<p:lightBox width="50%" height="50%">  
+									    <h:outputLink value="#" title="#{result.secao.secaoBula.nome}" >  
+									        <h:outputText value="#{result.secao.secaoBula.nome}"/>  
+									    </h:outputLink>  
+									                  
+									    <f:facet name="inline">  
+									        <h:outputText style="color:#FFFFFF" value="#{result.secao.texto}">
+									        </h:outputText>  
+									    </f:facet>  
+									</p:lightBox>
                                 </p:column>
 
+                                <p:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Score"></h:outputText>
+                                    </f:facet>
+                                    <h:outputText  value="#{result.score}" >
+                                    </h:outputText>
+                                </p:column>
 
                             </p:dataTable>                                
                             <p:commandButton action="interacao" value="#{msg.Ver} #{msg.interacao}"></p:commandButton>
