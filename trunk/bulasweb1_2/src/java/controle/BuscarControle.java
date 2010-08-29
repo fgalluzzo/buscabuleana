@@ -8,13 +8,16 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.el.ValueExpression;
 import javax.faces.application.Application;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.persistence.EntityManager;
 
 import org.apache.lucene.analysis.SimpleAnalyzer;
@@ -130,6 +133,7 @@ public class BuscarControle {
     private EntityManager em;
     private SecaoBulaDao sbd;
     private BulaDao bd;
+    private String mostrarEscolhaSecoes; 
 
 
     /** Creates a new instance of BuscarControle */
@@ -169,7 +173,8 @@ public class BuscarControle {
 
         }
 
-        searchAt = "";
+        searchAt = "sections";
+        mostrarEscolhaSecoes = "true";
     }
 
     @Override
@@ -179,6 +184,21 @@ public class BuscarControle {
 
         em.close();
     }
+    
+    
+    public void selectFullText(ActionEvent ae) {
+    	UIComponent c = ae.getComponent();
+    	Map<String, Object> m = c.getAttributes();
+    	System.out.println(m.get("value"));
+    	
+        if (mostrarEscolhaSecoes.equals("true")) {
+        	mostrarEscolhaSecoes = "false";
+        } else if (mostrarEscolhaSecoes.equals("false")) {
+        	mostrarEscolhaSecoes = "true";
+        }
+    	
+    }
+
 
     public void buscar() {
 
@@ -321,4 +341,12 @@ public class BuscarControle {
     public void setSearchAt(String searchAt) {
         this.searchAt = searchAt;
     }
+    
+    public String getMostrarEscolhaSecoes() {
+		return mostrarEscolhaSecoes;
+	}
+    
+    public void setMostrarEscolhaSecoes(String disableSections) {
+		this.mostrarEscolhaSecoes = disableSections;
+	}
 }
