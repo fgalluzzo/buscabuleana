@@ -20,7 +20,7 @@
                             <h:panelGrid columns="3">
                                 <h:outputLabel for="buscabulas" value="#{msg.busca}"></h:outputLabel>
                                 <h:inputText id="buscabulas" value="#{BulaDTO.textoPesquisa}"></h:inputText>
-                                <a4j:commandLink action="#{BuscarControle.buscar}" reRender="dtBulas,scBulas" title="#{msg.Pesquisar}">
+                                <a4j:commandLink action="#{BuscarControle.buscar}" reRender="dtBulas" title="#{msg.Pesquisar}">
                                     <h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage>
                                 </a4j:commandLink>
                             </h:panelGrid>
@@ -61,21 +61,34 @@
                                         <rich:column>
                                             <h:outputText value="#{msg.Medicamento}"></h:outputText>
                                         </rich:column>
+                                        <rich:column colspan="3">
+                                            <h:outputText value="#{msg.Opcoes}"></h:outputText>
+                                        </rich:column>
                                     </rich:columnGroup>
                                 </f:facet>
                                 <rich:column>
-
-                                    <a4j:commandLink title="#{msg.Ver} #{msg.bula}" reRender="panel" oncomplete="#{rich:component('panel')}.show()" id="link" value="#{result.bula.codigo}" ajaxSingle="true">
-                                        <f:setPropertyActionListener target="#{BulaDTO.bulaSelecionada}" value="#{result.bula   }" ></f:setPropertyActionListener>
-                                    </a4j:commandLink>
-                                    
-                                     <rich:componentControl for="panel" attachTo="link" operation="show" event="onclick"/>
+                                    <h:outputText  value="#{result.bula.codigo}" ></h:outputText>                                                                         
+                                </rich:column>
+                                <rich:column>                                   
+                                        <h:outputText value="#{result.bula.medicamento.nome}"></h:outputText>                                    
                                 </rich:column>
                                 <rich:column>
                                     <h:commandLink action="interacao" title="#{msg.Ver} #{msg.interacao}">
                                         <f:setPropertyActionListener value="#{result.bula.medicamento}" target="#{MedicamentoDTO.medicamento}"></f:setPropertyActionListener>
-                                        <h:outputText value="#{result.bula.medicamento.nome}"></h:outputText>
+                                        <h:graphicImage value="/resources/css/images/icon_activity.gif"></h:graphicImage>
                                     </h:commandLink>
+
+
+                                </rich:column>
+                                <rich:column>                                    
+                                    <a4j:commandLink title="#{msg.Ver} #{msg.bula}" reRender="panel" oncomplete="#{rich:component('panel')}.show()" id="link"  ajaxSingle="true">
+                                        <f:setPropertyActionListener target="#{BulaDTO.bulaSelecionada}" value="#{result.bula   }" ></f:setPropertyActionListener>
+                                        <h:graphicImage value="/resources/css/images/icone-loupe.jpg"></h:graphicImage>
+                                    </a4j:commandLink>
+                                    <rich:componentControl for="panel" attachTo="link" operation="show" event="onclick"/>
+
+
+
                                 </rich:column>
                                 <f:facet name="footer">
                                     <rich:datascroller renderIfSinglePage="false">
