@@ -84,7 +84,7 @@
 					<h:outputText value="#{result.secao.secaoBula.nome}" />
 				</rich:column>
 				<rich:column>
-					<h:commandLink action="interacao" title="#{msg.Ver} #{msg.Interacao}">
+                                    <h:commandLink rendered="#{not empty result.bula.medicamento.nome}" action="interacao" target="blank" title="#{msg.Ver} #{msg.Interacao}">
 						<f:setPropertyActionListener value="#{result.bula.medicamento}"
 							target="#{MedicamentoDTO.medicamento}"></f:setPropertyActionListener>						
 						<h:graphicImage value="/resources/css/images/icon_activity.gif"></h:graphicImage>
