@@ -73,7 +73,7 @@ public class MedicamentoDao extends AbstractDao<MedicamentoBean> {
         return new ArrayList<MedicamentoBean>();
     }
 
-    public List<MedicamentoBean> findInteracaoMedicamentosa(String associacao) {
+    public List<MedicamentoBean> findInteracaoMedicamentosa(String nome) {
         try {//f in m.farmacos and
 
 
@@ -91,8 +91,8 @@ public class MedicamentoDao extends AbstractDao<MedicamentoBean> {
                     + "associacao a on a.medicamento_id = m2.id "
                     + "inner join farmaco f on f.id = a.farmaco_id "
                     + "where LOCATE(LCASE(f.nome), LCASE(csb.texto)) <> 0 "
-                    + "and m2.associacao=(:associacao)");
-            q.setParameter("associacao", associacao);
+                    + "and m2.nome=(:nome))");
+            q.setParameter("nome", nome);
             List<Integer> mids = q.getResultList();
             if (mids.size() == 0) {
                 throw new NoResultException();
