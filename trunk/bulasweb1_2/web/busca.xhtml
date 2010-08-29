@@ -60,22 +60,28 @@
 						<rich:column>
 							<h:outputText value="#{msg.Medicamento}"></h:outputText>
 						</rich:column>
-						<rich:column colspan="3">
-							<h:outputText value="#{msg.Opcoes_visualizacao}"></h:outputText>
-						</rich:column>
 						<rich:column>
 							<h:outputText value="#{msg.Laboratorio}"></h:outputText>
 						</rich:column>
 						<rich:column>
 							<h:outputText value="#{msg.Secao}"></h:outputText>
 						</rich:column>
-					</rich:columnGroup>
+						<rich:column colspan="3">
+							<h:outputText value="#{msg.Opcoes_visualizacao}"></h:outputText>
+						</rich:column>
+				</rich:columnGroup>
 				</f:facet>
 				<rich:column>
 					<h:outputText value="#{result.bula.codigo}"></h:outputText>
 				</rich:column>
 				<rich:column>
 					<h:outputText value="#{result.bula.medicamento.nome}"></h:outputText>
+				</rich:column>
+				<rich:column>
+					<h:outputText value="#{result.bula.medicamento.laboratorio.nome}" />
+				</rich:column>
+				<rich:column>
+					<h:outputText value="#{result.secao.secaoBula.nome}" />
 				</rich:column>
 				<rich:column>
 					<h:commandLink action="interacao" title="#{msg.Interacao}">
@@ -87,56 +93,42 @@
 					</h:commandLink>
 				</rich:column>
 				<rich:column>
-					<a4j:commandLink title="#{msg.Bula}" reRender="panel"
-						oncomplete="#{rich:component('panel')}.show()" id="link"
-						ajaxSingle="true">
-						<f:setPropertyActionListener target="#{BulaDTO.bulaSelecionada}"
-							value="#{result.bula }"></f:setPropertyActionListener>
-						<h:graphicImage value="/resources/css/images/icone-loupe.jpg"></h:graphicImage>
+					<a4j:commandLink reRender="panelBula" oncomplete="Richfaces.showModalPanel('panelBula');"
+						id="linkBula" ajaxSingle="true" value="#{msg.Bula}">
+							<f:setPropertyActionListener target="#{BulaDTO.bulaSelecionada}"
+									value="#{result.bula }" />
 					</a4j:commandLink>
-					<rich:componentControl for="panel" attachTo="link" operation="show" event="onclick" />
+					<rich:componentControl for="panelBula" attachTo="linkBula" operation="show" event="onclick" />
 				</rich:column>
-
 				<rich:column>
-					<a4j:commandLink title="#{msg.Bula}" reRender="panel"
-						oncomplete="#{rich:component('panel')}.show()" id="link"
-						ajaxSingle="true">
-						<f:setPropertyActionListener target="#{BulaDTO.bulaSelecionada}"
-							value="#{result.bula }"></f:setPropertyActionListener>
+					<a4j:commandLink value="#{msg.Secao}" reRender="panelSecao"
+						oncomplete="#{rich:component('panelSecao')}.show()" id="linkSecao" ajaxSingle="true">
+						<f:setPropertyActionListener target="#{BulaDTO.secaoBula}"
+								value="#{result.secao }"/>
 <!--						<h:graphicImage value="/resources/css/images/icone-loupe.jpg"></h:graphicImage>-->
 					</a4j:commandLink>
-					<rich:componentControl for="panel" attachTo="link" operation="show" event="onclick" />
-				</rich:column>
-
-				<rich:column>
-					<h:outputText value="#{result.bula.medicamento.laboratorio.nome}" />
-				</rich:column>
-				<rich:column>
-					<h:outputText value="#{result.secao.secaoBula.nome}" />
+					<rich:componentControl for="panelSecao" attachTo="linkSecao" operation="show" event="onclick" />
 				</rich:column>
 
 				<f:facet name="footer">
 					<rich:datascroller renderIfSinglePage="false">
-
 					</rich:datascroller>
 				</f:facet>
 			</rich:dataTable></div>
 			</div>
 		</a4j:form>
-		<rich:modalPanel style="overflow: auto" id="panel" minHeight="400"
-			minWidth="600">
 
+		<rich:modalPanel style="overflow: auto" id="panelBula" minHeight="400" minWidth="600">
 			<f:facet name="header">
 				<h:panelGroup>
 					<h:outputText value="#{msg.Detalhes} #{msg.da} #{msg.bula}"></h:outputText>
 				</h:panelGroup>
-
 			</f:facet>
 			<f:facet name="controls">
 				<h:panelGroup>
 					<h:graphicImage value="/resources/css/images/close.png"
-						styleClass="hidelink" id="hidelink" />
-					<rich:componentControl for="panel" attachTo="hidelink"
+						styleClass="hidelink" id="hidelinkBula" />
+					<rich:componentControl for="panelBula" attachTo="hidelinkBula"
 						operation="hide" event="onclick" />
 				</h:panelGroup>
 			</f:facet>
@@ -144,8 +136,27 @@
 				<h:panelGrid columns="1">
 					<h:outputText value="#{BulaDTO.bulaSelecionada.texto}"></h:outputText>
 				</h:panelGrid>
+			</a4j:form>
+		</rich:modalPanel>
 
-
+		<rich:modalPanel style="overflow: auto" id="panelSecao" minHeight="400" minWidth="600">
+			<f:facet name="header">
+				<h:panelGroup>
+					<h:outputText value="#{msg.Detalhes} #{msg.da} #{msg.secao} #{msg.da} #{msg.bula }"></h:outputText>
+				</h:panelGroup>
+			</f:facet>
+			<f:facet name="controls">
+				<h:panelGroup>
+					<h:graphicImage value="/resources/css/images/close.png"
+						styleClass="hidelink" id="hidelinkSecao" />
+					<rich:componentControl for="panelSecao" attachTo="hidelinkSecao"
+						operation="hide" event="onclick" />
+				</h:panelGroup>
+			</f:facet>
+			<a4j:form>
+				<h:panelGrid columns="1">
+					<h:outputText value="#{BulaDTO.secaoBula.texto}"></h:outputText>
+				</h:panelGrid>
 			</a4j:form>
 		</rich:modalPanel>
 	</ui:define>

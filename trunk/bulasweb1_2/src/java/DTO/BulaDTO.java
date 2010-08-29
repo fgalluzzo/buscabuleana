@@ -6,6 +6,7 @@
 package DTO;
 
 import bean.BulaBean;
+import bean.ConteudoSecaoBean;
 
 
 /**
@@ -16,6 +17,7 @@ import bean.BulaBean;
 public class BulaDTO {
     private String textoPesquisa;
     private BulaBean bulaSelecionada;
+    private ConteudoSecaoBean secaoBula;
 
     public String getTextoPesquisa() {
         return textoPesquisa;
@@ -33,7 +35,13 @@ public class BulaDTO {
         this.bulaSelecionada = bulaSelecionada;
     }
     
+    public ConteudoSecaoBean getSecaoBula() {
+			return secaoBula;
+		}
     
+    public void setSecaoBula(ConteudoSecaoBean secaoBula) {
+			this.secaoBula = secaoBula;
+		}
 
 
     

@@ -187,16 +187,11 @@ public class BuscarControle {
     
     
     public void selectFullText(ActionEvent ae) {
-    	UIComponent c = ae.getComponent();
-    	Map<String, Object> m = c.getAttributes();
-    	System.out.println(m.get("value"));
-    	
         if (mostrarEscolhaSecoes.equals("true")) {
         	mostrarEscolhaSecoes = "false";
         } else if (mostrarEscolhaSecoes.equals("false")) {
         	mostrarEscolhaSecoes = "true";
         }
-    	
     }
 
 
@@ -212,6 +207,8 @@ public class BuscarControle {
         String.format("#{%s}", "BulaBean"), Object.class);
         BulaBean bb = (BulaBean) expression.getValue(context.getELContext());
          */
+        
+        results = new ArrayList<SingleResult>();
         if (!bt.getTextoPesquisa().equals("")) {
 
             File f = new File(INDICE);
