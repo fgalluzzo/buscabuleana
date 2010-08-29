@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"      
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
+    <head>
+        <title><h:outputText value="#{msg.titulo}"></h:outputText></title>
+    </head>
+    <body>
+        <ui:composition template="templates/modelo.xhtml">
+            <ui:define name="content">        
+                <a4j:form>
+                    <div class="post">
+                        <h2 class="Title"><h:outputText value="#{msg.buscar} #{msg.bulas}"></h:outputText></h2>
+                        <div class="entry">
+
+                            <h:panelGrid columns="3">
+                                <h:outputLabel for="buscabulas" value="#{msg.busca}"></h:outputLabel>
+                                <h:inputText id="buscabulas" value="#{BulaDTO.textoPesquisa}"></h:inputText>
+                                <a4j:commandLink action="#{BuscarControle.buscar}" reRender="dtBulas,scBulas">
+                                    <h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage>
+                                </a4j:commandLink>
+                            </h:panelGrid>
+                            <h:panelGrid columns="2">
+                                <h:column>
+                                    <h:selectOneRadio value="#{BuscarControle.searchAt}">
+                                        <f:selectItem itemLabel="Texto inteiro" itemValue="fulltext" />
+                                        <f:selectItem itemLabel="Seções automáticas:" itemValue="sections" />
+                                    </h:selectOneRadio>
+                                    <h:selectManyCheckbox value="#{BuscarControle.secoesEscolhidas}" layout="pageDirection" >
+                                        <f:selectItems value="#{BuscarControle.secoesSI }" var="a"  />
+                                    </h:selectManyCheckbox>
+                                </h:column>
+
+
+                                <!--								<h:column>-->
+                                <!--									<h:selectManyCheckbox value="" layout="pageDirection">-->
+                                <!--										<f:selectItem itemLabel="Nomes de medicamento" itemValue="1"/>-->
+                                <!--										<f:selectItem itemLabel="Substâncias" itemValue="1"/>-->
+                                <!--										<f:selectItem itemLabel="Laboratórios" itemValue="1"/>-->
+                                <!--									</h:selectManyCheckbox>-->
+                                <!--								</h:column>-->
+                            </h:panelGrid>
+
+                            <rich:dataTable  rows="10" align="center" id="dtBulas"  var="result" value="#{BuscarControle.results}">
+                                <f:facet name="header">
+                                    <rich:columnGroup>
+                                        <rich:column>
+                                            <h:outputText value="#{msg.Codigo}"></h:outputText>
+                                        </rich:column>
+                                        <rich:column>
+                                            <h:outputText value="#{msg.Medicamento}"></h:outputText>
+                                        </rich:column>
+                                    </rich:columnGroup>
+                                </f:facet>
+                                <rich:column>
+                                    <h:outputText value="#{result.bula.codigo}"></h:outputText>
+                                </rich:column>
+                                <rich:column>
+                                    <h:commandLink action="interacao">
+                                        <f:setPropertyActionListener value="#{result.bula.medicamento}" target="#{MedicamentoDTO.medicamento}"></f:setPropertyActionListener>
+                                    <h:outputText value="#{result.bula.medicamento.nome}"></h:outputText>
+                                    </h:commandLink>
+                                </rich:column>
+                                <f:facet name="footer">
+                                    <rich:datascroller renderIfSinglePage="false">
+
+                                    </rich:datascroller>
+                                </f:facet>
+                            </rich:dataTable>                            
+                        </div>
+                    </div>
+                </a4j:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
+
