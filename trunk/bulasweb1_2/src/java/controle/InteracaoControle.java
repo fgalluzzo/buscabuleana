@@ -30,20 +30,21 @@ public class InteracaoControle {
 
     public InteracaoControle(){
 
-        em = PersistenceFactory.createEntityManager();
-        medDao = new MedicamentoDao(em);        
+       
+    }
+
+    public List<MedicamentoBean> getMedicamentosInteracao() {
+         em = PersistenceFactory.createEntityManager();
+        medDao = new MedicamentoDao(em);
         FacesContext context = FacesContext.getCurrentInstance();
         Application app = context.getApplication();
         ValueExpression expression = app.getExpressionFactory().createValueExpression(context.getELContext(),
                 String.format("#{%s}", "MedicamentoDTO"), Object.class);
-        MedicamentoDTO md = (MedicamentoDTO) expression.getValue(context.getELContext());       
-        
+        MedicamentoDTO md = (MedicamentoDTO) expression.getValue(context.getELContext());
 
-        medicamentosInteracao = medDao.findInteracaoMedicamentosa(md.getMedicamento().getAssociacao());
 
-    }
+        medicamentosInteracao = medDao.findInteracaoMedicamentosa(md.getMedicamento().getNome());
 
-    public List<MedicamentoBean> getMedicamentosInteracao() {
         return medicamentosInteracao;
     }
 

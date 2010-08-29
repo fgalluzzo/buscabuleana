@@ -23,12 +23,6 @@ public class MedicamentoDTO {
     public void setMedicamento(MedicamentoBean medicamento) {
         this.medicamento = medicamento;
     }
-
-    public void testar(){
-        MedicamentoBean m = new MedicamentoBean();
-
-
-        m = this.medicamento;
-    }
+    
     
 }
