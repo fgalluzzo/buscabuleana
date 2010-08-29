@@ -9,15 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CadastrarUsuario
+ * Servlet implementation class Home
  */
-public class CadastrarUsuario extends HttpServlet {
+public class Home extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CadastrarUsuario() {
+    public Home() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,9 +33,9 @@ public class CadastrarUsuario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("pageContents", "cadastro.jsp");
+		request.setAttribute("pageContents", "index.html");
 		
-		request.setAttribute("title", "Cadastrar usuario");
+		request.setAttribute("title", "Home");
 				
 		RequestDispatcher dispatcher = request.getRequestDispatcher("template.jsp");
 		dispatcher.forward(request, response);
