@@ -223,7 +223,7 @@ public class BuscarControle {
                     ir = IndexReader.open(dir);
                     IndexSearcher is = new IndexSearcher(ir);
                     SimpleAnalyzer analyzer = new SimpleAnalyzer();
-
+                    results = new ArrayList<SingleResult>();
                     if (searchAt.equals("fulltext")) {
                         searchFullText(is, analyzer, bt);
                     } else if (searchAt.equals("sections")) {
