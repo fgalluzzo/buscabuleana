@@ -24,6 +24,21 @@
         <managed-bean-class>DTO.MedicamentoDTO</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>TabelaDTO</managed-bean-name>
+        <managed-bean-class>DTO.TabelaDTO</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>TabelaControle</managed-bean-name>
+        <managed-bean-class>controle.TabelaControle</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>InteracaoControle</managed-bean-name>
+        <managed-bean-class>controle.InteracaoControle</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
     <navigation-rule>
         <from-view-id>/*</from-view-id>
         <navigation-case>
@@ -43,17 +58,15 @@
             <to-view-id>/cadastro.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
+            <from-outcome>tabela</from-outcome>
+            <to-view-id>/tabela.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
             <from-outcome>interacao_s</from-outcome>
             <to-view-id>/interacao_pesquisa.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
-    <managed-bean>
-        <managed-bean-name>InteracaoControle</managed-bean-name>
-        <managed-bean-class>controle.InteracaoControle</managed-bean-class>
-
-        <managed-bean-scope>request</managed-bean-scope></managed-bean>
 </faces-config>
-
 
 
 
