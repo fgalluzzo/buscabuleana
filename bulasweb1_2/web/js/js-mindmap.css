@@ -5,7 +5,8 @@
         .js-mindmap{
             float: left;
             position: absolute;
-            top: 250px;
+            text-decoration: none;
+            top: 270px;
             
 
 }
@@ -13,32 +14,30 @@
 		position:absolute;
 		top:0;
 		left:0;
+                text-decoration: none;
+                table-layout: fixed;
+                text-indent: 10%;
 		font-family:verdana;
 		font-size:11px;
 		color:#003258;
 		background:#C1D1E0;
 		padding:15px;
 		-moz-border-radius:3px;
-		cursor:pointer;
-		cursor:hand;
+		cursor:pointer;		
 		z-index:100;
 		list-style:none;
 	}
 	.js-mindmap .node  a{
-                font-family: sans-serif;
-                font-size: 12px;
+
+                font-size: 11px;
 		color:#003258;
-	}
-        .js-mindmap .node.a.small{
-                font-family: sans-serif;
-                font-size: 8px;
-		color:#003258;
-}
+	} 
 	.js-mindmap .node.active{
 		background:#EAEFF5;
 		color:#003258;
 		font-weight:bold;
 		z-index:1000;
+                
 	}
 	.js-mindmap .node.active  a{
 		color:#003258;

@@ -30,62 +30,72 @@
                     });
 
                 </script>
-<a4j:form>
-                <div class="post">
-                    <h2 class="Title"><h:outputText value="#{msg.Remedios} #{msg.relacionados} #{msg.a} #{msg.sua} #{msg.pesquisa}"></h:outputText>
-                    </h2>
-                    <p style="float: right;" class="meta"><em> <h:commandLink  action="busca"><h:outputText value="#{msg.voltar}"> </h:outputText> </h:commandLink></em></p>
-                     <div class="entry">
-                    <canvas id="cv" width="800" height="600" ></canvas>
-                    
-                    
-                        
-                        <div id="js-mindmap">
-                            <h:outputLink >
-                                <h:outputText value="#{BulaDTO.textoPesquisa}"></h:outputText>
-                            </h:outputLink>
-                            <ul>
-                                <a4j:repeat var="rem" value="#{InteracaoControle.sintomasInteracao}">
-                                    <li style="background-color: green">
-                                        <a4j:commandLink  reRender="panel" oncomplete="#{rich:component('panel')}.show()" id="link" value="#{rem.nome}"  ajaxSingle="true">                                                                                                  
-                                            <f:setPropertyActionListener target="#{MedicamentoDTO.medicamento}" value="#{rem}" ></f:setPropertyActionListener>
-                                        </a4j:commandLink>
-                                        <rich:componentControl for="panel" attachTo="link" operation="show" event="onclick"/>
-                                        <small><h:outputText value="#{rem.associacao}"></h:outputText> </small>
+                <a4j:form>
+                    <div class="post">
+                        <h2 class="Title"><h:outputText value="#{msg.Remedios} #{msg.relacionados} #{msg.a} #{msg.sua} #{msg.pesquisa}"></h:outputText>
+                        </h2>
+                        <p style="float: right;" class="meta"><em> <h:commandLink  action="busca"><h:outputText value="#{msg.voltar}"> </h:outputText> </h:commandLink></em></p>
+                        <div class="entry">
+                            <canvas id="cv" width="800" height="600" ></canvas>
 
 
-                                    </li>
-                                </a4j:repeat>
+
+                            <div id="js-mindmap">
+                                <h:outputLink >
+                                    <h:outputText value="#{BulaDTO.textoPesquisa}"></h:outputText>
+                                </h:outputLink>
+                                <ul>
+                                    <a4j:repeat var="rem" value="#{InteracaoControle.sintomasInteracao}">
+                                        <li style="background-color: #98FB98">
+                                            <a4j:commandLink  reRender="panel" oncomplete="#{rich:component('panel')}.show()" id="link" value="#{rem.nome}"  ajaxSingle="true">
+                                                <f:setPropertyActionListener target="#{MedicamentoDTO.medicamento}" value="#{rem}" ></f:setPropertyActionListener>
+                                            </a4j:commandLink>
+                                            <rich:componentControl for="panel" attachTo="link" operation="show" event="onclick"/>
+                                            <ul>
+                                                <a4j:repeat var="farmaco" value="#{rem.farmacos}">
+                                                    <li style="background-color: #98FB98" >
+                                                        <h:outputText value="#{msg.Farmaco}: #{farmaco.nome}"></h:outputText>
+                                                    </li>
+                                                </a4j:repeat>
+                                                <li style="background-color: #98FB98" >
+                                                    <h:outputText value="#{msg.Laboratorio}: #{rem.laboratorio.nome}"></h:outputText>
+                                                </li>
+                                            </ul>
 
 
-                            </ul>
 
+                                        </li>
+                                    </a4j:repeat>
+
+
+                                </ul>
+
+
+                            </div>
 
                         </div>
-                   
-                     </div>
-                </div>
-     </a4j:form>
-    <rich:modalPanel id="panel">
-                        <f:facet name="header">
-                            <h:panelGroup>
-                                <h:outputText value="#{msg.Detalhes} #{msg.do} #{msg.medicamento}"></h:outputText>
-                            </h:panelGroup>
+                    </div>
+                </a4j:form>
+                <rich:modalPanel id="panel">
+                    <f:facet name="header">
+                        <h:panelGroup>
+                            <h:outputText value="#{msg.Detalhes} #{msg.do} #{msg.medicamento}"></h:outputText>
+                        </h:panelGroup>
 
-                        </f:facet>
-                        <f:facet name="controls">
-                            <h:panelGroup>
-                                <h:graphicImage value="/resources/css/images/close.png" styleClass="hidelink" id="hidelink"/>
-                                <rich:componentControl for="panel" attachTo="hidelink" operation="hide" event="onclick"/>
-                            </h:panelGroup>
-                        </f:facet>
-                        <a4j:form>
-                            <h:panelGrid columns="2">
-                                <h:outputText value="#{msg.Medicamento}}"></h:outputText>
-                                <h:outputText value="#{MedicamentoDTO.medicamento.nome}"></h:outputText>
-                            </h:panelGrid>
-                        </a4j:form>
-                    </rich:modalPanel>
+                    </f:facet>
+                    <f:facet name="controls">
+                        <h:panelGroup>
+                            <h:graphicImage value="/resources/css/images/close.png" styleClass="hidelink" id="hidelink"/>
+                            <rich:componentControl for="panel" attachTo="hidelink" operation="hide" event="onclick"/>
+                        </h:panelGroup>
+                    </f:facet>
+                    <a4j:form>
+                        <h:panelGrid columns="2">
+                            <h:outputText value="#{msg.Medicamento}}"></h:outputText>
+                            <h:outputText value="#{MedicamentoDTO.medicamento.nome}"></h:outputText>
+                        </h:panelGrid>
+                    </a4j:form>
+                </rich:modalPanel>
             </ui:define>
         </ui:composition>
 

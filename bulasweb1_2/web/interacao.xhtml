@@ -42,19 +42,37 @@
                         
                         <div id="js-mindmap">
                             <h:outputLink >
-                                <h:outputText value="#{MedicamentoDTO.medicamento.nome}"></h:outputText>
-                                <small>
-                                    <h:outputText value="#{MedicamentoDTO.medicamento.associacao}"></h:outputText>
-                                </small>
+                                <h:outputText value="#{MedicamentoDTO.medicamento.nome}"></h:outputText>                                                                                                    
                             </h:outputLink>
                             <ul>
+                                <a4j:repeat var="farmaco" value="#{MedicamentoDTO.medicamento.farmacos}">
+                                <li>
+                                    <h:outputText value="#{msg.Farmaco}: #{farmaco.nome}"></h:outputText>
+                                </li>
+                                </a4j:repeat>
+                                <li>
+                                    <h:outputText value="#{msg.Laboratorio}: #{MedicamentoDTO.medicamento.laboratorio.nome}"></h:outputText>
+                                </li>
+                            
                                 <a4j:repeat var="rem" value="#{InteracaoControle.medicamentosInteracao}">
                                     <li style="background-color: #FF8C69">
                                         <a4j:commandLink  reRender="panel" oncomplete="#{rich:component('panel')}.show()" id="link" value="#{rem.nome}"  ajaxSingle="true">                                                                                                  
                                             <f:setPropertyActionListener target="#{MedicamentoDTO.medicamento}" value="#{rem}" ></f:setPropertyActionListener>
                                         </a4j:commandLink>
                                         <rich:componentControl for="panel" attachTo="link" operation="show" event="onclick"/>
-                                        <small><h:outputText value="#{rem.associacao}"></h:outputText> </small>
+                                        <ul>
+                                           
+                                            <a4j:repeat var="farmaco" value="#{rem.farmacos}">
+                                            <li style="background-color: #FF8C69">
+                                                <h:outputText value="#{msg.Farmaco}: #{farmaco.nome}"></h:outputText>
+                                            </li>
+                                            </a4j:repeat>
+                                            <li style="background-color: #FF8C69">
+                                                <h:outputText value="#{msg.Laboratorio}: #{rem.laboratorio.nome}"></h:outputText>
+                                            </li>
+                                        </ul>
+
+                                        
 
 
                                     </li>
