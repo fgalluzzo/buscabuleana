@@ -21,8 +21,8 @@
                             <h:panelGrid columns="5">
 
                                 <h:outputLabel for="buscabulas" value="#{msg.busca}"></h:outputLabel>
-                                <h:inputText id="buscabulas"  value="#{BulaDTO.textoPesquisa}"></h:inputText>
-                                
+                                <h:inputText  id="buscabulas"  value="#{BulaDTO.textoPesquisa}"></h:inputText>
+
                                 <a4j:commandLink id="pesquisar" action="#{BuscarControle.buscar}"
                                                  reRender="dtBulas" title="#{msg.Pesquisar}" >
                                     <h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage>
@@ -62,9 +62,9 @@
                         </a4j:form>
 
                         <a4j:form>
-                            
+
                             <rich:dataTable  rows="10" align="center" id="dtBulas" var="result"
-                                            value="#{BuscarControle.results}">
+                                             value="#{BuscarControle.results}">
                                 <f:facet name="header">
                                     <rich:columnGroup>
                                         <rich:column>
@@ -100,8 +100,16 @@
                                     <h:commandLink rendered="#{not empty result.bula.medicamento.nome}" action="interacao" target="blank" title="#{msg.Ver} #{msg.Interacao}">
                                         <f:setPropertyActionListener value="#{result.bula.medicamento}"
                                                                      target="#{MedicamentoDTO.medicamento}"></f:setPropertyActionListener>
-                                        <h:graphicImage value="/resources/css/images/icon_activity.gif"></h:graphicImage>
+                                        <h:graphicImage value="/resources/css/images/icon_activity.gif"></h:graphicImage>                                       
                                     </h:commandLink>
+                                     <rich:toolTip rendered="#{not empty result.bula.medicamento.nome}" >
+                                            <span style="white-space:nowrap">
+                                                <h:outputText value="#{msg.textoTooltipInt}"></h:outputText>
+                                                <br />
+                                                <h:outputText value="#{msg.textoTooltipIntcont}"></h:outputText>
+
+                                            </span>
+                                        </rich:toolTip>
                                 </rich:column>
                                 <rich:column>
                                     <a4j:commandLink reRender="panelBula" oncomplete="Richfaces.showModalPanel('panelBula');"
