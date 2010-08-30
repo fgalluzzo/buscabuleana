@@ -39,8 +39,26 @@ public class CarregaCfg {
             Logger.getLogger(CarregaCfg.class.getName()).log(Level.SEVERE, null, ex);
         }
         return (Config) xs.fromXML(fi);
+    }
+    
+    
+    public static SymptomFieldConfig loadSymptomFieldConfig() {
+        FacesContext context = FacesContext.getCurrentInstance();
 
+        ServletContext sc = (ServletContext) context.getExternalContext().getContext();
 
-
+        String dir = sc.getRealPath("")+"/";
+        XStream xs = new XStream(new DomDriver());
+        xs.alias("config", SymptomFieldConfig.class);
+        xs.alias("field", SymptomFieldConfig.Field.class);
+        xs.alias("input", SymptomFieldConfig.Input.class);
+        File file = new File(dir+"/symptom_field_config.xml");
+        FileInputStream fi = null;
+        try {
+            fi = new FileInputStream(file);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(CarregaCfg.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return (SymptomFieldConfig) xs.fromXML(fi);
     }
 }

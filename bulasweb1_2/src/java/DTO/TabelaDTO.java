@@ -6,13 +6,16 @@ import bean.MedicamentoBean;
 
 public class TabelaDTO {
 	
+	// entrada
 	private String sintomas;
 	private String doencas;
 	private String alergenicos;
+	private String farmacos;
 	
 	
 	public static class ColumnData {
 		private String backgroundColor;
+		private Float weight;
 		private String nome;
 		public String getBackgroundColor() {
 			return backgroundColor;
@@ -45,10 +48,14 @@ public class TabelaDTO {
 		}
 	}
 	
-	private List <RowData> results;
-	
+	// saida
+	private List <RowData> results;	
 	private List <MedicamentoBean> medicamentos;
 
+	
+	
+	
+	
 	public String getSintomas() {
 		return sintomas;
 	}
@@ -71,6 +78,14 @@ public class TabelaDTO {
 
 	public void setAlergenicos(String alergenicos) {
 		this.alergenicos = alergenicos;
+	}
+	
+	public String getFarmacos() {
+		return farmacos;
+	}
+	
+	public void setFarmacos(String farmacos) {
+		this.farmacos = farmacos;
 	}
 
 	public List<RowData> getResults() {

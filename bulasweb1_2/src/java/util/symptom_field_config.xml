@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<inputs>
+		<input>
+			<name>sintomas</name>
+			<fields>
+				<field>
+					<name>indicacao</name><weight>0.0</weight>
+				</field>
+				<field>
+					<name>informacao</name><weight>0.75</weight>
+				</field>
+				<field>
+					<name>aviso</name><weight>1.0</weight>
+				</field>
+				<field>
+					<name>contraIndicacao</name><weight>1.0</weight>
+				</field>
+				<field>
+					<name>reacaoAdversa</name><weight>1.0</weight>
+				</field>
+			</fields>
+		</input>
+
+		<input>
+			<name>doencas</name>
+			<fields>
+				<field>
+					<name>indicacao</name><weight>0.0</weight>
+				</field>
+				<field>
+					<name>informacao</name><weight>0.75</weight>
+				</field>
+				<field>
+					<name>aviso</name><weight>1.0</weight>
+				</field>
+				<field>
+					<name>contraIndicacao</name><weight>1.0</weight>
+				</field>
+			</fields>
+		</input>
+
+		<input>
+			<name>alergenicos</name>
+			<fields>
+				<field>
+					<name>composicao</name><weight>1.0</weight>
+				</field>
+				<field>
+					<name>formaFarmaceutica</name><weight>1.0</weight>
+				</field>
+				<field>
+					<name>informacao</name><weight>0.75</weight>
+				</field>
+				<field>
+					<name>aviso</name><weight>0.75</weight>
+				</field>
+				<field>
+					<name>contraIndicacao</name><weight>1.0</weight>
+				</field>
+			</fields>
+		</input>
+
+		<input>
+			<name>farmacos</name>
+			<fields>
+				<field>
+					<name>interacao</name><weight>1.0</weight>
+				</field>
+				<field>
+					<name>contraIndicacao</name><weight>1.0</weight>
+				</field>
+			</fields>
+		</input>        
+		
+	</inputs>
+</config>
