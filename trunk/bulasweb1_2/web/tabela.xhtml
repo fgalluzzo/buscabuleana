@@ -34,6 +34,11 @@
 				</h:outputText>
 				<h:inputText id="alergenicos" value="#{TabelaDTO.alergenicos}" />
 				
+				<h:outputText value="Fármacos:">
+					<rich:toolTip>Digite os remédios ou substâncias que você está utilizando</rich:toolTip>
+				</h:outputText>
+				<h:inputText id="farmacos" value="#{TabelaDTO.farmacos}" />
+				
 				<rich:spacer></rich:spacer>
 				<a4j:commandLink action="#{TabelaControle.buscar}"
 					value="#{msg.Pesquisar}"  reRender="tabela">
