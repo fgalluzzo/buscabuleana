@@ -21,8 +21,9 @@
                             <h:panelGrid columns="5">
 
                                 <h:outputLabel for="buscabulas" value="#{msg.busca}"></h:outputLabel>
-                                <h:inputText id="buscabulas" value="#{BulaDTO.textoPesquisa}"></h:inputText>
-                                <a4j:commandLink action="#{BuscarControle.buscar}"
+                                <h:inputText id="buscabulas"  value="#{BulaDTO.textoPesquisa}"></h:inputText>
+                                
+                                <a4j:commandLink id="pesquisar" action="#{BuscarControle.buscar}"
                                                  reRender="dtBulas" title="#{msg.Pesquisar}" >
                                     <h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage>
                                 </a4j:commandLink>
@@ -57,6 +58,7 @@
                                     </h:panelGrid>
                                 </h:column>
                             </h:panelGrid>
+                            <rich:hotKey key="return" handler="#{rich:element('pesquisar')}.onclick()" />
                         </a4j:form>
 
                         <a4j:form>

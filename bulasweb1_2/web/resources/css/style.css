@@ -191,6 +191,15 @@ hr { display: none; }
 	height: 115px;
 	margin: 0 auto;
 }
+.logo{
+    	margin: 0px;
+	line-height: normal;
+	text-transform: lowercase;
+	font-weight: normal;
+	color: #618C04;
+        padding-top: 10px;
+	font-size: 48px;
+}
 
 #logo h1, #logo p {
 	margin: 0px;
