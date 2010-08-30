@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Visualização de relação entre medicamentos em Tabela</title>
+</head>
+<body>
+<ui:composition template="templates/modelo.xhtml">
+	<ui:define name="content">
+		<a4j:form>
+			<div class="post">
+			<h2 class="Title"><h:outputText value=""></h:outputText></h2>
+			<div class="entry">
+			
+			<h:panelGrid columns="2">
+				<h:outputText value="Sintomas:">
+					<rich:toolTip value="Digite os sintomas"></rich:toolTip>
+				</h:outputText>
+				<h:inputText id="sintomas" value="#{TabelaDTO.sintomas}" />
+
+				<h:outputText value="Doenças:">
+					<rich:toolTip>Digite as doenças que você possui.</rich:toolTip>
+				</h:outputText>
+				<h:inputText id="doencas" value="#{TabelaDTO.doencas}" />
+
+				<h:outputText value="Alergênicos:">
+					<rich:toolTip>Digite os remédios ou substâncias aos quais você é alérgico</rich:toolTip>
+				</h:outputText>
+				<h:inputText id="alergenicos" value="#{TabelaDTO.alergenicos}" />
+				
+				<rich:spacer></rich:spacer>
+				<a4j:commandLink action="#{TabelaControle.buscar}"
+					value="#{msg.Pesquisar}"  reRender="tabela">
+					<h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage>
+				</a4j:commandLink>
+			</h:panelGrid>
+
+			<rich:dataTable id="tabela" value="#{TabelaDTO.results }" var="record">
+				<f:facet name="header">
+					<rich:columns value="#{TabelaDTO.medicamentos}" var="m">
+						<h:outputText value="#{m.nome}"></h:outputText>
+					</rich:columns>
+				</f:facet>
+			
+				<rich:column style="this.style.backgroundColor=#{record.firstColumn.backgroundColor};">
+					<h:outputText value="#{record.firstColumn.nome}"></h:outputText>
+				</rich:column>
+			
+				<rich:columns value="#{record.otherColumns}" var="column">
+					<h:outputText style="this.style.backgroundColor=#{column.backgroundColor}"
+						value="#{column.nome}" />
+				</rich:columns>
+				
+			</rich:dataTable>
+			
+			</div>
+			</div>
+		</a4j:form>
+	</ui:define>
+</ui:composition>
+</body>
+</html>
