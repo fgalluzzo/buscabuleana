@@ -75,12 +75,12 @@ public class MedicamentoDao extends AbstractDao<MedicamentoBean> {
 
     public List<MedicamentoBean> findBySintomas(String sintoma) {
         try {
-            Query q = em.createNativeQuery("select m.nome from secao_bula sb"
-                    + "inner join conteudo_secao_bula csb on csb.secao_id = sb.id"
-                    + "inner join bula b on b.id = csb.id"
-                    + "inner join medicamento m on m.id = b.medicamento_fk"
-                    + "where sb.nome_curto = 'indicacao'"
-                    + "and  LOCATE(LCASE((:sintoma)), LCASE(csb.texto)) <> 0"
+            Query q = em.createNativeQuery("select m.id from secao_bula sb "
+                    + "inner join conteudo_secao_bula csb on csb.secao_id = sb.id "
+                    + "inner join bula b on b.id = csb.id "
+                    + "inner join medicamento m on m.id = b.medicamento_fk "
+                    + "where sb.nome_curto = 'indicacao' "
+                    + "and  LOCATE(LCASE((:sintoma)), LCASE(csb.texto)) <> 0 order by rand()"
                     + "limit 10");
             q.setParameter("sintoma", sintoma);
             List<Integer> mids = q.getResultList();
