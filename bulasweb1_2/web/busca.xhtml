@@ -113,7 +113,7 @@
                                     <rich:componentControl for="panelBula" attachTo="linkBula" operation="show" event="onclick" />
                                 </rich:column>
                                 <rich:column>
-                                    <a4j:commandLink title="#{msg.Ver} #{msg.Secao}" reRender="panelSecao"
+                                    <a4j:commandLink rendered="#{not empty result.secao.texto}" title="#{msg.Ver} #{msg.Secao}" reRender="panelSecao"
                                                      oncomplete="#{rich:component('panelSecao')}.show()" id="linkSecao" ajaxSingle="true">
                                         <f:setPropertyActionListener target="#{BulaDTO.secaoBula}"
                                                                      value="#{result.secao }"/>
