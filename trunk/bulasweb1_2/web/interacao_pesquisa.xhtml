@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"      
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+    <head>
+        <title><h:outputText value="#{msg.titulo}"></h:outputText></title>
+
+
+    </head>
+    <body>
+
+
+        <ui:composition template="templates/modelo.xhtml">
+
+            <ui:define name="content">
+                <script type="text/javascript" src="/bulasweb1_2/js/excanvas.js" />
+                <script type="text/javascript" src="/bulasweb1_2/js/jquery-1.js" />
+                <script type="text/javascript" src="/bulasweb1_2/js/js-mindmap.js" />
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $("#js-mindmap").mindmap({
+                            showSublines: false,
+                            canvasError: "alert",
+                            datasource: 'js-mindmap'
+                        });
+                    });
+
+                </script>
+<a4j:form>
+                <div class="post">
+                    <h2 class="Title"><h:outputText value="#{msg.Remedios} #{msg.relacionados} #{msg.a} #{msg.sua} #{msg.pesquisa}"></h:outputText>
+                    </h2>
+                    <p style="float: right;" class="meta"><em> <h:commandLink  action="busca"><h:outputText value="#{msg.voltar}"> </h:outputText> </h:commandLink></em></p>
+                     <div class="entry">
+                    <canvas id="cv" width="800" height="600" ></canvas>
+                    
+                    
+                        
+                        <div id="js-mindmap">
+                            <h:outputLink >
+                                <h:outputText value="#{BulaDTO.textoPesquisa}"></h:outputText>
+                            </h:outputLink>
+                            <ul>
+                                <a4j:repeat var="rem" value="#{InteracaoControle.sintomasInteracao}">
+                                    <li style="background-color: green">
+                                        <a4j:commandLink  reRender="panel" oncomplete="#{rich:component('panel')}.show()" id="link" value="#{rem.nome}"  ajaxSingle="true">                                                                                                  
+                                            <f:setPropertyActionListener target="#{MedicamentoDTO.medicamento}" value="#{rem}" ></f:setPropertyActionListener>
+                                        </a4j:commandLink>
+                                        <rich:componentControl for="panel" attachTo="link" operation="show" event="onclick"/>
+                                        <small><h:outputText value="#{rem.associacao}"></h:outputText> </small>
+
+
+                                    </li>
+                                </a4j:repeat>
+
+
+                            </ul>
+
+
+                        </div>
+                   
+                     </div>
+                </div>
+     </a4j:form>
+    <rich:modalPanel id="panel">
+                        <f:facet name="header">
+                            <h:panelGroup>
+                                <h:outputText value="#{msg.Detalhes} #{msg.do} #{msg.medicamento}"></h:outputText>
+                            </h:panelGroup>
+
+                        </f:facet>
+                        <f:facet name="controls">
+                            <h:panelGroup>
+                                <h:graphicImage value="/resources/css/images/close.png" styleClass="hidelink" id="hidelink"/>
+                                <rich:componentControl for="panel" attachTo="hidelink" operation="hide" event="onclick"/>
+                            </h:panelGroup>
+                        </f:facet>
+                        <a4j:form>
+                            <h:panelGrid columns="2">
+                                <h:outputText value="#{msg.Medicamento}}"></h:outputText>
+                                <h:outputText value="#{MedicamentoDTO.medicamento.nome}"></h:outputText>
+                            </h:panelGrid>
+                        </a4j:form>
+                    </rich:modalPanel>
+            </ui:define>
+        </ui:composition>
+
+
+    </body>
+</html>
+
