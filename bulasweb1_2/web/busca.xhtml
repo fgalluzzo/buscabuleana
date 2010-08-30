@@ -18,7 +18,7 @@
                             value="#{msg.buscar} #{msg.bulas}"></h:outputText></h2>
                     <div class="entry">
                         <a4j:form>
-                            <h:panelGrid columns="4">
+                            <h:panelGrid columns="5">
 
                                 <h:outputLabel for="buscabulas" value="#{msg.busca}"></h:outputLabel>
                                 <h:inputText id="buscabulas" value="#{BulaDTO.textoPesquisa}"></h:inputText>
@@ -29,6 +29,7 @@
                                 <a4j:commandLink action="interacao_s" target="blank"  title="#{msg.Ver} #{msg.medicamentos} #{msg.indicados} #{msg.para} #{msg.minha} #{msg.pesquisa} ">
                                     <h:graphicImage value="/resources/css/images/connect.jpg"></h:graphicImage>
                                 </a4j:commandLink>
+                                <a4j:status  startText="#{msg.Carregando} #{msg.resultados}..."></a4j:status>
                             </h:panelGrid> <h:panelGrid columns="1">
                                 <h:column>
                                     <h:selectOneRadio value="#{BuscarControle.searchAt}"
@@ -59,7 +60,8 @@
                         </a4j:form>
 
                         <a4j:form>
-                            <rich:dataTable rows="10" align="center" id="dtBulas" var="result"
+                            
+                            <rich:dataTable  rows="10" align="center" id="dtBulas" var="result"
                                             value="#{BuscarControle.results}">
                                 <f:facet name="header">
                                     <rich:columnGroup>
