@@ -77,7 +77,7 @@ public class MedicamentoDao extends AbstractDao<MedicamentoBean> {
         try {
             Query q = em.createNativeQuery("select m.id from secao_bula sb "
                     + "inner join conteudo_secao_bula csb on csb.secao_id = sb.id "
-                    + "inner join bula b on b.id = csb.id "
+                    + "inner join bula b on b.id = csb.bula_id "
                     + "inner join medicamento m on m.id = b.medicamento_fk "
                     + "where sb.nome_curto = 'indicacao' "
                     + "and  LOCATE(LCASE((:sintoma)), LCASE(csb.texto)) <> 0 order by rand()"
