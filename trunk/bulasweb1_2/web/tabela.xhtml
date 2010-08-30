@@ -23,11 +23,17 @@
 					<rich:toolTip value="Digite os sintomas"></rich:toolTip>
 				</h:outputText>
 				<h:inputText id="sintomas" value="#{TabelaDTO.sintomas}" />
-
+                                
 				<h:outputText value="Doenças:">
-					<rich:toolTip>Digite as doenças que você possui.</rich:toolTip>
+					
 				</h:outputText>
-				<h:inputText id="doencas" value="#{TabelaDTO.doencas}" />
+                                
+                                
+				<h:inputText id="doencas" value="#{TabelaDTO.doencas}" ><rich:toolTip><span>
+                                        Digite as doenças que você possui.
+                                    </span>
+                                </rich:toolTip>
+                                </h:inputText>
 
 				<h:outputText value="Alergênicos:">
 					<rich:toolTip>Digite os remédios ou substâncias aos quais você é alérgico</rich:toolTip>
@@ -37,11 +43,11 @@
 				<h:outputText value="Fármacos:">
 					<rich:toolTip>Digite os remédios ou substâncias que você está utilizando</rich:toolTip>
 				</h:outputText>
-				<h:inputText id="farmacos" value="#{TabelaDTO.farmacos}" />
+                                <h:inputText id="farmacos" value="#{TabelaDTO.farmacos}" />
 				
 				<rich:spacer></rich:spacer>
 				<a4j:commandLink action="#{TabelaControle.buscar}"
-					value="#{msg.Pesquisar}"  reRender="tabela">
+					  reRender="tabela">
 					<h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage>
 				</a4j:commandLink>
 			</h:panelGrid>
@@ -53,12 +59,12 @@
 					</rich:columns>
 				</f:facet>
 			
-				<rich:column style="this.style.backgroundColor=#{record.firstColumn.backgroundColor};">
+				<rich:column style="background-color: #{record.firstColumn.backgroundColor};">
 					<h:outputText value="#{record.firstColumn.nome}"></h:outputText>
 				</rich:column>
 			
 				<rich:columns value="#{record.otherColumns}" var="column">
-					<h:outputText style="this.style.backgroundColor=#{column.backgroundColor}"
+					<h:outputText style="background-color: #{column.backgroundColor}"
 						value="#{column.nome}" />
 				</rich:columns>
 				
