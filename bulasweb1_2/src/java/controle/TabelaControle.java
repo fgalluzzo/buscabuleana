@@ -176,7 +176,7 @@ public class TabelaControle {
 			columnData.setNome(key);
 			columnData.setBackgroundColor("gray");
 			rowData.setFirstColumn(columnData);
-			rowData.setOtherColumns(new ColumnData[medicamentos1.size()]);
+			rowData.setOtherColumns(new ArrayList<ColumnData>(medicamentos1.size()));
 			
 			int i = 0;
 			for (MedicamentoBean medicBean : medicamentos1) {
@@ -201,9 +201,9 @@ public class TabelaControle {
 					columnData.setWeight(0.0f);
 					columnData.setBackgroundColor("white");
 				}
-				
-				rowData.getOtherColumns()[i] = columnData;
-				medicamentos.add(medicBean);
+
+				rowData.getOtherColumns().add(columnData);
+				if (medicamentos.size() < medicamentos1.size()) medicamentos.add(medicBean);
 
 				i++;
 			}
@@ -212,6 +212,7 @@ public class TabelaControle {
 		}
 
 		tb.setMedicamentos(medicamentos);
+		for (MedicamentoBean mb1 : medicamentos) System.out.println(mb1.getNome());
 		tb.setResults(results);
 	}
 }

@@ -49,6 +49,7 @@ public class LuceneSearcher {
 	}
 
 	public ScoreDoc[] searchInField(String text, String field) throws ParseException, IOException {
+		if (text == null || "".equals(text)) return new ScoreDoc[]{};
 		QueryParser parser = new QueryParser(Version.LUCENE_20, field, analyzer);
 		Query query = parser.parse(text);
 		TopDocs topDocs = is.search(query, 50);

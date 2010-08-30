@@ -44,19 +44,20 @@ public class TabelaDTO {
 	}
 	
 	public static class RowData {
-		ColumnData firstColumn;
-		ColumnData [] otherColumns;
+		private ColumnData firstColumn;
+		private List<ColumnData> otherColumns;
+		
 		public ColumnData getFirstColumn() {
 			return firstColumn;
 		}
 		public void setFirstColumn(ColumnData firstColumn) {
 			this.firstColumn = firstColumn;
 		}
-		public ColumnData[] getOtherColumns() {
+		public List<ColumnData> getOtherColumns() {
 			return otherColumns;
 		}
-		public void setOtherColumns(ColumnData[] otherColumn) {
-			this.otherColumns = otherColumn;
+		public void setOtherColumns(List<ColumnData> otherColumns) {
+			this.otherColumns = otherColumns;
 		}
 		
 		@Override
