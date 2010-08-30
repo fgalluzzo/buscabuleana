@@ -17,6 +17,7 @@ public class TabelaDTO {
 		private String backgroundColor;
 		private Float weight;
 		private String nome;
+		
 		public String getBackgroundColor() {
 			return backgroundColor;
 		}
@@ -29,22 +30,38 @@ public class TabelaDTO {
 		public void setNome(String nome) {
 			this.nome = nome;
 		}
+		public Float getWeight() {
+			return weight;
+		}
+		public void setWeight(Float weight) {
+			this.weight = weight;
+		}
+		
+		@Override
+		public String toString() {
+			return String.format("<%s,%s,%s>", nome, weight, backgroundColor);
+		}
 	}
 	
 	public static class RowData {
 		ColumnData firstColumn;
-		ColumnData [] otherColumn;
+		ColumnData [] otherColumns;
 		public ColumnData getFirstColumn() {
 			return firstColumn;
 		}
 		public void setFirstColumn(ColumnData firstColumn) {
 			this.firstColumn = firstColumn;
 		}
-		public ColumnData[] getOtherColumn() {
-			return otherColumn;
+		public ColumnData[] getOtherColumns() {
+			return otherColumns;
 		}
-		public void setOtherColumn(ColumnData[] otherColumn) {
-			this.otherColumn = otherColumn;
+		public void setOtherColumns(ColumnData[] otherColumn) {
+			this.otherColumns = otherColumn;
+		}
+		
+		@Override
+		public String toString() {
+			return String.format("(%s,%s)", firstColumn.toString(), otherColumns.toString());
 		}
 	}
 	

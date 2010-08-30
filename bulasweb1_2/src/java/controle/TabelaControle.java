@@ -1,8 +1,13 @@
 package controle;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import javax.el.ValueExpression;
 import javax.faces.application.Application;
@@ -20,9 +25,11 @@ import util.PersistenceFactory;
 import util.SymptomFieldConfig;
 import DTO.TabelaDTO;
 import DTO.TabelaDTO.ColumnData;
+import DTO.TabelaDTO.RowData;
 import bean.BulaBean;
 import bean.MedicamentoBean;
 import dao.BulaDao;
+import dao.MedicamentoDao;
 
 public class TabelaControle {
 	
@@ -31,6 +38,7 @@ public class TabelaControle {
 	
 	private EntityManager em = PersistenceFactory.createEntityManager();	
 	private BulaDao bd = new BulaDao(em);
+	private MedicamentoDao md = new MedicamentoDao(em); 
 	
 	
 	public void buscar() {
@@ -63,6 +71,18 @@ public class TabelaControle {
         farmacos em contraIndicacao -> 1.0 vermelho
         
         */
+        
+        Set <MedicamentoBean> medicamentos1 = new TreeSet<MedicamentoBean>(
+        		new Comparator<MedicamentoBean>() {
+					@Override
+					public int compare(MedicamentoBean o1, MedicamentoBean o2) {
+						// TODO Auto-generated method stub
+						int r = o1.getNome().compareTo(o2.getNome());
+						if (r==0) return new Integer(o1.getId()).compareTo(o2.getId());
+						return r;
+					}
+				}
+        	);
         
         Map <String, Map <String, Float []>> rows = new TreeMap<String, Map <String, Float []>>();
 
@@ -116,6 +136,9 @@ public class TabelaControle {
 				                        v[0] += value;
 				                        v[1] += 1;
 				                        System.out.print("  v="+v);
+				                        
+				                        // guarda medicamento
+				                        medicamentos1.add(medb);
 			                        }
 			                        catch (NullPointerException e) {
 			                        	System.out.print("  EXCEP");
@@ -141,8 +164,54 @@ public class TabelaControle {
 			e.printStackTrace();
 		}
 		
-		System.out.println("");
-		// dividr v[0]/v[1]
+		
+		List <RowData> results = new ArrayList<RowData>();
+		List <MedicamentoBean> medicamentos = new ArrayList<MedicamentoBean>();
+		
+		for (String key : rows.keySet()) {
+			Map <String, Float []> row = rows.get(key);
 
+			RowData rowData = new RowData();
+			ColumnData columnData = new ColumnData();
+			columnData.setNome(key);
+			columnData.setBackgroundColor("gray");
+			rowData.setFirstColumn(columnData);
+			rowData.setOtherColumns(new ColumnData[medicamentos1.size()]);
+			
+			int i = 0;
+			for (MedicamentoBean medicBean : medicamentos1) {
+				String medic = medicBean.getNome();
+
+				columnData = new ColumnData();
+				columnData.setNome("");
+
+				if (row.containsKey(medic)) {
+
+					Float [] v = row.get(medic);
+					float weight = v[0] / v[1];
+
+					columnData.setWeight(weight);
+
+					// estes valores ainda devem ser conferidos
+					if (weight < 0.25) columnData.setBackgroundColor("red");
+					else if (weight < 0.9) columnData.setBackgroundColor("yellow");
+					else columnData.setBackgroundColor("green");
+				}
+				else {
+					columnData.setWeight(0.0f);
+					columnData.setBackgroundColor("white");
+				}
+				
+				rowData.getOtherColumns()[i] = columnData;
+				medicamentos.add(medicBean);
+
+				i++;
+			}
+			
+			results.add(rowData);
+		}
+
+		tb.setMedicamentos(medicamentos);
+		tb.setResults(results);
 	}
 }
