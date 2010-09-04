@@ -52,24 +52,84 @@
 				</a4j:commandLink>
 			</h:panelGrid>
 
-			<rich:dataTable id="tabela" value="#{TabelaDTO.results }" var="record">
-				<f:facet name="header">
-					<rich:columns value="#{TabelaDTO.medicamentos}" var="m">
-						<h:outputText value="#{m.nome}"></h:outputText>
-					</rich:columns>
-				</f:facet>
-			
-				<rich:column style="background-color: #{record.firstColumn.backgroundColor};">
-					<h:outputText value="#{record.firstColumn.nome}"></h:outputText>
-				</rich:column>
-			
-				<rich:columns value="#{record.otherColumns}" var="column">
-					<h:outputText style="background-color: #{column.backgroundColor}"
-						value="#{column.nome}" />
-				</rich:columns>
+<!--			<rich:dataTable id="tabela" value="#{TabelaDTO.results }" var="record">-->
+<!--				<f:facet name="header">-->
+<!--					<rich:columns value="#{TabelaDTO.medicamentos}" var="m">-->
+<!--						<h:outputText value="#{m.nome}"></h:outputText>-->
+<!--					</rich:columns>-->
+<!--				</f:facet>-->
+<!--			-->
+<!--				<rich:column style="background-color: #{record.firstColumn.backgroundColor};">-->
+<!--					<h:outputText value="#{record.firstColumn.nome}"></h:outputText>-->
+<!--				</rich:column>-->
+<!--			-->
+<!--				<rich:columns value="#{record.otherColumns}" var="column">-->
+<!--					<h:outputText style="background-color: #{column.backgroundColor}"-->
+<!--						value="#{column.nome}" />-->
+<!--				</rich:columns>-->
+<!--				-->
+<!--			</rich:dataTable>-->
+
+
+
+<!--			<rich:panel id="tabela" bodyClass="rich-laguna-panel-no-header">-->
+<!--				<script>-->
+<!--					function a(s) {-->
+<!--						document.getElementById('tabela1').innerHTML = s;-->
+<!--					}-->
+<!--				</script>-->
+<!--						-->
+<!--				<a4j:support event="onchange" oncomplete="a(#{TabelaDTO.tableHtml})">-->
+<!--				</a4j:support>-->
+<!--			-->
+<!--				<div id="tabela1" >-->
+<!--				</div>			-->
+<!--   			</rich:panel>-->
+
+<!--				<h:dataTable>-->
+<!--				</h:dataTable>-->
+
+<style>
+.vertical_text {
+vertical-align: bottom;
+max-width: 24px;
+min-height: 120px;
+height: 160px;
+border-width: 1;
+border: solid;
+writing-mode: tb-rl;
+}	
+</style>
+				<rich:panel id="tabela" bodyClass="rich-laguna-panel-no-header">
 				
-			</rich:dataTable>
-			
+				
+				<table style="border-width: 1; border: solid;">
+					<tr>
+						<th></th>
+					<ui:repeat value="#{TabelaDTO.medicamentos}" var="med" >
+						<th class="vertical_text"><nobr><h:outputText value="#{med.nome}" /></nobr></th>						
+					</ui:repeat>
+					</tr>
+				
+					<ui:repeat value="#{TabelaDTO.results }" var="record">
+					<tr>
+						<td style="background-color: #{record.firstColumn.backgroundColor};">
+							<h:outputText value="#{record.firstColumn.nome}"></h:outputText>
+						</td>
+
+						<ui:repeat value="#{record.otherColumns}" var="column">
+							<td style="background-color: #{column.backgroundColor}">
+							<h:outputText value="#{column.nome}" />
+							</td>
+						</ui:repeat>
+					</tr>
+					</ui:repeat>			
+				</table>
+
+<!--				<h:outputText value="#{TabelaDTO.tableHtml}" escape="false"></h:outputText>-->
+
+				</rich:panel>
+
 			</div>
 			</div>
 		</a4j:form>
