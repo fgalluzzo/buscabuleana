@@ -40,6 +40,7 @@ public class TabelaControle {
 	private BulaDao bd = new BulaDao(em);
 	private MedicamentoDao md = new MedicamentoDao(em); 
 	
+	public void buscar2() { }
 	
 	public void buscar() {
 
@@ -168,15 +169,33 @@ public class TabelaControle {
 		List <RowData> results = new ArrayList<RowData>();
 		List <MedicamentoBean> medicamentos = new ArrayList<MedicamentoBean>();
 		
+		StringBuilder html = new StringBuilder();
+		html.append("<table><tr>");
+		for (MedicamentoBean medicBean : medicamentos1) {
+			html.append("<th>");
+			html.append(medicBean.getNome());
+			html.append("</th>");
+		}
+		html.append("</tr>");
+		
 		for (String key : rows.keySet()) {
 			Map <String, Float []> row = rows.get(key);
+			
+			html.append("<tr>");
 
 			RowData rowData = new RowData();
 			ColumnData columnData = new ColumnData();
 			columnData.setNome(key);
 			columnData.setBackgroundColor("gray");
 			rowData.setFirstColumn(columnData);
+			
+			html.append("<td>");
+			html.append(key);
+			html.append("</td>");
+			
 			rowData.setOtherColumns(new ArrayList<ColumnData>(medicamentos1.size()));
+			
+			
 			
 			int i = 0;
 			for (MedicamentoBean medicBean : medicamentos1) {
@@ -204,12 +223,22 @@ public class TabelaControle {
 
 				rowData.getOtherColumns().add(columnData);
 				if (medicamentos.size() < medicamentos1.size()) medicamentos.add(medicBean);
+				
+				html.append("<td>");
+				html.append(columnData.getNome());
+				html.append("</td>");
+
 
 				i++;
 			}
 			
 			results.add(rowData);
+			
+			html.append("</tr>");
 		}
+		html.append("<table>");
+		
+		tb.setTableHtml(html.toString());
 
 		tb.setMedicamentos(medicamentos);
 		for (MedicamentoBean mb1 : medicamentos) System.out.println(mb1.getNome());

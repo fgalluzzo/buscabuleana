@@ -1,5 +1,6 @@
 package DTO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import bean.MedicamentoBean;
@@ -122,6 +123,48 @@ public class TabelaDTO {
 		this.medicamentos = medicamentos;
 	}
 	
+
 	
 	
+	/////////
+	
+	private String tableHtml;
+	
+	public String getTableHtml() {
+		return tableHtml;
+	}
+	
+	public void setTableHtml(String tableHtml) {
+		this.tableHtml = tableHtml;
+	}
+	
+	
+	
+	
+	private List<List<ColumnData>> results2;
+
+	public List<List<ColumnData>> getResults2() {
+		return results2;
+	}
+	
+	public void setResults2(List<List<ColumnData>> results2) {
+		this.results2 = results2;
+	}
+	
+	
+	public TabelaDTO() {
+		results2 = new ArrayList<List<ColumnData>>();
+		for (int i = 0; i < 10; i++) {
+			List<ColumnData> l = new ArrayList<ColumnData>();
+			
+			for (int j = 0; j < 30; j++) {
+				ColumnData x = new ColumnData();
+				x.setBackgroundColor("yellow");
+				x.setNome("X");
+				x.setWeight(1.0f);
+				l.add(x);
+			}
+			results2.add(l);
+		}
+	}
 }
