@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -8,7 +8,7 @@
 	xmlns:a4j="http://richfaces.org/a4j">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>Visualização de relação entre medicamentos em Tabela</title>
+<title>VisualizaÃ§Ã£o de relaÃ§Ã£o entre medicamentos em Tabela</title>
 </head>
 <body>
 <ui:composition template="templates/modelo.xhtml">
@@ -24,24 +24,24 @@
 				</h:outputText>
 				<h:inputText id="sintomas" value="#{TabelaDTO.sintomas}" />
                                 
-				<h:outputText value="Doenças:">
+				<h:outputText value="DoenÃ§as:">
 					
 				</h:outputText>
                                 
                                 
 				<h:inputText id="doencas" value="#{TabelaDTO.doencas}" ><rich:toolTip><span>
-                                        Digite as doenças que você possui.
+                                        Digite as doenÃ§as que vocÃª possui.
                                     </span>
                                 </rich:toolTip>
                                 </h:inputText>
 
-				<h:outputText value="Alergênicos:">
-					<rich:toolTip>Digite os remédios ou substâncias aos quais você é alérgico</rich:toolTip>
+				<h:outputText value="AlergÃªnicos:">
+					<rich:toolTip>Digite os remÃ©dios ou substÃ¢ncias aos quais vocÃª Ã© alÃ©rgico</rich:toolTip>
 				</h:outputText>
 				<h:inputText id="alergenicos" value="#{TabelaDTO.alergenicos}" />
 				
-				<h:outputText value="Fármacos:">
-					<rich:toolTip>Digite os remédios ou substâncias que você está utilizando</rich:toolTip>
+				<h:outputText value="FÃ¡rmacos:">
+					<rich:toolTip>Digite os remÃ©dios ou substÃ¢ncias que vocÃª estÃ¡ utilizando</rich:toolTip>
 				</h:outputText>
                                 <h:inputText id="farmacos" value="#{TabelaDTO.farmacos}" />
 				
