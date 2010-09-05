@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title><h:outputText value="#{msg.titulo}"></h:outputText></title>
+    </head>
+    <body>
+        <ui:composition template="templates/modelo.xhtml">
+            <ui:define name="content">
+                <div class="post">
+                    <h2 class="Title"><h:outputText
+                            value="#{msg.Detalhes}"></h:outputText></h2>
+                    <div class="entry">
+                        <a4j:form>
+                            <rich:panel>
+                                <h:panelGrid style="position: relative;"  cellpadding="5" columns="2">
+                                    <f:facet name="header">
+                                        <rich:columnGroup style="text-align: center; font-size: large;font-weight: bold;">
+                                            <rich:column>
+                                                <h:outputText value="#{msg.Propriedade}"></h:outputText>
+                                            </rich:column>
+                                            <rich:column>
+                                                <h:outputText value="#{msg.Valor}"></h:outputText>
+                                            </rich:column>
+                                        </rich:columnGroup>
+                                    </f:facet>
+
+                                    <h:outputLabel for="nome" value="#{msg.Nome}"></h:outputLabel>
+                                    <h:outputText id="nome" value="#{MedicamentoDTO.medicamento.nome}"></h:outputText>
+
+                                    <h:outputLabel for="lab" value="#{msg.Laboratorio}"></h:outputLabel>
+                                    <h:outputText value="#{MedicamentoDTO.medicamento.laboratorio.nome}"></h:outputText>
+
+                                    <h:outputLabel for="farmacos" value="#{msg.Farmacos}"></h:outputLabel>
+                                    <h:panelGroup id="farmacos">
+                                        <a4j:repeat value="#{MedicamentoDTO.medicamento.farmacos}" var="farmaco">
+                                            <h:outputText value="#{farmaco.nome}"></h:outputText>
+                                        </a4j:repeat>
+                                    </h:panelGroup>
+
+                                    <h:outputLabel for="medicamentos_comuns" value="#{msg.Medicamentos} #{msg.relacionados}"></h:outputLabel>
+
+                                    <rich:panel>
+                                        <rich:toolTip value="#{msg.medComuns}"></rich:toolTip>
+                                        <h:panelGroup id="medicamentos_comuns">
+
+                                            <a4j:repeat value="#{InteracaoControle.medicamentosComuns} #{MedicamentoDTO.medicamento.nome}" var="med">
+
+                                                <h:commandLink value="#{med.nome}">
+                                                    <f:setPropertyActionListener target="#{MedicamentoDTO.medicamento}" value="#{med}"></f:setPropertyActionListener>
+                                                </h:commandLink>
+                                                <br />
+                                            </a4j:repeat>
+                                        </h:panelGroup>
+                                    </rich:panel>
+                                </h:panelGrid>
+                            </rich:panel>
+                        </a4j:form>
+                    </div>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
+

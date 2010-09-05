@@ -1,5 +1,6 @@
 package dao;
 
+import bean.FarmacoBean;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,6 +65,31 @@ public class MedicamentoDao extends AbstractDao<MedicamentoBean> {
 
             q = em.createQuery("from Medicamento where id in (:mids)");
             q.setParameter("mids", mids);
+            return (List<MedicamentoBean>) q.getResultList();
+        } catch (NoResultException e) {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return new ArrayList<MedicamentoBean>();
+    }
+
+    public List<MedicamentoBean> findByFarmaco(List<FarmacoBean> farmacos,String medicamento) {
+        try {
+            if (farmacos.size() == 0) {
+                throw new NoResultException();
+            }
+            /*List<String> farmacos_nomes = new ArrayList<String>();
+            for(int i=0;i<farmacos.size();i++){
+                farmacos_nomes.add(farmacos.get(i).getNome());
+            }*/
+            Query q = em.createQuery("SELECT distinct m FROM Medicamento m INNER JOIN" +
+                    " m.farmacos f WHERE f in(:farmacos) and m.nome <> (:medicamento)");
+                    
+
+            q.setParameter("farmacos", farmacos);
+            q.setParameter("medicamento", medicamento);           
+            
             return (List<MedicamentoBean>) q.getResultList();
         } catch (NoResultException e) {
         } catch (Exception e) {
