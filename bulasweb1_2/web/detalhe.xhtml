@@ -45,11 +45,11 @@
 
                                     <h:outputLabel for="medicamentos_comuns" value="#{msg.Medicamentos} #{msg.relacionados}"></h:outputLabel>
 
-                                    <rich:panel>
-                                        <rich:toolTip value="#{msg.medComuns}"></rich:toolTip>
-                                        <h:panelGroup id="medicamentos_comuns">
 
-                                            <a4j:repeat value="#{InteracaoControle.medicamentosComuns} #{MedicamentoDTO.medicamento.nome}" var="med">
+
+                                        <h:panelGroup id="medicamentos_comuns">
+                                         <rich:toolTip value="#{msg.medComuns} #{MedicamentoDTO.medicamento.nome}"></rich:toolTip>
+                                            <a4j:repeat value="#{InteracaoControle.medicamentosComuns}" var="med">
 
                                                 <h:commandLink value="#{med.nome}">
                                                     <f:setPropertyActionListener target="#{MedicamentoDTO.medicamento}" value="#{med}"></f:setPropertyActionListener>
@@ -57,7 +57,7 @@
                                                 <br />
                                             </a4j:repeat>
                                         </h:panelGroup>
-                                    </rich:panel>
+
                                 </h:panelGrid>
                             </rich:panel>
                         </a4j:form>
