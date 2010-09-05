@@ -36,4 +36,24 @@ public class BulaDao extends AbstractDao<BulaBean> {
 			return null;
 		}
 	}
+
+	@SuppressWarnings("unchecked")
+	public Collection<Integer> getByLengthAndSectionsAsIntList(int minLength, int minNumberOfSections) {
+		try {
+			Query q = em.createNativeQuery(
+				"select b.id " +
+				"from bula b, medicamento m, conteudo_secao_bula s " +
+				"where b.medicamento_fk = m.id " +
+				"    and s.bula_id = b.id " +
+				"    and length(b.texto) >= :length " +
+				"    and (select count(*) from conteudo_secao_bula s where s.bula_id=b.id) >= :sections " +
+				"group by m.id");
+			q.setParameter("length", minLength);
+			q.setParameter("sections", minNumberOfSections);
+			return (Collection<Integer>) q.getResultList();
+		}
+		catch (NoResultException e) {
+			return null;
+		}
+	}
 }
