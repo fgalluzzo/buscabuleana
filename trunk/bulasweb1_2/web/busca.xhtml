@@ -88,7 +88,10 @@
                                     <h:outputText value="#{result.bula.codigo}"></h:outputText>
                                 </rich:column>
                                 <rich:column>
-                                    <h:outputText value="#{result.bula.medicamento.nome}"></h:outputText>
+                                    <a4j:commandLink action="detalhe" value="#{result.bula.medicamento.nome}">
+                                                <f:setPropertyActionListener target="#{MedicamentoDTO.medicamento}"
+                                                                             value="#{result.bula.medicamento}"></f:setPropertyActionListener>
+                                    </a4j:commandLink>
                                 </rich:column>
                                 <rich:column>
                                     <h:outputText value="#{result.bula.medicamento.laboratorio.nome}" />

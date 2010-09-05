@@ -26,6 +26,7 @@ public class InteracaoControle {
 
     private List<MedicamentoBean> medicamentosInteracao = null;
     private List<MedicamentoBean> sintomasInteracao = null;
+    private List<MedicamentoBean> medicamentosComuns = null;
      private EntityManager em;
     MedicamentoDao medDao;
     /** Creates a new instance of InteracaoControle */   
@@ -63,6 +64,21 @@ public class InteracaoControle {
         return medicamentosInteracao;
     }
 
+    public List<MedicamentoBean> getMedicamentosComuns() {
+         em = PersistenceFactory.createEntityManager();
+        medDao = new MedicamentoDao(em);
+        FacesContext context = FacesContext.getCurrentInstance();
+        Application app = context.getApplication();
+        ValueExpression expression = app.getExpressionFactory().createValueExpression(context.getELContext(),
+                String.format("#{%s}", "MedicamentoDTO"), Object.class);
+        MedicamentoDTO md = (MedicamentoDTO) expression.getValue(context.getELContext());
+
+        medicamentosComuns = medDao.findByFarmaco(md.getMedicamento().getFarmacos(),md.getMedicamento().getNome());
+
+        return medicamentosComuns;
+    }
+
+
     public void setMedicamentosInteracao(List<MedicamentoBean> medicamentosInteracao) {
         this.medicamentosInteracao = medicamentosInteracao;
     }
@@ -70,6 +86,11 @@ public class InteracaoControle {
     public void setSintomasInteracao(List<MedicamentoBean> sintomasInteracao) {
         this.sintomasInteracao = sintomasInteracao;
     }
+
+    public void setMedicamentosComuns(List<MedicamentoBean> medicamentosComuns) {
+        this.medicamentosComuns = medicamentosComuns;
+    }
+
 
 
     
