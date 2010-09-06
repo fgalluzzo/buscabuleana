@@ -40,23 +40,57 @@
                                     <h:panelGroup id="farmacos">
                                         <a4j:repeat value="#{MedicamentoDTO.medicamento.farmacos}" var="farmaco">
                                             <h:outputText value="#{farmaco.nome}"></h:outputText>
+                                            <br />
                                         </a4j:repeat>
                                     </h:panelGroup>
 
                                     <h:outputLabel for="medicamentos_comuns" value="#{msg.Medicamentos} #{msg.relacionados}"></h:outputLabel>
 
+                                    <h:panelGroup id="medicamentos_comuns">
+                                        <rich:toolTip value="#{msg.medComuns} #{MedicamentoDTO.medicamento.nome}"></rich:toolTip>
+                                        <a4j:repeat value="#{InteracaoControle.medicamentosComuns}" var="med">
+
+                                            <h:commandLink value="#{med.nome}">
+                                                <f:setPropertyActionListener target="#{MedicamentoDTO.medicamento}" value="#{med}"></f:setPropertyActionListener>
+                                            </h:commandLink>
+                                            <br />
+                                        </a4j:repeat>
+                                    </h:panelGroup>
+
+                                    <h:outputLabel for="interacao_med" value="#{msg.Interacao} #{msg.medicamentosa}"></h:outputLabel>
+
+                                    <h:panelGroup id="interacao_med">
+                                        <rich:toolTip value="#{msg.intMed} #{MedicamentoDTO.medicamento.nome}"></rich:toolTip>
+                                        <a4j:repeat value="#{InteracaoControle.medicamentosInteracao}" var="med">
+
+                                            <h:commandLink value="#{med.nome}">
+                                                <f:setPropertyActionListener target="#{MedicamentoDTO.medicamento}" value="#{med}"></f:setPropertyActionListener>
+                                            </h:commandLink>
+                                            <br />
+                                        </a4j:repeat>
+                                    </h:panelGroup>
+
+                                    <h:outputLabel for="composicao" value="#{msg.Composicao}"></h:outputLabel>
+                                    <h:panelGroup id="composicao">
+                                        <rich:toolTip value="#{msg.comp}"></rich:toolTip>
+                                        <a4j:repeat value="#{SecaoControle.composicoes}" var="comp">
+
+                                            <h:outputText value="#{comp.texto}"></h:outputText>
+                                            <br />
+                                        </a4j:repeat>
+                                    </h:panelGroup>
+
+                                    <h:outputLabel for="frmFarma" value="#{msg.Forma} #{msg.farmaceutica}"></h:outputLabel>
+                                    <h:panelGroup id="frmFarma">
+                                        <rich:toolTip value="#{msg.frmFarm}"></rich:toolTip>
+                                        <a4j:repeat value="#{SecaoControle.formaFarmaceutica}" var="comp">
+
+                                            <h:outputText value="#{comp.texto}"></h:outputText>
+                                            <br />
+                                        </a4j:repeat>
+                                    </h:panelGroup>
 
 
-                                        <h:panelGroup id="medicamentos_comuns">
-                                         <rich:toolTip value="#{msg.medComuns} #{MedicamentoDTO.medicamento.nome}"></rich:toolTip>
-                                            <a4j:repeat value="#{InteracaoControle.medicamentosComuns}" var="med">
-
-                                                <h:commandLink value="#{med.nome}">
-                                                    <f:setPropertyActionListener target="#{MedicamentoDTO.medicamento}" value="#{med}"></f:setPropertyActionListener>
-                                                </h:commandLink>
-                                                <br />
-                                            </a4j:repeat>
-                                        </h:panelGroup>
 
                                 </h:panelGrid>
                             </rich:panel>
