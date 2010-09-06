@@ -27,7 +27,7 @@ public class InteracaoControle {
     private List<MedicamentoBean> medicamentosInteracao = null;
     private List<MedicamentoBean> sintomasInteracao = null;
     private List<MedicamentoBean> medicamentosComuns = null;
-     private EntityManager em;
+    private EntityManager em;
     MedicamentoDao medDao;
     /** Creates a new instance of InteracaoControle */   
 
@@ -37,7 +37,7 @@ public class InteracaoControle {
     }
 
     public List<MedicamentoBean> getSintomasInteracao() {
-          em = PersistenceFactory.createEntityManager();
+        em = PersistenceFactory.createEntityManager();
         medDao = new MedicamentoDao(em);
         FacesContext context = FacesContext.getCurrentInstance();
         Application app = context.getApplication();

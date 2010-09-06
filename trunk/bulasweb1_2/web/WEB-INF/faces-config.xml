@@ -73,7 +73,18 @@
             <to-view-id>/detalhe.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <managed-bean>
+        <managed-bean-name>BulaControle</managed-bean-name>
+        <managed-bean-class>controle.BulaControle</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>SecaoControle</managed-bean-name>
+        <managed-bean-class>controle.SecaoControle</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>
+
 
 
 
