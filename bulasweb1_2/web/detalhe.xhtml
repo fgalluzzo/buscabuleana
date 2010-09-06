@@ -83,9 +83,19 @@
                                     <h:outputLabel for="frmFarma" value="#{msg.Forma} #{msg.farmaceutica}"></h:outputLabel>
                                     <h:panelGroup id="frmFarma">
                                         <rich:toolTip value="#{msg.frmFarm}"></rich:toolTip>
-                                        <a4j:repeat value="#{SecaoControle.formaFarmaceutica}" var="comp">
+                                        <a4j:repeat value="#{SecaoControle.formaFarmaceutica}" var="frmfarma">
 
-                                            <h:outputText value="#{comp.texto}"></h:outputText>
+                                            <h:outputText value="#{frmfarma.texto}"></h:outputText>
+                                            <br />
+                                        </a4j:repeat>
+                                    </h:panelGroup>
+
+                                    <h:outputLabel for="info" value="#{msg.info}"></h:outputLabel>
+                                    <h:panelGroup id="info">
+                                        <rich:toolTip value="#{msg.infoB}"></rich:toolTip>
+                                        <a4j:repeat value="#{SecaoControle.info}" var="info">
+
+                                            <h:outputText value="#{info.texto}"></h:outputText>
                                             <br />
                                         </a4j:repeat>
                                     </h:panelGroup>

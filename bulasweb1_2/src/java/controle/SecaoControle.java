@@ -55,6 +55,19 @@ public class SecaoControle {
 
         return secoes;
     }
+    public  List<ConteudoSecaoBean> getInfo(){
+         em = PersistenceFactory.createEntityManager();
+        sbDao = new SecaoBulaDao(em);
+        FacesContext context = FacesContext.getCurrentInstance();
+        Application app = context.getApplication();
+        ValueExpression expression = app.getExpressionFactory().createValueExpression(context.getELContext(),
+                String.format("#{%s}", "MedicamentoDTO"), Object.class);
+        MedicamentoDTO md = (MedicamentoDTO) expression.getValue(context.getELContext());
+
+        secoes = sbDao.getSecaoByNameByMedicamento("informacao", md.getMedicamento().getNome());
+
+        return secoes;
+    }
     public List<ConteudoSecaoBean> getSecoes() {
 
         return secoes;
