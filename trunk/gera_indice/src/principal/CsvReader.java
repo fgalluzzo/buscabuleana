@@ -9,12 +9,18 @@ import java.io.IOException;
 public class CsvReader {
 
 	private File file;
+	private String separator;
 	
 	private CsvRowListener listener;
-
+	
 	public CsvReader(File file) {
+		this(file, ",");
+	}
+
+	public CsvReader(File file, String separator) {
 		super();
 		this.file = file;
+		this.separator = separator;
 	}
 
 	public CsvRowListener getListener() {
@@ -32,7 +38,12 @@ public class CsvReader {
 		try {
 			if (listener != null) listener.start();
 			while ((linha = in.readLine()) != null) {
-				String conteudo [] = linha.split(";");
+				String conteudo [] = linha.split(separator);
+				
+				for (int i = 0; i < conteudo.length; i++) {//remove aspas se houver
+					if (conteudo[i].matches("\".*\""))
+						conteudo[i] = conteudo[i].replaceAll("\"(.*)\"", "$1");
+				}
 				
 				if (listener != null) listener.doRowProcessing(conteudo);
 			}
