@@ -20,7 +20,7 @@
                             <rich:panel>
                                 <h:panelGrid style="position: relative;"  cellpadding="5" columns="2">
                                     <f:facet name="header">
-                                        <rich:columnGroup style="text-align: center; font-size: large;font-weight: bold;">
+                                        <rich:columnGroup style="text-align:  center; background-color: #99CC32; font-size: large;font-weight: bold;">
                                             <rich:column>
                                                 <h:outputText value="#{msg.Propriedade}"></h:outputText>
                                             </rich:column>
@@ -104,6 +104,8 @@
 
                                 </h:panelGrid>
                             </rich:panel>
+
+                            <a4j:commandLink action="#{RdfControle.geraRDF}" value="Gerar RDF" title="Gerar RDF"></a4j:commandLink>
                         </a4j:form>
                     </div>
                 </div>
