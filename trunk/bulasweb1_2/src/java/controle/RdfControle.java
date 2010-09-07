@@ -18,6 +18,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 import java.util.logging.Level;
@@ -96,7 +97,18 @@ public class RdfControle {
 
         //gerando o modelo        
         model.setNsPrefix("bw", bulasWebNS);
-        model.write(System.out);
+        File arquivoRDF = new File(dir+"rdf/"+md.getMedicamento().getNome()+".xml");
+        FileWriter writer;
+        try {
+            writer = new FileWriter(arquivoRDF);
+            model.write(writer);
+            System.out.println(arquivoRDF.getCanonicalPath());
+
+            context.getExternalContext().redirect("/bulasweb1_2/rdf/"+arquivoRDF.getName());
+        } catch (IOException ex) {
+            Logger.getLogger(RdfControle.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
 
