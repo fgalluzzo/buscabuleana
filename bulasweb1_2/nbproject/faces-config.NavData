@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="cadastro.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="interacao.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="index.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="*" x="389" y="225" zoom="true"/>
+        <Node id="interacao_pesquisa.xhtml" x="774" y="240" zoom="true"/>
+        <Node id="tabela.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="interacao_sintomas.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="detalhe.xhtml" x="708" y="369" zoom="true"/>
+        <Node id="templates/modelo.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="busca.xhtml" x="400" y="150" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>
