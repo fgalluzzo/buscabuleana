@@ -48,7 +48,7 @@ public class RdfControle {
         String mdURI = bulasWebNS + md.getMedicamento().getNome();
         ServletContext sc = (ServletContext) context.getExternalContext().getContext();
         String dir = sc.getRealPath("") + "/";
-        File arquivoRDF = new File(dir + "rdf/" + md.getMedicamento().getNome() + ".xml");
+        File arquivoRDF = new File(dir + "rdf/" + md.getMedicamento().getNome() + ".rdf");
         if (!arquivoRDF.exists()) {
             Model model = ModelFactory.createDefaultModel();
 
@@ -128,7 +128,7 @@ public class RdfControle {
         String mdURI = bulasWebNS + md.getMedicamento().getNome();
         ServletContext sc = (ServletContext) context.getExternalContext().getContext();
         String dir = sc.getRealPath("") + "/";
-        File arquivoRDF = new File(dir + "ntriple/" + md.getMedicamento().getNome() + ".xml");
+        File arquivoRDF = new File(dir + "ntriple/" + md.getMedicamento().getNome() + ".nt");
         if (!arquivoRDF.exists()) {
             Model model = ModelFactory.createDefaultModel();
 
