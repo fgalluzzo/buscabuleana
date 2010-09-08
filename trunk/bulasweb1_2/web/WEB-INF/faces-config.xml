@@ -88,6 +88,16 @@
         <managed-bean-class>controle.RdfControle</managed-bean-class>
         <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>SparqlControle</managed-bean-name>
+        <managed-bean-class>controle.SparqlControle</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>SparqlDTO</managed-bean-name>
+        <managed-bean-class>DTO.SparqlDTO</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 </faces-config>
 
 
