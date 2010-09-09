@@ -11,6 +11,8 @@ import javax.servlet.ServletContext;
 
 import DTO.SparqlDTO;
 
+import arq.load;
+
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
 import com.hp.hpl.jena.query.QueryExecutionFactory;
@@ -23,6 +25,19 @@ import com.hp.hpl.jena.tdb.TDBFactory;
 
 public class SparqlControle {
 	
+	// Model estatico para não precisar criar varias vezes
+	private static Model model = loadModel();
+
+	public static Model loadModel() {
+	    // Obtem caminho do indice de N-Triplas e abre Model
+	    FacesContext context = FacesContext.getCurrentInstance();
+		ServletContext sc = (ServletContext) context.getExternalContext().getContext();
+		String dir = sc.getRealPath("") + "/";
+		String directory = dir + "tdb";
+		Model model = TDBFactory.createModel(directory);
+		return model;
+	}
+	
 	public void buscar() {
 		
         FacesContext context = FacesContext.getCurrentInstance();
@@ -32,12 +47,6 @@ public class SparqlControle {
         SparqlDTO sparql = (SparqlDTO) expression.getValue(context.getELContext());
 
         
-        // Obtem caminho do indice de N-Triplas e abre Model
-		ServletContext sc = (ServletContext) context.getExternalContext().getContext();
-		String dir = sc.getRealPath("") + "/";
-		String directory = dir + "tdb";
-		Model model = TDBFactory.createModel(directory);
-
 		// Create a new query
 		String queryString = sparql.getTextoPesquisa();
 		Query query = QueryFactory.create(queryString);
