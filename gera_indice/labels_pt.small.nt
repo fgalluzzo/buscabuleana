@@ -1,0 +1,1217 @@
+<http://dbpedia.org/resource/Leukocytosis> <http://www.w3.org/2000/01/rdf-schema#label> "Leucocitose"@pt .
+<http://dbpedia.org/resource/Leukopenia> <http://www.w3.org/2000/01/rdf-schema#label> "Leucopenia"@pt .
+<http://dbpedia.org/resource/Thrombocytosis> <http://www.w3.org/2000/01/rdf-schema#label> "Trombocitose"@pt .
+<http://dbpedia.org/resource/Thrombocytopenia> <http://www.w3.org/2000/01/rdf-schema#label> "Trombocitopenia"@pt .
+<http://dbpedia.org/resource/Sulfur> <http://www.w3.org/2000/01/rdf-schema#label> "Enxofre"@pt .
+<http://dbpedia.org/resource/Dysthymia> <http://www.w3.org/2000/01/rdf-schema#label> "Distimia"@pt .
+<http://dbpedia.org/resource/Pellagra> <http://www.w3.org/2000/01/rdf-schema#label> "Pelagra"@pt .
+<http://dbpedia.org/resource/Xerophthalmia> <http://www.w3.org/2000/01/rdf-schema#label> "Xeroftalmia"@pt .
+<http://dbpedia.org/resource/Alcoholism> <http://www.w3.org/2000/01/rdf-schema#label> "Alcoolismo"@pt .
+<http://dbpedia.org/resource/Scurvy> <http://www.w3.org/2000/01/rdf-schema#label> "Escorbuto"@pt .
+<http://dbpedia.org/resource/Rickets> <http://www.w3.org/2000/01/rdf-schema#label> "Raquitismo"@pt .
+<http://dbpedia.org/resource/Infertility> <http://www.w3.org/2000/01/rdf-schema#label> "Infertilidade"@pt .
+<http://dbpedia.org/resource/Drug_overdose> <http://www.w3.org/2000/01/rdf-schema#label> "Overdose"@pt .
+<http://dbpedia.org/resource/Blindness> <http://www.w3.org/2000/01/rdf-schema#label> "Cegueira"@pt .
+<http://dbpedia.org/resource/Paclitaxel> <http://www.w3.org/2000/01/rdf-schema#label> "Paclitaxel"@pt .
+<http://dbpedia.org/resource/Cancer> <http://www.w3.org/2000/01/rdf-schema#label> "Cancro (tumor)"@pt .
+<http://dbpedia.org/resource/Keratoconus> <http://www.w3.org/2000/01/rdf-schema#label> "Ceratocone"@pt .
+<http://dbpedia.org/resource/Tuberculosis> <http://www.w3.org/2000/01/rdf-schema#label> "Tuberculose"@pt .
+<http://dbpedia.org/resource/Rape> <http://www.w3.org/2000/01/rdf-schema#label> "Estupro"@pt .
+<http://dbpedia.org/resource/Nicotine> <http://www.w3.org/2000/01/rdf-schema#label> "Nicotina"@pt .
+<http://dbpedia.org/resource/Gonorrhea> <http://www.w3.org/2000/01/rdf-schema#label> "Gonorreia"@pt .
+<http://dbpedia.org/resource/Diabetes_mellitus> <http://www.w3.org/2000/01/rdf-schema#label> "Diabetes mellitus"@pt .
+<http://dbpedia.org/resource/Diabetes_insipidus> <http://www.w3.org/2000/01/rdf-schema#label> "Diabetes insipidus"@pt .
+<http://dbpedia.org/resource/Bipolar_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Transtorno bipolar"@pt .
+<http://dbpedia.org/resource/Arthritis> <http://www.w3.org/2000/01/rdf-schema#label> "Artrite"@pt .
+<http://dbpedia.org/resource/Glucose> <http://www.w3.org/2000/01/rdf-schema#label> "Glicose"@pt .
+<http://dbpedia.org/resource/Nitroglycerin> <http://www.w3.org/2000/01/rdf-schema#label> "Nitroglicerina"@pt .
+<http://dbpedia.org/resource/Influenza> <http://www.w3.org/2000/01/rdf-schema#label> "Gripe"@pt .
+<http://dbpedia.org/resource/Narcolepsy> <http://www.w3.org/2000/01/rdf-schema#label> "Narcolepsia"@pt .
+<http://dbpedia.org/resource/Leptospirosis> <http://www.w3.org/2000/01/rdf-schema#label> "Leptospirose"@pt .
+<http://dbpedia.org/resource/Leprosy> <http://www.w3.org/2000/01/rdf-schema#label> "Lepra"@pt .
+<http://dbpedia.org/resource/Ketamine> <http://www.w3.org/2000/01/rdf-schema#label> "Cloridrato de cetamina"@pt .
+<http://dbpedia.org/resource/Osteoporosis> <http://www.w3.org/2000/01/rdf-schema#label> "Osteoporose"@pt .
+<http://dbpedia.org/resource/Migraine> <http://www.w3.org/2000/01/rdf-schema#label> "Enxaqueca"@pt .
+<http://dbpedia.org/resource/Anxiety> <http://www.w3.org/2000/01/rdf-schema#label> "Ansiedade"@pt .
+<http://dbpedia.org/resource/Mania> <http://www.w3.org/2000/01/rdf-schema#label> "Mania"@pt .
+<http://dbpedia.org/resource/Snoring> <http://www.w3.org/2000/01/rdf-schema#label> "Ronco"@pt .
+<http://dbpedia.org/resource/Obsessive%E2%80%93compulsive_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Transtorno obsessivo-compulsivo"@pt .
+<http://dbpedia.org/resource/Fever> <http://www.w3.org/2000/01/rdf-schema#label> "Febre"@pt .
+<http://dbpedia.org/resource/Choking> <http://www.w3.org/2000/01/rdf-schema#label> "Engasgo"@pt .
+<http://dbpedia.org/resource/Cough> <http://www.w3.org/2000/01/rdf-schema#label> "Tosse"@pt .
+<http://dbpedia.org/resource/Perspiration> <http://www.w3.org/2000/01/rdf-schema#label> "Suor"@pt .
+<http://dbpedia.org/resource/Cataract> <http://www.w3.org/2000/01/rdf-schema#label> "Catarata"@pt .
+<http://dbpedia.org/resource/Fructose> <http://www.w3.org/2000/01/rdf-schema#label> "Frutose"@pt .
+<http://dbpedia.org/resource/Schizophrenia> <http://www.w3.org/2000/01/rdf-schema#label> "Esquizofrenia"@pt .
+<http://dbpedia.org/resource/Parkinsonism> <http://www.w3.org/2000/01/rdf-schema#label> "Parkinsonismo"@pt .
+<http://dbpedia.org/resource/Flunitrazepam> <http://www.w3.org/2000/01/rdf-schema#label> "Flunitrazepam"@pt .
+<http://dbpedia.org/resource/Diarrhea> <http://www.w3.org/2000/01/rdf-schema#label> "Diarreia"@pt .
+<http://dbpedia.org/resource/Galactosemia> <http://www.w3.org/2000/01/rdf-schema#label> "Galactosemia"@pt .
+<http://dbpedia.org/resource/Methionine> <http://www.w3.org/2000/01/rdf-schema#label> "Metionina"@pt .
+<http://dbpedia.org/resource/Obesity> <http://www.w3.org/2000/01/rdf-schema#label> "Obesidade"@pt .
+<http://dbpedia.org/resource/Physical_therapy> <http://www.w3.org/2000/01/rdf-schema#label> "Fisioterapia"@pt .
+<http://dbpedia.org/resource/Calamine_%28mineral%29> <http://www.w3.org/2000/01/rdf-schema#label> "Calamina"@pt .
+<http://dbpedia.org/resource/Trisomy> <http://www.w3.org/2000/01/rdf-schema#label> "Trissomia"@pt .
+<http://dbpedia.org/resource/Acne_vulgaris> <http://www.w3.org/2000/01/rdf-schema#label> "Acne"@pt .
+<http://dbpedia.org/resource/Asphyxia> <http://www.w3.org/2000/01/rdf-schema#label> "Asfixia"@pt .
+<http://dbpedia.org/resource/Dizziness> <http://www.w3.org/2000/01/rdf-schema#label> "Tontura"@pt .
+<http://dbpedia.org/resource/Vomiting> <http://www.w3.org/2000/01/rdf-schema#label> "Emese"@pt .
+<http://dbpedia.org/resource/Appendicitis> <http://www.w3.org/2000/01/rdf-schema#label> "Apendicite"@pt .
+<http://dbpedia.org/resource/Esophagitis> <http://www.w3.org/2000/01/rdf-schema#label> "Esofagite"@pt .
+<http://dbpedia.org/resource/Burn> <http://www.w3.org/2000/01/rdf-schema#label> "Queimadura"@pt .
+<http://dbpedia.org/resource/Marasmus> <http://www.w3.org/2000/01/rdf-schema#label> "Marasmo"@pt .
+<http://dbpedia.org/resource/Aneurysm> <http://www.w3.org/2000/01/rdf-schema#label> "Aneurisma"@pt .
+<http://dbpedia.org/resource/Kwashiorkor> <http://www.w3.org/2000/01/rdf-schema#label> "Kwashiorkor"@pt .
+<http://dbpedia.org/resource/Vitiligo> <http://www.w3.org/2000/01/rdf-schema#label> "Vitiligo"@pt .
+<http://dbpedia.org/resource/Pancreatitis> <http://www.w3.org/2000/01/rdf-schema#label> "Pancreatite"@pt .
+<http://dbpedia.org/resource/Acanthosis_nigricans> <http://www.w3.org/2000/01/rdf-schema#label> "Acantose nigricans"@pt .
+<http://dbpedia.org/resource/Genital_wart> <http://www.w3.org/2000/01/rdf-schema#label> "Verruga genital"@pt .
+<http://dbpedia.org/resource/Hepatitis> <http://www.w3.org/2000/01/rdf-schema#label> "Hepatite"@pt .
+<http://dbpedia.org/resource/Alzheimer%27s_disease> <http://www.w3.org/2000/01/rdf-schema#label> "Mal de Alzheimer"@pt .
+<http://dbpedia.org/resource/Cholangitis> <http://www.w3.org/2000/01/rdf-schema#label> "Colangite"@pt .
+<http://dbpedia.org/resource/Anaphylaxis> <http://www.w3.org/2000/01/rdf-schema#label> "Anafilaxia"@pt .
+<http://dbpedia.org/resource/Schistosomiasis> <http://www.w3.org/2000/01/rdf-schema#label> "Esquistossomose"@pt .
+<http://dbpedia.org/resource/Epilepsy> <http://www.w3.org/2000/01/rdf-schema#label> "Epilepsia"@pt .
+<http://dbpedia.org/resource/Bleeding> <http://www.w3.org/2000/01/rdf-schema#label> "Hemorragia"@pt .
+<http://dbpedia.org/resource/Symptom> <http://www.w3.org/2000/01/rdf-schema#label> "Sintoma"@pt .
+<http://dbpedia.org/resource/Anencephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Anencefalia"@pt .
+<http://dbpedia.org/resource/Allergy> <http://www.w3.org/2000/01/rdf-schema#label> "Alergia"@pt .
+<http://dbpedia.org/resource/Hemolytic_disease_of_the_newborn> <http://www.w3.org/2000/01/rdf-schema#label> "Eritroblastose fetal"@pt .
+<http://dbpedia.org/resource/Achalasia> <http://www.w3.org/2000/01/rdf-schema#label> "Acalasia"@pt .
+<http://dbpedia.org/resource/Headache> <http://www.w3.org/2000/01/rdf-schema#label> "Cefaleia"@pt .
+<http://dbpedia.org/resource/Keloid> <http://www.w3.org/2000/01/rdf-schema#label> "Queloide"@pt .
+<http://dbpedia.org/resource/Angina_pectoris> <http://www.w3.org/2000/01/rdf-schema#label> "Angina"@pt .
+<http://dbpedia.org/resource/Diazepam> <http://www.w3.org/2000/01/rdf-schema#label> "Diazepam"@pt .
+<http://dbpedia.org/resource/Actinomycosis> <http://www.w3.org/2000/01/rdf-schema#label> "Actinomicose"@pt .
+<http://dbpedia.org/resource/Cholecystitis> <http://www.w3.org/2000/01/rdf-schema#label> "Colecistite"@pt .
+<http://dbpedia.org/resource/Measles> <http://www.w3.org/2000/01/rdf-schema#label> "Sarampo"@pt .
+<http://dbpedia.org/resource/Chickenpox> <http://www.w3.org/2000/01/rdf-schema#label> "Varicela"@pt .
+<http://dbpedia.org/resource/Diphtheria> <http://www.w3.org/2000/01/rdf-schema#label> "Difteria"@pt .
+<http://dbpedia.org/resource/Mumps> <http://www.w3.org/2000/01/rdf-schema#label> "Parotidite infecciosa"@pt .
+<http://dbpedia.org/resource/Haemophilia> <http://www.w3.org/2000/01/rdf-schema#label> "Hemofilia"@pt .
+<http://dbpedia.org/resource/Albinism> <http://www.w3.org/2000/01/rdf-schema#label> "Albinismo"@pt .
+<http://dbpedia.org/resource/Kuru_%28disease%29> <http://www.w3.org/2000/01/rdf-schema#label> "Kuru"@pt .
+<http://dbpedia.org/resource/Melanoma> <http://www.w3.org/2000/01/rdf-schema#label> "Melanoma maligno"@pt .
+<http://dbpedia.org/resource/Yellow_fever> <http://www.w3.org/2000/01/rdf-schema#label> "Febre amarela"@pt .
+<http://dbpedia.org/resource/Procter_%26_Gamble> <http://www.w3.org/2000/01/rdf-schema#label> "Procter & Gamble"@pt .
+<http://dbpedia.org/resource/Common_cold> <http://www.w3.org/2000/01/rdf-schema#label> "Resfriado"@pt .
+<http://dbpedia.org/resource/Heart_disease> <http://www.w3.org/2000/01/rdf-schema#label> "Cardiopatia"@pt .
+<http://dbpedia.org/resource/Mirtazapine> <http://www.w3.org/2000/01/rdf-schema#label> "Mirtazapina"@pt .
+<http://dbpedia.org/resource/Moclobemide> <http://www.w3.org/2000/01/rdf-schema#label> "Moclobemida"@pt .
+<http://dbpedia.org/resource/Avitaminosis> <http://www.w3.org/2000/01/rdf-schema#label> "Avitaminose"@pt .
+<http://dbpedia.org/resource/Zoonosis> <http://www.w3.org/2000/01/rdf-schema#label> "Zoonose"@pt .
+<http://dbpedia.org/resource/Hyperglycemia> <http://www.w3.org/2000/01/rdf-schema#label> "Hiperglicemia"@pt .
+<http://dbpedia.org/resource/Eschar> <http://www.w3.org/2000/01/rdf-schema#label> "Escara"@pt .
+<http://dbpedia.org/resource/Typhoid_fever> <http://www.w3.org/2000/01/rdf-schema#label> "Febre tifoide"@pt .
+<http://dbpedia.org/resource/REM> <http://www.w3.org/2000/01/rdf-schema#label> "REM"@pt .
+<http://dbpedia.org/resource/Pheochromocytoma> <http://www.w3.org/2000/01/rdf-schema#label> "Feocromocitoma"@pt .
+<http://dbpedia.org/resource/Bruxism> <http://www.w3.org/2000/01/rdf-schema#label> "Bruxismo"@pt .
+<http://dbpedia.org/resource/Poliomyelitis> <http://www.w3.org/2000/01/rdf-schema#label> "Poliomielite"@pt .
+<http://dbpedia.org/resource/Hysteria> <http://www.w3.org/2000/01/rdf-schema#label> "Histeria"@pt .
+<http://dbpedia.org/resource/Miles_%22Tails%22_Prower> <http://www.w3.org/2000/01/rdf-schema#label> "Miles \"Tails\" Prower"@pt .
+<http://dbpedia.org/resource/Anorexia_nervosa> <http://www.w3.org/2000/01/rdf-schema#label> "Anorexia nervosa"@pt .
+<http://dbpedia.org/resource/Bulimia_nervosa> <http://www.w3.org/2000/01/rdf-schema#label> "Bulimia nervosa"@pt .
+<http://dbpedia.org/resource/Anemia> <http://www.w3.org/2000/01/rdf-schema#label> "Anemia"@pt .
+<http://dbpedia.org/resource/Cerebral_aneurysm> <http://www.w3.org/2000/01/rdf-schema#label> "Aneurisma cerebral"@pt .
+<http://dbpedia.org/resource/Stuttering> <http://www.w3.org/2000/01/rdf-schema#label> "Disfemia"@pt .
+<http://dbpedia.org/resource/Precocious_puberty> <http://www.w3.org/2000/01/rdf-schema#label> "Puberdade precoce"@pt .
+<http://dbpedia.org/resource/4%E2%80%B233%E2%80%B3> <http://www.w3.org/2000/01/rdf-schema#label> "4'33\""@pt .
+<http://dbpedia.org/resource/Dysentery> <http://www.w3.org/2000/01/rdf-schema#label> "Disenteria"@pt .
+<http://dbpedia.org/resource/Epistaxis> <http://www.w3.org/2000/01/rdf-schema#label> "Epistaxe"@pt .
+<http://dbpedia.org/resource/Ulcerative_colitis> <http://www.w3.org/2000/01/rdf-schema#label> "Colite ulcerosa"@pt .
+<http://dbpedia.org/resource/Pneumonia> <http://www.w3.org/2000/01/rdf-schema#label> "Pneumonia"@pt .
+<http://dbpedia.org/resource/Scarlet_fever> <http://www.w3.org/2000/01/rdf-schema#label> "Escarlatina"@pt .
+<http://dbpedia.org/resource/Thyroid_neoplasm> <http://www.w3.org/2000/01/rdf-schema#label> "Tumor da tiroide"@pt .
+<http://dbpedia.org/resource/Pyelonephritis> <http://www.w3.org/2000/01/rdf-schema#label> "Pielonefrite"@pt .
+<http://dbpedia.org/resource/Midazolam> <http://www.w3.org/2000/01/rdf-schema#label> "Midazolam"@pt .
+<http://dbpedia.org/resource/Ecologist_Party_%22The_Greens%22> <http://www.w3.org/2000/01/rdf-schema#label> "Partido Ecologista \"Os Verdes\""@pt .
+<http://dbpedia.org/resource/Vaginitis> <http://www.w3.org/2000/01/rdf-schema#label> "Vaginite"@pt .
+<http://dbpedia.org/resource/Amoxicillin> <http://www.w3.org/2000/01/rdf-schema#label> "Amoxicilina"@pt .
+<http://dbpedia.org/resource/Scabies> <http://www.w3.org/2000/01/rdf-schema#label> "Sarna"@pt .
+<http://dbpedia.org/resource/Tennis_elbow> <http://www.w3.org/2000/01/rdf-schema#label> "Epicondilite lateral"@pt .
+<http://dbpedia.org/resource/Polydactyly> <http://www.w3.org/2000/01/rdf-schema#label> "Polidactilia"@pt .
+<http://dbpedia.org/resource/Psychosis> <http://www.w3.org/2000/01/rdf-schema#label> "Psicose"@pt .
+<http://dbpedia.org/resource/Glomerulonephritis> <http://www.w3.org/2000/01/rdf-schema#label> "Glomerulonefrite"@pt .
+<http://dbpedia.org/resource/Botulism> <http://www.w3.org/2000/01/rdf-schema#label> "Botulismo"@pt .
+<http://dbpedia.org/resource/Cephalic_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Porencefalia"@pt .
+<http://dbpedia.org/resource/Theophylline> <http://www.w3.org/2000/01/rdf-schema#label> "Teofilina"@pt .
+<http://dbpedia.org/resource/Fentanyl> <http://www.w3.org/2000/01/rdf-schema#label> "Fentanil"@pt .
+<http://dbpedia.org/resource/L-DOPA> <http://www.w3.org/2000/01/rdf-schema#label> "Levodopa"@pt .
+<http://dbpedia.org/resource/Orlistat> <http://www.w3.org/2000/01/rdf-schema#label> "Orlistat"@pt .
+<http://dbpedia.org/resource/Carbamazepine> <http://www.w3.org/2000/01/rdf-schema#label> "Carbamazepina"@pt .
+<http://dbpedia.org/resource/Chloramphenicol> <http://www.w3.org/2000/01/rdf-schema#label> "Cloranfenicol"@pt .
+<http://dbpedia.org/resource/Hepatocellular_carcinoma> <http://www.w3.org/2000/01/rdf-schema#label> "Hepatocarcinoma"@pt .
+<http://dbpedia.org/resource/Triple_X_syndrome> <http://www.w3.org/2000/01/rdf-schema#label> "Trissomia X"@pt .
+<http://dbpedia.org/resource/11%2709%2201_September_11> <http://www.w3.org/2000/01/rdf-schema#label> "11'9\"01 September 11"@pt .
+<http://dbpedia.org/resource/Salmonellosis> <http://www.w3.org/2000/01/rdf-schema#label> "Salmonelose"@pt .
+<http://dbpedia.org/resource/Shigellosis> <http://www.w3.org/2000/01/rdf-schema#label> "Disenteria bacteriana"@pt .
+<http://dbpedia.org/resource/Propofol> <http://www.w3.org/2000/01/rdf-schema#label> "Propofol"@pt .
+<http://dbpedia.org/resource/Brucellosis> <http://www.w3.org/2000/01/rdf-schema#label> "Brucelose"@pt .
+<http://dbpedia.org/resource/Chancroid> <http://www.w3.org/2000/01/rdf-schema#label> "Cancro mole"@pt .
+<http://dbpedia.org/resource/Erythema_infectiosum> <http://www.w3.org/2000/01/rdf-schema#label> "Eritema infeccioso"@pt .
+<http://dbpedia.org/resource/Infectious_mononucleosis> <http://www.w3.org/2000/01/rdf-schema#label> "Mononucleose infecciosa"@pt .
+<http://dbpedia.org/resource/Hirsutism> <http://www.w3.org/2000/01/rdf-schema#label> "Hirsutismo"@pt .
+<http://dbpedia.org/resource/Herpes_simplex> <http://www.w3.org/2000/01/rdf-schema#label> "Herpes"@pt .
+<http://dbpedia.org/resource/Reactive_arthritis> <http://www.w3.org/2000/01/rdf-schema#label> "Artrite reativa"@pt .
+<http://dbpedia.org/resource/Molluscum_contagiosum> <http://www.w3.org/2000/01/rdf-schema#label> "Molusco contagioso"@pt .
+<http://dbpedia.org/resource/Wart> <http://www.w3.org/2000/01/rdf-schema#label> "Verruga"@pt .
+<http://dbpedia.org/resource/Hepatitis_C> <http://www.w3.org/2000/01/rdf-schema#label> "Hepatite C"@pt .
+<http://dbpedia.org/resource/Hepatitis_A> <http://www.w3.org/2000/01/rdf-schema#label> "Hepatite A"@pt .
+<http://dbpedia.org/resource/Leishmaniasis> <http://www.w3.org/2000/01/rdf-schema#label> "Leishmaniose"@pt .
+<http://dbpedia.org/resource/Toxoplasmosis> <http://www.w3.org/2000/01/rdf-schema#label> "Toxoplasmose"@pt .
+<http://dbpedia.org/resource/Giardiasis> <http://www.w3.org/2000/01/rdf-schema#label> "Giardiose"@pt .
+<http://dbpedia.org/resource/Hydroquinone> <http://www.w3.org/2000/01/rdf-schema#label> "Hidroquinona"@pt .
+<http://dbpedia.org/resource/Echinococcosis> <http://www.w3.org/2000/01/rdf-schema#label> "Equinococose"@pt .
+<http://dbpedia.org/resource/Belching> <http://www.w3.org/2000/01/rdf-schema#label> "Arroto"@pt .
+<http://dbpedia.org/resource/Trichinosis> <http://www.w3.org/2000/01/rdf-schema#label> "Triquinose"@pt .
+<http://dbpedia.org/resource/Onchocerciasis> <http://www.w3.org/2000/01/rdf-schema#label> "Oncocercose"@pt .
+<http://dbpedia.org/resource/Histoplasmosis> <http://www.w3.org/2000/01/rdf-schema#label> "Histoplasmose"@pt .
+<http://dbpedia.org/resource/Cryptococcosis> <http://www.w3.org/2000/01/rdf-schema#label> "Criptococose"@pt .
+<http://dbpedia.org/resource/Aspergillosis> <http://www.w3.org/2000/01/rdf-schema#label> "Aspergilose"@pt .
+<http://dbpedia.org/resource/Coccidioidomycosis> <http://www.w3.org/2000/01/rdf-schema#label> "Coccidioidomicose"@pt .
+<http://dbpedia.org/resource/Blastomycosis> <http://www.w3.org/2000/01/rdf-schema#label> "Blastomicose"@pt .
+<http://dbpedia.org/resource/Paracoccidioidomycosis> <http://www.w3.org/2000/01/rdf-schema#label> "Paracoccidioidomicose"@pt .
+<http://dbpedia.org/resource/Ringworm> <http://www.w3.org/2000/01/rdf-schema#label> "Dermatofitose"@pt .
+<http://dbpedia.org/resource/Zygomycosis> <http://www.w3.org/2000/01/rdf-schema#label> "Mucormicose"@pt .
+<http://dbpedia.org/resource/Pneumocystis_pneumonia> <http://www.w3.org/2000/01/rdf-schema#label> "Pneumocistose"@pt .
+<http://dbpedia.org/resource/Sinusitis> <http://www.w3.org/2000/01/rdf-schema#label> "Sinusite"@pt .
+<http://dbpedia.org/resource/Glaucoma> <http://www.w3.org/2000/01/rdf-schema#label> "Glaucoma"@pt .
+<http://dbpedia.org/resource/Autism> <http://www.w3.org/2000/01/rdf-schema#label> "Autismo"@pt .
+<http://dbpedia.org/resource/Sarcoma> <http://www.w3.org/2000/01/rdf-schema#label> "Sarcoma"@pt .
+<http://dbpedia.org/resource/Insulinoma> <http://www.w3.org/2000/01/rdf-schema#label> "Insulinoma"@pt .
+<http://dbpedia.org/resource/Retinopathy> <http://www.w3.org/2000/01/rdf-schema#label> "Retinopatia"@pt .
+<http://dbpedia.org/resource/Prognathism> <http://www.w3.org/2000/01/rdf-schema#label> "Prognatismo mandibular"@pt .
+<http://dbpedia.org/resource/Pericarditis> <http://www.w3.org/2000/01/rdf-schema#label> "Pericardite"@pt .
+<http://dbpedia.org/resource/Meningitis> <http://www.w3.org/2000/01/rdf-schema#label> "Meningite"@pt .
+<http://dbpedia.org/resource/Amphotericin_B> <http://www.w3.org/2000/01/rdf-schema#label> "Anfotericina B"@pt .
+<http://dbpedia.org/resource/Thrombosis> <http://www.w3.org/2000/01/rdf-schema#label> "Trombose"@pt .
+<http://dbpedia.org/resource/Osteopenia> <http://www.w3.org/2000/01/rdf-schema#label> "Osteopenia"@pt .
+<http://dbpedia.org/resource/Strabismus> <http://www.w3.org/2000/01/rdf-schema#label> "Estrabismo"@pt .
+<http://dbpedia.org/resource/Gastritis> <http://www.w3.org/2000/01/rdf-schema#label> "Gastrite"@pt .
+<http://dbpedia.org/resource/Eosinophilia> <http://www.w3.org/2000/01/rdf-schema#label> "Eosinofilia"@pt .
+<http://dbpedia.org/resource/Lymphoma> <http://www.w3.org/2000/01/rdf-schema#label> "Linfoma"@pt .
+<http://dbpedia.org/resource/Stroke> <http://www.w3.org/2000/01/rdf-schema#label> "Acidente vascular cerebral"@pt .
+<http://dbpedia.org/resource/Ifosfamide> <http://www.w3.org/2000/01/rdf-schema#label> "Ifosfamida"@pt .
+<http://dbpedia.org/resource/Asthma> <http://www.w3.org/2000/01/rdf-schema#label> "Asma"@pt .
+<http://dbpedia.org/resource/Pernicious_anemia> <http://www.w3.org/2000/01/rdf-schema#label> "Anemia perniciosa"@pt .
+<http://dbpedia.org/resource/Hypercholesterolemia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipercolesterolemia"@pt .
+<http://dbpedia.org/resource/Johnson_%26_Johnson> <http://www.w3.org/2000/01/rdf-schema#label> "Johnson & Johnson"@pt .
+<http://dbpedia.org/resource/Melasma> <http://www.w3.org/2000/01/rdf-schema#label> "Melasma"@pt .
+<http://dbpedia.org/resource/Osteomyelitis> <http://www.w3.org/2000/01/rdf-schema#label> "Osteomielite"@pt .
+<http://dbpedia.org/resource/Etomidate> <http://www.w3.org/2000/01/rdf-schema#label> "Etomidato"@pt .
+<http://dbpedia.org/resource/Bradycardia> <http://www.w3.org/2000/01/rdf-schema#label> "Bradicardia"@pt .
+<http://dbpedia.org/resource/Ampicillin> <http://www.w3.org/2000/01/rdf-schema#label> "Ampicilina"@pt .
+<http://dbpedia.org/resource/Paratyphoid_fever> <http://www.w3.org/2000/01/rdf-schema#label> "Febre paratifoide"@pt .
+<http://dbpedia.org/resource/Glycerol> <http://www.w3.org/2000/01/rdf-schema#label> "Glicerol"@pt .
+<http://dbpedia.org/resource/Paraphilia> <http://www.w3.org/2000/01/rdf-schema#label> "Parafilia"@pt .
+<http://dbpedia.org/resource/Oligoastrocytoma> <http://www.w3.org/2000/01/rdf-schema#label> "Oligoastrocitoma"@pt .
+<http://dbpedia.org/resource/Astrocytoma> <http://www.w3.org/2000/01/rdf-schema#label> "Astrocitoma"@pt .
+<http://dbpedia.org/resource/Retinal_detachment> <http://www.w3.org/2000/01/rdf-schema#label> "Descolamento de retina"@pt .
+<http://dbpedia.org/resource/Lymphangioma> <http://www.w3.org/2000/01/rdf-schema#label> "Linfangioma"@pt .
+<http://dbpedia.org/resource/Halitosis> <http://www.w3.org/2000/01/rdf-schema#label> "Halitose"@pt .
+<http://dbpedia.org/resource/Gangrene> <http://www.w3.org/2000/01/rdf-schema#label> "Gangrena"@pt .
+<http://dbpedia.org/resource/Leukemia> <http://www.w3.org/2000/01/rdf-schema#label> "Leucemia"@pt .
+<http://dbpedia.org/resource/Oxytocin> <http://www.w3.org/2000/01/rdf-schema#label> "Ocitocina"@pt .
+<http://dbpedia.org/resource/Progesterone> <http://www.w3.org/2000/01/rdf-schema#label> "Progesterona"@pt .
+<http://dbpedia.org/resource/Myopia> <http://www.w3.org/2000/01/rdf-schema#label> "Miopia"@pt .
+<http://dbpedia.org/resource/Hyperopia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipermetropia"@pt .
+<http://dbpedia.org/resource/Astigmatism_%28eye%29> <http://www.w3.org/2000/01/rdf-schema#label> "Astigmatismo"@pt .
+<http://dbpedia.org/resource/Amblyopia> <http://www.w3.org/2000/01/rdf-schema#label> "Ambliopia"@pt .
+<http://dbpedia.org/resource/Pseudologia_fantastica> <http://www.w3.org/2000/01/rdf-schema#label> "Mitomania"@pt .
+<http://dbpedia.org/resource/Agoraphobia> <http://www.w3.org/2000/01/rdf-schema#label> "Agorafobia"@pt .
+<http://dbpedia.org/resource/Voyeurism> <http://www.w3.org/2000/01/rdf-schema#label> "Voyeurismo"@pt .
+<http://dbpedia.org/resource/Autoimmunity> <http://www.w3.org/2000/01/rdf-schema#label> "Autoimunidade"@pt .
+<http://dbpedia.org/resource/Drowning> <http://www.w3.org/2000/01/rdf-schema#label> "Afogamento"@pt .
+<http://dbpedia.org/resource/Ergotism> <http://www.w3.org/2000/01/rdf-schema#label> "Ergotismo"@pt .
+<http://dbpedia.org/resource/Brain_death> <http://www.w3.org/2000/01/rdf-schema#label> "Morte cerebral"@pt .
+<http://dbpedia.org/resource/Pneumonoultramicroscopicsilicovolcanoconiosis> <http://www.w3.org/2000/01/rdf-schema#label> "Pneumoultramicroscopicossilicovulcanoconiose"@pt .
+<http://dbpedia.org/resource/Sleep_apnea> <http://www.w3.org/2000/01/rdf-schema#label> "Apneia do sono"@pt .
+<http://dbpedia.org/resource/Aphthous_ulcer> <http://www.w3.org/2000/01/rdf-schema#label> "Afta"@pt .
+<http://dbpedia.org/resource/Foot-and-mouth_disease> <http://www.w3.org/2000/01/rdf-schema#label> "Febre aftosa"@pt .
+<http://dbpedia.org/resource/Arbovirus_infection> <http://www.w3.org/2000/01/rdf-schema#label> "Arbovirose"@pt .
+<http://dbpedia.org/resource/Bunion> <http://www.w3.org/2000/01/rdf-schema#label> "Hallux valgus"@pt .
+<http://dbpedia.org/resource/Atherosclerosis> <http://www.w3.org/2000/01/rdf-schema#label> "Aterosclerose"@pt .
+<http://dbpedia.org/resource/Tachycardia> <http://www.w3.org/2000/01/rdf-schema#label> "Taquicardia"@pt .
+<http://dbpedia.org/resource/Cerebral_palsy> <http://www.w3.org/2000/01/rdf-schema#label> "Paralisia cerebral"@pt .
+<http://dbpedia.org/resource/Cor_pulmonale> <http://www.w3.org/2000/01/rdf-schema#label> "Cor pulmonale"@pt .
+<http://dbpedia.org/resource/Shortness_of_breath> <http://www.w3.org/2000/01/rdf-schema#label> "Dispneia"@pt .
+<http://dbpedia.org/resource/Cyanosis> <http://www.w3.org/2000/01/rdf-schema#label> "Cianose"@pt .
+<http://dbpedia.org/resource/Pulmonary_embolism> <http://www.w3.org/2000/01/rdf-schema#label> "Embolia pulmonar"@pt .
+<http://dbpedia.org/resource/Phimosis> <http://www.w3.org/2000/01/rdf-schema#label> "Fimose"@pt .
+<http://dbpedia.org/resource/Presbyopia> <http://www.w3.org/2000/01/rdf-schema#label> "Presbiopia"@pt .
+<http://dbpedia.org/resource/Uni%C3%A3o_Futebol_Clube_%22Os_Pastilhas%22> <http://www.w3.org/2000/01/rdf-schema#label> "Uni\u00E3o Futebol Clube \"Os Pastilhas\""@pt .
+<http://dbpedia.org/resource/Atherosclerosis> <http://www.w3.org/2000/01/rdf-schema#label> "Arteriosclerose"@pt .
+<http://dbpedia.org/resource/Cretinism> <http://www.w3.org/2000/01/rdf-schema#label> "Cretinismo"@pt .
+<http://dbpedia.org/resource/Myasthenia_gravis> <http://www.w3.org/2000/01/rdf-schema#label> "Miastenia grave"@pt .
+<http://dbpedia.org/resource/Air_embolism> <http://www.w3.org/2000/01/rdf-schema#label> "Aeroembolismo"@pt .
+<http://dbpedia.org/resource/Ecchymosis> <http://www.w3.org/2000/01/rdf-schema#label> "Equimose"@pt .
+<http://dbpedia.org/resource/Rose_%22Casper%22_Mazzola> <http://www.w3.org/2000/01/rdf-schema#label> "Rose \"Casper\" Mazzola"@pt .
+<http://dbpedia.org/resource/Learning_disability> <http://www.w3.org/2000/01/rdf-schema#label> "Dificuldades de aprendizagem"@pt .
+<http://dbpedia.org/resource/Rocky_Mountain_spotted_fever> <http://www.w3.org/2000/01/rdf-schema#label> "Febre maculosa"@pt .
+<http://dbpedia.org/resource/Splenomegaly> <http://www.w3.org/2000/01/rdf-schema#label> "Esplenomegalia"@pt .
+<http://dbpedia.org/resource/Sepsis> <http://www.w3.org/2000/01/rdf-schema#label> "Sepse"@pt .
+<http://dbpedia.org/resource/Angioma> <http://www.w3.org/2000/01/rdf-schema#label> "Angioma"@pt .
+<http://dbpedia.org/resource/Vesical_tenesmus> <http://www.w3.org/2000/01/rdf-schema#label> "Tenesmo vesical"@pt .
+<http://dbpedia.org/resource/Adenosine> <http://www.w3.org/2000/01/rdf-schema#label> "Adenosina"@pt .
+<http://dbpedia.org/resource/Erysipelas> <http://www.w3.org/2000/01/rdf-schema#label> "Erisipela"@pt .
+<http://dbpedia.org/resource/Priapism> <http://www.w3.org/2000/01/rdf-schema#label> "Priapismo"@pt .
+<http://dbpedia.org/resource/Myxedema> <http://www.w3.org/2000/01/rdf-schema#label> "Mixedema"@pt .
+<http://dbpedia.org/resource/Seborrhoeic_dermatitis> <http://www.w3.org/2000/01/rdf-schema#label> "Dermatite seborreica"@pt .
+<http://dbpedia.org/resource/Hypothermia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipotermia"@pt .
+<http://dbpedia.org/resource/Microcephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Microcefalia"@pt .
+<http://dbpedia.org/resource/Sexual_fetishism> <http://www.w3.org/2000/01/rdf-schema#label> "Fetichismo"@pt .
+<http://dbpedia.org/resource/Paraplegia> <http://www.w3.org/2000/01/rdf-schema#label> "Paraplegia"@pt .
+<http://dbpedia.org/resource/Hemoptysis> <http://www.w3.org/2000/01/rdf-schema#label> "Hemoptise"@pt .
+<http://dbpedia.org/resource/Paranoia> <http://www.w3.org/2000/01/rdf-schema#label> "Paranoia"@pt .
+<http://dbpedia.org/resource/Hashimoto%27s_thyroiditis> <http://www.w3.org/2000/01/rdf-schema#label> "Tiroidite de Hashimoto"@pt .
+<http://dbpedia.org/resource/Embolism> <http://www.w3.org/2000/01/rdf-schema#label> "Embolia"@pt .
+<http://dbpedia.org/resource/Mental_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Transtorno mental"@pt .
+<http://dbpedia.org/resource/Estadio_Monumental_%22U%22> <http://www.w3.org/2000/01/rdf-schema#label> "Est\u00E1dio Monumental \"U\""@pt .
+<http://dbpedia.org/resource/Hydrochlorothiazide> <http://www.w3.org/2000/01/rdf-schema#label> "Hidroclorotiazida"@pt .
+<http://dbpedia.org/resource/Minamata_disease> <http://www.w3.org/2000/01/rdf-schema#label> "Desastre de Minamata"@pt .
+<http://dbpedia.org/resource/Conjunctivitis> <http://www.w3.org/2000/01/rdf-schema#label> "Conjuntivite"@pt .
+<http://dbpedia.org/resource/Retinitis_pigmentosa> <http://www.w3.org/2000/01/rdf-schema#label> "Retinite pigmentosa"@pt .
+<http://dbpedia.org/resource/Xerostomia> <http://www.w3.org/2000/01/rdf-schema#label> "Xerostomia"@pt .
+<http://dbpedia.org/resource/Hematoma> <http://www.w3.org/2000/01/rdf-schema#label> "Hematoma"@pt .
+<http://dbpedia.org/resource/Encephalitis> <http://www.w3.org/2000/01/rdf-schema#label> "Encefalite"@pt .
+<http://dbpedia.org/resource/Adrenoleukodystrophy> <http://www.w3.org/2000/01/rdf-schema#label> "Adrenoleucodistrofia"@pt .
+<http://dbpedia.org/resource/Spasm> <http://www.w3.org/2000/01/rdf-schema#label> "Espasmo"@pt .
+<http://dbpedia.org/resource/Polymyositis> <http://www.w3.org/2000/01/rdf-schema#label> "Polimiosite"@pt .
+<http://dbpedia.org/resource/Enterocolitis> <http://www.w3.org/2000/01/rdf-schema#label> "Enterocolite"@pt .
+<http://dbpedia.org/resource/Silicosis> <http://www.w3.org/2000/01/rdf-schema#label> "Silicose"@pt .
+<http://dbpedia.org/resource/Hyperplasia> <http://www.w3.org/2000/01/rdf-schema#label> "Hiperplasia"@pt .
+<http://dbpedia.org/resource/Hypertrophy> <http://www.w3.org/2000/01/rdf-schema#label> "Hipertrofia"@pt .
+<http://dbpedia.org/resource/Food_allergy> <http://www.w3.org/2000/01/rdf-schema#label> "Alergia alimentar"@pt .
+<http://dbpedia.org/resource/Amenorrhoea> <http://www.w3.org/2000/01/rdf-schema#label> "Amenorreia"@pt .
+<http://dbpedia.org/resource/Hyperhidrosis> <http://www.w3.org/2000/01/rdf-schema#label> "Hiperidrose"@pt .
+<http://dbpedia.org/resource/Membranoproliferative_glomerulonephritis> <http://www.w3.org/2000/01/rdf-schema#label> "Glomerulonefrite membranoproliferativa"@pt .
+<http://dbpedia.org/resource/Membranous_glomerulonephritis> <http://www.w3.org/2000/01/rdf-schema#label> "Nefropatia membranosa"@pt .
+<http://dbpedia.org/resource/IgA_nephropathy> <http://www.w3.org/2000/01/rdf-schema#label> "Nefropatia por IgA"@pt .
+<http://dbpedia.org/resource/Abscess> <http://www.w3.org/2000/01/rdf-schema#label> "Abscesso"@pt .
+<http://dbpedia.org/resource/Ameloblastoma> <http://www.w3.org/2000/01/rdf-schema#label> "Ameloblastoma"@pt .
+<http://dbpedia.org/resource/Praziquantel> <http://www.w3.org/2000/01/rdf-schema#label> "Praziquantel"@pt .
+<http://dbpedia.org/resource/Insulin_resistance> <http://www.w3.org/2000/01/rdf-schema#label> "Regulagem da glicemia"@pt .
+<http://dbpedia.org/resource/Apraxia> <http://www.w3.org/2000/01/rdf-schema#label> "Apraxia"@pt .
+<http://dbpedia.org/resource/Hypoglycemia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipoglicemia"@pt .
+<http://dbpedia.org/resource/Agnosia> <http://www.w3.org/2000/01/rdf-schema#label> "Agnosia"@pt .
+<http://dbpedia.org/resource/Dyscalculia> <http://www.w3.org/2000/01/rdf-schema#label> "Discalculia"@pt .
+<http://dbpedia.org/resource/Hodgkin%27s_lymphoma> <http://www.w3.org/2000/01/rdf-schema#label> "Linfoma de Hodgkin"@pt .
+<http://dbpedia.org/resource/Vaginismus> <http://www.w3.org/2000/01/rdf-schema#label> "Vaginismo"@pt .
+<http://dbpedia.org/resource/Urethritis> <http://www.w3.org/2000/01/rdf-schema#label> "Uretrite"@pt .
+<http://dbpedia.org/resource/Hemorrhoid> <http://www.w3.org/2000/01/rdf-schema#label> "Hemorroida"@pt .
+<http://dbpedia.org/resource/Anodontia> <http://www.w3.org/2000/01/rdf-schema#label> "Anodontia"@pt .
+<http://dbpedia.org/resource/Tenosynovitis> <http://www.w3.org/2000/01/rdf-schema#label> "Tenossinovite"@pt .
+<http://dbpedia.org/resource/Color_blindness> <http://www.w3.org/2000/01/rdf-schema#label> "Daltonismo"@pt .
+<http://dbpedia.org/resource/Sydenham%27s_chorea> <http://www.w3.org/2000/01/rdf-schema#label> "Coreia de Sydenham"@pt .
+<http://dbpedia.org/resource/Dapsone> <http://www.w3.org/2000/01/rdf-schema#label> "Dapsona"@pt .
+<http://dbpedia.org/resource/List_of_Naruto_antagonists%23Akatsuki> <http://www.w3.org/2000/01/rdf-schema#label> "Tobi"@pt .
+<http://dbpedia.org/resource/Hypoactive_sexual_desire_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Frigidez"@pt .
+<http://dbpedia.org/resource/Berakas_B%2C_Brunei-Muara> <http://www.w3.org/2000/01/rdf-schema#label> "Berakas \"B\""@pt .
+<http://dbpedia.org/resource/Berakas_A%2C_Brunei-Muara> <http://www.w3.org/2000/01/rdf-schema#label> "Berakas \"A\""@pt .
+<http://dbpedia.org/resource/Nephropathy> <http://www.w3.org/2000/01/rdf-schema#label> "Nefropatia"@pt .
+<http://dbpedia.org/resource/Acute_pancreatitis> <http://www.w3.org/2000/01/rdf-schema#label> "Pancreatite aguda"@pt .
+<http://dbpedia.org/resource/Floater> <http://www.w3.org/2000/01/rdf-schema#label> "Moscas volantes"@pt .
+<http://dbpedia.org/resource/Rheumatism> <http://www.w3.org/2000/01/rdf-schema#label> "Reumatismo"@pt .
+<http://dbpedia.org/resource/Pregnancy> <http://www.w3.org/2000/01/rdf-schema#label> "Primigesta"@pt .
+<http://dbpedia.org/resource/Delirium_tremens> <http://www.w3.org/2000/01/rdf-schema#label> "Delirium tremens"@pt .
+<http://dbpedia.org/resource/Granuloma> <http://www.w3.org/2000/01/rdf-schema#label> "Granuloma"@pt .
+<http://dbpedia.org/resource/Diverticulitis> <http://www.w3.org/2000/01/rdf-schema#label> "Diverticulite"@pt .
+<http://dbpedia.org/resource/Pectus_excavatum> <http://www.w3.org/2000/01/rdf-schema#label> "Pectus excavatum"@pt .
+<http://dbpedia.org/resource/Iron_deficiency_anemia> <http://www.w3.org/2000/01/rdf-schema#label> "Anemia ferropriva"@pt .
+<http://dbpedia.org/resource/Pfizer> <http://www.w3.org/2000/01/rdf-schema#label> "Pfizer"@pt .
+<http://dbpedia.org/resource/Exanthem> <http://www.w3.org/2000/01/rdf-schema#label> "Exantema"@pt .
+<http://dbpedia.org/resource/Fibromyalgia> <http://www.w3.org/2000/01/rdf-schema#label> "Fibromialgia"@pt .
+<http://dbpedia.org/resource/Ataxia> <http://www.w3.org/2000/01/rdf-schema#label> "Ataxia"@pt .
+<http://dbpedia.org/resource/Haemophilia_A> <http://www.w3.org/2000/01/rdf-schema#label> "Hemofilia A"@pt .
+<http://dbpedia.org/resource/Haemophilia_B> <http://www.w3.org/2000/01/rdf-schema#label> "Hemofilia B"@pt .
+<http://dbpedia.org/resource/Haemophilia_C> <http://www.w3.org/2000/01/rdf-schema#label> "Hemofilia C"@pt .
+<http://dbpedia.org/resource/Captopril> <http://www.w3.org/2000/01/rdf-schema#label> "Captopril"@pt .
+<http://dbpedia.org/resource/Folliculitis> <http://www.w3.org/2000/01/rdf-schema#label> "Foliculite"@pt .
+<http://dbpedia.org/resource/Ketoconazole> <http://www.w3.org/2000/01/rdf-schema#label> "Cetoconazol"@pt .
+<http://dbpedia.org/resource/Sanofi-Aventis> <http://www.w3.org/2000/01/rdf-schema#label> "Sanofi-Aventis"@pt .
+<http://dbpedia.org/resource/Labyrinthitis> <http://www.w3.org/2000/01/rdf-schema#label> "Labirintite"@pt .
+<http://dbpedia.org/resource/Night_terror> <http://www.w3.org/2000/01/rdf-schema#label> "Terror noturno"@pt .
+<http://dbpedia.org/resource/Focal_segmental_glomerulosclerosis> <http://www.w3.org/2000/01/rdf-schema#label> "Glomeruloesclerose segmentar e focal"@pt .
+<http://dbpedia.org/resource/Rheumatoid_arthritis> <http://www.w3.org/2000/01/rdf-schema#label> "Artrite reumatoide"@pt .
+<http://dbpedia.org/resource/Duchenne_muscular_dystrophy> <http://www.w3.org/2000/01/rdf-schema#label> "Distrofia muscular progressiva"@pt .
+<http://dbpedia.org/resource/Eli_Lilly_and_Company> <http://www.w3.org/2000/01/rdf-schema#label> "Eli Lilly"@pt .
+<http://dbpedia.org/resource/Kyphosis> <http://www.w3.org/2000/01/rdf-schema#label> "Cifose"@pt .
+<http://dbpedia.org/resource/Dysphagia> <http://www.w3.org/2000/01/rdf-schema#label> "Disfagia"@pt .
+<http://dbpedia.org/resource/Glioma> <http://www.w3.org/2000/01/rdf-schema#label> "Glioma"@pt .
+<http://dbpedia.org/resource/Dwarfism> <http://www.w3.org/2000/01/rdf-schema#label> "Nanismo"@pt .
+<http://dbpedia.org/resource/Cholestasis> <http://www.w3.org/2000/01/rdf-schema#label> "Colestase"@pt .
+<http://dbpedia.org/resource/Biliary_atresia> <http://www.w3.org/2000/01/rdf-schema#label> "Atresia biliar"@pt .
+<http://dbpedia.org/resource/Arginine> <http://www.w3.org/2000/01/rdf-schema#label> "Arginina"@pt .
+<http://dbpedia.org/resource/Nevus> <http://www.w3.org/2000/01/rdf-schema#label> "Nevo"@pt .
+<http://dbpedia.org/resource/GlaxoSmithKline> <http://www.w3.org/2000/01/rdf-schema#label> "GlaxoSmithKline"@pt .
+<http://dbpedia.org/resource/Achondroplasia> <http://www.w3.org/2000/01/rdf-schema#label> "Acondroplasia"@pt .
+<http://dbpedia.org/resource/Somatostatin> <http://www.w3.org/2000/01/rdf-schema#label> "Somatostatina"@pt .
+<http://dbpedia.org/resource/Nicorette> <http://www.w3.org/2000/01/rdf-schema#label> "Nicorette"@pt .
+<http://dbpedia.org/resource/Gingivitis> <http://www.w3.org/2000/01/rdf-schema#label> "Gengivite"@pt .
+<http://dbpedia.org/resource/Harlequin_type_ichthyosis> <http://www.w3.org/2000/01/rdf-schema#label> "Ictiose arlequim"@pt .
+<http://dbpedia.org/resource/Meloxicam> <http://www.w3.org/2000/01/rdf-schema#label> "Meloxicam"@pt .
+<http://dbpedia.org/resource/Coprolalia> <http://www.w3.org/2000/01/rdf-schema#label> "Coprolalia"@pt .
+<http://dbpedia.org/resource/Bronchopneumonia> <http://www.w3.org/2000/01/rdf-schema#label> "Broncopneumonia"@pt .
+<http://dbpedia.org/resource/Silvestre> <http://www.w3.org/2000/01/rdf-schema#label> "Silvestre"@pt .
+<http://dbpedia.org/resource/Delirium> <http://www.w3.org/2000/01/rdf-schema#label> "Delirium"@pt .
+<http://dbpedia.org/resource/Dysgraphia> <http://www.w3.org/2000/01/rdf-schema#label> "Agrafia"@pt .
+<http://dbpedia.org/resource/Aphasia> <http://www.w3.org/2000/01/rdf-schema#label> "Afasia"@pt .
+<http://dbpedia.org/resource/Organon> <http://www.w3.org/2000/01/rdf-schema#label> "Organon"@pt .
+<http://dbpedia.org/resource/Paralysis> <http://www.w3.org/2000/01/rdf-schema#label> "Paralisia"@pt .
+<http://dbpedia.org/resource/Persistent_truncus_arteriosus> <http://www.w3.org/2000/01/rdf-schema#label> "Truncus arteriosus"@pt .
+<http://dbpedia.org/resource/Dysmenorrhea> <http://www.w3.org/2000/01/rdf-schema#label> "Dismenorreia"@pt .
+<http://dbpedia.org/resource/Wound> <http://www.w3.org/2000/01/rdf-schema#label> "Ferida"@pt .
+<http://dbpedia.org/resource/Metaplasia> <http://www.w3.org/2000/01/rdf-schema#label> "Metaplasia"@pt .
+<http://dbpedia.org/resource/Mycosis> <http://www.w3.org/2000/01/rdf-schema#label> "Micose"@pt .
+<http://dbpedia.org/resource/Pepsin> <http://www.w3.org/2000/01/rdf-schema#label> "Pepsina"@pt .
+<http://dbpedia.org/resource/Adapalene> <http://www.w3.org/2000/01/rdf-schema#label> "Adapaleno"@pt .
+<http://dbpedia.org/resource/Myalgia> <http://www.w3.org/2000/01/rdf-schema#label> "Mialgia"@pt .
+<http://dbpedia.org/resource/Wegener%27s_granulomatosis> <http://www.w3.org/2000/01/rdf-schema#label> "Granulomatose de Wegener"@pt .
+<http://dbpedia.org/resource/Vasculitis> <http://www.w3.org/2000/01/rdf-schema#label> "Vasculite"@pt .
+<http://dbpedia.org/resource/Atheroma> <http://www.w3.org/2000/01/rdf-schema#label> "Ateroma"@pt .
+<http://dbpedia.org/resource/Prognathism> <http://www.w3.org/2000/01/rdf-schema#label> "Prognatismo"@pt .
+<http://dbpedia.org/resource/Trichotillomania> <http://www.w3.org/2000/01/rdf-schema#label> "Tricotilomania"@pt .
+<http://dbpedia.org/resource/Scoliosis> <http://www.w3.org/2000/01/rdf-schema#label> "Escoliose"@pt .
+<http://dbpedia.org/resource/Digoxin> <http://www.w3.org/2000/01/rdf-schema#label> "Digoxina"@pt .
+<http://dbpedia.org/resource/Lipoma> <http://www.w3.org/2000/01/rdf-schema#label> "Lipoma"@pt .
+<http://dbpedia.org/resource/Teratoma> <http://www.w3.org/2000/01/rdf-schema#label> "Teratoma"@pt .
+<http://dbpedia.org/resource/Fibroma> <http://www.w3.org/2000/01/rdf-schema#label> "Fibroma"@pt .
+<http://dbpedia.org/resource/Erythromycin> <http://www.w3.org/2000/01/rdf-schema#label> "Eritromicina"@pt .
+<http://dbpedia.org/resource/Osteoarthritis> <http://www.w3.org/2000/01/rdf-schema#label> "Osteoartrite"@pt .
+<http://dbpedia.org/resource/Rhinorrhea> <http://www.w3.org/2000/01/rdf-schema#label> "Rinorreia"@pt .
+<http://dbpedia.org/resource/Oophoritis> <http://www.w3.org/2000/01/rdf-schema#label> "Ovarite"@pt .
+<http://dbpedia.org/resource/Aphakia> <http://www.w3.org/2000/01/rdf-schema#label> "Afacia"@pt .
+<http://dbpedia.org/resource/Hyperthyroidism> <http://www.w3.org/2000/01/rdf-schema#label> "Hipertiroidismo"@pt .
+<http://dbpedia.org/resource/Cryptorchidism> <http://www.w3.org/2000/01/rdf-schema#label> "Criptorquia"@pt .
+<http://dbpedia.org/resource/Pleural_effusion> <http://www.w3.org/2000/01/rdf-schema#label> "Derrame pleural"@pt .
+<http://dbpedia.org/resource/Tardive_dysphrenia> <http://www.w3.org/2000/01/rdf-schema#label> "Disfrenia tardia"@pt .
+<http://dbpedia.org/resource/Melioidosis> <http://www.w3.org/2000/01/rdf-schema#label> "Melioidose"@pt .
+<http://dbpedia.org/resource/Hepatitis_E> <http://www.w3.org/2000/01/rdf-schema#label> "Hepatite E"@pt .
+<http://dbpedia.org/resource/Stretch_marks> <http://www.w3.org/2000/01/rdf-schema#label> "Estria"@pt .
+<http://dbpedia.org/resource/Cellulite> <http://www.w3.org/2000/01/rdf-schema#label> "Celulite"@pt .
+<http://dbpedia.org/resource/Rhinitis> <http://www.w3.org/2000/01/rdf-schema#label> "Rinite"@pt .
+<http://dbpedia.org/resource/Albendazole> <http://www.w3.org/2000/01/rdf-schema#label> "Albendazol"@pt .
+<http://dbpedia.org/resource/Pica_%28disorder%29> <http://www.w3.org/2000/01/rdf-schema#label> "Pica (transtorno)"@pt .
+<http://dbpedia.org/resource/Cyclopia> <http://www.w3.org/2000/01/rdf-schema#label> "Cyclopia"@pt .
+<http://dbpedia.org/resource/Norethisterone> <http://www.w3.org/2000/01/rdf-schema#label> "Noretindrona"@pt .
+<http://dbpedia.org/resource/Hemangioma> <http://www.w3.org/2000/01/rdf-schema#label> "Hemangioma"@pt .
+<http://dbpedia.org/resource/Acalvaria> <http://www.w3.org/2000/01/rdf-schema#label> "Acalvaria"@pt .
+<http://dbpedia.org/resource/Aboulia> <http://www.w3.org/2000/01/rdf-schema#label> "Abulia"@pt .
+<http://dbpedia.org/resource/Alopecia_totalis> <http://www.w3.org/2000/01/rdf-schema#label> "Alopecia total"@pt .
+<http://dbpedia.org/resource/Aniridia> <http://www.w3.org/2000/01/rdf-schema#label> "Aniridia"@pt .
+<http://dbpedia.org/resource/Back_pain> <http://www.w3.org/2000/01/rdf-schema#label> "Dorsalgia"@pt .
+<http://dbpedia.org/resource/Clonazepam> <http://www.w3.org/2000/01/rdf-schema#label> "Clonazepam"@pt .
+<http://dbpedia.org/resource/I%22s> <http://www.w3.org/2000/01/rdf-schema#label> "I\"s"@pt .
+<http://dbpedia.org/resource/Autoimmune_hepatitis> <http://www.w3.org/2000/01/rdf-schema#label> "Hepatite autoimune"@pt .
+<http://dbpedia.org/resource/Neurofibromatosis_type_I> <http://www.w3.org/2000/01/rdf-schema#label> "Neurofibromatose tipo I"@pt .
+<http://dbpedia.org/resource/Tinnitus> <http://www.w3.org/2000/01/rdf-schema#label> "Zumbido"@pt .
+<http://dbpedia.org/resource/Dependent_personality_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Transtorno de personalidade dependente"@pt .
+<http://dbpedia.org/resource/Trachoma> <http://www.w3.org/2000/01/rdf-schema#label> "Tracoma"@pt .
+<http://dbpedia.org/resource/Nosology> <http://www.w3.org/2000/01/rdf-schema#label> "Nosologia"@pt .
+<http://dbpedia.org/resource/Gestational_diabetes> <http://www.w3.org/2000/01/rdf-schema#label> "Diabetes gestacional"@pt .
+<http://dbpedia.org/resource/Tachypnea> <http://www.w3.org/2000/01/rdf-schema#label> "Taquipneia"@pt .
+<http://dbpedia.org/resource/Essential_tremor> <http://www.w3.org/2000/01/rdf-schema#label> "Tremor essencial"@pt .
+<http://dbpedia.org/resource/Hypothyroidism> <http://www.w3.org/2000/01/rdf-schema#label> "Hipotiroidismo"@pt .
+<http://dbpedia.org/resource/Hepatosplenomegaly> <http://www.w3.org/2000/01/rdf-schema#label> "Hepatoesplenomegalia"@pt .
+<http://dbpedia.org/resource/Porphyria> <http://www.w3.org/2000/01/rdf-schema#label> "Porfiria"@pt .
+<http://dbpedia.org/resource/Promethazine> <http://www.w3.org/2000/01/rdf-schema#label> "Prometazina"@pt .
+<http://dbpedia.org/resource/Anhedonia> <http://www.w3.org/2000/01/rdf-schema#label> "Anedonia"@pt .
+<http://dbpedia.org/resource/Hearing_impairment> <http://www.w3.org/2000/01/rdf-schema#label> "Surdez"@pt .
+<http://dbpedia.org/resource/Steatorrhea> <http://www.w3.org/2000/01/rdf-schema#label> "Esteatorreia"@pt .
+<http://dbpedia.org/resource/Metronidazole> <http://www.w3.org/2000/01/rdf-schema#label> "Metronidazol"@pt .
+<http://dbpedia.org/resource/Mebendazole> <http://www.w3.org/2000/01/rdf-schema#label> "Mebendazol"@pt .
+<http://dbpedia.org/resource/Hypochondriasis> <http://www.w3.org/2000/01/rdf-schema#label> "Hipocondria"@pt .
+<http://dbpedia.org/resource/Pleurisy> <http://www.w3.org/2000/01/rdf-schema#label> "Pleurisia"@pt .
+<http://dbpedia.org/resource/Eclampsia> <http://www.w3.org/2000/01/rdf-schema#label> "Eclampsia"@pt .
+<http://dbpedia.org/resource/Mental_retardation> <http://www.w3.org/2000/01/rdf-schema#label> "Retardo mental"@pt .
+<http://dbpedia.org/resource/Hairy_cell_leukemia> <http://www.w3.org/2000/01/rdf-schema#label> "Tricoleucemia"@pt .
+<http://dbpedia.org/resource/Hugo_%22Hurley%22_Reyes> <http://www.w3.org/2000/01/rdf-schema#label> "Hugo \"Hurley\" Reyes"@pt .
+<http://dbpedia.org/resource/Prosopagnosia> <http://www.w3.org/2000/01/rdf-schema#label> "Prosopagnosia"@pt .
+<http://dbpedia.org/resource/Colchicine> <http://www.w3.org/2000/01/rdf-schema#label> "Colchicina"@pt .
+<http://dbpedia.org/resource/Photophobia> <http://www.w3.org/2000/01/rdf-schema#label> "Fotofobia"@pt .
+<http://dbpedia.org/resource/Carcinoma> <http://www.w3.org/2000/01/rdf-schema#label> "Carcinoma"@pt .
+<http://dbpedia.org/resource/Carvedilol> <http://www.w3.org/2000/01/rdf-schema#label> "Carvedilol"@pt .
+<http://dbpedia.org/resource/Kleptomania> <http://www.w3.org/2000/01/rdf-schema#label> "Cleptomania"@pt .
+<http://dbpedia.org/resource/Arachnoid_cyst> <http://www.w3.org/2000/01/rdf-schema#label> "Cisto aracnoide"@pt .
+<http://dbpedia.org/resource/Acute_myeloid_leukemia> <http://www.w3.org/2000/01/rdf-schema#label> "Leucemia mieloide aguda"@pt .
+<http://dbpedia.org/resource/Acromegaly> <http://www.w3.org/2000/01/rdf-schema#label> "Acromegalia"@pt .
+<http://dbpedia.org/resource/Achromatopsia> <http://www.w3.org/2000/01/rdf-schema#label> "Acromatopsia"@pt .
+<http://dbpedia.org/resource/Impetigo> <http://www.w3.org/2000/01/rdf-schema#label> "Impetigo"@pt .
+<http://dbpedia.org/resource/Ceftazidime> <http://www.w3.org/2000/01/rdf-schema#label> "Ceftazidima"@pt .
+<http://dbpedia.org/resource/Chloroquine> <http://www.w3.org/2000/01/rdf-schema#label> "Cloroquina"@pt .
+<http://dbpedia.org/resource/Refractive_error> <http://www.w3.org/2000/01/rdf-schema#label> "Ametropia"@pt .
+<http://dbpedia.org/resource/Lead_poisoning> <http://www.w3.org/2000/01/rdf-schema#label> "Saturnismo"@pt .
+<http://dbpedia.org/resource/Emphysema> <http://www.w3.org/2000/01/rdf-schema#label> "Enfisema"@pt .
+<http://dbpedia.org/resource/Cutaneous_larva_migrans> <http://www.w3.org/2000/01/rdf-schema#label> "Larva migrans"@pt .
+<http://dbpedia.org/resource/Shin_splints> <http://www.w3.org/2000/01/rdf-schema#label> "Canelite"@pt .
+<http://dbpedia.org/resource/Atrophy> <http://www.w3.org/2000/01/rdf-schema#label> "Atrofia"@pt .
+<http://dbpedia.org/resource/Alprazolam> <http://www.w3.org/2000/01/rdf-schema#label> "Alprazolam"@pt .
+<http://dbpedia.org/resource/Bromazepam> <http://www.w3.org/2000/01/rdf-schema#label> "Bromazepam"@pt .
+<http://dbpedia.org/resource/Hydatidiform_mole> <http://www.w3.org/2000/01/rdf-schema#label> "Mola hidatiforme"@pt .
+<http://dbpedia.org/resource/Cloxazolam> <http://www.w3.org/2000/01/rdf-schema#label> "Cloxazolam"@pt .
+<http://dbpedia.org/resource/Estazolam> <http://www.w3.org/2000/01/rdf-schema#label> "Estazolam"@pt .
+<http://dbpedia.org/resource/Hepatomegaly> <http://www.w3.org/2000/01/rdf-schema#label> "Hepatomegalia"@pt .
+<http://dbpedia.org/resource/Lorazepam> <http://www.w3.org/2000/01/rdf-schema#label> "Lorazepam"@pt .
+<http://dbpedia.org/resource/Otosclerosis> <http://www.w3.org/2000/01/rdf-schema#label> "Otosclerose"@pt .
+<http://dbpedia.org/resource/Osteosarcoma> <http://www.w3.org/2000/01/rdf-schema#label> "Osteossarcoma"@pt .
+<http://dbpedia.org/resource/Osteomalacia> <http://www.w3.org/2000/01/rdf-schema#label> "Osteomalacia"@pt .
+<http://dbpedia.org/resource/Phonophobia> <http://www.w3.org/2000/01/rdf-schema#label> "Fonofobia"@pt .
+<http://dbpedia.org/resource/Alkalosis> <http://www.w3.org/2000/01/rdf-schema#label> "Alcalose"@pt .
+<http://dbpedia.org/resource/Hydrocephalus> <http://www.w3.org/2000/01/rdf-schema#label> "Hidrocefalia"@pt .
+<http://dbpedia.org/resource/Bursitis> <http://www.w3.org/2000/01/rdf-schema#label> "Bursite"@pt .
+<http://dbpedia.org/resource/Itch> <http://www.w3.org/2000/01/rdf-schema#label> "Prurido"@pt .
+<http://dbpedia.org/resource/James_%22Sawyer%22_Ford> <http://www.w3.org/2000/01/rdf-schema#label> "James \"Sawyer\" Ford"@pt .
+<http://dbpedia.org/resource/Parasomnia> <http://www.w3.org/2000/01/rdf-schema#label> "Parassonia"@pt .
+<http://dbpedia.org/resource/Osteochondritis_dissecans> <http://www.w3.org/2000/01/rdf-schema#label> "Osteocondrite dissecante"@pt .
+<http://dbpedia.org/resource/Isosorbide_dinitrate> <http://www.w3.org/2000/01/rdf-schema#label> "Dinitrato de isossorbida"@pt .
+<http://dbpedia.org/resource/Ibuprofen> <http://www.w3.org/2000/01/rdf-schema#label> "Ibuprofeno"@pt .
+<http://dbpedia.org/resource/Anal_fissure> <http://www.w3.org/2000/01/rdf-schema#label> "Fissura anal"@pt .
+<http://dbpedia.org/resource/Fluconazole> <http://www.w3.org/2000/01/rdf-schema#label> "Fluconazol"@pt .
+<http://dbpedia.org/resource/Gas_gangrene> <http://www.w3.org/2000/01/rdf-schema#label> "Gangrena gasosa"@pt .
+<http://dbpedia.org/resource/Sickle-cell_disease> <http://www.w3.org/2000/01/rdf-schema#label> "Anemia falciforme"@pt .
+<http://dbpedia.org/resource/Thalassemia> <http://www.w3.org/2000/01/rdf-schema#label> "Talassemia"@pt .
+<http://dbpedia.org/resource/Terbinafine> <http://www.w3.org/2000/01/rdf-schema#label> "Terbinafina"@pt .
+<http://dbpedia.org/resource/Varicose_veins> <http://www.w3.org/2000/01/rdf-schema#label> "Variz"@pt .
+<http://dbpedia.org/resource/Hypercalcaemia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipercalcemia"@pt .
+<http://dbpedia.org/resource/Carcinosarcoma> <http://www.w3.org/2000/01/rdf-schema#label> "Carcinossarcoma"@pt .
+<http://dbpedia.org/resource/Heterochromia> <http://www.w3.org/2000/01/rdf-schema#label> "Heterocromia"@pt .
+<http://dbpedia.org/resource/Paresthesia> <http://www.w3.org/2000/01/rdf-schema#label> "Parestesia"@pt .
+<http://dbpedia.org/resource/Pediculosis> <http://www.w3.org/2000/01/rdf-schema#label> "Pediculose"@pt .
+<http://dbpedia.org/resource/Gastroenteritis> <http://www.w3.org/2000/01/rdf-schema#label> "Gastroenterite"@pt .
+<http://dbpedia.org/resource/Acidosis> <http://www.w3.org/2000/01/rdf-schema#label> "Acidose"@pt .
+<http://dbpedia.org/resource/Hyperammonemia> <http://www.w3.org/2000/01/rdf-schema#label> "Hiperamonemia"@pt .
+<http://dbpedia.org/resource/Ciclosporin> <http://www.w3.org/2000/01/rdf-schema#label> "Ciclosporina"@pt .
+<http://dbpedia.org/resource/Propranolol> <http://www.w3.org/2000/01/rdf-schema#label> "Propranolol"@pt .
+<http://dbpedia.org/resource/Dyspareunia> <http://www.w3.org/2000/01/rdf-schema#label> "Dispareunia"@pt .
+<http://dbpedia.org/resource/Dexamethasone> <http://www.w3.org/2000/01/rdf-schema#label> "Dexametasona"@pt .
+<http://dbpedia.org/resource/Hepatoblastoma> <http://www.w3.org/2000/01/rdf-schema#label> "Hepatoblastoma"@pt .
+<http://dbpedia.org/resource/Omeprazole> <http://www.w3.org/2000/01/rdf-schema#label> "Omeprazol"@pt .
+<http://dbpedia.org/resource/Leukorrhea> <http://www.w3.org/2000/01/rdf-schema#label> "Leucorreia"@pt .
+<http://dbpedia.org/resource/Pruritus_ani> <http://www.w3.org/2000/01/rdf-schema#label> "Prurido anal"@pt .
+<http://dbpedia.org/resource/Acute_lymphoblastic_leukemia> <http://www.w3.org/2000/01/rdf-schema#label> "Leucemia linfoide aguda"@pt .
+<http://dbpedia.org/resource/Endocarditis> <http://www.w3.org/2000/01/rdf-schema#label> "Endocardite"@pt .
+<http://dbpedia.org/resource/Erythema> <http://www.w3.org/2000/01/rdf-schema#label> "Eritema"@pt .
+<http://dbpedia.org/resource/Ankylosing_spondylitis> <http://www.w3.org/2000/01/rdf-schema#label> "Espondilite anquilosante"@pt .
+<http://dbpedia.org/resource/Bronchitis> <http://www.w3.org/2000/01/rdf-schema#label> "Bronquite"@pt .
+<http://dbpedia.org/resource/%22Weird_Al%22_Yankovic> <http://www.w3.org/2000/01/rdf-schema#label> "\"Weird Al\" Yankovic"@pt .
+<http://dbpedia.org/resource/Burkitt%27s_lymphoma> <http://www.w3.org/2000/01/rdf-schema#label> "Linfoma de Burkitt"@pt .
+<http://dbpedia.org/resource/Estradiol> <http://www.w3.org/2000/01/rdf-schema#label> "Estradiol"@pt .
+<http://dbpedia.org/resource/Syndactyly> <http://www.w3.org/2000/01/rdf-schema#label> "Sindactilia"@pt .
+<http://dbpedia.org/resource/Baker%27s_cyst> <http://www.w3.org/2000/01/rdf-schema#label> "Cisto de Baker"@pt .
+<http://dbpedia.org/resource/Hypersensitivity> <http://www.w3.org/2000/01/rdf-schema#label> "Hipersensibilidade"@pt .
+<http://dbpedia.org/resource/Atopy> <http://www.w3.org/2000/01/rdf-schema#label> "Atopia"@pt .
+<http://dbpedia.org/resource/Cervicitis> <http://www.w3.org/2000/01/rdf-schema#label> "Cervicite"@pt .
+<http://dbpedia.org/resource/Hemeralopia> <http://www.w3.org/2000/01/rdf-schema#label> "Hemeralopia"@pt .
+<http://dbpedia.org/resource/Minoxidil> <http://www.w3.org/2000/01/rdf-schema#label> "Minoxidil"@pt .
+<http://dbpedia.org/resource/Melanoma> <http://www.w3.org/2000/01/rdf-schema#label> "Melanoma"@pt .
+<http://dbpedia.org/resource/Agranulocytosis> <http://www.w3.org/2000/01/rdf-schema#label> "Agranulocitose"@pt .
+<http://dbpedia.org/resource/Cataplexy> <http://www.w3.org/2000/01/rdf-schema#label> "Cataplexia"@pt .
+<http://dbpedia.org/resource/Scotoma> <http://www.w3.org/2000/01/rdf-schema#label> "Escotoma"@pt .
+<http://dbpedia.org/resource/Fatigue_%28medical%29> <http://www.w3.org/2000/01/rdf-schema#label> "Fadiga (medicina)"@pt .
+<http://dbpedia.org/resource/Ketosis> <http://www.w3.org/2000/01/rdf-schema#label> "Cetose"@pt .
+<http://dbpedia.org/resource/Hemiballismus> <http://www.w3.org/2000/01/rdf-schema#label> "Hemibalismo"@pt .
+<http://dbpedia.org/resource/Cystitis> <http://www.w3.org/2000/01/rdf-schema#label> "Cistite"@pt .
+<http://dbpedia.org/resource/Clindamycin> <http://www.w3.org/2000/01/rdf-schema#label> "Clindamicina"@pt .
+<http://dbpedia.org/resource/Pleural_empyema> <http://www.w3.org/2000/01/rdf-schema#label> "Empiema pleural"@pt .
+<http://dbpedia.org/resource/Lordosis> <http://www.w3.org/2000/01/rdf-schema#label> "Lordose"@pt .
+<http://dbpedia.org/resource/Pilocarpine> <http://www.w3.org/2000/01/rdf-schema#label> "Pilocarpina"@pt .
+<http://dbpedia.org/resource/Shyness> <http://www.w3.org/2000/01/rdf-schema#label> "Timidez"@pt .
+<http://dbpedia.org/resource/Tonsillitis> <http://www.w3.org/2000/01/rdf-schema#label> "Tonsilite"@pt .
+<http://dbpedia.org/resource/Nimesulide> <http://www.w3.org/2000/01/rdf-schema#label> "Nimesulida"@pt .
+<http://dbpedia.org/resource/Pregnancy> <http://www.w3.org/2000/01/rdf-schema#label> "Gravidez humana"@pt .
+<http://dbpedia.org/resource/Phenobarbital> <http://www.w3.org/2000/01/rdf-schema#label> "Fenobarbital"@pt .
+<http://dbpedia.org/resource/Pyromania> <http://www.w3.org/2000/01/rdf-schema#label> "Piromania"@pt .
+<http://dbpedia.org/resource/Dermatitis_herpetiformis> <http://www.w3.org/2000/01/rdf-schema#label> "Dermatite herpetiforme"@pt .
+<http://dbpedia.org/resource/Cimetidine> <http://www.w3.org/2000/01/rdf-schema#label> "Cimetidina"@pt .
+<http://dbpedia.org/resource/Bayer> <http://www.w3.org/2000/01/rdf-schema#label> "Bayer"@pt .
+<http://dbpedia.org/resource/Phocomelia> <http://www.w3.org/2000/01/rdf-schema#label> "Focomelia"@pt .
+<http://dbpedia.org/resource/Stomatitis> <http://www.w3.org/2000/01/rdf-schema#label> "Estomatite"@pt .
+<http://dbpedia.org/resource/Aciclovir> <http://www.w3.org/2000/01/rdf-schema#label> "Aciclovir"@pt .
+<http://dbpedia.org/resource/Gynecomastia> <http://www.w3.org/2000/01/rdf-schema#label> "Ginecomastia"@pt .
+<http://dbpedia.org/resource/Encephalocele> <http://www.w3.org/2000/01/rdf-schema#label> "Encefalocele"@pt .
+<http://dbpedia.org/resource/Receptive_aphasia> <http://www.w3.org/2000/01/rdf-schema#label> "Afasia de Wernicke"@pt .
+<http://dbpedia.org/resource/Epiglottitis> <http://www.w3.org/2000/01/rdf-schema#label> "Epiglotite"@pt .
+<http://dbpedia.org/resource/Atelectasis> <http://www.w3.org/2000/01/rdf-schema#label> "Atelectasia"@pt .
+<http://dbpedia.org/resource/Pancytopenia> <http://www.w3.org/2000/01/rdf-schema#label> "Pancitopenia"@pt .
+<http://dbpedia.org/resource/Polycythemia> <http://www.w3.org/2000/01/rdf-schema#label> "Policitemia vera"@pt .
+<http://dbpedia.org/resource/Hypovolemia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipovolemia"@pt .
+<http://dbpedia.org/resource/Oligospermia> <http://www.w3.org/2000/01/rdf-schema#label> "Oligospermia"@pt .
+<http://dbpedia.org/resource/Eumycetoma> <http://www.w3.org/2000/01/rdf-schema#label> "Micetoma"@pt .
+<http://dbpedia.org/resource/Varicocele> <http://www.w3.org/2000/01/rdf-schema#label> "Varicocele"@pt .
+<http://dbpedia.org/resource/Hypoplasia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipoplasia"@pt .
+<http://dbpedia.org/resource/Ascites> <http://www.w3.org/2000/01/rdf-schema#label> "Ascite"@pt .
+<http://dbpedia.org/resource/Finasteride> <http://www.w3.org/2000/01/rdf-schema#label> "Finasterida"@pt .
+<http://dbpedia.org/resource/Dyslipidemia> <http://www.w3.org/2000/01/rdf-schema#label> "Dislipidemia"@pt .
+<http://dbpedia.org/resource/Mastoiditis> <http://www.w3.org/2000/01/rdf-schema#label> "Mastoidite"@pt .
+<http://dbpedia.org/resource/Macrodontia_%28tooth%29> <http://www.w3.org/2000/01/rdf-schema#label> "Macrodontia"@pt .
+<http://dbpedia.org/resource/Osteochondritis> <http://www.w3.org/2000/01/rdf-schema#label> "Osteocondrite"@pt .
+<http://dbpedia.org/resource/Myocarditis> <http://www.w3.org/2000/01/rdf-schema#label> "Miocardite"@pt .
+<http://dbpedia.org/resource/Nitazoxanide> <http://www.w3.org/2000/01/rdf-schema#label> "Nitazoxanida"@pt .
+<http://dbpedia.org/resource/Malignant_hyperthermia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipertermia maligna"@pt .
+<http://dbpedia.org/resource/Callus> <http://www.w3.org/2000/01/rdf-schema#label> "Calo"@pt .
+<http://dbpedia.org/resource/Keratitis> <http://www.w3.org/2000/01/rdf-schema#label> "Ceratite"@pt .
+<http://dbpedia.org/resource/Retinoblastoma> <http://www.w3.org/2000/01/rdf-schema#label> "Retinoblastoma"@pt .
+<http://dbpedia.org/resource/Scleritis> <http://www.w3.org/2000/01/rdf-schema#label> "Esclerite"@pt .
+<http://dbpedia.org/resource/Cyst> <http://www.w3.org/2000/01/rdf-schema#label> "Cisto"@pt .
+<http://dbpedia.org/resource/Body_odor> <http://www.w3.org/2000/01/rdf-schema#label> "Odor corporal"@pt .
+<http://dbpedia.org/resource/Dyshidrosis> <http://www.w3.org/2000/01/rdf-schema#label> "Disidrose"@pt .
+<http://dbpedia.org/resource/Xanthelasma> <http://www.w3.org/2000/01/rdf-schema#label> "Xantelasma"@pt .
+<http://dbpedia.org/resource/Ezetimibe> <http://www.w3.org/2000/01/rdf-schema#label> "Ezetimiba"@pt .
+<http://dbpedia.org/resource/Antisocial_personality_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Transtorno de personalidade antissocial"@pt .
+<http://dbpedia.org/resource/Benzathine_benzylpenicillin> <http://www.w3.org/2000/01/rdf-schema#label> "Benzilpenicilina benzatina"@pt .
+<http://dbpedia.org/resource/Tibolone> <http://www.w3.org/2000/01/rdf-schema#label> "Tibolona"@pt .
+<http://dbpedia.org/resource/Vertigo> <http://www.w3.org/2000/01/rdf-schema#label> "Vertigem"@pt .
+<http://dbpedia.org/resource/Body_dysmorphic_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Dismorfofobia"@pt .
+<http://dbpedia.org/resource/Sunburn> <http://www.w3.org/2000/01/rdf-schema#label> "Queimadura solar"@pt .
+<http://dbpedia.org/resource/Plantar_fasciitis> <http://www.w3.org/2000/01/rdf-schema#label> "Fascite plantar"@pt .
+<http://dbpedia.org/resource/Psittacosis> <http://www.w3.org/2000/01/rdf-schema#label> "Ornitose"@pt .
+<http://dbpedia.org/resource/Hyponatremia> <http://www.w3.org/2000/01/rdf-schema#label> "Hiponatremia"@pt .
+<http://dbpedia.org/resource/Clitoromegaly> <http://www.w3.org/2000/01/rdf-schema#label> "Clitoromegalia"@pt .
+<http://dbpedia.org/resource/Barotrauma> <http://www.w3.org/2000/01/rdf-schema#label> "Barotrauma"@pt .
+<http://dbpedia.org/resource/Paresis> <http://www.w3.org/2000/01/rdf-schema#label> "Paresia"@pt .
+<http://dbpedia.org/resource/Fibrosis> <http://www.w3.org/2000/01/rdf-schema#label> "Fibrose"@pt .
+<http://dbpedia.org/resource/Hypogonadism> <http://www.w3.org/2000/01/rdf-schema#label> "Hipogonadismo"@pt .
+<http://dbpedia.org/resource/Delayed_puberty> <http://www.w3.org/2000/01/rdf-schema#label> "Puberdade atrasada"@pt .
+<http://dbpedia.org/resource/Sneeze> <http://www.w3.org/2000/01/rdf-schema#label> "Espirro"@pt .
+<http://dbpedia.org/resource/Endometriosis> <http://www.w3.org/2000/01/rdf-schema#label> "Endometriose"@pt .
+<http://dbpedia.org/resource/Sacred_Heart_%22The_Video%22> <http://www.w3.org/2000/01/rdf-schema#label> "Sacred Heart \"The Video\""@pt .
+<http://dbpedia.org/resource/Levonorgestrel> <http://www.w3.org/2000/01/rdf-schema#label> "Levonorgestrel"@pt .
+<http://dbpedia.org/resource/Deep_vein_thrombosis> <http://www.w3.org/2000/01/rdf-schema#label> "Trombose venosa profunda"@pt .
+<http://dbpedia.org/resource/Papilloma> <http://www.w3.org/2000/01/rdf-schema#label> "Papiloma"@pt .
+<http://dbpedia.org/resource/Haloperidol> <http://www.w3.org/2000/01/rdf-schema#label> "Haloperidol"@pt .
+<http://dbpedia.org/resource/Hyperparathyroidism> <http://www.w3.org/2000/01/rdf-schema#label> "Hiperparatiroidismo"@pt .
+<http://dbpedia.org/resource/Halothane> <http://www.w3.org/2000/01/rdf-schema#label> "Halotano"@pt .
+<http://dbpedia.org/resource/Hemiplegia> <http://www.w3.org/2000/01/rdf-schema#label> "Hemiplegia"@pt .
+<http://dbpedia.org/resource/Lipid_storage_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Lipidose"@pt .
+<http://dbpedia.org/resource/Atrial_flutter> <http://www.w3.org/2000/01/rdf-schema#label> "Flutter atrial"@pt .
+<http://dbpedia.org/resource/Amyloidosis> <http://www.w3.org/2000/01/rdf-schema#label> "Amiloidose"@pt .
+<http://dbpedia.org/resource/Personality_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Transtorno de personalidade"@pt .
+<http://dbpedia.org/resource/Avoidant_personality_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Transtorno de personalidade esquiva"@pt .
+<http://dbpedia.org/resource/Hematemesis> <http://www.w3.org/2000/01/rdf-schema#label> "Hematemese"@pt .
+<http://dbpedia.org/resource/Furosemide> <http://www.w3.org/2000/01/rdf-schema#label> "Furosemida"@pt .
+<http://dbpedia.org/resource/Hyphema> <http://www.w3.org/2000/01/rdf-schema#label> "Hifema"@pt .
+<http://dbpedia.org/resource/Bacteremia> <http://www.w3.org/2000/01/rdf-schema#label> "Bacteremia"@pt .
+<http://dbpedia.org/resource/Neuralgia> <http://www.w3.org/2000/01/rdf-schema#label> "Nevralgia"@pt .
+<http://dbpedia.org/resource/Phantom_limb> <http://www.w3.org/2000/01/rdf-schema#label> "Dor do membro fantasma"@pt .
+<http://dbpedia.org/resource/Polydipsia> <http://www.w3.org/2000/01/rdf-schema#label> "Polidipsia"@pt .
+<http://dbpedia.org/resource/Hematochezia> <http://www.w3.org/2000/01/rdf-schema#label> "Hematoquezia"@pt .
+<http://dbpedia.org/resource/Anorgasmia> <http://www.w3.org/2000/01/rdf-schema#label> "Anorgasmia"@pt .
+<http://dbpedia.org/resource/Celecoxib> <http://www.w3.org/2000/01/rdf-schema#label> "Celecoxib"@pt .
+<http://dbpedia.org/resource/Hemoglobinopathy> <http://www.w3.org/2000/01/rdf-schema#label> "Hemoglobinopatia"@pt .
+<http://dbpedia.org/resource/Hypertonia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipertonia"@pt .
+<http://dbpedia.org/resource/Lynn_Compton> <http://www.w3.org/2000/01/rdf-schema#label> "Lynn \"Buck\" Compton"@pt .
+<http://dbpedia.org/resource/Eczema> <http://www.w3.org/2000/01/rdf-schema#label> "Eczema"@pt .
+<http://dbpedia.org/resource/Denver_Randleman> <http://www.w3.org/2000/01/rdf-schema#label> "Denver \"Bull\" Randleman"@pt .
+<http://dbpedia.org/resource/Pott_disease> <http://www.w3.org/2000/01/rdf-schema#label> "Mal de Pott"@pt .
+<http://dbpedia.org/resource/Atenolol> <http://www.w3.org/2000/01/rdf-schema#label> "Atenolol"@pt .
+<http://dbpedia.org/resource/Hairy_leukoplakia> <http://www.w3.org/2000/01/rdf-schema#label> "Leucoplasia pilosa"@pt .
+<http://dbpedia.org/resource/Juan_%22Pach%C3%ADn%22_Vic%C3%A9ns> <http://www.w3.org/2000/01/rdf-schema#label> "Juan \"Pach\u00EDn\" Vic\u00E9ns"@pt .
+<http://dbpedia.org/resource/Latanoprost> <http://www.w3.org/2000/01/rdf-schema#label> "Latanoprost"@pt .
+<http://dbpedia.org/resource/Hangover> <http://www.w3.org/2000/01/rdf-schema#label> "Ressaca"@pt .
+<http://dbpedia.org/resource/Heartburn> <http://www.w3.org/2000/01/rdf-schema#label> "Pirose"@pt .
+<http://dbpedia.org/resource/Risperidone> <http://www.w3.org/2000/01/rdf-schema#label> "Risperidona"@pt .
+<http://dbpedia.org/resource/Dyspepsia> <http://www.w3.org/2000/01/rdf-schema#label> "Dispepsia"@pt .
+<http://dbpedia.org/resource/Glioblastoma_multiforme> <http://www.w3.org/2000/01/rdf-schema#label> "Glioblastoma multiforme"@pt .
+<http://dbpedia.org/resource/Flumazenil> <http://www.w3.org/2000/01/rdf-schema#label> "Flumazenil"@pt .
+<http://dbpedia.org/resource/Brachydactyly> <http://www.w3.org/2000/01/rdf-schema#label> "Braquidactilia"@pt .
+<http://dbpedia.org/resource/Ewing%27s_sarcoma> <http://www.w3.org/2000/01/rdf-schema#label> "Sarcoma de Ewing"@pt .
+<http://dbpedia.org/resource/Tadalafil> <http://www.w3.org/2000/01/rdf-schema#label> "Tadalafila"@pt .
+<http://dbpedia.org/resource/Mittelschmerz> <http://www.w3.org/2000/01/rdf-schema#label> "Mittelschmerz"@pt .
+<http://dbpedia.org/resource/Angular_cheilitis> <http://www.w3.org/2000/01/rdf-schema#label> "Quelite angular"@pt .
+<http://dbpedia.org/resource/Nystatin> <http://www.w3.org/2000/01/rdf-schema#label> "Nistatina"@pt .
+<http://dbpedia.org/resource/Itraconazole> <http://www.w3.org/2000/01/rdf-schema#label> "Itraconazol"@pt .
+<http://dbpedia.org/resource/Cementoblastoma> <http://www.w3.org/2000/01/rdf-schema#label> "Cementoblastoma"@pt .
+<http://dbpedia.org/resource/Neutropenia> <http://www.w3.org/2000/01/rdf-schema#label> "Neutropenia"@pt .
+<http://dbpedia.org/resource/Blepharitis> <http://www.w3.org/2000/01/rdf-schema#label> "Blefarite"@pt .
+<http://dbpedia.org/resource/Azotemia> <http://www.w3.org/2000/01/rdf-schema#label> "Azotemia"@pt .
+<http://dbpedia.org/resource/Piroxicam> <http://www.w3.org/2000/01/rdf-schema#label> "Piroxicam"@pt .
+<http://dbpedia.org/resource/Hypoalbuminemia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipoalbuminemia"@pt .
+<http://dbpedia.org/resource/Ketoacidosis> <http://www.w3.org/2000/01/rdf-schema#label> "Cetoacidose"@pt .
+<http://dbpedia.org/resource/Hydrocele_testis> <http://www.w3.org/2000/01/rdf-schema#label> "Hidrocele testicular"@pt .
+<http://dbpedia.org/resource/Anxiety_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Transtorno da ansiedade"@pt .
+<http://dbpedia.org/resource/Epididymitis> <http://www.w3.org/2000/01/rdf-schema#label> "Epididimite"@pt .
+<http://dbpedia.org/resource/Orchitis> <http://www.w3.org/2000/01/rdf-schema#label> "Orquite"@pt .
+<http://dbpedia.org/resource/Capecitabine> <http://www.w3.org/2000/01/rdf-schema#label> "Capecitabina"@pt .
+<http://dbpedia.org/resource/Scleroderma> <http://www.w3.org/2000/01/rdf-schema#label> "Escleroderma"@pt .
+<http://dbpedia.org/resource/Exophthalmos> <http://www.w3.org/2000/01/rdf-schema#label> "Exoftalmia"@pt .
+<http://dbpedia.org/resource/Nyctalopia> <http://www.w3.org/2000/01/rdf-schema#label> "Nictalopia"@pt .
+<http://dbpedia.org/resource/Spironolactone> <http://www.w3.org/2000/01/rdf-schema#label> "Espironolactona"@pt .
+<http://dbpedia.org/resource/Erythema_nodosum> <http://www.w3.org/2000/01/rdf-schema#label> "Eritema nodoso"@pt .
+<http://dbpedia.org/resource/Aneuploidy> <http://www.w3.org/2000/01/rdf-schema#label> "Aneuploidia"@pt .
+<http://dbpedia.org/resource/Metatarsalgia> <http://www.w3.org/2000/01/rdf-schema#label> "Metatarsalgia"@pt .
+<http://dbpedia.org/resource/Duodenitis> <http://www.w3.org/2000/01/rdf-schema#label> "Duodenite"@pt .
+<http://dbpedia.org/resource/Indometacin> <http://www.w3.org/2000/01/rdf-schema#label> "Indometacina"@pt .
+<http://dbpedia.org/resource/Mastitis> <http://www.w3.org/2000/01/rdf-schema#label> "Mastite"@pt .
+<http://dbpedia.org/resource/Progeria> <http://www.w3.org/2000/01/rdf-schema#label> "Progeria"@pt .
+<http://dbpedia.org/resource/Stenosis> <http://www.w3.org/2000/01/rdf-schema#label> "Estenose"@pt .
+<http://dbpedia.org/resource/Orthopnea> <http://www.w3.org/2000/01/rdf-schema#label> "Ortopneia"@pt .
+<http://dbpedia.org/resource/Acephaly_%28medicine%29> <http://www.w3.org/2000/01/rdf-schema#label> "Acefalia"@pt .
+<http://dbpedia.org/resource/Norma_Jean_/_MewithoutYou> <http://www.w3.org/2000/01/rdf-schema#label> "Norma Jean/mewithoutYou Split 7\""@pt .
+<http://dbpedia.org/resource/Melena> <http://www.w3.org/2000/01/rdf-schema#label> "Melena"@pt .
+<http://dbpedia.org/resource/Megalencephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Megaloencefalia"@pt .
+<http://dbpedia.org/resource/Macrocephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Macrocefalia (medicina)"@pt .
+<http://dbpedia.org/resource/Brachycephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Braquicefalia"@pt .
+<http://dbpedia.org/resource/Oxycephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Oxicefalia"@pt .
+<http://dbpedia.org/resource/Plagiocephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Plagiocefalia"@pt .
+<http://dbpedia.org/resource/Trigonocephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Trigonocefalia"@pt .
+<http://dbpedia.org/resource/Scaphocephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Escafocefalia"@pt .
+<http://dbpedia.org/resource/Arteritis> <http://www.w3.org/2000/01/rdf-schema#label> "Arterite"@pt .
+<http://dbpedia.org/resource/Takayasu%27s_arteritis> <http://www.w3.org/2000/01/rdf-schema#label> "Arterite de Takayasu"@pt .
+<http://dbpedia.org/resource/Holoprosencephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Holoprosencefalia"@pt .
+<http://dbpedia.org/resource/Cyclopia> <http://www.w3.org/2000/01/rdf-schema#label> "Ciclopia"@pt .
+<http://dbpedia.org/resource/Hydranencephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Hidranencefalia"@pt .
+<http://dbpedia.org/resource/Iniencephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Iniencefalia"@pt .
+<http://dbpedia.org/resource/Lissencephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Lisencefalia"@pt .
+<http://dbpedia.org/resource/Telangiectasia> <http://www.w3.org/2000/01/rdf-schema#label> "Telangiectasia"@pt .
+<http://dbpedia.org/resource/Otocephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Octocefalia"@pt .
+<http://dbpedia.org/resource/Left_bundle_branch_block> <http://www.w3.org/2000/01/rdf-schema#label> "Bloqueio do ramo esquerdo do feixe de His"@pt .
+<http://dbpedia.org/resource/Right_bundle_branch_block> <http://www.w3.org/2000/01/rdf-schema#label> "Bloqueio do ramo direito do feixe de His"@pt .
+<http://dbpedia.org/resource/Lee_%22Scratch%22_Perry> <http://www.w3.org/2000/01/rdf-schema#label> "Lee \"Scratch\" Perry"@pt .
+<http://dbpedia.org/resource/Implanon> <http://www.w3.org/2000/01/rdf-schema#label> "Implanon"@pt .
+<http://dbpedia.org/resource/Sinus_tachycardia> <http://www.w3.org/2000/01/rdf-schema#label> "Taquicardia sinusal"@pt .
+<http://dbpedia.org/resource/Weakness> <http://www.w3.org/2000/01/rdf-schema#label> "Astenia"@pt .
+<http://dbpedia.org/resource/Acute_pharyngitis> <http://www.w3.org/2000/01/rdf-schema#label> "Faringite"@pt .
+<http://dbpedia.org/resource/Hypertrichosis> <http://www.w3.org/2000/01/rdf-schema#label> "Hipertricose"@pt .
+<http://dbpedia.org/resource/Acute_intermittent_porphyria> <http://www.w3.org/2000/01/rdf-schema#label> "Porfiria aguda intermitente"@pt .
+<http://dbpedia.org/resource/Variegate_porphyria> <http://www.w3.org/2000/01/rdf-schema#label> "Porfiria variegata"@pt .
+<http://dbpedia.org/resource/Gemfibrozil> <http://www.w3.org/2000/01/rdf-schema#label> "Genfibrozila"@pt .
+<http://dbpedia.org/resource/Premature_rupture_of_membranes> <http://www.w3.org/2000/01/rdf-schema#label> "Ruptura prematura de membranas"@pt .
+<http://dbpedia.org/resource/Xanthoma> <http://www.w3.org/2000/01/rdf-schema#label> "Xantoma"@pt .
+<http://dbpedia.org/resource/Carcinoma_in_situ> <http://www.w3.org/2000/01/rdf-schema#label> "Carcinoma in situ"@pt .
+<http://dbpedia.org/resource/Hematospermia> <http://www.w3.org/2000/01/rdf-schema#label> "Hemospermia"@pt .
+<http://dbpedia.org/resource/Galactorrhea> <http://www.w3.org/2000/01/rdf-schema#label> "Galactorreia"@pt .
+<http://dbpedia.org/resource/Anisocoria> <http://www.w3.org/2000/01/rdf-schema#label> "Anisocoria"@pt .
+<http://dbpedia.org/resource/Thyroglossal_cyst> <http://www.w3.org/2000/01/rdf-schema#label> "Cisto tireoglosso"@pt .
+<http://dbpedia.org/resource/Ptosis_%28eyelid%29> <http://www.w3.org/2000/01/rdf-schema#label> "Ptose"@pt .
+<http://dbpedia.org/resource/Cachexia> <http://www.w3.org/2000/01/rdf-schema#label> "Caquexia"@pt .
+<http://dbpedia.org/resource/Stillbirth> <http://www.w3.org/2000/01/rdf-schema#label> "Natimorto"@pt .
+<http://dbpedia.org/resource/Diplopia> <http://www.w3.org/2000/01/rdf-schema#label> "Diplopia"@pt .
+<http://dbpedia.org/resource/Catarrh> <http://www.w3.org/2000/01/rdf-schema#label> "Escarro"@pt .
+<http://dbpedia.org/resource/Polyneuropathy> <http://www.w3.org/2000/01/rdf-schema#label> "Polineuropatia"@pt .
+<http://dbpedia.org/resource/Genu_valgum> <http://www.w3.org/2000/01/rdf-schema#label> "Joelho valgo"@pt .
+<http://dbpedia.org/resource/Peripheral_neuropathy> <http://www.w3.org/2000/01/rdf-schema#label> "Neuropatia"@pt .
+<http://dbpedia.org/resource/Tyrosinemia> <http://www.w3.org/2000/01/rdf-schema#label> "Tirosinemia"@pt .
+<http://dbpedia.org/resource/Argyria> <http://www.w3.org/2000/01/rdf-schema#label> "Argiria"@pt .
+<http://dbpedia.org/resource/Hypertriglyceridemia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipertrigliceridemia"@pt .
+<http://dbpedia.org/resource/AstraZeneca> <http://www.w3.org/2000/01/rdf-schema#label> "AstraZeneca"@pt .
+<http://dbpedia.org/resource/Hyperprolactinaemia> <http://www.w3.org/2000/01/rdf-schema#label> "Hiperprolactinemia"@pt .
+<http://dbpedia.org/resource/Miosis> <http://www.w3.org/2000/01/rdf-schema#label> "Miose"@pt .
+<http://dbpedia.org/resource/Prostatitis> <http://www.w3.org/2000/01/rdf-schema#label> "Prostatite"@pt .
+<http://dbpedia.org/resource/Trismus> <http://www.w3.org/2000/01/rdf-schema#label> "Trismo"@pt .
+<http://dbpedia.org/resource/Cherubism> <http://www.w3.org/2000/01/rdf-schema#label> "Querubismo"@pt .
+<http://dbpedia.org/resource/Kaposi%27s_sarcoma> <http://www.w3.org/2000/01/rdf-schema#label> "Sarcoma de Kaposi"@pt .
+<http://dbpedia.org/resource/Anisometropia> <http://www.w3.org/2000/01/rdf-schema#label> "Anisometropia"@pt .
+<http://dbpedia.org/resource/Aniseikonia> <http://www.w3.org/2000/01/rdf-schema#label> "Aniseiconia"@pt .
+<http://dbpedia.org/resource/Asthenopia> <http://www.w3.org/2000/01/rdf-schema#label> "Astenopia"@pt .
+<http://dbpedia.org/resource/Basal_cell_carcinoma> <http://www.w3.org/2000/01/rdf-schema#label> "Carcinoma basocelular"@pt .
+<http://dbpedia.org/resource/Byssinosis> <http://www.w3.org/2000/01/rdf-schema#label> "Bissinose"@pt .
+<http://dbpedia.org/resource/Exostosis> <http://www.w3.org/2000/01/rdf-schema#label> "Exostose"@pt .
+<http://dbpedia.org/resource/Hyperuricemia> <http://www.w3.org/2000/01/rdf-schema#label> "Hiperuricemia"@pt .
+<http://dbpedia.org/resource/Hyperreflexia> <http://www.w3.org/2000/01/rdf-schema#label> "Hiperreflexia"@pt .
+<http://dbpedia.org/resource/Category:Wikipedia_namespace_templates> <http://www.w3.org/2000/01/rdf-schema#label> "Categoria:!Predefini\u00E7\u00F5es para o dom\u00EDnio \"Wikipedia\""@pt .
+<http://dbpedia.org/resource/Hemosiderosis> <http://www.w3.org/2000/01/rdf-schema#label> "Hemossiderose"@pt .
+<http://dbpedia.org/resource/Dysesthesia> <http://www.w3.org/2000/01/rdf-schema#label> "Disestesia"@pt .
+<http://dbpedia.org/resource/Hyperesthesia> <http://www.w3.org/2000/01/rdf-schema#label> "Hiperestesia"@pt .
+<http://dbpedia.org/resource/Laryngitis> <http://www.w3.org/2000/01/rdf-schema#label> "Laringite"@pt .
+<http://dbpedia.org/resource/Dysphonia> <http://www.w3.org/2000/01/rdf-schema#label> "Disfonia"@pt .
+<http://dbpedia.org/resource/Dysarthria> <http://www.w3.org/2000/01/rdf-schema#label> "Disartria"@pt .
+<http://dbpedia.org/resource/Phlebitis> <http://www.w3.org/2000/01/rdf-schema#label> "Flebite"@pt .
+<http://dbpedia.org/resource/Cholecalciferol> <http://www.w3.org/2000/01/rdf-schema#label> "Colecalciferol"@pt .
+<http://dbpedia.org/resource/Lymphedema> <http://www.w3.org/2000/01/rdf-schema#label> "Linfedema"@pt .
+<http://dbpedia.org/resource/Music_from_%22The_Elder%22> <http://www.w3.org/2000/01/rdf-schema#label> "Music from \"The Elder\""@pt .
+<http://dbpedia.org/resource/Fat_embolism> <http://www.w3.org/2000/01/rdf-schema#label> "Embolia gordurosa"@pt .
+<http://dbpedia.org/resource/Uremia> <http://www.w3.org/2000/01/rdf-schema#label> "Uremia"@pt .
+<http://dbpedia.org/resource/Venous_thrombosis> <http://www.w3.org/2000/01/rdf-schema#label> "Trombose venosa"@pt .
+<http://dbpedia.org/resource/Ichthyosis> <http://www.w3.org/2000/01/rdf-schema#label> "Ictiose"@pt .
+<http://dbpedia.org/resource/Glanzmann%27s_thrombasthenia> <http://www.w3.org/2000/01/rdf-schema#label> "Trombastenia de Glanzmann"@pt .
+<http://dbpedia.org/resource/Tabes_dorsalis> <http://www.w3.org/2000/01/rdf-schema#label> "Tabes dorsalis"@pt .
+<http://dbpedia.org/resource/Anorexia_%28symptom%29> <http://www.w3.org/2000/01/rdf-schema#label> "Anorexia (sintoma)"@pt .
+<http://dbpedia.org/resource/Myositis> <http://www.w3.org/2000/01/rdf-schema#label> "Miosite"@pt .
+<http://dbpedia.org/resource/Dysdiadochokinesia> <http://www.w3.org/2000/01/rdf-schema#label> "Disdiadococinesia"@pt .
+<http://dbpedia.org/resource/Cardiomegaly> <http://www.w3.org/2000/01/rdf-schema#label> "Cardiomegalia"@pt .
+<http://dbpedia.org/resource/Penile_fracture> <http://www.w3.org/2000/01/rdf-schema#label> "Fratura peniana"@pt .
+<http://dbpedia.org/resource/Oxygen_toxicity> <http://www.w3.org/2000/01/rdf-schema#label> "Efeito Paul Bert"@pt .
+<http://dbpedia.org/resource/Bartholin%27s_cyst> <http://www.w3.org/2000/01/rdf-schema#label> "Bartholinite"@pt .
+<http://dbpedia.org/resource/Allopurinol> <http://www.w3.org/2000/01/rdf-schema#label> "Alopurinol"@pt .
+<http://dbpedia.org/resource/Richard_and_Maurice_McDonald> <http://www.w3.org/2000/01/rdf-schema#label> "Dick e Maurice \"Mac\" McDonald"@pt .
+<http://dbpedia.org/resource/Placental_abruption> <http://www.w3.org/2000/01/rdf-schema#label> "Descolamento prematuro da placenta"@pt .
+<http://dbpedia.org/resource/Placenta_accreta> <http://www.w3.org/2000/01/rdf-schema#label> "Placenta acreta"@pt .
+<http://dbpedia.org/resource/Diabetes_mellitus_type_1> <http://www.w3.org/2000/01/rdf-schema#label> "Diabetes mellitus tipo 1"@pt .
+<http://dbpedia.org/resource/Polyphagia> <http://www.w3.org/2000/01/rdf-schema#label> "Polifagia"@pt .
+<http://dbpedia.org/resource/Hypotonia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipotonia"@pt .
+<http://dbpedia.org/resource/Parageusia> <http://www.w3.org/2000/01/rdf-schema#label> "Parageusia"@pt .
+<http://dbpedia.org/resource/Dysgeusia> <http://www.w3.org/2000/01/rdf-schema#label> "Disgeusia"@pt .
+<http://dbpedia.org/resource/Jet_lag> <http://www.w3.org/2000/01/rdf-schema#label> "Jet lag"@pt .
+<http://dbpedia.org/resource/Reactive_hypoglycemia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipoglicemia reativa"@pt .
+<http://dbpedia.org/resource/Weight_loss> <http://www.w3.org/2000/01/rdf-schema#label> "Perda de peso"@pt .
+<http://dbpedia.org/resource/Catatonia> <http://www.w3.org/2000/01/rdf-schema#label> "Catatonia"@pt .
+<http://dbpedia.org/resource/Parosmia> <http://www.w3.org/2000/01/rdf-schema#label> "Parosmia"@pt .
+<http://dbpedia.org/resource/Tremor> <http://www.w3.org/2000/01/rdf-schema#label> "Tremor"@pt .
+<http://dbpedia.org/resource/Pulmonary_edema> <http://www.w3.org/2000/01/rdf-schema#label> "Edema pulmonar"@pt .
+<http://dbpedia.org/resource/Uniparental_disomy> <http://www.w3.org/2000/01/rdf-schema#label> "Dissomia uniparental"@pt .
+<http://dbpedia.org/resource/Sprain> <http://www.w3.org/2000/01/rdf-schema#label> "Entorse"@pt .
+<http://dbpedia.org/resource/Chondrosarcoma> <http://www.w3.org/2000/01/rdf-schema#label> "Condrossarcoma"@pt .
+<http://dbpedia.org/resource/Brain_tumor> <http://www.w3.org/2000/01/rdf-schema#label> "Tumor cerebral"@pt .
+<http://dbpedia.org/resource/Aceclofenac> <http://www.w3.org/2000/01/rdf-schema#label> "Aceclofenaco"@pt .
+<http://dbpedia.org/resource/Hamartoma> <http://www.w3.org/2000/01/rdf-schema#label> "Hamartoma"@pt .
+<http://dbpedia.org/resource/Leukoplakia> <http://www.w3.org/2000/01/rdf-schema#label> "Leucoplasia"@pt .
+<http://dbpedia.org/resource/Prinzmetal%27s_angina> <http://www.w3.org/2000/01/rdf-schema#label> "Angina de Prinzmetal"@pt .
+<http://dbpedia.org/resource/Mucocele> <http://www.w3.org/2000/01/rdf-schema#label> "Mucocele"@pt .
+<http://dbpedia.org/resource/Dissociative_identity_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Transtorno dissociativo de identidade"@pt .
+<http://dbpedia.org/resource/Sarcoidosis> <http://www.w3.org/2000/01/rdf-schema#label> "Sarcoidose"@pt .
+<http://dbpedia.org/resource/Stridor> <http://www.w3.org/2000/01/rdf-schema#label> "Estridor"@pt .
+<http://dbpedia.org/resource/Dermatitis> <http://www.w3.org/2000/01/rdf-schema#label> "Dermatite"@pt .
+<http://dbpedia.org/resource/Bisacodyl> <http://www.w3.org/2000/01/rdf-schema#label> "Bisacodil"@pt .
+<http://dbpedia.org/resource/Meningism> <http://www.w3.org/2000/01/rdf-schema#label> "Meningismo"@pt .
+<http://dbpedia.org/resource/Acetazolamide> <http://www.w3.org/2000/01/rdf-schema#label> "Acetazolamida"@pt .
+<http://dbpedia.org/resource/Pancoast_tumor> <http://www.w3.org/2000/01/rdf-schema#label> "Tumor de Pancoast"@pt .
+<http://dbpedia.org/resource/Enophthalmos> <http://www.w3.org/2000/01/rdf-schema#label> "Enoftalmia"@pt .
+<http://dbpedia.org/resource/Anhidrosis> <http://www.w3.org/2000/01/rdf-schema#label> "Anidrose"@pt .
+<http://dbpedia.org/resource/Zodiac_%28film%29> <http://www.w3.org/2000/01/rdf-schema#label> "Zodiac"@pt .
+<http://dbpedia.org/resource/Nose-picking> <http://www.w3.org/2000/01/rdf-schema#label> "Rinotilexomania"@pt .
+<http://dbpedia.org/resource/Amlodipine> <http://www.w3.org/2000/01/rdf-schema#label> "Anlodipino"@pt .
+<http://dbpedia.org/resource/Dermatographic_urticaria> <http://www.w3.org/2000/01/rdf-schema#label> "Dermografismo"@pt .
+<http://dbpedia.org/resource/Glycogen_storage_disease> <http://www.w3.org/2000/01/rdf-schema#label> "Glicogenose"@pt .
+<http://dbpedia.org/resource/Coloboma> <http://www.w3.org/2000/01/rdf-schema#label> "Coloboma"@pt .
+<http://dbpedia.org/resource/Acrocyanosis> <http://www.w3.org/2000/01/rdf-schema#label> "Acrocianose"@pt .
+<http://dbpedia.org/resource/Glanders> <http://www.w3.org/2000/01/rdf-schema#label> "Mormo"@pt .
+<http://dbpedia.org/resource/Erythema_multiforme> <http://www.w3.org/2000/01/rdf-schema#label> "Eritema multiforme"@pt .
+<http://dbpedia.org/resource/Mucopolysaccharidosis> <http://www.w3.org/2000/01/rdf-schema#label> "Mucopolissacaridose"@pt .
+<http://dbpedia.org/resource/Lung_abscess> <http://www.w3.org/2000/01/rdf-schema#label> "Abscesso pulmonar"@pt .
+<http://dbpedia.org/resource/Pallor> <http://www.w3.org/2000/01/rdf-schema#label> "Palidez"@pt .
+<http://dbpedia.org/resource/Alexia_%28neurology%29> <http://www.w3.org/2000/01/rdf-schema#label> "Alexia (linguagem)"@pt .
+<http://dbpedia.org/resource/Encopresis> <http://www.w3.org/2000/01/rdf-schema#label> "Encoprese"@pt .
+<http://dbpedia.org/resource/Webbed_toes> <http://www.w3.org/2000/01/rdf-schema#label> "Membrana interdigital"@pt .
+<http://dbpedia.org/resource/Mitral_valve_prolapse> <http://www.w3.org/2000/01/rdf-schema#label> "Prolapso de valva mitral"@pt .
+<http://dbpedia.org/resource/Arcus_senilis> <http://www.w3.org/2000/01/rdf-schema#label> "Arco senil"@pt .
+<http://dbpedia.org/resource/Acitretin> <http://www.w3.org/2000/01/rdf-schema#label> "Acitretina"@pt .
+<http://dbpedia.org/resource/Loratadine> <http://www.w3.org/2000/01/rdf-schema#label> "Loratadina"@pt .
+<http://dbpedia.org/resource/Pseudoephedrine> <http://www.w3.org/2000/01/rdf-schema#label> "Pseudoefedrina"@pt .
+<http://dbpedia.org/resource/Carisoprodol> <http://www.w3.org/2000/01/rdf-schema#label> "Carisoprodol"@pt .
+<http://dbpedia.org/resource/Skull_fracture> <http://www.w3.org/2000/01/rdf-schema#label> "Traumatismo craniano"@pt .
+<http://dbpedia.org/resource/Social_anxiety_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Fobia social"@pt .
+<http://dbpedia.org/resource/Lansoprazole> <http://www.w3.org/2000/01/rdf-schema#label> "Lansoprazol"@pt .
+<http://dbpedia.org/resource/Quadriplegia> <http://www.w3.org/2000/01/rdf-schema#label> "Tetraplegia"@pt .
+<http://dbpedia.org/resource/Nephritis> <http://www.w3.org/2000/01/rdf-schema#label> "Nefrite"@pt .
+<http://dbpedia.org/resource/Aztreonam> <http://www.w3.org/2000/01/rdf-schema#label> "Aztreonam"@pt .
+<http://dbpedia.org/resource/Mupirocin> <http://www.w3.org/2000/01/rdf-schema#label> "Mupirocina"@pt .
+<http://dbpedia.org/resource/Tetralogy_of_Fallot> <http://www.w3.org/2000/01/rdf-schema#label> "Tetralogia de Fallot"@pt .
+<http://dbpedia.org/resource/Cinnarizine> <http://www.w3.org/2000/01/rdf-schema#label> "Cinarizina"@pt .
+<http://dbpedia.org/resource/Noma_%28disease%29> <http://www.w3.org/2000/01/rdf-schema#label> "Noma"@pt .
+<http://dbpedia.org/resource/Valvular_heart_disease> <http://www.w3.org/2000/01/rdf-schema#label> "Valvulopatia"@pt .
+<http://dbpedia.org/resource/Vitamin_poisoning> <http://www.w3.org/2000/01/rdf-schema#label> "Hipervitaminose"@pt .
+<http://dbpedia.org/resource/Motion_sickness> <http://www.w3.org/2000/01/rdf-schema#label> "Cinetose"@pt .
+<http://dbpedia.org/resource/Akathisia> <http://www.w3.org/2000/01/rdf-schema#label> "Acatisia"@pt .
+<http://dbpedia.org/resource/Culture_Club_Collect_%E2%80%93_12%22_Mixes_Plus/Remix_Collection> <http://www.w3.org/2000/01/rdf-schema#label> "Culture Club Collect \u2013 12\" Mixes Plus"@pt .
+<http://dbpedia.org/resource/Clobetasol_propionate> <http://www.w3.org/2000/01/rdf-schema#label> "Propionato de clobetasol"@pt .
+<http://dbpedia.org/resource/Zidovudine> <http://www.w3.org/2000/01/rdf-schema#label> "Zidovudina"@pt .
+<http://dbpedia.org/resource/Arthralgia> <http://www.w3.org/2000/01/rdf-schema#label> "Artralgia"@pt .
+<http://dbpedia.org/resource/Passive%E2%80%93aggressive_behavior> <http://www.w3.org/2000/01/rdf-schema#label> "Transtorno de personalidade passivo-agressiva"@pt .
+<http://dbpedia.org/resource/Tic> <http://www.w3.org/2000/01/rdf-schema#label> "Tique"@pt .
+<http://dbpedia.org/resource/Clarithromycin> <http://www.w3.org/2000/01/rdf-schema#label> "Claritromicina"@pt .
+<http://dbpedia.org/resource/Bronchiectasis> <http://www.w3.org/2000/01/rdf-schema#label> "Bronquiectasia"@pt .
+<http://dbpedia.org/resource/Hypercapnia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipercapnia"@pt .
+<http://dbpedia.org/resource/Salbutamol> <http://www.w3.org/2000/01/rdf-schema#label> "Salbutamol"@pt .
+<http://dbpedia.org/resource/Pseudarthrosis> <http://www.w3.org/2000/01/rdf-schema#label> "Pseudoartrose"@pt .
+<http://dbpedia.org/resource/Xeroderma_pigmentosum> <http://www.w3.org/2000/01/rdf-schema#label> "Xerodermia pigmentosa"@pt .
+<http://dbpedia.org/resource/Isoniazid> <http://www.w3.org/2000/01/rdf-schema#label> "Isoniazida"@pt .
+<http://dbpedia.org/resource/Methemoglobinemia> <http://www.w3.org/2000/01/rdf-schema#label> "Meta-hemoglobinemia"@pt .
+<http://dbpedia.org/resource/Hematidrosis> <http://www.w3.org/2000/01/rdf-schema#label> "Hematidrose"@pt .
+<http://dbpedia.org/resource/Bell%27s_palsy> <http://www.w3.org/2000/01/rdf-schema#label> "Amiotrofia muscular espinhal"@pt .
+<http://dbpedia.org/resource/Domperidone> <http://www.w3.org/2000/01/rdf-schema#label> "Domperidona"@pt .
+<http://dbpedia.org/resource/Dystonia> <http://www.w3.org/2000/01/rdf-schema#label> "Distonia"@pt .
+<http://dbpedia.org/resource/Ganglion_cyst> <http://www.w3.org/2000/01/rdf-schema#label> "Cisto sinovial"@pt .
+<http://dbpedia.org/resource/Sputum> <http://www.w3.org/2000/01/rdf-schema#label> "Sputa"@pt .
+<http://dbpedia.org/resource/Acatalasia> <http://www.w3.org/2000/01/rdf-schema#label> "Acatalasia"@pt .
+<http://dbpedia.org/resource/Grupo_EMS_Sigma_Pharma> <http://www.w3.org/2000/01/rdf-schema#label> "EMS"@pt .
+<http://dbpedia.org/resource/Listeriosis> <http://www.w3.org/2000/01/rdf-schema#label> "Listeriose"@pt .
+<http://dbpedia.org/resource/Morten_Rasmussen_%28football_striker%29> <http://www.w3.org/2000/01/rdf-schema#label> "Morten \"Duncan\" Rasmussen"@pt .
+<http://dbpedia.org/resource/Bruit> <http://www.w3.org/2000/01/rdf-schema#label> "Bruit"@pt .
+<http://dbpedia.org/resource/Piracetam> <http://www.w3.org/2000/01/rdf-schema#label> "Piracetam"@pt .
+<http://dbpedia.org/resource/Anthropophobia> <http://www.w3.org/2000/01/rdf-schema#label> "Antropofobia"@pt .
+<http://dbpedia.org/resource/Meningococcal_disease> <http://www.w3.org/2000/01/rdf-schema#label> "Meningococcemia"@pt .
+<http://dbpedia.org/resource/Schizoid_personality_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Transtorno de personalidade esquizoide"@pt .
+<http://dbpedia.org/resource/Pimecrolimus> <http://www.w3.org/2000/01/rdf-schema#label> "Pimecrolimus"@pt .
+<http://dbpedia.org/resource/Docetaxel> <http://www.w3.org/2000/01/rdf-schema#label> "Docetaxel"@pt .
+<http://dbpedia.org/resource/Mumps> <http://www.w3.org/2000/01/rdf-schema#label> "Parotidite"@pt .
+<http://dbpedia.org/resource/Empyema> <http://www.w3.org/2000/01/rdf-schema#label> "Empiema"@pt .
+<http://dbpedia.org/resource/Povidone-iodine> <http://www.w3.org/2000/01/rdf-schema#label> "Iodopovidona"@pt .
+<http://dbpedia.org/resource/Zinc_sulfate> <http://www.w3.org/2000/01/rdf-schema#label> "Sulfato de zinco"@pt .
+<http://dbpedia.org/resource/Thrombophilia> <http://www.w3.org/2000/01/rdf-schema#label> "Trombofilia"@pt .
+<http://dbpedia.org/resource/Mitral_stenosis> <http://www.w3.org/2000/01/rdf-schema#label> "Estenose mitral"@pt .
+<http://dbpedia.org/resource/Self-hatred> <http://www.w3.org/2000/01/rdf-schema#label> "Autofobia"@pt .
+<http://dbpedia.org/resource/Ritonavir> <http://www.w3.org/2000/01/rdf-schema#label> "Ritonavir"@pt .
+<http://dbpedia.org/resource/Selective_mutism> <http://www.w3.org/2000/01/rdf-schema#label> "Mutismo seletivo"@pt .
+<http://dbpedia.org/resource/Prednisolone> <http://www.w3.org/2000/01/rdf-schema#label> "Prednisolona"@pt .
+<http://dbpedia.org/resource/Dextrocardia> <http://www.w3.org/2000/01/rdf-schema#label> "Dextrocardia"@pt .
+<http://dbpedia.org/resource/Myoclonus> <http://www.w3.org/2000/01/rdf-schema#label> "Mioclonia"@pt .
+<http://dbpedia.org/resource/Cysticercosis> <http://www.w3.org/2000/01/rdf-schema#label> "Neurocisticercose"@pt .
+<http://dbpedia.org/resource/Methyl_salicylate> <http://www.w3.org/2000/01/rdf-schema#label> "Salicilato de metila"@pt .
+<http://dbpedia.org/resource/Paracetamol> <http://www.w3.org/2000/01/rdf-schema#label> "Paracetamol"@pt .
+<http://dbpedia.org/resource/Aceruloplasminemia> <http://www.w3.org/2000/01/rdf-schema#label> "Aceruloplasminemia"@pt .
+<http://dbpedia.org/resource/Cardiomyopathy> <http://www.w3.org/2000/01/rdf-schema#label> "Miocardiopatia"@pt .
+<http://dbpedia.org/resource/Adenocarcinoma> <http://www.w3.org/2000/01/rdf-schema#label> "Adenocarcinoma"@pt .
+<http://dbpedia.org/resource/Simvastatin> <http://www.w3.org/2000/01/rdf-schema#label> "Sinvastatina"@pt .
+<http://dbpedia.org/resource/Spinal_stenosis> <http://www.w3.org/2000/01/rdf-schema#label> "Estenose espinhal"@pt .
+<http://dbpedia.org/resource/Tyrothricin> <http://www.w3.org/2000/01/rdf-schema#label> "Tirotricina"@pt .
+<http://dbpedia.org/resource/Tularemia> <http://www.w3.org/2000/01/rdf-schema#label> "Tularemia"@pt .
+<http://dbpedia.org/resource/Merkel_cell_cancer> <http://www.w3.org/2000/01/rdf-schema#label> "Tumor de Merkel"@pt .
+<http://dbpedia.org/resource/Yaws> <http://www.w3.org/2000/01/rdf-schema#label> "Bouba"@pt .
+<http://dbpedia.org/resource/Chondrocalcinosis> <http://www.w3.org/2000/01/rdf-schema#label> "Condrocalcinose"@pt .
+<http://dbpedia.org/resource/Wilms%27_tumor> <http://www.w3.org/2000/01/rdf-schema#label> "Nefroblastoma"@pt .
+<http://dbpedia.org/resource/Propyl> <http://www.w3.org/2000/01/rdf-schema#label> "Propil"@pt .
+<http://dbpedia.org/resource/Pseudohermaphroditism> <http://www.w3.org/2000/01/rdf-schema#label> "Pseudo-hermafroditismo"@pt .
+<http://dbpedia.org/resource/Hypopituitarism> <http://www.w3.org/2000/01/rdf-schema#label> "Hipopituitarismo"@pt .
+<http://dbpedia.org/resource/Urethral_stricture> <http://www.w3.org/2000/01/rdf-schema#label> "Estenose uretral"@pt .
+<http://dbpedia.org/resource/Adenoma> <http://www.w3.org/2000/01/rdf-schema#label> "Adenoma"@pt .
+<http://dbpedia.org/resource/Azoospermia> <http://www.w3.org/2000/01/rdf-schema#label> "Azoospermia"@pt .
+<http://dbpedia.org/resource/Hydronephrosis> <http://www.w3.org/2000/01/rdf-schema#label> "Hidronefrose"@pt .
+<http://dbpedia.org/resource/Vulvitis> <http://www.w3.org/2000/01/rdf-schema#label> "Vulvite"@pt .
+<http://dbpedia.org/resource/Menorrhagia> <http://www.w3.org/2000/01/rdf-schema#label> "Menorragia"@pt .
+<http://dbpedia.org/resource/Habitual_abortion> <http://www.w3.org/2000/01/rdf-schema#label> "Aborto habitual"@pt .
+<http://dbpedia.org/resource/Mastodynia> <http://www.w3.org/2000/01/rdf-schema#label> "Mastodinia"@pt .
+<http://dbpedia.org/resource/Salpingitis> <http://www.w3.org/2000/01/rdf-schema#label> "Salpingite"@pt .
+<http://dbpedia.org/resource/Hematometra> <http://www.w3.org/2000/01/rdf-schema#label> "Hematometra"@pt .
+<http://dbpedia.org/resource/Galactocele> <http://www.w3.org/2000/01/rdf-schema#label> "Galactocele"@pt .
+<http://dbpedia.org/resource/Adenomyosis> <http://www.w3.org/2000/01/rdf-schema#label> "Adenomiose"@pt .
+<http://dbpedia.org/resource/Q_fever> <http://www.w3.org/2000/01/rdf-schema#label> "Febre Q"@pt .
+<http://dbpedia.org/resource/Blepharophimosis> <http://www.w3.org/2000/01/rdf-schema#label> "Blefarofimose"@pt .
+<http://dbpedia.org/resource/Retinitis> <http://www.w3.org/2000/01/rdf-schema#label> "Retinite"@pt .
+<http://dbpedia.org/resource/Hyperaldosteronism> <http://www.w3.org/2000/01/rdf-schema#label> "Hiperaldosteronismo"@pt .
+<http://dbpedia.org/resource/Anasarca> <http://www.w3.org/2000/01/rdf-schema#label> "Anasarca"@pt .
+<http://dbpedia.org/resource/Hemiparesis> <http://www.w3.org/2000/01/rdf-schema#label> "Hemiparesia"@pt .
+<http://dbpedia.org/resource/Tuberous_sclerosis> <http://www.w3.org/2000/01/rdf-schema#label> "Esclerose tuberosa"@pt .
+<http://dbpedia.org/resource/Trigonitis> <http://www.w3.org/2000/01/rdf-schema#label> "Trigonite"@pt .
+<http://dbpedia.org/resource/Angiomyolipoma> <http://www.w3.org/2000/01/rdf-schema#label> "Angiomiolipoma"@pt .
+<http://dbpedia.org/resource/Asplenia> <http://www.w3.org/2000/01/rdf-schema#label> "Asplenia"@pt .
+<http://dbpedia.org/resource/Bell%27s_palsy> <http://www.w3.org/2000/01/rdf-schema#label> "Paralisia facial"@pt .
+<http://dbpedia.org/resource/Giant_cell_arteritis> <http://www.w3.org/2000/01/rdf-schema#label> "Arterite temporal"@pt .
+<http://dbpedia.org/resource/Argyll_Robertson_pupil> <http://www.w3.org/2000/01/rdf-schema#label> "Pupila de Argyll Robertson"@pt .
+<http://dbpedia.org/resource/Snow_blindness> <http://www.w3.org/2000/01/rdf-schema#label> "Cegueira da neve"@pt .
+<http://dbpedia.org/resource/Chorioretinitis> <http://www.w3.org/2000/01/rdf-schema#label> "Corioretinite"@pt .
+<http://dbpedia.org/resource/Pulpitis> <http://www.w3.org/2000/01/rdf-schema#label> "Pulpite"@pt .
+<http://dbpedia.org/resource/Kristoffer_Rygg> <http://www.w3.org/2000/01/rdf-schema#label> "Kristoffer \"Garm\" Rygg"@pt .
+<http://dbpedia.org/resource/James_%22Bud%22_Walton> <http://www.w3.org/2000/01/rdf-schema#label> "James \"Bud\" Walton"@pt .
+<http://dbpedia.org/resource/Eye_circles> <http://www.w3.org/2000/01/rdf-schema#label> "Olheira"@pt .
+<http://dbpedia.org/resource/Gastroptosis> <http://www.w3.org/2000/01/rdf-schema#label> "Gastroptose"@pt .
+<http://dbpedia.org/resource/Post-SSRI_sexual_dysfunction> <http://www.w3.org/2000/01/rdf-schema#label> "Post SSRI Sexual Dysfunction"@pt .
+<http://dbpedia.org/resource/Nephroptosis> <http://www.w3.org/2000/01/rdf-schema#label> "Nefroptose"@pt .
+<http://dbpedia.org/resource/Polyarteritis_nodosa> <http://www.w3.org/2000/01/rdf-schema#label> "Poliarterite nodosa"@pt .
+<http://dbpedia.org/resource/Prednisone> <http://www.w3.org/2000/01/rdf-schema#label> "Prednisona"@pt .
+<http://dbpedia.org/resource/Bell%27s_palsy> <http://www.w3.org/2000/01/rdf-schema#label> "Paralisia de Bell"@pt .
+<http://dbpedia.org/resource/Cyclophosphamide> <http://www.w3.org/2000/01/rdf-schema#label> "Ciclofosfamida"@pt .
+<http://dbpedia.org/resource/Oncocytoma> <http://www.w3.org/2000/01/rdf-schema#label> "Oncocitoma"@pt .
+<http://dbpedia.org/resource/Asbestosis> <http://www.w3.org/2000/01/rdf-schema#label> "Asbestose"@pt .
+<http://dbpedia.org/resource/Fluorouracil> <http://www.w3.org/2000/01/rdf-schema#label> "Fluorouracila"@pt .
+<http://dbpedia.org/resource/Olanzapine> <http://www.w3.org/2000/01/rdf-schema#label> "Olanzapina"@pt .
+<http://dbpedia.org/resource/Cyclothymia> <http://www.w3.org/2000/01/rdf-schema#label> "Ciclotimia"@pt .
+<http://dbpedia.org/resource/Rifampicin> <http://www.w3.org/2000/01/rdf-schema#label> "Rifampicina"@pt .
+<http://dbpedia.org/resource/Peritonsillar_abscess> <http://www.w3.org/2000/01/rdf-schema#label> "Abscesso peritonsilar"@pt .
+<http://dbpedia.org/resource/Mediastinitis> <http://www.w3.org/2000/01/rdf-schema#label> "Mediastinite"@pt .
+<http://dbpedia.org/resource/Lagophthalmos> <http://www.w3.org/2000/01/rdf-schema#label> "Lagoftalmo"@pt .
+<http://dbpedia.org/resource/Diverticulosis> <http://www.w3.org/2000/01/rdf-schema#label> "Diverticulose"@pt .
+<http://dbpedia.org/resource/Hyperacusis> <http://www.w3.org/2000/01/rdf-schema#label> "Hiperacusia"@pt .
+<http://dbpedia.org/resource/Toys_%22R%22_Us> <http://www.w3.org/2000/01/rdf-schema#label> "Toys \"R\" Us"@pt .
+<http://dbpedia.org/resource/Ariboflavinosis> <http://www.w3.org/2000/01/rdf-schema#label> "Ariboflavinose"@pt .
+<http://dbpedia.org/resource/Hypervitaminosis_D> <http://www.w3.org/2000/01/rdf-schema#label> "Hipervitaminose D"@pt .
+<http://dbpedia.org/resource/Hypervitaminosis_A> <http://www.w3.org/2000/01/rdf-schema#label> "Hipervitaminose A"@pt .
+<http://dbpedia.org/resource/Wernicke%27s_encephalopathy> <http://www.w3.org/2000/01/rdf-schema#label> "Encefalopatia de Wernicke"@pt .
+<http://dbpedia.org/resource/Bitot%27s_spots> <http://www.w3.org/2000/01/rdf-schema#label> "Manchas de Bitot"@pt .
+<http://dbpedia.org/resource/Ludwig%27s_angina> <http://www.w3.org/2000/01/rdf-schema#label> "Angina de Ludwig"@pt .
+<http://dbpedia.org/resource/Herpangina> <http://www.w3.org/2000/01/rdf-schema#label> "Herpangina"@pt .
+<http://dbpedia.org/resource/Aura_%28symptom%29> <http://www.w3.org/2000/01/rdf-schema#label> "Aura (medicina)"@pt .
+<http://dbpedia.org/resource/Presbycusis> <http://www.w3.org/2000/01/rdf-schema#label> "Presbiacusia"@pt .
+<http://dbpedia.org/resource/Cholesteatoma> <http://www.w3.org/2000/01/rdf-schema#label> "Colesteatoma"@pt .
+<http://dbpedia.org/resource/Otitis_externa> <http://www.w3.org/2000/01/rdf-schema#label> "Otite externa"@pt .
+<http://dbpedia.org/resource/Kayser-Fleischer_ring> <http://www.w3.org/2000/01/rdf-schema#label> "Anel de Kayser-Fleischer"@pt .
+<http://dbpedia.org/resource/Synechia_%28eye%29> <http://www.w3.org/2000/01/rdf-schema#label> "Sinequia"@pt .
+<http://dbpedia.org/resource/Fuchs%27_dystrophy> <http://www.w3.org/2000/01/rdf-schema#label> "Distrofia de Fuchs"@pt .
+<http://dbpedia.org/resource/Papilledema> <http://www.w3.org/2000/01/rdf-schema#label> "Papiledema"@pt .
+<http://dbpedia.org/resource/Azathioprine> <http://www.w3.org/2000/01/rdf-schema#label> "Azatioprina"@pt .
+<http://dbpedia.org/resource/Retinal_haemorrhage> <http://www.w3.org/2000/01/rdf-schema#label> "Hemorragia retinal"@pt .
+<http://dbpedia.org/resource/Subconjunctival_hemorrhage> <http://www.w3.org/2000/01/rdf-schema#label> "Hemorragia subconjuntival"@pt .
+<http://dbpedia.org/resource/Macular_edema> <http://www.w3.org/2000/01/rdf-schema#label> "Edema macular"@pt .
+<http://dbpedia.org/resource/Proctitis> <http://www.w3.org/2000/01/rdf-schema#label> "Proctite"@pt .
+<http://dbpedia.org/resource/Chondropathy> <http://www.w3.org/2000/01/rdf-schema#label> "Condropatia"@pt .
+<http://dbpedia.org/resource/Arthropathy> <http://www.w3.org/2000/01/rdf-schema#label> "Artropatia"@pt .
+<http://dbpedia.org/resource/Esthesioneuroblastoma> <http://www.w3.org/2000/01/rdf-schema#label> "Estesioneuroblastoma"@pt .
+<http://dbpedia.org/resource/Neuroblastoma> <http://www.w3.org/2000/01/rdf-schema#label> "Neuroblastoma"@pt .
+<http://dbpedia.org/resource/Hymenolepiasis> <http://www.w3.org/2000/01/rdf-schema#label> "Hymenolepis nana"@pt .
+<http://dbpedia.org/resource/Childhood_obesity> <http://www.w3.org/2000/01/rdf-schema#label> "Obesidade infantil"@pt .
+<http://dbpedia.org/resource/Vestibular_neuronitis> <http://www.w3.org/2000/01/rdf-schema#label> "Neuronite vestibular"@pt .
+<http://dbpedia.org/resource/Peritonitis> <http://www.w3.org/2000/01/rdf-schema#label> "Peritonite"@pt .
+<http://dbpedia.org/resource/Zopiclone> <http://www.w3.org/2000/01/rdf-schema#label> "Zopiclona"@pt .
+<http://dbpedia.org/resource/Warthin%27s_tumor> <http://www.w3.org/2000/01/rdf-schema#label> "Tumor de Warthin"@pt .
+<http://dbpedia.org/resource/Rokitansky-Aschoff_sinuses> <http://www.w3.org/2000/01/rdf-schema#label> "Seios de Rokitansky-Aschoff"@pt .
+<http://dbpedia.org/resource/Ascending_cholangitis> <http://www.w3.org/2000/01/rdf-schema#label> "Colangite ascendente"@pt .
+<http://dbpedia.org/resource/Choledochal_cysts> <http://www.w3.org/2000/01/rdf-schema#label> "Cistos coledocianos"@pt .
+<http://dbpedia.org/resource/Sialadenitis> <http://www.w3.org/2000/01/rdf-schema#label> "Sialadenite"@pt .
+<http://dbpedia.org/resource/Hypertensive_retinopathy> <http://www.w3.org/2000/01/rdf-schema#label> "Retinopatia hipertensiva"@pt .
+<http://dbpedia.org/resource/Necrotizing_fasciitis> <http://www.w3.org/2000/01/rdf-schema#label> "Fasciite necrosante"@pt .
+<http://dbpedia.org/resource/Avascular_necrosis> <http://www.w3.org/2000/01/rdf-schema#label> "Necrose avascular"@pt .
+<http://dbpedia.org/resource/Bulbar_palsy> <http://www.w3.org/2000/01/rdf-schema#label> "Paralisia bulbar"@pt .
+<http://dbpedia.org/resource/Psittacosis> <http://www.w3.org/2000/01/rdf-schema#label> "Psitacose"@pt .
+<http://dbpedia.org/resource/Dermatomyositis> <http://www.w3.org/2000/01/rdf-schema#label> "Dermatomiosite"@pt .
+<http://dbpedia.org/resource/Rheum> <http://www.w3.org/2000/01/rdf-schema#label> "Remela"@pt .
+<http://dbpedia.org/resource/Fanconi_anemia> <http://www.w3.org/2000/01/rdf-schema#label> "Anemia de Fanconi"@pt .
+<http://dbpedia.org/resource/Nosophobia> <http://www.w3.org/2000/01/rdf-schema#label> "Nosofobia"@pt .
+<http://dbpedia.org/resource/Dacryocystitis> <http://www.w3.org/2000/01/rdf-schema#label> "Dacriocistite"@pt .
+<http://dbpedia.org/resource/Psychasthenia> <http://www.w3.org/2000/01/rdf-schema#label> "Psicastenia"@pt .
+<http://dbpedia.org/resource/Methotrexate> <http://www.w3.org/2000/01/rdf-schema#label> "Metotrexato"@pt .
+<http://dbpedia.org/resource/Krukenberg_tumor> <http://www.w3.org/2000/01/rdf-schema#label> "Tumor de Krukenberg"@pt .
+<http://dbpedia.org/resource/Rapidly_progressive_glomerulonephritis> <http://www.w3.org/2000/01/rdf-schema#label> "Glomerulonefrite rapidamente progressiva"@pt .
+<http://dbpedia.org/resource/Torticollis> <http://www.w3.org/2000/01/rdf-schema#label> "Torcicolo (medicina)"@pt .
+<http://dbpedia.org/resource/Conductive_hearing_loss> <http://www.w3.org/2000/01/rdf-schema#label> "Perda auditiva condutiva"@pt .
+<http://dbpedia.org/resource/Lymphocytosis> <http://www.w3.org/2000/01/rdf-schema#label> "Linfocitose"@pt .
+<http://dbpedia.org/resource/Lymphoid_leukemia> <http://www.w3.org/2000/01/rdf-schema#label> "Leucemia linfoide"@pt .
+<http://dbpedia.org/resource/Cilostazol> <http://www.w3.org/2000/01/rdf-schema#label> "Cilostazol"@pt .
+<http://dbpedia.org/resource/Gonadal_dysgenesis> <http://www.w3.org/2000/01/rdf-schema#label> "Disgenesia gonadal"@pt .
+<http://dbpedia.org/resource/Colles%27_fracture> <http://www.w3.org/2000/01/rdf-schema#label> "Fratura de Colles"@pt .
+<http://dbpedia.org/resource/Aminophylline> <http://www.w3.org/2000/01/rdf-schema#label> "Aminofilina"@pt .
+<http://dbpedia.org/resource/Jimmy_%22Bo%22_Horne> <http://www.w3.org/2000/01/rdf-schema#label> "Jimmy \"Bo\" Horne"@pt .
+<http://dbpedia.org/resource/Hypomagnesemia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipomagnesemia"@pt .
+<http://dbpedia.org/resource/Mixed_gonadal_dysgenesis> <http://www.w3.org/2000/01/rdf-schema#label> "Disgenesia gonadal mista"@pt .
+<http://dbpedia.org/resource/Monosomy> <http://www.w3.org/2000/01/rdf-schema#label> "Monossomia"@pt .
+<http://dbpedia.org/resource/Hyperinsulinism> <http://www.w3.org/2000/01/rdf-schema#label> "Hiperinsulinismo"@pt .
+<http://dbpedia.org/resource/Dysbarism> <http://www.w3.org/2000/01/rdf-schema#label> "Disbarismo"@pt .
+<http://dbpedia.org/resource/Trisomy_22> <http://www.w3.org/2000/01/rdf-schema#label> "Trissomia 22"@pt .
+<http://dbpedia.org/resource/Myeloid_leukemia> <http://www.w3.org/2000/01/rdf-schema#label> "Leucemia mieloide"@pt .
+<http://dbpedia.org/resource/Sarcoptes_scabiei> <http://www.w3.org/2000/01/rdf-schema#label> "Sarcoptes scabiei"@pt .
+<http://dbpedia.org/resource/Nasal_septum_deviation> <http://www.w3.org/2000/01/rdf-schema#label> "Desvio de septo nasal"@pt .
+<http://dbpedia.org/resource/Alexithymia> <http://www.w3.org/2000/01/rdf-schema#label> "Alexitimia"@pt .
+<http://dbpedia.org/resource/Ethionamide> <http://www.w3.org/2000/01/rdf-schema#label> "Etionamida"@pt .
+<http://dbpedia.org/resource/Ingrown_nail> <http://www.w3.org/2000/01/rdf-schema#label> "Unha encravada"@pt .
+<http://dbpedia.org/resource/Visceral_leishmaniasis> <http://www.w3.org/2000/01/rdf-schema#label> "Leishmaniose visceral"@pt .
+<http://dbpedia.org/resource/Micrognathism> <http://www.w3.org/2000/01/rdf-schema#label> "Micrognatismo"@pt .
+<http://dbpedia.org/resource/Retrognathia> <http://www.w3.org/2000/01/rdf-schema#label> "Retrognatismo"@pt .
+<http://dbpedia.org/resource/Hypodontia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipodontia"@pt .
+<http://dbpedia.org/resource/Microdontia> <http://www.w3.org/2000/01/rdf-schema#label> "Microdontia"@pt .
+<http://dbpedia.org/resource/Manuel_de_Portugal> <http://www.w3.org/2000/01/rdf-schema#label> "Manuel, \"pr\u00EDncipe\" de Portugal"@pt .
+<http://dbpedia.org/resource/Atresia> <http://www.w3.org/2000/01/rdf-schema#label> "Atresia"@pt .
+<http://dbpedia.org/resource/Duodenal_atresia> <http://www.w3.org/2000/01/rdf-schema#label> "Atresia intestinal"@pt .
+<http://dbpedia.org/resource/Budesonide> <http://www.w3.org/2000/01/rdf-schema#label> "Budesonida"@pt .
+<http://dbpedia.org/resource/Meningioma> <http://www.w3.org/2000/01/rdf-schema#label> "Meningioma"@pt .
+<http://dbpedia.org/resource/Syringomyelia> <http://www.w3.org/2000/01/rdf-schema#label> "Siringomielia"@pt .
+<http://dbpedia.org/resource/Essential_thrombocytosis> <http://www.w3.org/2000/01/rdf-schema#label> "Trombocitemia essencial"@pt .
+<http://dbpedia.org/resource/Abbott> <http://www.w3.org/2000/01/rdf-schema#label> "Abbott"@pt .
+<http://dbpedia.org/resource/Trisomy_9> <http://www.w3.org/2000/01/rdf-schema#label> "Trissomia 9"@pt .
+<http://dbpedia.org/resource/Sirenomelia> <http://www.w3.org/2000/01/rdf-schema#label> "Sirenomelia"@pt .
+<http://dbpedia.org/resource/Impaired_glucose_tolerance> <http://www.w3.org/2000/01/rdf-schema#label> "Glicemia de jejum alterada"@pt .
+<http://dbpedia.org/resource/Aortic_aneurysm> <http://www.w3.org/2000/01/rdf-schema#label> "Aneurisma da aorta"@pt .
+<http://dbpedia.org/resource/Category:User_namespace_templates> <http://www.w3.org/2000/01/rdf-schema#label> "Categoria:!Predefini\u00E7\u00F5es para o dom\u00EDnio \"Usu\u00E1rio\""@pt .
+<http://dbpedia.org/resource/Tinea_nigra> <http://www.w3.org/2000/01/rdf-schema#label> "Tinea nigra"@pt .
+<http://dbpedia.org/resource/Bimatoprost> <http://www.w3.org/2000/01/rdf-schema#label> "Bimatoprosta"@pt .
+<http://dbpedia.org/resource/Ehrlichiosis> <http://www.w3.org/2000/01/rdf-schema#label> "Erliquiose"@pt .
+<http://dbpedia.org/resource/Ciguatera> <http://www.w3.org/2000/01/rdf-schema#label> "Ciguatera"@pt .
+<http://dbpedia.org/resource/Mark_%22Slick%22_Johnson> <http://www.w3.org/2000/01/rdf-schema#label> "Mark \"Slick\" Johnson"@pt .
+<http://dbpedia.org/resource/Klumpke_paralysis> <http://www.w3.org/2000/01/rdf-schema#label> "Paralisia de Klumpke"@pt .
+<http://dbpedia.org/resource/Ivermectin> <http://www.w3.org/2000/01/rdf-schema#label> "Ivermectina"@pt .
+<http://dbpedia.org/resource/Anisocytosis> <http://www.w3.org/2000/01/rdf-schema#label> "Anisocitose"@pt .
+<http://dbpedia.org/resource/Leukodystrophy> <http://www.w3.org/2000/01/rdf-schema#label> "Leucodistrofia"@pt .
+<http://dbpedia.org/resource/Generalized_anxiety_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Transtorno de ansiedade generalizada"@pt .
+<http://dbpedia.org/resource/Poikilocytosis> <http://www.w3.org/2000/01/rdf-schema#label> "Poiquilocitose"@pt .
+<http://dbpedia.org/resource/Sevoflurane> <http://www.w3.org/2000/01/rdf-schema#label> "Sevoflurano"@pt .
+<http://dbpedia.org/resource/Estadio_Luis_de_la_Fuente> <http://www.w3.org/2000/01/rdf-schema#label> "Est\u00E1dio Luis \"Pirata\" Fuente"@pt .
+<http://dbpedia.org/resource/Odynophagia> <http://www.w3.org/2000/01/rdf-schema#label> "Odinofagia"@pt .
+<http://dbpedia.org/resource/Charles_%22Tex%22_Watson> <http://www.w3.org/2000/01/rdf-schema#label> "Charles \"Tex\" Watson"@pt .
+<http://dbpedia.org/resource/Naproxen> <http://www.w3.org/2000/01/rdf-schema#label> "Naproxeno"@pt .
+<http://dbpedia.org/resource/Hyperdontia> <http://www.w3.org/2000/01/rdf-schema#label> "Hiperdontia"@pt .
+<http://dbpedia.org/resource/Bezoar> <http://www.w3.org/2000/01/rdf-schema#label> "Bezoar"@pt .
+<http://dbpedia.org/resource/Dupuytren%27s_contracture> <http://www.w3.org/2000/01/rdf-schema#label> "Contratura de Dupuytren"@pt .
+<http://dbpedia.org/resource/Myopathy> <http://www.w3.org/2000/01/rdf-schema#label> "Miopatia"@pt .
+<http://dbpedia.org/resource/Macroglossia> <http://www.w3.org/2000/01/rdf-schema#label> "Macroglossia"@pt .
+<http://dbpedia.org/resource/Put_the_%22O%22_Back_in_Country> <http://www.w3.org/2000/01/rdf-schema#label> "Put the \"O\" Back in Country"@pt .
+<http://dbpedia.org/resource/Category:Talk_namespace_templates> <http://www.w3.org/2000/01/rdf-schema#label> "Categoria:!Predefini\u00E7\u00F5es para o dom\u00EDnio \"Discuss\u00E3o\""@pt .
+<http://dbpedia.org/resource/Hypomania> <http://www.w3.org/2000/01/rdf-schema#label> "Hipomania"@pt .
+<http://dbpedia.org/resource/%22I_Quit%22_match> <http://www.w3.org/2000/01/rdf-schema#label> "\"I Quit\" match"@pt .
+<http://dbpedia.org/resource/Lisp> <http://www.w3.org/2000/01/rdf-schema#label> "Sigmatismo"@pt .
+<http://dbpedia.org/resource/Dodge_100_%22Commando%22> <http://www.w3.org/2000/01/rdf-schema#label> "Dodge 100 \"Commando\""@pt .
+<http://dbpedia.org/resource/Baclofen> <http://www.w3.org/2000/01/rdf-schema#label> "Baclofeno"@pt .
+<http://dbpedia.org/resource/Prostaglandin_E1> <http://www.w3.org/2000/01/rdf-schema#label> "Alprostadil"@pt .
+<http://dbpedia.org/resource/Alopecia_universalis> <http://www.w3.org/2000/01/rdf-schema#label> "Alopecia universalis"@pt .
+<http://dbpedia.org/resource/Ebstein%27s_anomaly> <http://www.w3.org/2000/01/rdf-schema#label> "Anomalia de Ebstein"@pt .
+<http://dbpedia.org/resource/Pseudomembranous_colitis> <http://www.w3.org/2000/01/rdf-schema#label> "Colite pseudomembranosa"@pt .
+<http://dbpedia.org/resource/Schizencephaly> <http://www.w3.org/2000/01/rdf-schema#label> "Esquizencefalia"@pt .
+<http://dbpedia.org/resource/Pervasive_developmental_disorder> <http://www.w3.org/2000/01/rdf-schema#label> "Transtorno invasivo do desenvolvimento"@pt .
+<http://dbpedia.org/resource/Mesothelioma> <http://www.w3.org/2000/01/rdf-schema#label> "Mesotelioma"@pt .
+<http://dbpedia.org/resource/Colitis> <http://www.w3.org/2000/01/rdf-schema#label> "Colite"@pt .
+<http://dbpedia.org/resource/Sweating_sickness> <http://www.w3.org/2000/01/rdf-schema#label> "Sudor anglicus"@pt .
+<http://dbpedia.org/resource/Dystocia> <http://www.w3.org/2000/01/rdf-schema#label> "Distocia"@pt .
+<http://dbpedia.org/resource/Liver_abscess> <http://www.w3.org/2000/01/rdf-schema#label> "Abscesso amebiano"@pt .
+<http://dbpedia.org/resource/Category:MediaWiki_namespace_templates> <http://www.w3.org/2000/01/rdf-schema#label> "Categoria:!Predefini\u00E7\u00F5es para o dom\u00EDnio \"MediaWiki\""@pt .
+<http://dbpedia.org/resource/Estadio_Jorge_%22M%C3%A1gico%22_Gonz%C3%A1lez> <http://www.w3.org/2000/01/rdf-schema#label> "Est\u00E1dio Jorge \"M\u00E1gico\" Gonz\u00E1lez"@pt .
+<http://dbpedia.org/resource/Braxton_Hicks_contractions> <http://www.w3.org/2000/01/rdf-schema#label> "Falso trabalho de parto"@pt .
+<http://dbpedia.org/resource/Problem_gambling> <http://www.w3.org/2000/01/rdf-schema#label> "Ludopatia"@pt .
+<http://dbpedia.org/resource/Fenofibrate> <http://www.w3.org/2000/01/rdf-schema#label> "Fenofibrato"@pt .
+<http://dbpedia.org/resource/Magaldrate> <http://www.w3.org/2000/01/rdf-schema#label> "Magaldrato"@pt .
+<http://dbpedia.org/resource/Prolactinoma> <http://www.w3.org/2000/01/rdf-schema#label> "Prolactinoma"@pt .
+<http://dbpedia.org/resource/Teletubbies_say_%22Eh-oh%21%22> <http://www.w3.org/2000/01/rdf-schema#label> "Teletubbies say \"Eh-oh!\""@pt .
+<http://dbpedia.org/resource/Bacitracin> <http://www.w3.org/2000/01/rdf-schema#label> "Bacitracina"@pt .
+<http://dbpedia.org/resource/Betamethasone> <http://www.w3.org/2000/01/rdf-schema#label> "Betametasona"@pt .
+<http://dbpedia.org/resource/Medley> <http://www.w3.org/2000/01/rdf-schema#label> "Medley"@pt .
+<http://dbpedia.org/resource/Lamivudine> <http://www.w3.org/2000/01/rdf-schema#label> "Lamivudina"@pt .
+<http://dbpedia.org/resource/Sandoz> <http://www.w3.org/2000/01/rdf-schema#label> "Sandoz"@pt .
+<http://dbpedia.org/resource/Fibrous_dysplasia_of_bone> <http://www.w3.org/2000/01/rdf-schema#label> "Displasia fibrosa"@pt .
+<http://dbpedia.org/resource/Roche> <http://www.w3.org/2000/01/rdf-schema#label> "Roche"@pt .
+<http://dbpedia.org/resource/Precious:_Based_on_the_Novel_%22Push%22_by_Sapphire> <http://www.w3.org/2000/01/rdf-schema#label> "Precious: Based on the Novel \"Push\" by Sapphire"@pt .
+<http://dbpedia.org/resource/Vildagliptin> <http://www.w3.org/2000/01/rdf-schema#label> "Vildagliptina"@pt .
+<http://dbpedia.org/resource/Taurodontism> <http://www.w3.org/2000/01/rdf-schema#label> "Taurodontismo"@pt .
+<http://dbpedia.org/resource/Glimepiride> <http://www.w3.org/2000/01/rdf-schema#label> "Glimepirida"@pt .
+<http://dbpedia.org/resource/Chordoma> <http://www.w3.org/2000/01/rdf-schema#label> "Cordoma"@pt .
+<http://dbpedia.org/resource/Craniosynostosis> <http://www.w3.org/2000/01/rdf-schema#label> "Craniossinostose"@pt .
+<http://dbpedia.org/resource/Irritability> <http://www.w3.org/2000/01/rdf-schema#label> "Irritabilidade"@pt .
+<http://dbpedia.org/resource/The_Bootleg_Series_Vol._4:_Bob_Dylan_Live_1966%2C_The_%22Royal_Albert_Hall%22_Concert> <http://www.w3.org/2000/01/rdf-schema#label> "The Bootleg Series Vol. 4: Bob Dylan Live 1966, The \"Royal Albert Hall\" Concert"@pt .
+<http://dbpedia.org/resource/Cyclospora_cayetanensis> <http://www.w3.org/2000/01/rdf-schema#label> "Cyclospora cayetanensis"@pt .
+<http://dbpedia.org/resource/Dyskinesia> <http://www.w3.org/2000/01/rdf-schema#label> "Discinesia"@pt .
+<http://dbpedia.org/resource/Black_piedra> <http://www.w3.org/2000/01/rdf-schema#label> "Piedra preta"@pt .
+<http://dbpedia.org/resource/Ketoprofen> <http://www.w3.org/2000/01/rdf-schema#label> "Cetoprofeno"@pt .
+<http://dbpedia.org/resource/Intrauterine_hypoxia> <http://www.w3.org/2000/01/rdf-schema#label> "Sofrimento fetal"@pt .
+<http://dbpedia.org/resource/Ectrodactyly> <http://www.w3.org/2000/01/rdf-schema#label> "Ectrodactilia"@pt .
+<http://dbpedia.org/resource/Asthenozoospermia> <http://www.w3.org/2000/01/rdf-schema#label> "Astenozoospermia"@pt .
+<http://dbpedia.org/resource/Pilonidal_cyst> <http://www.w3.org/2000/01/rdf-schema#label> "Cisto pilonidal"@pt .
+<http://dbpedia.org/resource/2009_flu_pandemic> <http://www.w3.org/2000/01/rdf-schema#label> "Pandemia de gripe A de 2009"@pt .
+<http://dbpedia.org/resource/Encephalopathy> <http://www.w3.org/2000/01/rdf-schema#label> "Encefalopatia"@pt .
+<http://dbpedia.org/resource/Croup> <http://www.w3.org/2000/01/rdf-schema#label> "Laringotraqueobronquite"@pt .
+<http://dbpedia.org/resource/Daiichi_Sankyo> <http://www.w3.org/2000/01/rdf-schema#label> "Daiichi Sankyo"@pt .
+<http://dbpedia.org/resource/Seminoma> <http://www.w3.org/2000/01/rdf-schema#label> "Seminoma"@pt .
+<http://dbpedia.org/resource/Hyperchloremia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipercloremia"@pt .
+<http://dbpedia.org/resource/Hypernatremia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipernatremia"@pt .
+<http://dbpedia.org/resource/Hypervolemia> <http://www.w3.org/2000/01/rdf-schema#label> "Hipervolemia"@pt .
+<http://dbpedia.org/resource/Dorsopathy> <http://www.w3.org/2000/01/rdf-schema#label> "Dorsopatia"@pt .
+<http://dbpedia.org/resource/Dacarbazine> <http://www.w3.org/2000/01/rdf-schema#label> "Dacarbazina"@pt .
+<http://dbpedia.org/resource/Bezold%27s_abscess> <http://www.w3.org/2000/01/rdf-schema#label> "Abscesso de Bezold"@pt .
+<http://dbpedia.org/resource/Dilated_cardiomyopathy> <http://www.w3.org/2000/01/rdf-schema#label> "Cardiomiopatia dilatada"@pt .
+<http://dbpedia.org/resource/Restrictive_cardiomyopathy> <http://www.w3.org/2000/01/rdf-schema#label> "Cardiomiopatia restritiva"@pt .
+<http://dbpedia.org/resource/Granuloma_inguinale> <http://www.w3.org/2000/01/rdf-schema#label> "Donovanose"@pt .
+<http://dbpedia.org/resource/Cryoglobulinemia> <http://www.w3.org/2000/01/rdf-schema#label> "Crioglobulinemia"@pt .
+<http://dbpedia.org/resource/Chorioamnionitis> <http://www.w3.org/2000/01/rdf-schema#label> "Corioamnionite"@pt .
+<http://dbpedia.org/resource/Vasa_praevia> <http://www.w3.org/2000/01/rdf-schema#label> "Vasa praevia"@pt .
+<http://dbpedia.org/resource/Neutrophilia> <http://www.w3.org/2000/01/rdf-schema#label> "Neutrofilia"@pt .
+<http://dbpedia.org/resource/Hemarthrosis> <http://www.w3.org/2000/01/rdf-schema#label> "Hemartrose"@pt .
+<http://dbpedia.org/resource/Polyarthritis> <http://www.w3.org/2000/01/rdf-schema#label> "Poliartrite"@pt .
+<http://dbpedia.org/resource/Choriocarcinoma> <http://www.w3.org/2000/01/rdf-schema#label> "Coriocarcinoma"@pt .
+<http://dbpedia.org/resource/Fibroadenoma> <http://www.w3.org/2000/01/rdf-schema#label> "Fibroadenoma"@pt .
+<http://dbpedia.org/resource/Erb%27s_palsy> <http://www.w3.org/2000/01/rdf-schema#label> "Paralisia de Erb"@pt .
+<http://dbpedia.org/resource/Boutonniere_deformity> <http://www.w3.org/2000/01/rdf-schema#label> "Deformidade em botoeira"@pt .
+<http://dbpedia.org/resource/Hypermobility> <http://www.w3.org/2000/01/rdf-schema#label> "Hipermobilidade"@pt .
+<http://dbpedia.org/resource/Heart_block> <http://www.w3.org/2000/01/rdf-schema#label> "Bloqueio de ramo"@pt .
+<http://dbpedia.org/resource/Ventricular_hypertrophy> <http://www.w3.org/2000/01/rdf-schema#label> "Hipertrofia ventricular"@pt .
+<http://dbpedia.org/resource/Monoarthritis> <http://www.w3.org/2000/01/rdf-schema#label> "Monoartrite"@pt .
+<http://dbpedia.org/resource/Volkmann%27s_contracture> <http://www.w3.org/2000/01/rdf-schema#label> "Contratura de Volkmann"@pt .
+<http://dbpedia.org/resource/Tinel_sign> <http://www.w3.org/2000/01/rdf-schema#label> "Sinal de Tinel"@pt .
+<http://dbpedia.org/resource/Ankylosis> <http://www.w3.org/2000/01/rdf-schema#label> "Anquilose"@pt .
+<http://dbpedia.org/resource/Friedreich%27s_ataxia> <http://www.w3.org/2000/01/rdf-schema#label> "Ataxia de Friedreich"@pt .
+<http://dbpedia.org/resource/Trigger_finger> <http://www.w3.org/2000/01/rdf-schema#label> "Dedo em gatilho"@pt .
+<http://dbpedia.org/resource/Golfer%27s_elbow> <http://www.w3.org/2000/01/rdf-schema#label> "Epicondilite medial"@pt .
+<http://dbpedia.org/resource/Tenoxicam> <http://www.w3.org/2000/01/rdf-schema#label> "Tenoxicam"@pt .
+<http://dbpedia.org/resource/Teicoplanin> <http://www.w3.org/2000/01/rdf-schema#label> "Teicoplanina"@pt .
+<http://dbpedia.org/resource/Polycythemia> <http://www.w3.org/2000/01/rdf-schema#label> "Poliglobulia"@pt .
+<http://dbpedia.org/resource/Visceral_larva_migrans> <http://www.w3.org/2000/01/rdf-schema#label> "Larva migrans visceral"@pt .
+<http://dbpedia.org/resource/B%27z_The_Best_%22Pleasure%22> <http://www.w3.org/2000/01/rdf-schema#label> "B'z The Best \"Pleasure\""@pt .
+<http://dbpedia.org/resource/B%27z_The_Best_%22Treasure%22> <http://www.w3.org/2000/01/rdf-schema#label> "B'z The Best \"Treasure\""@pt .
+<http://dbpedia.org/resource/B%27z_The_%22Mixture%22> <http://www.w3.org/2000/01/rdf-schema#label> "B'z The \"Mixture\""@pt .
+<http://dbpedia.org/resource/B%27z_The_Best_%22Pleasure_II%22> <http://www.w3.org/2000/01/rdf-schema#label> "B'z The Best \"Pleasure II\""@pt .
+<http://dbpedia.org/resource/B%27z_The_Best_%22Ultra_Pleasure%22> <http://www.w3.org/2000/01/rdf-schema#label> "B'z The Best \"Ultra Pleasure\""@pt .
+<http://dbpedia.org/resource/B%27z_The_Best_%22Ultra_Treasure%22> <http://www.w3.org/2000/01/rdf-schema#label> "B'z The Best \"Ultra Treasure\""@pt .
+<http://dbpedia.org/resource/%22Buzz%21%21%22_The_Movie> <http://www.w3.org/2000/01/rdf-schema#label> "\"Buzz!!\" The Movie"@pt .
+<http://dbpedia.org/resource/Once_Upon_a_Time_in_Yokohama:_B%27z_Live_Gym%2799_%22Brotherhood%22> <http://www.w3.org/2000/01/rdf-schema#label> "Once Upon a Time in Yokohama ~B'z Live Gym'99 \"Brotherhood\"~"@pt .
+<http://dbpedia.org/resource/Typhoon_No.15_%7EB%27z_Live-Gym_The_Final_Pleasure_%22It%27s_Showtime%21%21%22_in_Nagisaen%7E> <http://www.w3.org/2000/01/rdf-schema#label> "Typhoon No.15 ~B'z Live-Gym The Final Pleasure \"It's Showtime!!\" in Nagisaen~"@pt .
+<http://dbpedia.org/resource/B%27z_Live-Gym_2006:_Monster%27s_Garage> <http://www.w3.org/2000/01/rdf-schema#label> "B'z Live-Gym 2006 \"Monster's Garage\""@pt .
+<http://dbpedia.org/resource/Epidermodysplasia_verruciformis> <http://www.w3.org/2000/01/rdf-schema#label> "Epidemodisplasia verruciforme"@pt .
+<http://dbpedia.org/resource/Monteggia_fracture> <http://www.w3.org/2000/01/rdf-schema#label> "Fratura de Monteggia"@pt .
+<http://dbpedia.org/resource/Galeazzi_fracture> <http://www.w3.org/2000/01/rdf-schema#label> "Fratura de Galeazzi"@pt .
+<http://dbpedia.org/resource/Smith%27s_fracture> <http://www.w3.org/2000/01/rdf-schema#label> "Fratura de Smith"@pt .
+<http://dbpedia.org/resource/Scaphoid_fracture> <http://www.w3.org/2000/01/rdf-schema#label> "Fratura do escafoide"@pt .
+<http://dbpedia.org/resource/Viral_pneumonia> <http://www.w3.org/2000/01/rdf-schema#label> "Pneumonia viral"@pt .
+<http://dbpedia.org/resource/Leiomyoma> <http://www.w3.org/2000/01/rdf-schema#label> "Leiomioma"@pt .
+<http://dbpedia.org/resource/Jimmy_%22Orion%22_Ellis> <http://www.w3.org/2000/01/rdf-schema#label> "Jimmy \"Orion\" Ellis"@pt .
+<http://dbpedia.org/resource/Osteoma> <http://www.w3.org/2000/01/rdf-schema#label> "Osteoma"@pt .
+<http://dbpedia.org/resource/Spondylosis> <http://www.w3.org/2000/01/rdf-schema#label> "Espondilose"@pt .
+<http://dbpedia.org/resource/Thyroiditis> <http://www.w3.org/2000/01/rdf-schema#label> "Tireoidite"@pt .
+<http://dbpedia.org/resource/Johnny_%22Guitar%22_Watson> <http://www.w3.org/2000/01/rdf-schema#label> "Johnny \"Guitar\" Watson"@pt .
+<http://dbpedia.org/resource/Osteoid_osteoma> <http://www.w3.org/2000/01/rdf-schema#label> "Osteoma osteoide"@pt .
+<http://dbpedia.org/resource/Osteochondroma> <http://www.w3.org/2000/01/rdf-schema#label> "Osteocondroma"@pt .
+<http://dbpedia.org/resource/Osteoblastoma> <http://www.w3.org/2000/01/rdf-schema#label> "Osteoblastoma"@pt .
+<http://dbpedia.org/resource/Baragnosis> <http://www.w3.org/2000/01/rdf-schema#label> "Baragnose"@pt .
+<http://dbpedia.org/resource/Enchondroma> <http://www.w3.org/2000/01/rdf-schema#label> "Encondroma"@pt .
+<http://dbpedia.org/resource/De_Quervain%27s_thyroiditis> <http://www.w3.org/2000/01/rdf-schema#label> "Tireoidite de De Quervain"@pt .
+<http://dbpedia.org/resource/Macrostomia> <http://www.w3.org/2000/01/rdf-schema#label> "Macrostomia"@pt .
+<http://dbpedia.org/resource/Spondylolisthesis> <http://www.w3.org/2000/01/rdf-schema#label> "Espondilolistese"@pt .
+<http://dbpedia.org/resource/Amifostine> <http://www.w3.org/2000/01/rdf-schema#label> "Amifostina"@pt .
+<http://dbpedia.org/resource/Tennis_elbow> <http://www.w3.org/2000/01/rdf-schema#label> "Epicondilite"@pt .
+<http://dbpedia.org/resource/Panniculitis> <http://www.w3.org/2000/01/rdf-schema#label> "Paniculite"@pt .
+<http://dbpedia.org/resource/Calcinosis> <http://www.w3.org/2000/01/rdf-schema#label> "Calcinose"@pt .
+<http://dbpedia.org/resource/Libman-Sacks_endocarditis> <http://www.w3.org/2000/01/rdf-schema#label> "Endocardite de Libman-Sacks"@pt .
+<http://dbpedia.org/resource/Amorolfine> <http://www.w3.org/2000/01/rdf-schema#label> "Amorolfina"@pt .
+<http://dbpedia.org/resource/Spondylopathy> <http://www.w3.org/2000/01/rdf-schema#label> "Espondilopatia"@pt .
+<http://dbpedia.org/resource/Hyperphosphatemia> <http://www.w3.org/2000/01/rdf-schema#label> "Hiperfosfatemia"@pt .
+<http://dbpedia.org/resource/Pectus_carinatum> <http://www.w3.org/2000/01/rdf-schema#label> "Pectus carinatum"@pt .
+<http://dbpedia.org/resource/Periostitis> <http://www.w3.org/2000/01/rdf-schema#label> "Periostite"@pt .
+<http://dbpedia.org/resource/Norfloxacin> <http://www.w3.org/2000/01/rdf-schema#label> "Norfloxacino"@pt .
+<http://dbpedia.org/resource/Oxamniquine> <http://www.w3.org/2000/01/rdf-schema#label> "Oxamniquina"@pt .
+<http://dbpedia.org/resource/Pagophagia> <http://www.w3.org/2000/01/rdf-schema#label> "Pagofagia"@pt .
+<http://dbpedia.org/resource/Famotidine> <http://www.w3.org/2000/01/rdf-schema#label> "Famotidina"@pt .
+<http://dbpedia.org/resource/Famciclovir> <http://www.w3.org/2000/01/rdf-schema#label> "Fanciclovir"@pt .
+<http://dbpedia.org/resource/Carl_and_the_Passions_%E2%80%93_%22So_Tough%22> <http://www.w3.org/2000/01/rdf-schema#label> "Carl and the Passions - \"So Tough\""@pt .
+<http://dbpedia.org/resource/Siderosis> <http://www.w3.org/2000/01/rdf-schema#label> "Siderose"@pt .
+<http://dbpedia.org/resource/Metrorrhagia> <http://www.w3.org/2000/01/rdf-schema#label> "Metrorragia"@pt .
+<http://dbpedia.org/resource/Ovarian_cyst> <http://www.w3.org/2000/01/rdf-schema#label> "Cisto ovariano"@pt .
+<http://dbpedia.org/resource/Shoulder_dystocia> <http://www.w3.org/2000/01/rdf-schema#label> "Distocia de ombro"@pt .
+<http://dbpedia.org/resource/Renal_tubular_acidosis> <http://www.w3.org/2000/01/rdf-schema#label> "Acidose tubular renal"@pt .
+<http://dbpedia.org/resource/Tegafur-uracil> <http://www.w3.org/2000/01/rdf-schema#label> "Tegafur"@pt .
+<http://dbpedia.org/resource/Gastroschisis> <http://www.w3.org/2000/01/rdf-schema#label> "Gastrosquise"@pt .
+<http://dbpedia.org/resource/Agenesis_of_the_corpus_callosum> <http://www.w3.org/2000/01/rdf-schema#label> "Agenesia de corpo caloso"@pt .
+<http://dbpedia.org/resource/Amprenavir> <http://www.w3.org/2000/01/rdf-schema#label> "Amprenavir"@pt .
+<http://dbpedia.org/resource/Tardive_dyskinesia> <http://www.w3.org/2000/01/rdf-schema#label> "Discinesia tardia"@pt .
+<http://dbpedia.org/resource/Pseudofolliculitis_barbae> <http://www.w3.org/2000/01/rdf-schema#label> "Pseudofolliculitis barbae"@pt .
+<http://dbpedia.org/resource/Familial_adenomatous_polyposis> <http://www.w3.org/2000/01/rdf-schema#label> "Polipose adenomatosa familiar"@pt .
+<http://dbpedia.org/resource/Fecal_occult_blood> <http://www.w3.org/2000/01/rdf-schema#label> "Sangue oculto nas fezes"@pt .
+<http://dbpedia.org/resource/Galderma_Laboratories> <http://www.w3.org/2000/01/rdf-schema#label> "Galderma"@pt .
+<http://dbpedia.org/resource/Bifonazole> <http://www.w3.org/2000/01/rdf-schema#label> "Bifonazol"@pt .
+<http://dbpedia.org/resource/Coumarin> <http://www.w3.org/2000/01/rdf-schema#label> "Cumarina"@pt .
+<http://dbpedia.org/resource/Hypermarcas> <http://www.w3.org/2000/01/rdf-schema#label> "Hypermarcas"@pt .
+<http://dbpedia.org/resource/Bladder_exstrophy> <http://www.w3.org/2000/01/rdf-schema#label> "Extrofia da bexiga"@pt .
+<http://dbpedia.org/resource/Cerebral_edema> <http://www.w3.org/2000/01/rdf-schema#label> "Edema cerebral"@pt .
+<http://dbpedia.org/resource/Lupus_vulgaris> <http://www.w3.org/2000/01/rdf-schema#label> "Lupus vulgaris"@pt .
+<http://dbpedia.org/resource/Ebastine> <http://www.w3.org/2000/01/rdf-schema#label> "Ebastina"@pt .
+<http://dbpedia.org/resource/Enteritis> <http://www.w3.org/2000/01/rdf-schema#label> "Enterite"@pt .
+<http://dbpedia.org/resource/Danazol> <http://www.w3.org/2000/01/rdf-schema#label> "Danazol"@pt .
+<http://dbpedia.org/resource/Menthol> <http://www.w3.org/2000/01/rdf-schema#label> "Mentol"@pt .
+<http://dbpedia.org/resource/Aripiprazole> <http://www.w3.org/2000/01/rdf-schema#label> "Aripiprazol"@pt .
+<http://dbpedia.org/resource/Desonide> <http://www.w3.org/2000/01/rdf-schema#label> "Desonida"@pt .
+<http://dbpedia.org/resource/Troxerutin> <http://www.w3.org/2000/01/rdf-schema#label> "Troxerrutina"@pt .
+<http://dbpedia.org/resource/Contracture> <http://www.w3.org/2000/01/rdf-schema#label> "Contratura"@pt .
+<http://dbpedia.org/resource/Busulfan> <http://www.w3.org/2000/01/rdf-schema#label> "Bussulfano"@pt .
+<http://dbpedia.org/resource/Mesna> <http://www.w3.org/2000/01/rdf-schema#label> "Mesna"@pt .
+<http://dbpedia.org/resource/H%C3%A9ctor_Delgado> <http://www.w3.org/2000/01/rdf-schema#label> "Hector \"El Father\""@pt .
+<http://dbpedia.org/resource/Seborrheic_keratosis> <http://www.w3.org/2000/01/rdf-schema#label> "Ceratose seborreica"@pt .
+<http://dbpedia.org/resource/Osteosclerosis> <http://www.w3.org/2000/01/rdf-schema#label> "Osteosclerose"@pt .
+<http://dbpedia.org/resource/Jeff_%22Swampy%22_Marsh> <http://www.w3.org/2000/01/rdf-schema#label> "Jeff \"Swampy\" Marsh"@pt .
+<http://dbpedia.org/resource/Erythema_induratum> <http://www.w3.org/2000/01/rdf-schema#label> "Eritema induratum"@pt .
+<http://dbpedia.org/resource/Lisinopril> <http://www.w3.org/2000/01/rdf-schema#label> "Lisinopril"@pt .
+<http://dbpedia.org/resource/Perindopril> <http://www.w3.org/2000/01/rdf-schema#label> "Perindopril"@pt .
+<http://dbpedia.org/resource/Ramipril> <http://www.w3.org/2000/01/rdf-schema#label> "Ramipril"@pt .
+<http://dbpedia.org/resource/Cilazapril> <http://www.w3.org/2000/01/rdf-schema#label> "Cilazapril"@pt .
+<http://dbpedia.org/resource/Thymoma> <http://www.w3.org/2000/01/rdf-schema#label> "Timoma"@pt .
+<http://dbpedia.org/resource/Bacterial_vaginosis> <http://www.w3.org/2000/01/rdf-schema#label> "Vaginose bacteriana"@pt .
+<http://dbpedia.org/resource/Riluzole> <http://www.w3.org/2000/01/rdf-schema#label> "Riluzol"@pt .
+<http://dbpedia.org/resource/Arabah> <http://www.w3.org/2000/01/rdf-schema#label> "Arava"@pt .
+<http://dbpedia.org/resource/Renal_papillary_necrosis> <http://www.w3.org/2000/01/rdf-schema#label> "Necrose das papilas renais"@pt .
+<http://dbpedia.org/resource/Permethrin> <http://www.w3.org/2000/01/rdf-schema#label> "Permetrina"@pt .
+<http://dbpedia.org/resource/Transverse_myelitis> <http://www.w3.org/2000/01/rdf-schema#label> "Mielite Transversa"@pt .
+<http://dbpedia.org/resource/Golfer%27s_elbow> <http://www.w3.org/2000/01/rdf-schema#label> "Epitrocleite"@pt .
+<http://dbpedia.org/resource/Guaifenesin> <http://www.w3.org/2000/01/rdf-schema#label> "Guaifenesina"@pt .
+<http://dbpedia.org/resource/%22Weird_Al%22_Yankovic_%28album%29> <http://www.w3.org/2000/01/rdf-schema#label> "\"Weird Al\" Yankovic (\u00E1lbum)"@pt .
+<http://dbpedia.org/resource/%22Weird_Al%22_Yankovic_in_3-D> <http://www.w3.org/2000/01/rdf-schema#label> "\"Weird Al\" Yankovic in 3-D"@pt .
+<http://dbpedia.org/resource/Category:%22Weird_Al%22_Yankovic_albums> <http://www.w3.org/2000/01/rdf-schema#label> "Categoria:\u00C1lbuns de \"Weird Al\" Yankovic"@pt .
+<http://dbpedia.org/resource/The_Official_Music_of_%22Weird_Al%22_Yankovic> <http://www.w3.org/2000/01/rdf-schema#label> "The Official Music of \"Weird Al\" Yankovic"@pt .
+<http://dbpedia.org/resource/%22Weird_Al%22_Yankovic%27s_Greatest_Hits> <http://www.w3.org/2000/01/rdf-schema#label> "\"Weird Al\" Yankovic's Greatest Hits"@pt .
+<http://dbpedia.org/resource/List_of_artistic_depictions_of_and_related_to_Pride_and_Prejudice> <http://www.w3.org/2000/01/rdf-schema#label> "Lista de trabalhos art\u00EDsticos derivados de \"Pride and Prejudice\""@pt .
+<http://dbpedia.org/resource/Still_%28disambiguation%29> <http://www.w3.org/2000/01/rdf-schema#label> "Still"@pt .
+<http://dbpedia.org/resource/The_Essential_%22Weird_Al%22_Yankovic> <http://www.w3.org/2000/01/rdf-schema#label> "The Essential \"Weird Al\" Yankovic"@pt .
+<http://dbpedia.org/resource/Template:%22Weird_Al%22_Yankovic> <http://www.w3.org/2000/01/rdf-schema#label> "Predefini\u00E7\u00E3o:\"Weird Al\" Yankovic"@pt .
+<http://dbpedia.org/resource/12%22ers> <http://www.w3.org/2000/01/rdf-schema#label> "12\"ers"@pt .
+<http://dbpedia.org/resource/Dimenhydrinate> <http://www.w3.org/2000/01/rdf-schema#label> "Dimenidrinato"@pt .
+<http://dbpedia.org/resource/Quadrantanopia> <http://www.w3.org/2000/01/rdf-schema#label> "Quadrantanopia"@pt .
+<http://dbpedia.org/resource/%22Dr._Death%22_Steve_Williams> <http://www.w3.org/2000/01/rdf-schema#label> "\"Dr. Death\" Steve Williams"@pt .
+<http://dbpedia.org/resource/Fungemia> <http://www.w3.org/2000/01/rdf-schema#label> "Fungemia"@pt .
