@@ -15,10 +15,11 @@ public class SparqlDTO {
 				+"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
 				+"PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n"
 				+"PREFIX dc: <http://purl.org/dc/elements/1.1/>\n"
-				+"PREFIX : <http://dbpedia.org/resource/>\n"
+				+"PREFIX dbp: <http://dbpedia.org/resource/>\n"
 				+"PREFIX dbpedia2: <http://dbpedia.org/property/>\n"
 				+"PREFIX dbpedia: <http://dbpedia.org/>\n"
 				+"PREFIX skos: <http://www.w3.org/2004/02/skos/core#>\n"
+				+"PREFIX bw: <http://bulasweb.test/rdf#>\n"
 				+"SELECT * WHERE {\n  ?a rdfs:label ?b .\nFILTER regex(str(?b), \"^F[ale]\", \"i\").  \n}\n";
 	}
 
