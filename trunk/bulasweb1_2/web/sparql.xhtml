@@ -14,10 +14,19 @@
             <ui:define name="content">
 
                 <div class="post">
-                    <h2 class="Title"><h:outputText
-                            value="#{msg.buscar} SPARQL"></h:outputText></h2>
+                    <h2 class="Title"><h:outputText value="#{msg.buscar} SPARQL"></h:outputText></h2>
                     <div class="entry">
                         <a4j:form >
+                        	<p>propriedes bw: interage, reacao, indicado, contra_indicado, nome, farmacos (bag), laboratorio</p>
+                        	<p><pre>Exemplo:
+?m bw:farmacos ?b .
+?b ?c ?f .
+filter (?c != rdf:type)
+--
+?m bw:interage ?b .
+?m bw:nome ?n .
+?b ?c ?f .
+filter (?c != rdf:type)</pre></p>
                             <h:outputLabel for="buscabulas" value="Query"></h:outputLabel><br/>
                             <h:inputTextarea id="buscabulas"  value="#{SparqlDTO.textoPesquisa}" rows="20" cols="80" style="font-family: monospace;" ></h:inputTextarea><br/>
 
