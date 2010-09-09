@@ -18,6 +18,7 @@ import javax.persistence.EntityManager;
 import javax.swing.JOptionPane;
 
 import util.PersistenceFactory;
+import bean.FarmacoBean;
 import bean.MedicamentoBean;
 
 import com.hp.hpl.jena.query.Query;
@@ -28,13 +29,14 @@ import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.rdf.model.Bag;
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.impl.PropertyImpl;
 import com.hp.hpl.jena.tdb.TDBFactory;
 
-import controle.InteracaoControle;
 import controle.RdfControle;
+import dao.FarmacoDao;
 import dao.MedicamentoDao;
 
 public class TdbGenerator {
@@ -43,25 +45,27 @@ public class TdbGenerator {
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		// Exemplo de consulta TDB
-		String queryString = JOptionPane.showInputDialog("SPARQL:");
-		new TdbGenerator("../bulasweb1_2/web/tdb").searchSparql(queryString);
+		//String queryString = JOptionPane.showInputDialog("SPARQL:");
+		//new TdbGenerator("../bulasweb1_2/web/tdb/", "../bulasweb1_2/web/gate/").searchSparql(queryString);
 		
 		
 		// Para gerar indice TDB
-		//TdbGenerator tdbGen = new TdbGenerator("../bulasweb1_2/web/tdb");
+		TdbGenerator tdbGen = new TdbGenerator("/tdb", "../bulasweb1_2/web/gate/");
 		//tdbGen.geraTuplasDbPedia();
-		//tdbGen.geraTuplasBulasWeb();
+		tdbGen.geraTuplasBulasWeb();
 	}
 	
 	
-
+	private String bulasWebNS = "http://bulasweb.test/rdf#";
 	private MedicamentoDao medDao;
 	private EntityManager em;
-	private String directory;
+	private String indexOutDirectory;
+	private String inputCsvDirectory;
 
 
-	public TdbGenerator(String directory) {
-		this.directory = directory;
+	public TdbGenerator(String indexOutDirectory, String inputCsvDirectory) {
+		this.indexOutDirectory = indexOutDirectory;
+		this.inputCsvDirectory = inputCsvDirectory;
 	}
 	
 	
@@ -70,9 +74,14 @@ public class TdbGenerator {
 	 * 
 	 * @param queryString
 	 */
-	public void searchSparql(String queryString) {
+	public List <List<RDFNode>> searchSparql(String queryString) {
 
-		Model model = TDBFactory.createModel(directory);
+		Model model = TDBFactory.createModel(indexOutDirectory);
+		return searchSparql(queryString, model);
+	}
+	
+	
+	public List <List<RDFNode>> searchSparql(String queryString, Model model) {
 
 		// Create a new query
 		Query query = QueryFactory.create(queryString);
@@ -82,10 +91,12 @@ public class TdbGenerator {
 		ResultSet results = qe.execSelect();
 
 		// Output query results
+		List <List<RDFNode>> res = new ArrayList<List<RDFNode>>();
 		for (; results.hasNext(); ) {
 			
 			QuerySolution sol = results.next();
 			
+			List<RDFNode> row = new ArrayList<RDFNode>();
 			Iterator<String> it = sol.varNames();
 			for (; it.hasNext() ; ) {
 				RDFNode node = sol.get(it.next());
@@ -95,14 +106,15 @@ public class TdbGenerator {
 				text = text.replaceAll("<", "&gt;");
 				text = text.replaceAll(">", "&amp;");
 				
-				System.out.print(node.toString()+"\t");
-
+				row.add(node);
 			}
-			System.out.println("");
+
 		}
 
 		// Important ñ free up resources used running the query
 		qe.close();
+
+		return res;
 	}
 	
 	
@@ -116,9 +128,9 @@ public class TdbGenerator {
 	 */
 	public void geraTuplasDbPedia() throws FileNotFoundException {
 		
-		Model model = TDBFactory.createModel(directory);
+		Model model = TDBFactory.createModel(indexOutDirectory);
 		
-		InputStream in = new FileInputStream(new File("../bulasweb1_2/web/ntriple/labels_pt.nt"));
+		InputStream in = new FileInputStream(new File("labels_pt.nt"));
 		model.read(in,null,"N-TRIPLE"); // null base URI, since model URIs are absolute
 		model.commit();
 		
@@ -130,16 +142,19 @@ public class TdbGenerator {
 		medDao = new MedicamentoDao(em);
 
 		
-		Model model = TDBFactory.createModel(directory);
-
-		String bulasWebNS = "http://bulasweb.test/rdf#";
+		Model model = TDBFactory.createModel(indexOutDirectory);
 		model.setNsPrefix("bw", bulasWebNS);
 
+		int i = 0;
 		Collection<MedicamentoBean> meds = medDao.findAll(MedicamentoBean.class);
 		for (MedicamentoBean med : meds) {
+			
+			System.out.println(i+"/"+meds.size()+"\t");
 
 			geraNtriple(med, model, bulasWebNS);
 			model.commit();
+			
+			i++;
 		}
 
 		model.close();
@@ -158,31 +173,39 @@ public class TdbGenerator {
 	public void geraNtriple(MedicamentoBean med, Model model, String bulasWebNS) {
 
 		System.out.print(med.getNome() + ": ");
-		
-		String dir = "../bulasweb1_2/web/";
 
 		String mdURI = bulasWebNS + med.getNome();
+		
+		//TODO keep existing ... if (model.contains(arg0, arg1))
 
-		// Cria√ß√£o do recurso medicamento
-		Resource medicamento = model.createResource(mdURI);
+		// CriaÁ„o do recurso medicamento
+		Resource medicamentoRes = model.createResource(mdURI);
 
-		// Cria√ß√£o das propriedades a partir do banco
-		medicamento.addProperty(new PropertyImpl(bulasWebNS, "nome"), med.getNome());
-		medicamento.addProperty(new PropertyImpl(bulasWebNS, "laboratorio"), med.getLaboratorio().getNome());
-		List<MedicamentoBean> medInt = medDao.findInteracaoMedicamentosa(med.getNome());
-		Bag InteracaoMedic = model.createBag();
-		for (int i = 0; i < medInt.size(); i++) {
-			InteracaoMedic.add(model.createResource(bulasWebNS
-					+ medInt.get(i).getNome()));
+		// CriaÁ„o das propriedades a partir do banco
+		medicamentoRes.addProperty(new PropertyImpl(bulasWebNS, "nome"), med.getNome());
+		medicamentoRes.addProperty(new PropertyImpl(bulasWebNS, "laboratorio"), med.getLaboratorio().getNome());
+		
+		// Cria bag de farmacos
+		List<FarmacoBean> farms = med.getFarmacos();
+		Bag farmBag = model.createBag();
+		for (FarmacoBean farm : farms) {
+			farmBag.add(model.createResource(bulasWebNS + farm.getNome()));
 		}
+		medicamentoRes.addProperty(new PropertyImpl(bulasWebNS, "farmaco"), farmBag);
+		
+		// Cria bag de remedios que interagem com ele
+		List<MedicamentoBean> medInt = medDao.findInteracaoMedicamentosa(med.getNome());
+		Bag interacaoBag = model.createBag();
+		for (int i = 0; i < medInt.size(); i++) {
+			interacaoBag.add(model.createResource(bulasWebNS + medInt.get(i).getNome()));
+		}
+		medicamentoRes.addProperty(new PropertyImpl(bulasWebNS, "interacao_medicamentosa"), interacaoBag);
 
-		medicamento.addProperty(new PropertyImpl(bulasWebNS, "interacao_medicamentosa"), InteracaoMedic);
-
-		// Cria√ß√£o das propriedades a partir do csv
-		File dirGate = new File(dir + "gate");
+		
+		// CriaÁ„o das propriedades a partir do csv
 		if (med.getBulas() != null && med.getBulas().size() > 0) {
-			String bula = med.getBulas().get(0).getCodigo();
-			File csv = new File(dirGate + "/" + bula + ".csv");
+			String bulaCodigo = med.getBulas().get(0).getCodigo();
+			File csv = new File(inputCsvDirectory + "/" + bulaCodigo + ".csv");
 			System.out.print(csv.getName());
 			FileReader fr;
 			try {
@@ -191,11 +214,43 @@ public class TdbGenerator {
 				while (in.ready()) {
 					String linha = in.readLine();
 					String[] dados = linha.split(",");
-					medicamento.addProperty(
-							new PropertyImpl(
-									bulasWebNS, dados[0].replaceAll("\"", "")),
-							dados[1].replaceAll("\"", "")
-					);
+					
+					Property property = null;
+					String propriedade = dados[0].replaceAll("\"", "");
+					String object = dados[1].replaceAll("\"", "");
+					object = object.substring(0, 1).toUpperCase() + object.substring(1).toLowerCase();
+					
+					//if (propriedade.matches("^.*(sintoma|doenca)$")) {
+
+					String queryString = String.format(
+							"SELECT ?a WHERE { ?a <http://www.w3.org/2000/01/rdf-schema#label> \"%s\"@pt . }", object);
+						
+						List <List<RDFNode>> res = this.searchSparql(queryString, model);
+						if (res.size() > 0) object = res.get(0).get(0).toString();
+					//}
+					//else {//nome,farmaco
+						
+					//}
+
+					
+					if (propriedade.matches("^interage_com_nome")) {
+						medicamentoRes.addProperty(new PropertyImpl(bulasWebNS, "interage_com"), object);
+					}
+					else if (propriedade.matches("^interage_com_farmaco")) {
+						medicamentoRes.addProperty(new PropertyImpl(bulasWebNS, "interage_com"), object);
+					}
+					else if (propriedade.matches("^indicacao_para_.*")) {
+						medicamentoRes.addProperty(new PropertyImpl(bulasWebNS, "indicado_para"), object);
+					}
+					else if (propriedade.matches("^contra_indicado_para_.*")) {
+						medicamentoRes.addProperty(new PropertyImpl(bulasWebNS, "contra_indicado_para"), object);
+					}
+					else if (propriedade.matches("^provoca_reacao_.*")) {
+						medicamentoRes.addProperty(new PropertyImpl(bulasWebNS, "provoca_reacao"), object);
+					}
+					else {
+						System.out.print("Falha! propriedade=" + propriedade);
+					}
 				}
 
 			} catch (FileNotFoundException ex) {
