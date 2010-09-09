@@ -143,6 +143,7 @@ CREATE  TABLE IF NOT EXISTS `bulas`.`conteudo_secao_bula` (
   `texto` MEDIUMTEXT NOT NULL ,
   INDEX `fk_bula_has_campo_bula_bula1` (`bula_id` ASC) ,
   INDEX `fk_bula_has_campo_bula_campo_bula1` (`secao_id` ASC) ,
+  fulltext INDEX `texto_secao_fulltext`  (`texto` asc),
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `bula_secao_UNIQUE` (`bula_id` ASC, `secao_id` ASC) ,
   CONSTRAINT `fk_bula_has_campo_bula_bula1`
@@ -155,7 +156,7 @@ CREATE  TABLE IF NOT EXISTS `bulas`.`conteudo_secao_bula` (
     REFERENCES `bulas`.`secao_bula` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = MyISAM;
 
 
 -- -----------------------------------------------------
