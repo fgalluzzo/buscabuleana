@@ -1,19 +1,29 @@
 package DTO;
 
 import controle.SparqlControle;
+import controle.SparqlControle.Cell;
 import controle.SparqlControle.Row;
+
+import java.util.ArrayList;
 import java.util.List;
 import util.CarregaConsultas;
 
 public class SparqlDTO {
 
     private List<String> prefixos;
+    private List<String> consultaExplo;
     private String textoPesquisa;
-    private List<SparqlControle.Row> results;
+    private List<List<Cell>> results;
+    private List<String> headers;
 
     public SparqlDTO() {
         prefixos = CarregaConsultas.consultas.getPrefixos();
-        textoPesquisa = CarregaConsultas.consultas.getConsultas().get(0);
+        consultaExplo = CarregaConsultas.consultas.getConsultas();
+        textoPesquisa = consultaExplo.get(0);
+        
+        headers = new ArrayList<String>();
+        headers.add("a");
+        headers.add("b");
 
         /* "PREFIX owl: <http://www.w3.org/2002/07/owl#>\n"
         +"PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\n"
@@ -28,6 +38,14 @@ public class SparqlDTO {
         +"PREFIX bw: <http://bulasweb.test/rdf#>\n"
         +"SELECT * WHERE {\n  ?a rdfs:label ?b .\nFILTER regex(str(?b), \"^F[ale]\", \"i\").  \n}\n";*/
     }
+    
+    public List<String> getHeaders() {
+		return headers;
+	}
+    
+    public void setHeaders(List<String> headers) {
+		this.headers = headers;
+	}
 
     public List<String> getPrefixos() {
         return prefixos;
@@ -47,13 +65,18 @@ public class SparqlDTO {
         return textoPesquisa;
     }
 
-    public List<Row> getResults() {
+    public List<List<Cell>> getResults() {
         return results;
     }
 
-    public void setResults(List<Row> results) {
-        this.results = results;
+    public void setResults(List<List<Cell>> res) {
+        this.results = res;
     }
-
-    
+   
+    public List<String> getConsultaExplo() {
+		return consultaExplo;
+	}
+    public void setConsultaExplo(List<String> consultaExplo) {
+		this.consultaExplo = consultaExplo;
+	}
 }

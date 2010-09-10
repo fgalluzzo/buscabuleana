@@ -16,17 +16,27 @@
                 <div class="post">
                     <h2 class="Title"><h:outputText value="#{msg.buscar} SPARQL"></h:outputText></h2>
                     <div class="entry">
+                        <p>Propriedades disponíveis:</p>
+                           <ul style="">
+                           	<li>M bw:nome $</li>
+                           	<li>M bw:farmaco F$</li>
+                           	<li>M bw:laboratorio L$</li>
+                           	<li>M bw:interage MF$</li>
+                           	<li>M bw:reacao SD$</li>
+                           	<li>M bw:indicado SD$</li>
+                           	<li>M bw:contra_indicado SD$</li>
+                           	<li>MFSDL rdfs:label $</li>
+                           </ul>
+                        <p>M=medicamento, F=farmaco, S=sintoma, D=doença, L=laboratorio, $=literal</p>
+                        <p>Exemplos:</p>
+<!--						<rich:tabPanel switchType="client">-->
+							<a4j:repeat value="#{SparqlDTO.consultaExplo}" var="consultaExplo">
+<!--								<rich:tab label="Exemplo:">-->
+									<pre><h:outputText value="#{consultaExplo}" /></pre>
+<!--								</rich:tab>-->
+							</a4j:repeat>
+<!--						</rich:tabPanel>-->
                         <a4j:form >
-                            <p>propriedes bw: interage, reacao, indicado, contra_indicado, nome, farmacos (bag), laboratorio</p>
-                            <p><pre>Exemplo:
-?m bw:farmacos ?b .
-?b ?c ?f .
-filter (?c != rdf:type)
---
-?m bw:interage ?b .
-?m bw:nome ?n .
-?b ?c ?f .
-filter (?c != rdf:type)</pre></p>
                             <h:outputLabel for="buscabulas" value="Query"></h:outputLabel><br/>
                             <rich:panel >
 
@@ -43,47 +53,87 @@ filter (?c != rdf:type)</pre></p>
                                 </a4j:commandLink>
                                 <a4j:status  startText="#{msg.Carregando} #{msg.resultados}..."></a4j:status>
                             </rich:panel>
-<!--                            <rich:hotKey key="return" handler="#{rich:element('pesquisar')}.onclick()" />-->
+<!--                            <rich:hotKey key="return" handler="# {rich:element('pesquisar')}.onclick()" />-->
                         </a4j:form>
 
                         <a4j:form>
 
-                            <rich:dataTable  rows="10" align="center" id="resultSet" var="result"
-                                             value="#{SparqlDTO.results}">
-                                <f:facet name="header">
-                                    <rich:columnGroup>
-                                        <rich:column>
-                                            <h:outputText value="Recurso"></h:outputText>
-                                        </rich:column>
-                                        <rich:column>
-                                            <h:outputText value="Nome"></h:outputText>
-                                        </rich:column>
-                                    </rich:columnGroup>
-                                </f:facet>
-                                <rich:column>
-                                    <a4j:commandLink action="#{SparqlControle.detalhar}" value="#{result.resource}">
-                                        <f:setPropertyActionListener target="#{StringDTO.texto}" value="#{result.med}">
-                                        </f:setPropertyActionListener>
-                                    </a4j:commandLink>
-                                </rich:column>
-                                <rich:column>
-                                    <h:outputText value="#{result.text}"></h:outputText>
-                                </rich:column>
-                                <f:facet name="footer">
-                                    <rich:datascroller renderIfSinglePage="false">
-                                    </rich:datascroller>
-                                </f:facet>
-                            </rich:dataTable>
+<!--                            <rich:dataTable  rows="10" align="center" id="resultSet1" var="result"-->
+<!--                                             value="# {SparqlDTO.results}">-->
+<!--                                <f:facet name="header">-->
+<!--                                    <rich:columnGroup>-->
+<!--	                                    <a4j:repeat value="# {SparqlDTO.headers}" var="header">-->
+<!--	                                        <rich:column>-->
+<!--	                                            <h:outputText value="# {header}"></h:outputText>-->
+<!--	                                        </rich:column>-->
+<!--	                                    </a4j:repeat>-->
+<!--                                        <rich:column>-->
+<!--                                            <h:outputText value="Nome"></h:outputText>-->
+<!--                                        </rich:column>-->
+<!--                                    </rich:columnGroup>-->
+<!--                                </f:facet>-->
+<!--                                <rich:column>-->
+<!--                                    <a4j:commandLink action="# {SparqlControle.detalhar}" value="# {result.resource}">-->
+<!--                                        <f:setPropertyActionListener target="# {StringDTO.texto}" value="# {result.med}">-->
+<!--                                        </f:setPropertyActionListener>-->
+<!--                                    </a4j:commandLink>-->
+<!--                                </rich:column>-->
+<!--                                <rich:column>-->
+<!--                                    <h:outputText value="# {result.text}"></h:outputText>-->
+<!--                                </rich:column>-->
+<!--                                <f:facet name="footer">-->
+<!--                                    <rich:datascroller renderIfSinglePage="false">-->
+<!--                                    </rich:datascroller>-->
+<!--                                </f:facet>-->
+<!--                            </rich:dataTable>-->
 
-                            <!--
-                            <ui:repeat value="#{SparqlDTO.results}" var="result">
+<!--                            <h:panelGrid id="resultSet"  styleClass="rich-table"-->
+<!--                             headerClass="rich-table-thead,rich-table-header"-->
+<!--                             rowClasses="rich-table-row"-->
+<!--                            	align="center" border="1" cellpadding="0" cellspacing="0">-->
 
+								<h:panelGroup id="resultSet">
+								<table align="center" border="1" cellpadding="0" cellspacing="0" class="rich-table">
+									<thead class="rich-table-thead">
+									<a4j:repeat value="#{SparqlDTO.headers}" var="header1">
+	                            		<th class="rich-table-header rich-table-headercell">
+	                            		<h:outputText value="#{header1}" />
+	                            		</th>
+	                            	</a4j:repeat>
+	                            	</thead>
+	                            	<tbody >
+								<a4j:repeat value="#{SparqlDTO.results}" var="result">
+				                    <tr class="rich-table-row">
+										<a4j:repeat value="#{result}" var="cell">
+											<td class="rich-table-cell">
+											<h:outputText value="#{cell.text}"
+												rendered="#{cell.literal}" /> <a4j:commandLink
+												action="#{SparqlControle.detalhar}" value="#{cell.resource}"
+												rendered="#{cell.details}">
+												<f:setPropertyActionListener target="#{StringDTO.texto}"
+													value="#{cell.med}" />
+											</a4j:commandLink> <h:outputLink value="#{cell.resource}"
+												rendered="#{cell.external}">
+												<h:outputText value="#{cell.text}" />
+											</h:outputLink>
+											</td>
+										</a4j:repeat>
+									</tr>
+	                            </a4j:repeat>
+	                            </tbody>
+	                            </table>
+								</h:panelGroup>
 
+<!--                            	<f:facet name="header">-->
+<!--	                            	<a4j:repeat value="# {SparqlDTO.headers}" var="header1">-->
+<!--	                            		<td class="rich-table-headercell">-->
+<!--	                            		<h:outputText value="# {header1}" />-->
+<!--	                            		</td>-->
+<!--	                            	</a4j:repeat>-->
+<!--	                           	</f:facet>-->
 
-                                <br />
+<!--							</h:panelGrid>-->
 
-                            </ui:repeat>
-                                						</table>-->
 
                             <!--							<rich:dataTable  rows="10" align="center" id="resultSet" var="result"-->
                             <!--                                             value="#{SparqlDTO.results}">-->
