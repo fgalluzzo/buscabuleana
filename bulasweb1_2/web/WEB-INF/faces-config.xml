@@ -98,7 +98,13 @@
         <managed-bean-class>DTO.SparqlDTO</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <managed-bean>
+        <managed-bean-name>StringDTO</managed-bean-name>
+        <managed-bean-class>DTO.StringDTO</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
 </faces-config>
+
 
 
 

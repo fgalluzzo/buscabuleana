@@ -14,8 +14,8 @@ import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 
 import DTO.SparqlDTO;
+import DTO.StringDTO;
 
-import arq.load;
 
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;
@@ -27,7 +27,6 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.tdb.TDBFactory;
 import dao.MedicamentoDao;
-import javax.persistence.EntityManager;
 import util.PersistenceFactory;
 
 public class SparqlControle {
@@ -67,13 +66,15 @@ public class SparqlControle {
         ResultSet results = qe.execSelect();
 
         // Output query results
-        List<List<String>> res = new ArrayList<List<String>>();
+        //List<List<Row>> res = new ArrayList<List<Row>>();
+        List<Row> row = new ArrayList<Row>();
         for (; results.hasNext();) {
 
             QuerySolution sol = results.next();
 
-            List<String> row = new ArrayList<String>();
+            
             Iterator<String> it = sol.varNames();
+            Row r = new Row();
             for (; it.hasNext();) {
                 RDFNode node = sol.get(it.next());
                 String text = node.toString();
@@ -86,18 +87,18 @@ public class SparqlControle {
                     String no = node.toString();
                     String dados[] = no.split("#");
                     String med = dados[1];
-                    row.add("<h:commandLink action='#{SparqlControle.detalhar}' value='" + text + "'>"
-                            + "<f:setPropertyActionListener value='" + med + "' target='#{MedicamentoDTO.medicamento.nome}'></f:setPropertyActionListener>"
-                            + "</h:commandLink>");
+                    r.setMed(med);
+                    r.setResource(text);
 
                 } else {
-                    row.add(text);
+                    r.setText(text);
+                    row.add(r);
                 }
             }
 
-            res.add(row);
+            //res.add(row);
         }
-        sparql.setResults(res);
+        sparql.setResults(row);
 
         // Important � free up resources used running the query
         qe.close();
@@ -107,15 +108,50 @@ public class SparqlControle {
         FacesContext context = FacesContext.getCurrentInstance();
         Application app = context.getApplication();
         ValueExpression expression = app.getExpressionFactory().createValueExpression(context.getELContext(),
+                String.format("#{%s}", "StringDTO"), Object.class);
+        StringDTO sdto = (StringDTO) expression.getValue(context.getELContext());
+        expression = app.getExpressionFactory().createValueExpression(context.getELContext(),
                 String.format("#{%s}", "MedicamentoDTO"), Object.class);
         MedicamentoDTO md = (MedicamentoDTO) expression.getValue(context.getELContext());
         MedicamentoDao mdao = new MedicamentoDao(PersistenceFactory.getEntityManager());
 
-        md.setMedicamento(mdao.findByName(md.getMedicamento().getNome()));
+        md.setMedicamento(mdao.findByName(sdto.getTexto()));
         try {
             context.getExternalContext().redirect("/bulasweb1_2/faces/detalhe.xhtml");
         } catch (IOException ex) {
             Logger.getLogger(SparqlControle.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public class Row{
+        private String resource;
+        private String med;
+        private String text;
+
+        public String getMed() {
+            return med;
+        }
+
+        public void setMed(String med) {
+            this.med = med;
+        }
+
+        public String getResource() {
+            return resource;
+        }
+
+        public void setResource(String resource) {
+            this.resource = resource;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public void setText(String text) {
+            this.text = text;
+        }
+
+        
     }
 }

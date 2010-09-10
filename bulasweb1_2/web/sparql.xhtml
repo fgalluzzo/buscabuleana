@@ -17,8 +17,8 @@
                     <h2 class="Title"><h:outputText value="#{msg.buscar} SPARQL"></h:outputText></h2>
                     <div class="entry">
                         <a4j:form >
-                        	<p>propriedes bw: interage, reacao, indicado, contra_indicado, nome, farmacos (bag), laboratorio</p>
-                        	<p><pre>Exemplo:
+                            <p>propriedes bw: interage, reacao, indicado, contra_indicado, nome, farmacos (bag), laboratorio</p>
+                            <p><pre>Exemplo:
 ?m bw:farmacos ?b .
 ?b ?c ?f .
 filter (?c != rdf:type)
@@ -34,45 +34,69 @@ filter (?c != rdf:type)</pre></p>
                                     <h:outputText value="#{prefixo}"></h:outputText>
                                     <br />
                                 </a4j:repeat>
-                            
-                            <h:inputTextarea id="buscabulas"  value="#{SparqlDTO.textoPesquisa}" rows="20" cols="80" style="font-family: monospace;" ></h:inputTextarea><br/>
 
-                            <a4j:commandLink id="pesquisar" action="#{SparqlControle.buscar}"
-                                             reRender="resultSet" title="#{msg.Pesquisar}">
-                                <h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage>
-                            </a4j:commandLink>
-                            <a4j:status  startText="#{msg.Carregando} #{msg.resultados}..."></a4j:status>
+                                <h:inputTextarea id="buscabulas"  value="#{SparqlDTO.textoPesquisa}" rows="20" cols="80" style="font-family: monospace;" ></h:inputTextarea><br/>
+
+                                <a4j:commandLink id="pesquisar" action="#{SparqlControle.buscar}"
+                                                 reRender="resultSet" title="#{msg.Pesquisar}">
+                                    <h:graphicImage value="/resources/css/images/busca.jpg"></h:graphicImage>
+                                </a4j:commandLink>
+                                <a4j:status  startText="#{msg.Carregando} #{msg.resultados}..."></a4j:status>
                             </rich:panel>
 <!--                            <rich:hotKey key="return" handler="#{rich:element('pesquisar')}.onclick()" />-->
                         </a4j:form>
 
                         <a4j:form>
-                        	<h:panelGrid id="resultSet">
-<!--							<table>-->
-							<ui:repeat value="#{SparqlDTO.results}" var="result">
-								<tr>
-								<ui:repeat value="#{result}" var="cell">
-									<td>
-									<h:outputText value="#{cell}" escape="false"></h:outputText>
-                                                                        </td>
-								</ui:repeat>
-								</tr>
-							</ui:repeat>
-<!--							</table>-->
-							</h:panelGrid>
 
-<!--							<rich:dataTable  rows="10" align="center" id="resultSet" var="result"-->
-<!--                                             value="#{SparqlDTO.results}">-->
-<!--                                <f:facet name="header">-->
-<!--                                    <rich:columnGroup>-->
-<!--                                        <rich:columns />-->
-<!--                                    </rich:columnGroup>-->
-<!--                                </f:facet>-->
-<!--                                <f:facet name="footer">-->
-<!--                                    <rich:datascroller renderIfSinglePage="false">-->
-<!--                                    </rich:datascroller>-->
-<!--                                </f:facet>-->
-<!--                            </rich:dataTable>-->
+                            <rich:dataTable  rows="10" align="center" id="resultSet" var="result"
+                                             value="#{SparqlDTO.results}">
+                                <f:facet name="header">
+                                    <rich:columnGroup>
+                                        <rich:column>
+                                            <h:outputText value="Recurso"></h:outputText>
+                                        </rich:column>
+                                        <rich:column>
+                                            <h:outputText value="Nome"></h:outputText>
+                                        </rich:column>
+                                    </rich:columnGroup>
+                                </f:facet>
+                                <rich:column>
+                                    <a4j:commandLink action="#{SparqlControle.detalhar}" value="#{result.resource}">
+                                        <f:setPropertyActionListener target="#{StringDTO.texto}" value="#{result.med}">
+                                        </f:setPropertyActionListener>
+                                    </a4j:commandLink>
+                                </rich:column>
+                                <rich:column>
+                                    <h:outputText value="#{result.text}"></h:outputText>
+                                </rich:column>
+                                <f:facet name="footer">
+                                    <rich:datascroller renderIfSinglePage="false">
+                                    </rich:datascroller>
+                                </f:facet>
+                            </rich:dataTable>
+
+                            <!--
+                            <ui:repeat value="#{SparqlDTO.results}" var="result">
+
+
+
+                                <br />
+
+                            </ui:repeat>
+                                						</table>-->
+
+                            <!--							<rich:dataTable  rows="10" align="center" id="resultSet" var="result"-->
+                            <!--                                             value="#{SparqlDTO.results}">-->
+                            <!--                                <f:facet name="header">-->
+                            <!--                                    <rich:columnGroup>-->
+                            <!--                                        <rich:columns />-->
+                            <!--                                    </rich:columnGroup>-->
+                            <!--                                </f:facet>-->
+                            <!--                                <f:facet name="footer">-->
+                            <!--                                    <rich:datascroller renderIfSinglePage="false">-->
+                            <!--                                    </rich:datascroller>-->
+                            <!--                                </f:facet>-->
+                            <!--                            </rich:dataTable>-->
                         </a4j:form>
                     </div>
                 </div>
