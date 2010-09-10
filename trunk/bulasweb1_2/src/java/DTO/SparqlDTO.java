@@ -1,5 +1,7 @@
 package DTO;
 
+import controle.SparqlControle;
+import controle.SparqlControle.Row;
 import java.util.List;
 import util.CarregaConsultas;
 
@@ -7,7 +9,7 @@ public class SparqlDTO {
 
     private List<String> prefixos;
     private String textoPesquisa;
-    private List<List<String>> results;
+    private List<SparqlControle.Row> results;
 
     public SparqlDTO() {
         prefixos = CarregaConsultas.consultas.getPrefixos();
@@ -45,11 +47,13 @@ public class SparqlDTO {
         return textoPesquisa;
     }
 
-    public void setResults(List<List<String>> results) {
+    public List<Row> getResults() {
+        return results;
+    }
+
+    public void setResults(List<Row> results) {
         this.results = results;
     }
 
-    public List<List<String>> getResults() {
-        return results;
-    }
+    
 }
