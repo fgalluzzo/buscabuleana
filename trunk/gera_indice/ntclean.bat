@@ -1,3 +1,3 @@
-del base.nt
+del bulas.nt
 del .\tdb\*.*
 pause
