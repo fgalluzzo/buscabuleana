@@ -33,11 +33,12 @@ public class MedicamentoDao extends AbstractDao<MedicamentoBean> {
     }
 
     @SuppressWarnings("unchecked")
-    public List<MedicamentoBean> findByName(String name) {
+    public MedicamentoBean findByName(String name) {
         try {
             Query q = em.createQuery("from Medicamento where nome = :nome");
             q.setParameter("nome", name);
-            return (List<MedicamentoBean>) q.getResultList();
+            q.setMaxResults(1);
+            return (MedicamentoBean) q.getSingleResult();
         } catch (NoResultException e) {
             return null;
         }
