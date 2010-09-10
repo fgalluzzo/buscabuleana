@@ -60,7 +60,7 @@ public class TdbGenerator {
 		// Para gerar indice TDB
 		if (true) {
 			TdbGenerator tdbGen = new TdbGenerator("./tdb", "../bulasweb1_2/web/gate/");
-			tdbGen.filterLabels();
+			//tdbGen.filterLabels();
 			tdbGen.geraTuplasDbPedia();
 			tdbGen.geraTuplasBulasWeb();
 		}
@@ -128,6 +128,44 @@ public class TdbGenerator {
 		return res;
 	}
 	
+	/**
+	 * Procura nodes que possuei label especificado
+	 * @param label
+	 * @param model
+	 * @param lang  pt, en, fr, ...
+	 * @return retorna uma lista lista que poder contem zero ou mais elementos (RDFNode's)
+	 */
+	public List <RDFNode> findNodesByLabel(String label, Model model, String lang) {
+		String queryString = String.format(
+				"SELECT ?a WHERE { ?a <http://www.w3.org/2000/01/rdf-schema#label> \"%s\"@%s . }", label, lang);
+		
+		List <List<RDFNode>> res = this.searchSparql(queryString, model);
+		//if (res.size() == 0)  return null;
+		List <RDFNode> ret = new ArrayList<RDFNode>();
+		for (List <RDFNode> node : res) ret.add(node.get(0));
+		return ret;
+	}
+	
+	
+	/**
+	 * ATENÇÃO: este metodo retorna UM e SEMPRE UM node, criando um literal se necessario
+	 * 
+	 * @param label
+	 * @param model
+	 * @param lang
+	 * @return
+	 */
+	public RDFNode findNodeByLabel(String label, Model model, String lang) {
+		String queryString = String.format(
+				"SELECT ?a WHERE { ?a <http://www.w3.org/2000/01/rdf-schema#label> \"%s\"@%s . }", label, lang);
+		
+		List <List<RDFNode>> res = this.searchSparql(queryString, model);
+		if (res.size() > 0) {
+			return res.get(0).get(0);
+		}
+		else return model.createLiteral(label, lang);
+	}
+	
 	
 	public void filterLabels() {
 		// Preenche conjunto de labels das listas .lst
@@ -186,24 +224,41 @@ public class TdbGenerator {
 			long startTime = System.currentTimeMillis();
 			long lastTime = System.currentTimeMillis();
 			
-			String lineRegex = "^<[^>\"]*> <[^>\"]*> \"([^\"]+)\"@pt .$";
+			String lineRegex = "^<[^>\"]*> <[^>\"]*> \"(.+)\"@pt .$";
 			Pattern p = Pattern.compile(lineRegex);
 			
+
 			FileWriter fw = new FileWriter(outputFile);
 
 			FileReader fr = new FileReader(inputFile);
 			BufferedReader in = new BufferedReader(fr);
 
+
 			while (in.ready()) {	// O(L), L = numero de linhas
 				String linha = in.readLine();	// O(C[l]), C[l] = numero de colunas na linha l
 				bytesRead += linha.length();
 				linesRead++;
-				
+
 				Matcher m = p.matcher(linha);
 				if (m.matches()) {	// O(C[l])
 					String label = m.group(1).toLowerCase();
+					String label2 = "";
+
+					// Decodifica uXXXX para char
+					int lastIndex = 0;
+					int index = label.indexOf("\\u");
+					while (index >= 0) {
+						char c = (char) Integer.parseInt(label.substring(index+2, index+6), 16);
+						label2 += label.subSequence(lastIndex, index) + "" + c;
+
+						lastIndex = index+6;
+						index = label.indexOf("\\u", lastIndex);
+					}
+					if ("".equals(label2))label2 = label;
+					else label2 += label.substring(lastIndex); 
+
 					
-					if (labels.contains(label)) {	// O(1), se lables for hash
+					if (labels.contains(label2)) {	// O(1), se lables for hash
 						fw.write(linha);
 						fw.write('\n');
 						passed++;
@@ -243,10 +298,8 @@ public class TdbGenerator {
 	
 	
 	/**
-	 * Insere N-Triplas labels_pt da DBPedia no indice de bulas
-	 * 
-	 * TODO Filtrar para inserir apenas tuplas relevantes (Farmacos, Sintomas, Doenças, etc).
-	 *  
+	 * Insere N-Triplas no indice de bulas. Utiliza labels_pt.small.nt oriundo da DBPedia porem filtrado 
+	 *   
 	 * @throws FileNotFoundException
 	 */
 	public void geraTuplasDbPedia() throws FileNotFoundException {
@@ -282,7 +335,7 @@ public class TdbGenerator {
 		}
 
 		try {
-			model.write(new FileWriter("./base.nt"), "N-TRIPLE");
+			model.write(new FileWriter("./bulas.nt"), "N-TRIPLE");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -306,11 +359,12 @@ public class TdbGenerator {
 
 		String mdURI = bulasWebNS + med.getNome();
 		String lang = "pt";
+		RDFNode node = null;
 		
 		// Propriedades (acho melhor não usar PropertyImpl)
 		Property nomeProperty = model.createProperty(bulasWebNS, "nome");
 		Property laboratorioProperty = model.createProperty(bulasWebNS, "laboratorio");
-		Property farmacosProperty = model.createProperty(bulasWebNS, "farmacos");
+		Property farmacoProperty = model.createProperty(bulasWebNS, "farmaco");
 		//Property interacao_medicamentosaProperty = model.createProperty(bulasWebNS, "interacao_medicamentosa");
 		
 		Property indicadoProperty = model.createProperty(bulasWebNS, "indicado");
@@ -322,25 +376,28 @@ public class TdbGenerator {
 		// Criação do recurso medicamento
 		Resource medicamentoRes = model.createResource(mdURI);
 
+				
 		// Criação das propriedades a partir do banco
-		medicamentoRes.addProperty(nomeProperty, med.getNome(), lang);
-		medicamentoRes.addProperty(laboratorioProperty, med.getLaboratorio().getNome());
+		medicamentoRes.addProperty(nomeProperty, med.getNome());
+		
+		node = this.findNodeByLabel(med.getLaboratorio().getNome(), model, lang);
+		medicamentoRes.addProperty(laboratorioProperty, node);
 		
 		// Cria bag de farmacos
 		List<FarmacoBean> farms = med.getFarmacos();
-		Bag farmBag = model.createBag();
 		for (FarmacoBean farm : farms) {
-			farmBag.add(model.createResource(bulasWebNS + farm.getNome()));
+			node = this.findNodeByLabel(farm.getNome(), model, lang);
+			medicamentoRes.addProperty(farmacoProperty, node);
 		}
-		medicamentoRes.addProperty(farmacosProperty, farmBag);
+		
 		
 		// Cria bag de remedios que interagem com ele (talvez devesse juntar com interage do CSV)
 		List<MedicamentoBean> medInt = medDao.findInteracaoMedicamentosa(med.getNome());
-		Bag interacaoBag = model.createBag();
 		for (int i = 0; i < medInt.size(); i++) {
-			interacaoBag.add(model.createResource(bulasWebNS + medInt.get(i).getNome()));
+			node = this.findNodeByLabel(medInt.get(i).getNome(), model, lang);
+			medicamentoRes.addProperty(interageProperty, node);
 		}
-		medicamentoRes.addProperty(interageProperty, interacaoBag);
+		
 		
 		
 		// Criação das propriedades a partir do csv
@@ -357,37 +414,31 @@ public class TdbGenerator {
 				while (in.ready()) {
 					
 					String linha = in.readLine();
-					String[] dados = linha.split(",");
+					String [] dados = linha.split(",");
 					
 					// Obtem nomes da propriedade e do objeto e procura o recurso associado ao objeto
 					String propriedade = dados[0].replaceAll("\"", "");
 					String object = dados[1].replaceAll("\"", "");
 					object = capitalize(object);
-					
-					String queryString = String.format(
-							"SELECT ?a WHERE { ?a <http://www.w3.org/2000/01/rdf-schema#label> \"%s\"@pt . }", object);
-					
-					RDFNode theNode = null;
-					List <List<RDFNode>> res = this.searchSparql(queryString, model);
-					if (res.size() > 0) theNode = res.get(0).get(0);
-					else theNode = model.createLiteral(object, lang);
+		
+					node = this.findNodeByLabel(object, model, lang);
 
 					
 					// Adiciona a (propriedade,object) ao modelo 
 					if (propriedade.matches("^interage_com_nome")) {
-						medicamentoRes.addProperty(interageProperty, theNode);
+						medicamentoRes.addProperty(interageProperty, node);
 					}
 					else if (propriedade.matches("^interage_com_farmaco")) {
-						medicamentoRes.addProperty(interageProperty, theNode);
+						medicamentoRes.addProperty(interageProperty, node);
 					}
 					else if (propriedade.matches("^indicacao_para_.*")) {
-						medicamentoRes.addProperty(indicadoProperty, theNode);
+						medicamentoRes.addProperty(indicadoProperty, node);
 					}
 					else if (propriedade.matches("^contra_indicado_para_.*")) {
-						medicamentoRes.addProperty(contra_indicadoProperty, theNode);
+						medicamentoRes.addProperty(contra_indicadoProperty, node);
 					}
 					else if (propriedade.matches("^provoca_reacao_.*")) {
-						medicamentoRes.addProperty(reacaoProperty, theNode);
+						medicamentoRes.addProperty(reacaoProperty, node);
 					}
 					else {
 						System.out.print("Falha! propriedade=" + propriedade);
