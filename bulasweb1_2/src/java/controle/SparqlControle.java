@@ -31,7 +31,80 @@ import util.PersistenceFactory;
 
 public class SparqlControle {
 
-    // Model estatico para n�o precisar criar varias vezes
+    public class Cell {
+        private String resource;
+        private String med;
+        private String text;
+        private boolean literal = false;
+        private boolean details = false;
+        private boolean external = false;
+                
+        public Cell(String text) {
+			super();
+			this.text = text;
+			literal = true;
+		}
+		public Cell(String resource, String med, String text) {
+			super();
+			this.resource = resource;
+			this.med = med;
+			this.text = text;
+			details = true;
+		}
+		
+		public Cell(String resource, String text) {
+			super();
+			this.resource = resource;
+			this.text = text;
+			external = true;
+		}
+		
+		public boolean isDetails() {
+			return details;
+		}
+		public void setDetails(boolean details) {
+			this.details = details;
+		}
+		public boolean isExternal() {
+			return external;
+		}
+		public void setExternal(boolean external) {
+			this.external = external;
+		}
+		public boolean isLiteral() {
+			return literal;
+		}
+        public void setLiteral(boolean literal) {
+			this.literal = literal;
+		}
+
+        public String getMed() {
+            return med;
+        }
+
+        public void setMed(String med) {
+            this.med = med;
+        }
+
+        public String getResource() {
+            return resource;
+        }
+
+        public void setResource(String resource) {
+            this.resource = resource;
+        }
+
+        public String getText() {
+            return text;
+        }
+
+        public void setText(String text) {
+            this.text = text;
+        }
+
+	}
+
+	// Model estatico para n�o precisar criar varias vezes
     private static Model model = loadModel();
 
     public static Model loadModel() {
@@ -64,17 +137,18 @@ public class SparqlControle {
         // Execute the query and obtain results
         QueryExecution qe = QueryExecutionFactory.create(query, model);
         ResultSet results = qe.execSelect();
-
+        
         // Output query results
-        //List<List<Row>> res = new ArrayList<List<Row>>();
-        List<Row> row = new ArrayList<Row>();
+        List<List<Cell>> res = new ArrayList<List<Cell>>();
+        //List<Row> rows = new ArrayList<Row>();
         for (; results.hasNext();) {
 
             QuerySolution sol = results.next();
 
-            
+            List<Cell> row = new ArrayList<Cell>();
             Iterator<String> it = sol.varNames();
-            Row r = new Row();
+            //Row r = new Row();
+            Cell cell = null;
             for (; it.hasNext();) {
                 RDFNode node = sol.get(it.next());
                 String text = node.toString();
@@ -85,20 +159,31 @@ public class SparqlControle {
 
                 if (node.isURIResource()) {
                     String no = node.toString();
-                    String dados[] = no.split("#");
-                    String med = dados[1];
-                    r.setMed(med);
-                    r.setResource(text);
+                    
+                    if (no.contains("bulasweb")) {
+                        String dados[] = no.split("#");
+                        String med = dados[1];
+                    
+                        cell = new Cell(text, med, text);
+                    //r.setMed(med);
+                    //r.setResource(text);
+                    }
+                    else if (no.contains("dbpedia")) {
+                    	cell = new Cell(text, text);
+                    }
 
                 } else {
-                    r.setText(text);
-                    row.add(r);
+                	cell = new Cell(text);
+                    //r.setText(text);
+                    //rows.add(r);
                 }
+                row.add(cell);
             }
 
-            //res.add(row);
+            res.add(row);
         }
-        sparql.setResults(row);
+        sparql.setResults(res);
+        sparql.setHeaders(new ArrayList<String>(results.getResultVars()));
 
         // Important � free up resources used running the query
         qe.close();

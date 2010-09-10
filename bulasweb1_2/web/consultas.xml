@@ -3,39 +3,39 @@
 <!--
     Document   : consultas.xml
     Created on : 9 de Setembro de 2010, 20:46
-    Author     : galluzzo
+    Author     : galluzzo, expedit
     Description:
         Purpose of the document follows.
 -->
 
 <consultasSPARQL>
     <prefixos>
-        <prefixo><![CDATA[PREFIX owl: <http://www.w3.org/2002/07/owl#>]]></prefixo>
-        <prefixo><![CDATA[PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>]]></prefixo>
         <prefixo><![CDATA[PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>]]></prefixo>
-        <prefixo><![CDATA[PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>]]></prefixo>
-        <prefixo><![CDATA[PREFIX foaf: <http://xmlns.com/foaf/0.1/>]]></prefixo>
-        <prefixo><![CDATA[PREFIX dc: <http://purl.org/dc/elements/1.1/>]]></prefixo>
-        <prefixo><![CDATA[PREFIX dbp: <http://dbpedia.org/resource/>]]></prefixo>
-        <prefixo><![CDATA[PREFIX dbpedia2: <http://dbpedia.org/property/>]]></prefixo>
-        <prefixo><![CDATA[PREFIX skos: <http://www.w3.org/2004/02/skos/core#>]]></prefixo>
         <prefixo><![CDATA[ PREFIX bw: <http://bulasweb.test/rdf#>]]></prefixo>
     </prefixos>                                               
     <consultas>
+        
         <consulta>SELECT * WHERE 
         { ?a bw:nome ?b.
         }</consulta>
-        <consulta>SELECT * WHERE 
-        { ?m bw:farmacos ?b .
-        ?b ?c ?f .
-        filter (?c != rdf:type)
+        
+        <consulta>SELECT ?m ?f ?s WHERE {
+        ?m bw:farmaco ?f .
+        ?m bw:indicado ?s .
+        OPTIONAL { ?s rdfs:label ?l } .
+        FILTER (str(?s) = "Insuficiência Cardíaca" || str(?l) = "Tosse")
         }</consulta>
+
+		<consulta>SELECT ?m ?n WHERE {
+        ?m bw:farmaco ?f .
+        ?f rdfs:label ?n .
+        }</consulta>
+		
         <consulta>SELECT * WHERE
         {?m bw:interage ?b .
         ?m bw:nome ?n .
-        ?b ?c ?f .
-        filter (?c != rdf:type).
         }</consulta>
+        
     </consultas>
 </consultasSPARQL>
 
